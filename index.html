@@ -346,7 +346,7 @@ function spin(){
     drawWheel(cats);
     tickIfCrossed(cats);
     if(p<1) requestAnimationFrame(frame);
-    else { rotation=finalRot%(2*Math.PI); spinning=false; document.getElementById('spinbtn').disabled=false; playWin(); showReveal(skill); }
+    else { rotation=finalRot%(2*Math.PI); spinning=false; document.getElementById('spinbtn').disabled=false; playWin(); confetti(); showReveal(skill); }
   })(t0);
 }
 
@@ -523,6 +523,22 @@ function playWin(){
 }
 function _idxUnderPointer(n){ const seg=2*Math.PI/n, P=-Math.PI/2; let a=((P-rotation)%(2*Math.PI)+2*Math.PI)%(2*Math.PI); return Math.floor(a/seg)%n; }
 function tickIfCrossed(cats){ if(muted||!cats.length) return; const idx=_idxUnderPointer(cats.length); if(_lastTickIdx===null){ _lastTickIdx=idx; return; } if(idx!==_lastTickIdx){ _lastTickIdx=idx; playTick(); } }
+
+function confetti(){
+  try{ if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return; }catch(e){}
+  const cvs=document.createElement('canvas');
+  cvs.style.cssText='position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:90';
+  const dpr=window.devicePixelRatio||1; cvs.width=innerWidth*dpr; cvs.height=innerHeight*dpr;
+  document.body.appendChild(cvs); const cctx=cvs.getContext('2d'); cctx.scale(dpr,dpr);
+  const cols=['#a48bff','#ff79c6','#8be9fd','#50fa7b','#ffb86c','#f1fa8c','#ff5555','#e8c56b','#63d69b'];
+  const N=150, parts=[], cx=innerWidth/2, cy=innerHeight*0.42;
+  for(let i=0;i<N;i++){ const a=Math.random()*Math.PI*2, sp=4+Math.random()*8; parts.push({x:cx,y:cy,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp-3,w:6+Math.random()*6,h:8+Math.random()*9,rot:Math.random()*6.28,vr:(Math.random()-0.5)*0.35,color:cols[i%cols.length]}); }
+  const t0=performance.now(), dur=1700; setTimeout(function(){ if(cvs.parentNode) cvs.remove(); }, dur+500);
+  (function frame(now){ const el=now-t0; cctx.clearRect(0,0,innerWidth,innerHeight); let alive=false; const alpha=Math.max(0,1-el/dur);
+    for(const p of parts){ p.vy+=0.17; p.vx*=0.99; p.x+=p.vx; p.y+=p.vy; p.rot+=p.vr; if(p.y<innerHeight+30) alive=true; cctx.save(); cctx.globalAlpha=alpha; cctx.translate(p.x,p.y); cctx.rotate(p.rot); cctx.fillStyle=p.color; cctx.fillRect(-p.w/2,-p.h/2,p.w,p.h); cctx.restore(); }
+    if(el<dur && alive) requestAnimationFrame(frame); else cvs.remove();
+  })(t0);
+}
 
 /* ---------- boot ---------- */
 function renderAll(){ renderStats(); renderCalendar(); renderTasks(); updateFilterUI(); drawWheel(wheelCats()); }
