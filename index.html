@@ -183,6 +183,23 @@ kbd{background:var(--surface2); border:1px solid var(--border2); border-radius:4
 .bscore input{width:96px; flex:none}
 .brank-row{display:flex; justify-content:space-between; padding:9px 12px; border-radius:9px; background:var(--surface2); margin-bottom:7px; font-size:14px}
 .brank-row.win{border:1px solid var(--gold)}
+.bringwrap{position:relative;width:210px;height:210px;margin:8px auto}
+.bring{width:210px;height:210px;transform:rotate(-90deg);display:block}
+.bring-bg{fill:none;stroke:var(--surface3);stroke-width:9}
+.bring-fg{fill:none;stroke:var(--accent);stroke-width:9;stroke-linecap:round;transition:stroke-dashoffset .2s linear}
+.bringwrap .btimer{position:absolute;inset:0;margin:0;display:flex;align-items:center;justify-content:center;font-size:40px}
+.binvite{display:flex;gap:8px;margin-top:14px}
+.binvite input{flex:1;min-width:0}
+.bhint{color:var(--muted);font-size:12px;margin-top:8px;text-align:center}
+.bplayer2{margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.bp-name{width:100%;margin-bottom:6px}
+.bp-taskrow{display:flex;gap:6px}
+.bp-task{flex:1;min-width:0}
+.bp-btn{width:40px;flex:none;border:1px solid var(--border2);background:var(--surface2);color:var(--muted);border-radius:10px;cursor:pointer}
+.broster{margin:14px 0 4px}
+.broster-row{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-top:1px solid var(--border);font-size:13px}
+.broster-row b{flex:none}
+.broster-row span{color:var(--muted);text-align:right}
 </style>
 </head>
 <body>
@@ -527,7 +544,7 @@ function tickIfCrossed(cats){ if(muted||!cats.length) return; const idx=_idxUnde
 function confetti(){
   try{ if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return; }catch(e){}
   const cvs=document.createElement('canvas');
-  cvs.style.cssText='position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:90';
+  cvs.style.cssText='position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:150';
   const dpr=window.devicePixelRatio||1; cvs.width=innerWidth*dpr; cvs.height=innerHeight*dpr;
   document.body.appendChild(cvs); const cctx=cvs.getContext('2d'); cctx.scale(dpr,dpr);
   const cols=['#a48bff','#ff79c6','#8be9fd','#50fa7b','#ffb86c','#f1fa8c','#ff5555','#e8c56b','#63d69b'];
@@ -561,25 +578,25 @@ setInterval(()=>{ const arr=state.log[ui.selectedDate]; if(arr && arr.some(t=>t.
     <button class="bclose" id="bClose" aria-label="close">✕</button>
     <div id="bSetup">
       <h2>⚔️ Cram Battle</h2>
-      <p class="bsub">Everyone crams the same topic for the set time — then enter scores and compare. Standings are saved on this device.</p>
-      <label class="blabel">Topic</label>
-      <div class="brow"><input id="bTopic" placeholder="what are you cramming?"><button id="bRoll" class="bbtn" title="random topic">🎲</button></div>
-      <label class="blabel">Cram time</label>
-      <div id="bDur" class="bseg"></div>
-      <label class="blabel">Players</label>
+      <p class="bsub">Give each player their own task (or the same one), set the time, and everyone crams against one shared countdown — then compare scores. Share the invite link so friends join the same live timer.</p>
+      <div class="brow" style="justify-content:space-between;align-items:center"><label class="blabel" style="margin:0">Players &amp; tasks</label><button id="bRollAll" class="bbtn ghost" style="padding:6px 12px">🎲 Random tasks for all</button></div>
       <div id="bPlayers"></div>
       <button id="bAddPlayer" class="bbtn ghost">+ add player</button>
+      <label class="blabel">Cram time</label>
+      <div id="bDur" class="bseg"></div>
       <div class="bactions"><button id="bStart" class="bbtn primary wide">Start battle</button></div>
       <div class="bstand" id="bStandings"></div>
     </div>
     <div id="bRun" class="hidden">
-      <div class="btopic" id="bRunTopic"></div>
-      <div class="btimer" id="bTimer">00:00</div>
+      <div class="btopic">⚔️ Cram Battle</div>
+      <div class="bringwrap"><svg class="bring" viewBox="0 0 120 120"><circle class="bring-bg" cx="60" cy="60" r="54"></circle><circle class="bring-fg" id="bRingFg" cx="60" cy="60" r="54"></circle></svg><div class="btimer" id="bTimer">00:00</div></div>
+      <div id="bRoster" class="broster"></div>
+      <div class="binvite"><input id="bInvite" readonly placeholder="invite link appears here"><button id="bCopy" class="bbtn">Copy</button></div>
+      <div class="bhint" id="bHint">Share this link so friends join the same countdown.</div>
       <div class="bactions"><button id="bPause" class="bbtn wide">Pause</button><button id="bFinishEarly" class="bbtn ghost">Finish now</button></div>
     </div>
     <div id="bResults" class="hidden">
       <h2>Time's up — enter scores</h2>
-      <div class="btopic" id="bResTopic"></div>
       <div id="bScores"></div>
       <div class="bactions"><button id="bFinish" class="bbtn primary wide">Compare</button></div>
       <div id="bRanking"></div>
@@ -594,33 +611,44 @@ setInterval(()=>{ const arr=state.log[ui.selectedDate]; if(arr && arr.some(t=>t.
   const bsave=()=>{ try{ localStorage.setItem(BKEY, JSON.stringify(bstate)); }catch(e){} };
   const $=id=>document.getElementById(id);
   const modal=$('battleModal');
-  let dur=30, players=['You','Friend'], timerId=null, endTime=0, remaining=0, running=false, curTopic='';
+  const RC=2*Math.PI*54;
+  let dur=30, totalMs=30*60000, players=[{name:'You',task:''},{name:'Friend',task:''}], timerId=null, endTime=0, remaining=0, running=false;
   function esc(s){ return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+  function enc(o){ try{ return btoa(unescape(encodeURIComponent(JSON.stringify(o)))); }catch(e){ return ''; } }
+  function dec(s){ try{ return JSON.parse(decodeURIComponent(escape(atob(s)))); }catch(e){ return null; } }
+  function pool(){ return (typeof eligibleSkills==='function')?eligibleSkills():(typeof SKILLS!=='undefined'?SKILLS:[]); }
   function show(view){ ['bSetup','bRun','bResults'].forEach(v=>$(v).classList.toggle('hidden', v!==view)); }
-  function openB(){ window.battleOpen=true; modal.classList.remove('hidden'); show('bSetup'); $('bTopic').value=(typeof revealed!=='undefined'&&revealed)?revealed.t:''; renderDur(); renderPlayers(); renderStandings(); }
-  function closeB(){ window.battleOpen=false; stopTimer(); modal.classList.add('hidden'); }
+  function openB(){ window.battleOpen=true; modal.classList.remove('hidden'); show('bSetup'); if(players.length && !players.some(p=>p.task) && typeof revealed!=='undefined' && revealed) players[0].task=revealed.t; renderDur(); renderPlayers(); renderStandings(); }
+  function closeB(){ window.battleOpen=false; stopTimer(); modal.classList.add('hidden'); if((location.hash||'').indexOf('b=')>=0){ try{ history.replaceState(null,'',location.pathname+location.search); }catch(e){ location.hash=''; } } }
   function renderDur(){ $('bDur').innerHTML=[[15,'15m'],[30,'30m'],[60,'1h'],[120,'2h']].map(x=>'<button data-d="'+x[0]+'" class="'+(x[0]===dur?'on':'')+'">'+x[1]+'</button>').join(''); }
-  function renderPlayers(){ $('bPlayers').innerHTML=players.map((p,i)=>'<div class="bplayer"><input data-i="'+i+'" value="'+esc(p||'')+'" placeholder="player '+(i+1)+'"><button data-rm="'+i+'">✕</button></div>').join(''); }
+  function renderPlayers(){ $('bPlayers').innerHTML=players.map((p,i)=>'<div class="bplayer2"><input class="bp-name" data-i="'+i+'" data-f="name" value="'+esc(p.name||'')+'" placeholder="player '+(i+1)+'"><div class="bp-taskrow"><input class="bp-task" data-i="'+i+'" data-f="task" value="'+esc(p.task||'')+'" placeholder="task (blank = free cram)"><button class="bp-btn" data-roll="'+i+'" title="random task">🎲</button><button class="bp-btn" data-rm="'+i+'" title="remove">✕</button></div></div>').join(''); }
   function renderStandings(){ const el=$('bStandings'); const arr=Object.entries(bstate.standings).map(([n,st])=>Object.assign({name:n},st)).sort((a,b)=>b.wins-a.wins||b.points-a.points); if(!arr.length){ el.innerHTML=''; return; } const med=['🥇','🥈','🥉']; el.innerHTML='<h3>Standings</h3>'+arr.map((s,i)=>'<div class="bstand-row"><span>'+(med[i]||'')+' '+esc(s.name)+'</span><span>'+s.wins+' '+(s.wins===1?'win':'wins')+' · '+s.points+' pts</span></div>').join(''); }
+  function renderRoster(){ $('bRoster').innerHTML=players.map(p=>'<div class="broster-row"><b>'+esc(p.name)+'</b><span>'+esc(p.task||'free cram')+'</span></div>').join(''); }
   function fmt(ms){ let s=Math.max(0,Math.ceil(ms/1000)); const m=Math.floor(s/60); s=s%60; return String(m).padStart(2,'0')+':'+String(s).padStart(2,'0'); }
   function stopTimer(){ if(timerId){ clearInterval(timerId); timerId=null; } running=false; }
-  function tick(){ remaining=endTime-Date.now(); $('bTimer').textContent=fmt(remaining); $('bTimer').classList.toggle('low', remaining<=60000); if(remaining<=0){ stopTimer(); if(typeof audioResume==='function') audioResume(); buzz(); toResults(); } }
+  function buildInvite(){ var link=location.origin+location.pathname+'#b='+enc({e:endTime,d:Math.round(totalMs/60000),p:players.map(p=>({n:p.name,t:p.task||''}))}); var el=$('bInvite'); if(el) el.value=link; return link; }
+  function startTicking(){ $('bPause').textContent='Pause'; running=true; renderRoster(); tick(); if(timerId) clearInterval(timerId); timerId=setInterval(tick,200); }
+  function tick(){ remaining=endTime-Date.now(); var frac=Math.max(0,Math.min(1, totalMs? remaining/totalMs:0)); var fg=$('bRingFg'); if(fg){ fg.style.strokeDasharray=RC.toFixed(1); fg.style.strokeDashoffset=(RC*(1-frac)).toFixed(1); } $('bTimer').textContent=fmt(remaining); $('bTimer').classList.toggle('low', remaining<=60000); if(remaining<=0){ stopTimer(); if(typeof audioResume==='function') audioResume(); buzz(); if(typeof confetti==='function') confetti(); toResults(); } }
   function buzz(){ try{ if(typeof muted!=='undefined'&&muted) return; const ctx=(typeof audioCtx!=='undefined'&&audioCtx)?audioCtx:null; if(!ctx) return; const t0=ctx.currentTime; for(let i=0;i<3;i++){ const t=t0+i*0.22; const o=ctx.createOscillator(),g=ctx.createGain(); o.type='square'; o.frequency.value=880; g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(0.25,t+0.02); g.gain.exponentialRampToValueAtTime(0.0001,t+0.18); o.connect(g).connect(ctx.destination); o.start(t); o.stop(t+0.2);} }catch(e){} }
-  function toResults(){ $('bResTopic').textContent='📚 '+curTopic; $('bScores').innerHTML=players.map((p,i)=>'<div class="bscore"><span>'+esc(p)+'</span><input type="number" data-si="'+i+'" placeholder="score" inputmode="numeric"></div>').join(''); $('bRanking').innerHTML=''; show('bResults'); }
+  function toResults(){ $('bScores').innerHTML=players.map((p,i)=>'<div class="bscore"><span><b>'+esc(p.name)+'</b><br><small style="color:var(--muted)">'+esc(p.task||'free cram')+'</small></span><input type="number" data-si="'+i+'" placeholder="score" inputmode="numeric"></div>').join(''); $('bRanking').innerHTML=''; show('bResults'); }
   $('bDur').addEventListener('click',e=>{ const b=e.target.closest('[data-d]'); if(!b)return; dur=parseInt(b.dataset.d); renderDur(); });
-  $('bPlayers').addEventListener('input',e=>{ const i=e.target.closest('input[data-i]'); if(i) players[+i.dataset.i]=i.value; });
-  $('bPlayers').addEventListener('click',e=>{ const b=e.target.closest('[data-rm]'); if(!b)return; if(players.length>1){ players.splice(+b.dataset.rm,1); renderPlayers(); } });
-  $('bAddPlayer').addEventListener('click',()=>{ if(players.length<8){ players.push(''); renderPlayers(); } });
-  $('bRoll').addEventListener('click',()=>{ const pool=(typeof eligibleSkills==='function')?eligibleSkills():(typeof SKILLS!=='undefined'?SKILLS:[]); if(pool.length) $('bTopic').value=pool[Math.floor(Math.random()*pool.length)].t; });
-  $('bStart').addEventListener('click',()=>{ curTopic=$('bTopic').value.trim()||'Free cram'; players=players.map(p=>(p||'').trim()).filter(Boolean); if(!players.length) players=['You']; renderPlayers(); if(typeof audioResume==='function') audioResume(); endTime=Date.now()+dur*60000; running=true; $('bRunTopic').textContent='📚 '+curTopic; show('bRun'); $('bPause').textContent='Pause'; tick(); timerId=setInterval(tick,250); });
-  $('bPause').addEventListener('click',()=>{ if(running){ remaining=endTime-Date.now(); stopTimer(); $('bPause').textContent='Resume'; } else { endTime=Date.now()+Math.max(0,remaining); running=true; timerId=setInterval(tick,250); $('bPause').textContent='Pause'; tick(); } });
-  $('bFinishEarly').addEventListener('click',()=>{ stopTimer(); toResults(); });
-  $('bFinish').addEventListener('click',()=>{ const scores=players.map((p,i)=>{ const el=$('bScores').querySelector('[data-si="'+i+'"]'); return {name:p, score:(el?parseFloat(el.value):0)||0}; }); scores.sort((a,b)=>b.score-a.score); const top=scores.length?scores[0].score:0; scores.forEach(s=>{ const st=bstate.standings[s.name]||(bstate.standings[s.name]={wins:0,points:0,battles:0}); st.points+=s.score; st.battles++; if(s.score===top&&top>0) st.wins++; }); bsave(); const med=['🥇','🥈','🥉']; $('bRanking').innerHTML='<h3>Result</h3>'+scores.map((s,i)=>'<div class="brank-row '+((s.score===top&&top>0)?'win':'')+'"><span>'+(med[i]||'')+' '+esc(s.name)+'</span><span>'+s.score+'</span></div>').join('')+'<div class="bactions"><button class="bbtn primary wide" id="bNew">New battle</button></div>'; $('bNew').addEventListener('click',()=>{ show('bSetup'); renderStandings(); }); renderStandings(); });
+  $('bPlayers').addEventListener('input',e=>{ const i=e.target.closest('input[data-i]'); if(!i)return; const idx=+i.dataset.i, f=i.dataset.f; if(players[idx]) players[idx][f]=i.value; });
+  $('bPlayers').addEventListener('click',e=>{ const rm=e.target.closest('[data-rm]'); const rl=e.target.closest('[data-roll]'); if(rm){ if(players.length>1){ players.splice(+rm.dataset.rm,1); renderPlayers(); } return;} if(rl){ const pl=pool(); if(pl.length){ players[+rl.dataset.roll].task=pl[Math.floor(Math.random()*pl.length)].t; renderPlayers(); } } });
+  $('bAddPlayer').addEventListener('click',()=>{ if(players.length<8){ players.push({name:'',task:''}); renderPlayers(); } });
+  $('bRollAll').addEventListener('click',()=>{ const pl=pool().slice(); players.forEach(p=>{ if(pl.length){ p.task=pl.splice(Math.floor(Math.random()*pl.length),1)[0].t; } }); renderPlayers(); });
+  $('bStart').addEventListener('click',()=>{ players=players.map(p=>({name:(p.name||'').trim(),task:(p.task||'').trim()})).filter(p=>p.name); if(!players.length) players=[{name:'You',task:''}]; if(typeof audioResume==='function') audioResume(); totalMs=dur*60000; endTime=Date.now()+totalMs; buildInvite(); $('bHint').textContent='Share this link so friends join the same countdown.'; show('bRun'); startTicking(); });
+  $('bPause').addEventListener('click',()=>{ if(running){ remaining=endTime-Date.now(); stopTimer(); $('bPause').textContent='Resume'; } else { endTime=Date.now()+Math.max(0,remaining); running=true; timerId=setInterval(tick,200); $('bPause').textContent='Pause'; tick(); } });
+  $('bFinishEarly').addEventListener('click',()=>{ stopTimer(); if(typeof confetti==='function') confetti(); toResults(); });
+  $('bCopy').addEventListener('click',()=>{ const el=$('bInvite'); el.select(); let ok=false; try{ ok=document.execCommand('copy'); }catch(e){} if(navigator.clipboard){ navigator.clipboard.writeText(el.value).then(()=>{ $('bHint').textContent='Link copied — send it to your friends!'; },()=>{}); } else if(ok){ $('bHint').textContent='Link copied!'; } });
+  $('bFinish').addEventListener('click',()=>{ const scores=players.map((p,i)=>{ const el=$('bScores').querySelector('[data-si="'+i+'"]'); return {name:p.name, task:p.task, score:(el?parseFloat(el.value):0)||0}; }); scores.sort((a,b)=>b.score-a.score); const top=scores.length?scores[0].score:0; scores.forEach(s=>{ const st=bstate.standings[s.name]||(bstate.standings[s.name]={wins:0,points:0,battles:0}); st.points+=s.score; st.battles++; if(s.score===top&&top>0) st.wins++; }); bsave(); const med=['🥇','🥈','🥉']; $('bRanking').innerHTML='<h3>Result</h3>'+scores.map((s,i)=>'<div class="brank-row '+((s.score===top&&top>0)?'win':'')+'"><span>'+(med[i]||'')+' '+esc(s.name)+' <small style="color:var(--muted)">'+esc(s.task||'')+'</small></span><span>'+s.score+'</span></div>').join('')+'<div class="bactions"><button class="bbtn primary wide" id="bNew">New battle</button></div>'; $('bNew').addEventListener('click',()=>{ show('bSetup'); renderPlayers(); renderStandings(); }); renderStandings(); });
   $('bClose').addEventListener('click',closeB);
   modal.addEventListener('click',e=>{ if(e.target===modal) closeB(); });
   $('battleBtn').addEventListener('click',openB);
+  (function(){ var m=(location.hash||'').match(/[#&]b=([^&]+)/); if(!m) return; var d=dec(m[1]); if(!d||!d.e) return; totalMs=(d.d||30)*60000; endTime=d.e; if(Array.isArray(d.p)&&d.p.length) players=d.p.map(x=>({name:x.n||'Player',task:x.t||''})); window.battleOpen=true; modal.classList.remove('hidden'); buildInvite(); $('bHint').textContent='You joined a shared battle — cram until the timer ends!'; if(endTime-Date.now()>0){ show('bRun'); startTicking(); } else { toResults(); } })();
 })();
 </script>
+
+
 
 </body>
 </html>
