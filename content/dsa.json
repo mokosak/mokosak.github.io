@@ -1,0 +1,262 @@
+[
+ {
+  "c": "dsa",
+  "d": 30,
+  "type": "do",
+  "t": "Solve Two Sum in one pass with a hash map",
+  "desc": "Given an array of integers and a target, return the indices of the two numbers that add up to the target (exactly one solution, can't reuse an element). Do it in a single pass using a value-to-index hash map.",
+  "check": [
+   "Your solution runs in O(n) time and O(n) space with a single scan",
+   "For each element you look up target minus it before inserting the current element",
+   "You correctly return indices (not values) and handle duplicates like [3,3], target 6"
+  ]
+ },
+ {
+  "c": "dsa",
+  "d": 30,
+  "type": "do",
+  "t": "Detect a cycle in a linked list with Floyd's two pointers",
+  "desc": "Given the head of a singly linked list, determine whether it contains a cycle. Use a slow pointer moving one step and a fast pointer moving two; they meet iff there is a cycle. Then extend it to find the cycle's start node.",
+  "check": [
+   "Your detection uses O(1) extra space (no hash set of visited nodes)",
+   "You correctly return false for a null or single-node list with no cycle",
+   "Your extension finds the entry node of the cycle and you can justify why resetting one pointer to head works"
+  ]
+ },
+ {
+  "c": "dsa",
+  "d": 60,
+  "type": "do",
+  "t": "Find the longest substring without repeating characters",
+  "desc": "Given a string, find the length of the longest substring containing no repeated characters. Use a sliding window with a map of each character's last seen index, moving the left edge past any repeat as you scan right.",
+  "check": [
+   "Your solution is O(n) with the window never moving left backward",
+   "For 'abcabcbb' you return 3 and for 'bbbbb' you return 1",
+   "You can explain how you jump the left pointer when a repeat's prior index is inside the window"
+  ]
+ },
+ {
+  "c": "dsa",
+  "d": 60,
+  "type": "do",
+  "t": "Implement binary search and its lower-bound variant correctly",
+  "desc": "Write binary search on a sorted array returning an exact match index, then write lower_bound: the first index whose value is >= a target. Pay careful attention to loop invariants and off-by-one in the boundary version.",
+  "check": [
+   "Exact search returns the correct index or -1 and never infinite-loops",
+   "lower_bound returns the correct insertion point, including when the target exceeds all elements (returns n)",
+   "You can state your loop invariant and why your mid computation avoids overflow"
+  ]
+ },
+ {
+  "c": "dsa",
+  "d": 60,
+  "type": "do",
+  "t": "Solve Merge Intervals by sorting on start",
+  "desc": "Given a list of intervals [start,end], merge all overlapping intervals and return the non-overlapping set. Sort by start, then sweep, extending the current interval's end when the next start is within it, else emitting it.",
+  "check": [
+   "Overlapping and touching intervals (e.g. [1,3],[2,6] -> [1,6]) merge correctly",
+   "Your solution is O(n log n) dominated by the sort",
+   "You handle fully contained intervals (e.g. [1,10],[2,3]) without splitting them"
+  ]
+ },
+ {
+  "c": "dsa",
+  "d": 60,
+  "type": "do",
+  "t": "Validate a BST with recursive min/max bounds",
+  "desc": "Given a binary tree, decide whether it is a valid binary search tree: every node's value is greater than all in its left subtree and less than all in its right. Recurse carrying an allowed (low, high) range for each node.",
+  "check": [
+   "You reject a tree where a deep node violates an ancestor's bound (not just the parent)",
+   "Your solution handles duplicate values per your chosen strict/non-strict rule and edge integer limits",
+   "You can explain why checking only node-vs-children is insufficient"
+  ]
+ },
+ {
+  "c": "dsa",
+  "d": 60,
+  "type": "do",
+  "t": "Compute level-order traversal of a binary tree with BFS",
+  "desc": "Given the root of a binary tree, return its values grouped level by level, top to bottom, left to right. Use a queue and process one full level per outer iteration by capturing the queue size before draining it.",
+  "check": [
+   "Output groups nodes by depth in the correct left-to-right order",
+   "You handle an empty tree (return empty) and a skewed tree correctly",
+   "You can explain how capturing the level size separates levels without a sentinel"
+  ]
+ },
+ {
+  "c": "dsa",
+  "d": 120,
+  "type": "do",
+  "t": "Solve the 0/1 Knapsack with dynamic programming",
+  "desc": "Given item weights and values and a capacity W, choose a subset maximizing value without exceeding W (each item used at most once). Build a DP over items x capacity, then optimize to a 1D array iterated right to left.",
+  "check": [
+   "Your 2D DP returns the optimal value and you can reconstruct which items were chosen",
+   "Your 1D optimization iterates capacity in descending order and you explain why",
+   "You can state the time and space complexity in terms of n and W"
+  ]
+ },
+ {
+  "c": "dsa",
+  "d": 120,
+  "type": "do",
+  "t": "Find number of islands with flood fill (DFS/BFS)",
+  "desc": "Given a 2D grid of '1' (land) and '0' (water), count connected groups of land (4-directionally adjacent). Scan the grid; on each unvisited land cell, flood-fill its whole island (marking visited) and increment the count.",
+  "check": [
+   "You count diagonally separate land as distinct islands (only 4-directional connectivity)",
+   "You avoid revisiting cells so the total work is O(rows*cols)",
+   "You handle all-water and all-land grids, and avoid stack overflow on a large grid (or note the risk)"
+  ]
+ },
+ {
+  "c": "dsa",
+  "d": 120,
+  "type": "do",
+  "t": "Implement Dijkstra's shortest path with a min-heap",
+  "desc": "Given a weighted graph with non-negative edge weights and a source, compute shortest distances to all nodes. Use a priority queue, popping the closest unfinalized node and relaxing its edges, skipping stale heap entries.",
+  "check": [
+   "Distances are correct on a graph with multiple paths of differing weight",
+   "You skip outdated queue entries (lazy deletion) instead of using a decrease-key",
+   "You can explain why Dijkstra fails with negative edges and what to use instead"
+  ]
+ },
+ {
+  "c": "dsa",
+  "d": 60,
+  "type": "do",
+  "t": "Compute the maximum subarray sum with Kadane's algorithm",
+  "desc": "Given an integer array (possibly with negatives), find the contiguous subarray with the largest sum and return that sum. Track a running best-ending-here, resetting it when it would go negative, and a global maximum.",
+  "check": [
+   "You return the correct sum for an all-negative array (the least-negative single element)",
+   "Your solution is a single O(n) pass with O(1) extra space",
+   "You can extend it to also report the start and end indices of the best subarray"
+  ]
+ },
+ {
+  "c": "dsa",
+  "d": 60,
+  "type": "do",
+  "t": "Generate all subsets and all permutations via backtracking",
+  "desc": "Given a set of distinct integers, produce (a) all subsets (the power set) and (b) all permutations, using recursive backtracking that chooses/unchooses each element. Ensure no duplicates when the input has none.",
+  "check": [
+   "You generate exactly 2^n subsets and n! permutations for n distinct elements",
+   "Your recursion correctly undoes each choice (restores state) before trying the next",
+   "You can explain how to adapt the subset code to skip duplicate subsets when inputs repeat"
+  ]
+ },
+ {
+  "c": "dsa",
+  "d": 60,
+  "type": "do",
+  "t": "Solve Trapping Rain Water with two pointers",
+  "desc": "Given an array of non-negative bar heights (unit width), compute how much water is trapped after rain. Use two pointers moving inward, tracking left-max and right-max; the shorter side determines the water at each step.",
+  "check": [
+   "You return the correct total for [0,1,0,2,1,0,1,3,2,1,2,1] (which is 6)",
+   "Your solution is O(n) time and O(1) space (no prefix-max arrays)",
+   "You can explain why the smaller of the two running maxima bounds the water at a position"
+  ]
+ },
+ {
+  "c": "dsa",
+  "d": 120,
+  "type": "do",
+  "t": "Implement an LRU cache with a hash map plus doubly linked list",
+  "desc": "Build a cache with get(key) and put(key,value) both in O(1), evicting the least recently used entry when capacity is exceeded. Use a hash map to nodes of a doubly linked list ordered by recency; move touched nodes to the front.",
+  "check": [
+   "Both get and put run in O(1) and a get counts as a use (updates recency)",
+   "Exceeding capacity evicts exactly the least-recently-used key",
+   "You correctly update both the map and the list on eviction and on overwrite of an existing key"
+  ]
+ },
+ {
+  "c": "dsa",
+  "d": 60,
+  "type": "do",
+  "t": "Solve Course Schedule with topological sort (cycle detection)",
+  "desc": "Given numCourses and prerequisite pairs [a,b] meaning b must precede a, decide whether all courses can be finished (i.e. the directed graph is acyclic). Use Kahn's algorithm on in-degrees, or DFS with a visiting/visited coloring.",
+  "check": [
+   "You return false exactly when the prerequisite graph contains a cycle",
+   "With Kahn's algorithm you can also output a valid ordering of courses",
+   "You can explain how the three-color DFS distinguishes a back edge from a cross/forward edge"
+  ]
+ },
+ {
+  "c": "dsa",
+  "d": 30,
+  "type": "do",
+  "t": "Check balanced parentheses with a stack",
+  "desc": "Given a string of brackets '()[]{}', determine if it is valid: every opener has a matching closer of the same type in the correct order. Push openers; on a closer, pop and check it matches, failing fast on mismatch or empty.",
+  "check": [
+   "You reject '([)]' and accept '([]{})'",
+   "An unmatched leftover opener at the end returns false",
+   "A closer with an empty stack returns false immediately"
+  ]
+ },
+ {
+  "c": "dsa",
+  "d": 30,
+  "type": "study",
+  "t": "Reason about Big-O: amortized, average, and worst case",
+  "desc": "Work through why a dynamic array's push is amortized O(1), why hash map operations are average O(1) but worst O(n), and the difference between worst-case and average-case analysis, using concrete resizing/collision examples.",
+  "check": [
+   "Why is appending to a dynamic array amortized O(1) despite occasional O(n) resizes?",
+   "When does a hash map degrade to O(n) per operation, and what mitigates it?",
+   "What is the difference between amortized and average-case complexity?"
+  ],
+  "a": [
+   "Doubling capacity makes the total cost of n appends O(n), so the per-append average is O(1); the rare copy's cost is spread over many cheap appends.",
+   "When many keys collide into one bucket (bad hash or adversarial input); good hashing, load-factor-triggered resizing, or treeifying buckets mitigate it.",
+   "Amortized averages cost over a sequence with a per-sequence guarantee; average-case averages over an input distribution and can still have bad inputs."
+  ]
+ },
+ {
+  "c": "dsa",
+  "d": 60,
+  "type": "study",
+  "t": "Understand when to reach for a hash map, heap, or BST",
+  "desc": "Compare the operations and complexities of hash maps, binary heaps, and balanced BSTs, and reason about which data structure fits problems needing fast lookup, top-k/priority, or ordered range queries.",
+  "check": [
+   "Why can't a hash map answer 'give me the smallest key' or a range query efficiently?",
+   "When is a heap the right choice over a sorted array or a BST?",
+   "What does a balanced BST offer that a hash map does not?"
+  ],
+  "a": [
+   "Hash maps scatter keys with no order, so min/max and range queries would require scanning all entries (O(n)).",
+   "When you repeatedly need the min/max (or top-k) with cheap inserts and don't need full ordering; heap gives O(log n) push/pop and O(1) peek.",
+   "Ordered operations: in-order traversal, predecessor/successor, and range queries, all in O(log n), which hashing can't do."
+  ]
+ },
+ {
+  "c": "dsa",
+  "d": 60,
+  "type": "study",
+  "t": "Recognize the core patterns behind most array/string problems",
+  "desc": "Study the recurring templates: two pointers, sliding window, prefix sums, binary search on the answer, and monotonic stack, and learn to map a problem's constraints to the pattern that fits before coding.",
+  "check": [
+   "What signals in a problem suggest a sliding window rather than brute force?",
+   "When does 'binary search on the answer' apply, and what must be true of the predicate?",
+   "What class of problems does a monotonic stack solve in O(n)?"
+  ],
+  "a": [
+   "A contiguous subarray/substring with a constraint that grows/shrinks monotonically (e.g. sum <= k, at most k distinct), letting you slide instead of re-scan.",
+   "When the answer lies in a range and feasibility is monotonic (if x works, all larger/smaller do), you binary-search x and test feasibility each step.",
+   "Next-greater/next-smaller element problems: maintaining a stack that stays sorted lets you resolve each element's answer in amortized O(1)."
+  ]
+ },
+ {
+  "c": "dsa",
+  "d": 120,
+  "type": "study",
+  "t": "Understand dynamic programming: states, transitions, and memoization",
+  "desc": "Learn to formulate a DP: define the state precisely, write the recurrence (transition), identify base cases, and choose top-down memoization vs bottom-up tabulation. Reason about why overlapping subproblems make DP pay off.",
+  "check": [
+   "What two properties must a problem have for DP to apply?",
+   "How do you decide the dimensions and meaning of your DP state?",
+   "When is top-down memoization preferable to bottom-up tabulation, and vice versa?"
+  ],
+  "a": [
+   "Optimal substructure (optimal solution built from optimal subproblem solutions) and overlapping subproblems (the same subproblems recur).",
+   "The state must capture just enough that the subproblem is independent of how you reached it; each varying quantity in the recurrence becomes a dimension.",
+   "Top-down is easier to write and only computes reachable states; bottom-up avoids recursion overhead/stack limits and enables space optimization over the table."
+  ]
+ }
+]

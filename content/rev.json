@@ -1,0 +1,277 @@
+[
+  {
+    "c": "rev",
+    "d": 30,
+    "type": "study",
+    "t": "Read an x86-64 function prologue and epilogue in disassembly",
+    "desc": "Learn to recognize how a compiled function sets up and tears down its stack frame so you can find function boundaries and locals in raw disassembly.",
+    "check": [
+      "What do push rbp; mov rbp, rsp; sub rsp, N accomplish at a function's start?",
+      "What does the leave instruction do, and how does it relate to the prologue?",
+      "Given mov rbp,rsp then an access to [rbp-0x8], where does that local live relative to the frame?"
+    ],
+    "a": [
+      "They save the caller's frame pointer, set rbp to the new frame base, and reserve N bytes for locals.",
+      "leave does mov rsp, rbp; pop rbp, undoing the prologue's frame setup just before ret.",
+      "In the current frame's local area, 8 bytes below the saved frame-pointer base (inside the sub rsp region)."
+    ]
+  },
+  {
+    "c": "rev",
+    "d": 30,
+    "type": "do",
+    "t": "Triage an unknown binary with file, strings, nm, and checksec",
+    "desc": "Run file, strings (ASCII and -el for wide), nm/readelf -s, and checksec on a mystery binary to classify it, spot interesting strings/symbols, and note protections before deep analysis.",
+    "check": [
+      "You report architecture, linkage (static/dynamic), and whether symbols are stripped",
+      "You surface at least one interesting string or symbol relevant to the challenge",
+      "You list the active mitigations (NX, PIE, RELRO, canary) from checksec"
+    ]
+  },
+  {
+    "c": "rev",
+    "d": 60,
+    "type": "do",
+    "t": "Decompile a crackme's password check in Ghidra and recover the input",
+    "desc": "Load a simple crackme into Ghidra, find the comparison in the decompiled password routine, and determine the exact string/number that makes it accept.",
+    "check": [
+      "You enter a value the binary accepts as correct",
+      "You can point to the decompiled line that performs the accept/reject decision",
+      "You renamed the key function and variable to document your understanding"
+    ]
+  },
+  {
+    "c": "rev",
+    "d": 60,
+    "type": "do",
+    "t": "Break a license check by reading strcmp arguments in GDB",
+    "desc": "Set a breakpoint on strcmp (or the relevant compare) in a lab binary, run it, and inspect the two arguments to read the expected secret directly at runtime.",
+    "check": [
+      "You read the expected value from a register/memory at the breakpoint and use it to pass",
+      "You can explain which register held the pointer to the expected string (SysV)",
+      "You note at least one case where this fails (e.g. value computed, not compared literally)"
+    ]
+  },
+  {
+    "c": "rev",
+    "d": 60,
+    "type": "study",
+    "t": "Recognize a compiled C switch statement and its jump table",
+    "desc": "Learn how compilers lower a dense switch into a jump table plus bounds check, and how to identify that pattern in disassembly versus a chain of comparisons.",
+    "check": [
+      "What asm pattern signals a jump-table-based switch rather than if/else chains?",
+      "Why does the compiler emit a bounds check (ja/above) before the indirect jump?",
+      "When will a compiler prefer a comparison chain or a hash over a jump table?"
+    ],
+    "a": [
+      "A bounds compare then an indirect jump through a table, like jmp [table + index*8], with the table in .rodata.",
+      "To ensure out-of-range switch values fall to the default case instead of indexing past the table.",
+      "When case values are sparse or few, a comparison chain (or binary search) is smaller/faster than a huge table."
+    ]
+  },
+  {
+    "c": "rev",
+    "d": 120,
+    "type": "do",
+    "t": "Reverse an input-transform crackme and write a Python keygen",
+    "desc": "Analyze a crackme that transforms the input (e.g. XOR with a constant then add, compared to a stored buffer), invert the transform, and script a generator that outputs a valid key.",
+    "check": [
+      "Your keygen produces a key the binary accepts, for the target constant",
+      "You can describe the forward transform and show your inverse is correct",
+      "The keygen works for the embedded target without brute forcing each byte"
+    ]
+  },
+  {
+    "c": "rev",
+    "d": 30,
+    "type": "do",
+    "t": "Detect a UPX-packed binary and unpack it",
+    "desc": "Use entropy/section clues (UPX0/UPX1 sections, high entropy) to identify a packed sample, then restore the original with upx -d before analysis.",
+    "check": [
+      "You confirm it is UPX-packed from section names or a tool report",
+      "upx -d yields a working, analyzable binary with readable strings/imports",
+      "You explain why packed binaries show high entropy and few readable strings"
+    ]
+  },
+  {
+    "c": "rev",
+    "d": 60,
+    "type": "study",
+    "t": "Tell static from dynamic linking and spot library calls in asm",
+    "desc": "Learn how statically and dynamically linked binaries differ in size, imports, and call patterns, and how to recognize an external library call in disassembly.",
+    "check": [
+      "How does a dynamically linked binary call a libc function at the asm level?",
+      "What differences in file size, imports, and the PLT distinguish static from dynamic linking?",
+      "Why can a stripped static binary be harder to reverse than a dynamic one?"
+    ],
+    "a": [
+      "Via a PLT stub, e.g. call puts@plt, which routes through the GOT to the resolved libc address.",
+      "Static binaries are larger, have no (or minimal) dynamic imports and no libc PLT; dynamic ones list shared libs and use PLT/GOT.",
+      "Its libc code is inlined and unlabeled, so you cannot rely on named imports to identify standard functions."
+    ]
+  },
+  {
+    "c": "rev",
+    "d": 60,
+    "type": "do",
+    "t": "Trace a flag check with ltrace and strace",
+    "desc": "Run a lab binary under ltrace and strace to watch library/syscall activity, locating where it reads input, compares, or opens the flag, to shortcut static analysis.",
+    "check": [
+      "You identify the call where the comparison/decision happens from the trace",
+      "You can distinguish a libc-call observation (ltrace) from a syscall one (strace)",
+      "You note when tracing is defeated (static binary hides ltrace, anti-debug blocks it)"
+    ]
+  },
+  {
+    "c": "rev",
+    "d": 120,
+    "type": "do",
+    "t": "Rename functions in Ghidra to recover a stripped binary's logic",
+    "desc": "Work a stripped binary in Ghidra: follow calls from main, rename functions/locals/structs as you deduce their roles, and reconstruct the algorithm until you can describe end-to-end behavior.",
+    "check": [
+      "You produce a clear written description of what the program computes",
+      "At least the main logic functions and key variables are meaningfully renamed",
+      "You can trace the data path from input to the win/lose decision"
+    ]
+  },
+  {
+    "c": "rev",
+    "d": 30,
+    "type": "study",
+    "t": "Understand what 'stripped' means and how function boundaries are recovered",
+    "desc": "Learn what information stripping removes from an ELF and how disassemblers rebuild function boundaries without a symbol table.",
+    "check": [
+      "What does stripping remove, and what stays that still lets the program run?",
+      "How do tools infer function starts without symbols?",
+      "Why can .eh_frame / unwind tables help recover function boundaries?"
+    ],
+    "a": [
+      "It removes the symbol table and debug info (names); the dynamic symbols needed for linking and all code/relocations remain.",
+      "By prologue signatures, call/jump targets, and control-flow analysis to guess where functions begin and end.",
+      "Unwind/exception tables list per-function address ranges for stack unwinding, which doubles as a map of function extents."
+    ]
+  },
+  {
+    "c": "rev",
+    "d": 60,
+    "type": "do",
+    "t": "Patch a conditional jump to bypass a check",
+    "desc": "Locate the branch that decides accept/reject in a lab binary and patch it (e.g. jz to jnz, or je to an unconditional jmp/nops) so the program takes the success path regardless of input.",
+    "check": [
+      "The patched binary always reports success / reveals the flag path",
+      "You flip the correct branch and the file still runs (no misaligned bytes)",
+      "You can explain the opcode change you made and why it inverts the condition"
+    ]
+  },
+  {
+    "c": "rev",
+    "d": 60,
+    "type": "study",
+    "t": "Understand position-independent code and RIP-relative addressing",
+    "desc": "Learn why PIE/PIC code must address data relative to the instruction pointer and how that appears in disassembly, which is key when the load base is randomized.",
+    "check": [
+      "Why can't PIE code hardcode absolute addresses for its own data?",
+      "What disassembly pattern loads the address of a global in PIC x86-64?",
+      "How does RIP-relative addressing interact with ASLR of the module base?"
+    ],
+    "a": [
+      "Because its load base is chosen at runtime, so absolute addresses would be wrong; it uses offsets from the current location instead.",
+      "lea reg, [rip + disp], which computes a global's address relative to the next instruction.",
+      "The whole module (code+data) shifts together, so RIP+offset stays valid at any randomized base."
+    ]
+  },
+  {
+    "c": "rev",
+    "d": 120,
+    "type": "do",
+    "t": "Solve a crackme's input constraints with angr symbolic execution",
+    "desc": "Model a crackme in angr: set the success address as the target, mark input as symbolic, run explore(find=...,avoid=...), and extract the satisfying input from the solver.",
+    "check": [
+      "angr returns a concrete input that the real binary accepts",
+      "You chose sensible find/avoid addresses and symbolic input length",
+      "You can explain why path explosion or unconstrained data might make angr stall here"
+    ]
+  },
+  {
+    "c": "rev",
+    "d": 120,
+    "type": "do",
+    "t": "Reverse a small bytecode-VM crackme: find the dispatch loop and handlers",
+    "desc": "Analyze an obfuscated crackme built as a custom VM: identify the fetch-decode-dispatch loop, map opcodes to handler routines, and reconstruct the program it interprets to recover the key.",
+    "check": [
+      "You document the opcode-to-handler table and the VM's register/stack model",
+      "You can hand-trace the bytecode that validates the key",
+      "You recover an input the binary accepts based on your VM reconstruction"
+    ]
+  },
+  {
+    "c": "rev",
+    "d": 60,
+    "type": "study",
+    "t": "Understand common anti-debugging tricks and how they show up",
+    "desc": "Learn how programs detect debuggers (ptrace self-attach, /proc checks, timing) so you can recognize and plan around them during analysis.",
+    "check": [
+      "How does a single PTRACE_TRACEME call let a process detect an attached debugger?",
+      "How can rdtsc timing reveal that code is being single-stepped?",
+      "What does reading TracerPid in /proc/self/status tell a program?"
+    ],
+    "a": [
+      "A process can be traced by only one tracer; if it TRACEME's itself, a later debugger attach fails, signaling a debugger.",
+      "Single-stepping adds large time gaps, so a big delta between two rdtsc reads implies a debugger is stepping the code.",
+      "A non-zero TracerPid means some process is currently tracing it, i.e. a debugger is attached."
+    ]
+  },
+  {
+    "c": "rev",
+    "d": 30,
+    "type": "do",
+    "t": "Defeat a ptrace anti-debug check by patching or LD_PRELOAD",
+    "desc": "On a lab binary that calls ptrace(PTRACE_TRACEME) to block debugging, neutralize it by patching the call out or LD_PRELOAD-ing a stub ptrace that returns 0, then debug normally.",
+    "check": [
+      "You can attach/step the binary in GDB without it bailing out",
+      "Your bypass (patch or preload) leaves program logic otherwise intact",
+      "You explain why an LD_PRELOAD ptrace stub intercepts the real libc call"
+    ]
+  },
+  {
+    "c": "rev",
+    "d": 60,
+    "type": "do",
+    "t": "Extract and decompile a PyInstaller-packed Python binary",
+    "desc": "Use pyinstxtractor to unpack a PyInstaller executable, recover the main .pyc, fix its header if needed, and decompile with a tool like decompyle3/uncompyle6 to read the source logic.",
+    "check": [
+      "You recover readable Python source for the main module",
+      "You correctly reattach the pyc magic/header so decompilation succeeds",
+      "You identify the flag-check logic in the recovered source"
+    ]
+  },
+  {
+    "c": "rev",
+    "d": 30,
+    "type": "study",
+    "t": "Understand endianness and two's complement in hex dumps",
+    "desc": "Learn how multi-byte integers are stored little-endian on x86 and how signed values use two's complement, so you can read raw bytes correctly.",
+    "check": [
+      "In a little-endian dump, how is the 32-bit value 0x12345678 laid out in memory bytes?",
+      "What signed decimal value does the byte 0xFF represent as an 8-bit two's-complement integer?",
+      "How do you negate a two's-complement integer by hand?"
+    ],
+    "a": [
+      "As 78 56 34 12 (least-significant byte first).",
+      "-1.",
+      "Invert all bits then add one (and the sign bit indicates negativity)."
+    ]
+  },
+  {
+    "c": "rev",
+    "d": 120,
+    "type": "do",
+    "t": "Reverse a custom checksum and forge an input that passes it",
+    "desc": "Analyze a binary that validates input against a homemade checksum/hash loop, re-implement the algorithm, and craft an input (or collision) that satisfies the expected value.",
+    "check": [
+      "Your forged input passes the binary's validation",
+      "Your standalone re-implementation reproduces the binary's checksum on test data",
+      "You can explain why the custom function is not collision-resistant"
+    ]
+  }
+]

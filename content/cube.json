@@ -1,0 +1,272 @@
+[
+  {
+    "c": "cube",
+    "d": 30,
+    "type": "study",
+    "t": "Read and write standard cube notation: R, U', F2, wide moves, slices, rotations",
+    "desc": "Learn the six face letters (U D L R F B), prime and double turns, lowercase/w wide moves, the M E S slices and x y z rotations, then execute 3 written scrambles on a solved cube.",
+    "check": [
+      "What exactly does R' do, and from which viewpoint is its direction judged?",
+      "How does r (or Rw) differ from R, and which face does M follow in direction?",
+      "What do the rotations x, y and z do, and which face turn does each follow?"
+    ],
+    "a": [
+      "R' turns the right face 90 degrees counterclockwise, judged as if you were looking straight at the right face.",
+      "r/Rw turns the right face plus the middle slice together; R turns only the outer face. M turns in the same direction as L.",
+      "They turn the whole cube without moving pieces relative to each other: x follows R, y follows U, z follows F."
+    ]
+  },
+  {
+    "c": "cube",
+    "d": 60,
+    "type": "do",
+    "t": "Solve the first layer: white cross plus all four white corners",
+    "desc": "Build a white cross whose edges also match the side centres, then put each white corner above its slot and repeat R U R' U' until it drops in correctly oriented. Practise on fresh scrambles.",
+    "check": [
+      "First layer completed on 5 different scrambles without a guide",
+      "Every cross edge matches its side centre (a coloured 'T' on each side)",
+      "All four first-layer corners correctly placed and oriented on each attempt"
+    ]
+  },
+  {
+    "c": "cube",
+    "d": 120,
+    "type": "do",
+    "t": "Finish your first complete solve with the beginner layer-by-layer method",
+    "desc": "After the first layer: insert middle edges (U R U' R' U' F' U F or its mirror), make the yellow cross (F R U R' U' F'), orient corners with Sune (R U R' U R U2 R'), then permute corners and edges.",
+    "check": [
+      "One full solve completed using your notes",
+      "Three full solves completed from memory with no notes",
+      "Every algorithm used written out correctly from memory"
+    ]
+  },
+  {
+    "c": "cube",
+    "d": 30,
+    "type": "do",
+    "t": "Drill the Sune and Anti-Sune until both are automatic",
+    "desc": "Sune is R U R' U R U2 R'; Anti-Sune is R U2 R' U' R U' R' (they are inverses). Set up each case by doing the other algorithm, then recognise and solve it on sight. Repeat 20 times each.",
+    "check": [
+      "Each algorithm executed 10 times in a row with no mistakes",
+      "Sune executed in under 2 seconds",
+      "Correct algorithm chosen from the top-layer pattern 5 out of 5 times"
+    ]
+  },
+  {
+    "c": "cube",
+    "d": 60,
+    "type": "do",
+    "t": "Learn 2-look PLL: 2 corner algorithms and 4 edge algorithms",
+    "desc": "Corners first: headlights on one side -> T-perm, no headlights -> Y-perm. Then edges: Ua, Ub, H and Z perms. Drill recognition on random last layers before chasing speed.",
+    "check": [
+      "All 6 algorithms performed from memory",
+      "Correct case recognised 10 out of 10 times",
+      "Permutation step finished in under 20 seconds on 5 consecutive solves"
+    ]
+  },
+  {
+    "c": "cube",
+    "d": 120,
+    "type": "do",
+    "t": "Learn 2-look OLL: 3 edge cases and 7 corner cases",
+    "desc": "Edges: line -> F R U R' U' F'; L shape -> f R U R' U' f'; dot -> do both. Corners: Sune, Anti-Sune, H, Pi, Headlights (U), T and L (bowtie). Learn one case at a time, drilling each 10 times.",
+    "check": [
+      "All 10 algorithms performed from memory",
+      "Top face completed in two looks on 10 scrambles in a row",
+      "Each of the 7 corner cases named on sight within 2 seconds"
+    ]
+  },
+  {
+    "c": "cube",
+    "d": 60,
+    "type": "study",
+    "t": "Understand intuitive F2L: pairing a corner and edge without algorithms",
+    "desc": "Learn why F2L replaces separate corner and middle-edge steps: pair each first-layer corner with its edge in the top layer, then insert with triggers like R U R' or R U' R'. Experiment slowly on a solved cross.",
+    "check": [
+      "Which two pieces make an F2L 'pair', and where do they end up?",
+      "Why does a trigger like R U R' leave the cross intact?",
+      "What do you do if the corner is stuck in the wrong slot?"
+    ],
+    "a": [
+      "A first-layer corner and its matching middle-layer edge; together they fill one of the four slots between the cross and the top layer.",
+      "R moves the cross edge into the middle layer, U only turns the top layer so it can't touch it, and R' puts it straight back.",
+      "Take it out with a trigger (e.g. R U R') so it lands in the top layer, then pair it with its edge and insert normally."
+    ]
+  },
+  {
+    "c": "cube",
+    "d": 60,
+    "type": "do",
+    "t": "Complete cross plus intuitive F2L on 5 scrambles with no algorithm sheet",
+    "desc": "Solve the cross then all four F2L pairs on 5 scrambles, working out each pair by hand. Count moves per pair and redo any pair that took more than 15 moves until you find a shorter way.",
+    "check": [
+      "Cross plus 4 pairs completed on 5 scrambles",
+      "No pair needed more than 15 moves on the last 2 scrambles",
+      "Cross still intact after the final pair every time"
+    ]
+  },
+  {
+    "c": "cube",
+    "d": 30,
+    "type": "do",
+    "t": "Plan your whole cross during the 15-second inspection",
+    "desc": "Scramble, inspect for 15 seconds and plan every cross move, then execute without pausing (try eyes closed). Any cross can be solved in 8 moves or fewer, so aim for that.",
+    "check": [
+      "Cross executed without pausing on 7 of 10 scrambles",
+      "Cross correct with eyes closed on at least 3 of 10",
+      "Average cross length of 8 moves or fewer"
+    ]
+  },
+  {
+    "c": "cube",
+    "d": 30,
+    "type": "do",
+    "t": "Finger-trick the sexy move: 6 reps of R U R' U' in under 3 seconds",
+    "desc": "From home grip: R with the right wrist, U with a right index flick, R' with the wrist, U' with a left index flick. Six repetitions return the cube to solved, so the drill checks itself.",
+    "check": [
+      "6 reps return the cube to solved",
+      "6 reps completed in under 3 seconds",
+      "No regrips during the 6 reps"
+    ]
+  },
+  {
+    "c": "cube",
+    "d": 120,
+    "type": "do",
+    "t": "Learn 6 more PLLs: Aa, Ab, Ja, Jb, Ra and F perm",
+    "desc": "Pick one algorithm source and learn these one at a time, including recognition from two sides (headlights, blocks, bars). Added to T, Y, Ua, Ub, H and Z, you will know 12 of the 21 PLLs.",
+    "check": [
+      "All 6 new algorithms performed from memory",
+      "Each case recognised correctly from at least 2 angles",
+      "Each new algorithm executed in under 3 seconds"
+    ]
+  },
+  {
+    "c": "cube",
+    "d": 60,
+    "type": "study",
+    "t": "Understand the Roux method: blocks, CMLL and the last six edges",
+    "desc": "Learn Roux's four steps: build a 1x2x3 block on the left, another on the right, solve the top corners (CMLL), then the last six edges (LSE) with only M and U moves. Try building a first block slowly.",
+    "check": [
+      "What are the four steps of Roux, in order?",
+      "Why can LSE use only M and U moves?",
+      "Why does Roux usually need fewer moves than CFOP?"
+    ],
+    "a": [
+      "First block (left 1x2x3), second block (right 1x2x3), CMLL (top corners), LSE (last six edges).",
+      "M and U never disturb the two 1x2x3 blocks, and U only shifts the solved corners together, fixed by a final U turn.",
+      "Blocks are built intuitively without preserving a cross, and LSE is very efficient; good Roux solves are often under 50 moves."
+    ]
+  },
+  {
+    "c": "cube",
+    "d": 120,
+    "type": "do",
+    "t": "Build both Roux blocks on 10 scrambles",
+    "desc": "On 10 scrambles, build the left 1x2x3 block, then the right one using mostly R, r, U and M moves so the first block is untouched. Finish with any last layer method or just rescramble.",
+    "check": [
+      "Both blocks built on 10 scrambles",
+      "First block in 12 moves or fewer on at least 3 scrambles",
+      "Second block built without breaking the first every time"
+    ]
+  },
+  {
+    "c": "cube",
+    "d": 60,
+    "type": "do",
+    "t": "Solve a 2x2 cube using 3x3 algorithms you already know",
+    "desc": "Build one full layer whose side colours match each other (there are no centres), then orient the top with your corner OLLs (Sune etc.) and swap corners with a T-perm or Y-perm.",
+    "check": [
+      "5 solves completed without help",
+      "Average of 5 under 40 seconds",
+      "First layer correct every time (side colours match), not just one face"
+    ]
+  },
+  {
+    "c": "cube",
+    "d": 60,
+    "type": "do",
+    "t": "Solve a Pyraminx: tips, centres, first layer, last three edges",
+    "desc": "Twist the four tips to match, align the three-colour centre pieces, solve one face with its three edges, then learn a single 3-edge-cycle algorithm to finish the last layer.",
+    "check": [
+      "5 solves completed without notes",
+      "Average of 5 under 60 seconds",
+      "Tips solved during inspection on every solve"
+    ]
+  },
+  {
+    "c": "cube",
+    "d": 30,
+    "type": "study",
+    "t": "Why some cube states are impossible: piece counts and invariants",
+    "desc": "Learn how many positions a 3x3 has, why a single flipped edge or twisted corner can never come from turning, and what God's number means. Try to explain each to a friend.",
+    "check": [
+      "Roughly how many positions does a 3x3 Rubik's Cube have?",
+      "Why can't a legally turned cube have exactly one twisted corner?",
+      "What is God's number for the 3x3 and what does it mean?"
+    ],
+    "a": [
+      "About 43 quintillion (43,252,003,274,489,856,000).",
+      "Every legal move keeps total corner twist at 0 (mod 3), so one twisted corner means the cube was taken apart or twisted by hand.",
+      "20: every position can be solved in 20 moves or fewer (half-turn metric), proved by computer in 2010."
+    ]
+  },
+  {
+    "c": "cube",
+    "d": 60,
+    "type": "study",
+    "t": "Blindfolded basics: Old Pochmann for edges and letter-pair memo",
+    "desc": "Learn Old Pochmann edges: letter every sticker (Speffz scheme), trace targets from the buffer, then solve each with a setup move, a T-perm and the exact undo of the setup.",
+    "check": [
+      "In Old Pochmann edges, which positions does the T-perm swap?",
+      "What rule must setup moves follow?",
+      "What do you do when the buffer piece returns to the buffer before all edges are solved?"
+    ],
+    "a": [
+      "The buffer at UR with the swap position UL (it also swaps two corners, which cancel out with an even number of targets).",
+      "Only bring the target to UL without disturbing UR, then undo them in exact reverse after the T-perm.",
+      "That is a cycle break: shoot to any unsolved edge to start a new cycle and keep tracing from there."
+    ]
+  },
+  {
+    "c": "cube",
+    "d": 120,
+    "type": "do",
+    "t": "Solve all 12 edges of a 3x3 blindfolded with Old Pochmann",
+    "desc": "Scramble, memorise only the edge targets as letter pairs, put on a blindfold (or close your eyes) and execute. Check the result, find the mistake, and repeat for 3 attempts.",
+    "check": [
+      "Edge memo completed in under 5 minutes",
+      "At least 1 of 3 attempts with every edge solved",
+      "Cause identified for each failed attempt (memo, setup or execution)"
+    ]
+  },
+  {
+    "c": "cube",
+    "d": 30,
+    "type": "study",
+    "t": "Understand speedcubing averages and inspection rules, then compute yours",
+    "desc": "Learn how WCA-style ao5 and ao12 are computed and how inspection penalties work, then do 12 timed solves and calculate both averages by hand.",
+    "check": [
+      "How is an average of 5 (ao5) calculated?",
+      "Why are the best and worst times dropped?",
+      "How long is WCA inspection and what happens if you go over?"
+    ],
+    "a": [
+      "Drop the single best and single worst of 5 times and take the mean of the middle 3. An ao12 drops best and worst and averages 10.",
+      "So one lucky scramble or one disaster doesn't distort the number; it reflects your typical speed.",
+      "15 seconds. Starting after 15 s but before 17 s gives a +2 penalty; starting after 17 s is a DNF."
+    ]
+  },
+  {
+    "c": "cube",
+    "d": 60,
+    "type": "do",
+    "t": "Train lookahead: 10 slow solves with pause-free F2L",
+    "desc": "Do 10 solves turning at roughly half speed while finding the next F2L pair during the current insertion. A metronome at 1-2 turns per second helps keep the pace steady.",
+    "check": [
+      "10 solves with no F2L pause longer than 1 second",
+      "Next pair located before the current one is inserted on most pairs",
+      "Average within 10 seconds of your normal average despite slower turning"
+    ]
+  }
+]

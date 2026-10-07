@@ -1,0 +1,307 @@
+[
+  {
+    "c": "geo",
+    "d": 30,
+    "type": "study",
+    "t": "Why do almost 90% of people live in the Northern Hemisphere?",
+    "desc": "Compare land area and population by hemisphere, then look at what makes the most crowded regions so habitable. Focus on land distribution, climate and farming.",
+    "check": [
+      "What share of land and of people is in the Northern Hemisphere?",
+      "Why are the large southern landmasses relatively lightly populated?",
+      "What do the most populous regions (East Asia, South Asia, Europe) have in common?"
+    ],
+    "a": [
+      "About two-thirds of land (roughly 68%) and around 87-90% of people.",
+      "Antarctica is ice, Australia is mostly arid, and much of southern Africa and South America is desert, rainforest or mountains; the hemisphere is mostly ocean.",
+      "Fertile river plains and monsoon or temperate climates that support intensive farming of rice or wheat, plus long histories of dense settlement."
+    ]
+  },
+  {
+    "c": "geo",
+    "d": 120,
+    "type": "study",
+    "t": "How plate tectonics built the Himalayas, the Andes and Iceland",
+    "desc": "Learn the three kinds of plate boundary (convergent, divergent, transform) with real examples. Focus on why each produces different mountains, earthquakes and volcanoes.",
+    "check": [
+      "Why do the Andes have many volcanoes while the Himalayas have almost none?",
+      "Why is Iceland above sea level when most of the Mid-Atlantic Ridge is underwater?",
+      "Why does the San Andreas Fault produce big earthquakes but few volcanoes?"
+    ],
+    "a": [
+      "In the Andes the oceanic Nazca plate subducts and releases water that melts mantle into magma. In the Himalayas two continents collide; crust thickens instead.",
+      "A mantle hotspot sits under the ridge there, supplying extra magma that has built a thick volcanic plateau.",
+      "It is a transform boundary where plates slide past each other; with no subduction or spreading, little magma forms, but stress builds and releases."
+    ]
+  },
+  {
+    "c": "geo",
+    "d": 60,
+    "type": "do",
+    "t": "Draw Africa's countries from memory, then check",
+    "desc": "Sketch Africa's outline and fill in as many of its 54 countries as you can. Compare with a real map, then redraw the region you got most wrong.",
+    "check": [
+      "At least 40 countries placed roughly correctly on the first attempt",
+      "Every coastal country is on the correct coast (Atlantic, Mediterranean, Red Sea or Indian Ocean)",
+      "Your second attempt at your weakest region has no errors"
+    ]
+  },
+  {
+    "c": "geo",
+    "d": 60,
+    "type": "study",
+    "t": "Why are deserts where they are? Hadley cells, rain shadows, cold currents",
+    "desc": "Learn the four main causes of deserts: subtropical high pressure, rain shadows, cold ocean currents and distance from the sea. Match each cause to real deserts such as the Sahara, Atacama and Gobi.",
+    "check": [
+      "Why do so many big deserts sit near 30 degrees north and south?",
+      "Why is the Atacama one of the driest places on Earth?",
+      "Why is the Gobi a desert despite lying far from 30 degrees?"
+    ],
+    "a": [
+      "Air rising at the equator descends around 30 degrees, warming and drying as it sinks; the resulting high pressure suppresses rain (Sahara, Kalahari, Australia).",
+      "The cold Humboldt Current chills and stabilises coastal air, the Andes block moisture from the east, and the subtropical high adds further dryness.",
+      "It is very far from any ocean (continentality) and sits in the rain shadow of the Himalayas and Tibetan Plateau."
+    ]
+  },
+  {
+    "c": "geo",
+    "d": 30,
+    "type": "study",
+    "t": "Why every flat map lies: Mercator vs equal-area projections",
+    "desc": "Learn why a sphere cannot be flattened without distortion, and compare Mercator, Gall-Peters and a compromise projection like Robinson or Winkel Tripel. Focus on what each preserves and what it sacrifices.",
+    "check": [
+      "Why does Greenland look as big as Africa on Mercator, and how big is it really?",
+      "Why is Mercator still used for navigation and web maps?",
+      "Why can no flat map preserve both area and shape everywhere?"
+    ],
+    "a": [
+      "Mercator stretches areas more and more toward the poles. Africa is about 14 times the size of Greenland.",
+      "It preserves angles locally, so a constant compass bearing is a straight line, and zoomed-in street maps keep correct shapes.",
+      "A sphere has curvature and a plane does not (Gauss's Theorema Egregium), so flattening must distort area, shape, distance or direction somewhere."
+    ]
+  },
+  {
+    "c": "geo",
+    "d": 60,
+    "type": "study",
+    "t": "How the South Asian monsoon works and why billions depend on it",
+    "desc": "Study the seasonal wind reversal, the role of land-sea heating, the Himalayas and the shifting tropical rain belt. Focus on what the monsoon means for farming, floods, water and the economy.",
+    "check": [
+      "What causes the winds to reverse between summer and winter?",
+      "Why do the Himalayas and Tibetan Plateau matter for the monsoon?",
+      "Why does a weak monsoon hurt more than just farmers?"
+    ],
+    "a": [
+      "In summer land heats faster than the ocean, creating low pressure that pulls in moist sea air; in winter the land cools and winds blow from land to sea.",
+      "They force moist air upward (heavy orographic rain), block cold northern air, and the heated plateau strengthens the summer low.",
+      "Much farmland is rain-fed, so poor harvests raise food prices and cut rural spending; reservoirs, hydropower and drinking water also suffer."
+    ]
+  },
+  {
+    "c": "geo",
+    "d": 30,
+    "type": "do",
+    "t": "Trace 12 major rivers on a blank world map from memory",
+    "desc": "Draw the Nile, Amazon, Yangtze, Mississippi, Yenisei, Congo, Mekong, Danube, Ganges, Niger, Volga and Murray from source to mouth, then check each against an atlas.",
+    "check": [
+      "All 12 drawn, each ending in the correct sea or ocean after checking",
+      "The Niger's boomerang curve and the Congo's double crossing of the equator are drawn correctly",
+      "You have noted which of the 12 flow mainly northward and which empty into an inland sea"
+    ]
+  },
+  {
+    "c": "geo",
+    "d": 60,
+    "type": "study",
+    "t": "What does being landlocked cost a country?",
+    "desc": "Study the world's roughly 44 landlocked countries, from Bolivia and Ethiopia to Switzerland and Kazakhstan. Focus on trade costs, dependence on neighbours, and why some landlocked countries thrive anyway.",
+    "check": [
+      "Why do landlocked developing countries tend to be poorer than their coastal neighbours?",
+      "How did Bolivia and Ethiopia lose their coastlines?",
+      "Which two countries are doubly landlocked?"
+    ],
+    "a": [
+      "Higher transport costs, reliance on neighbours' ports and goodwill, border delays and conflict. Rich neighbours and high-value exports can offset this.",
+      "Bolivia lost its coast to Chile in the War of the Pacific (1879-84); Ethiopia when Eritrea became independent in 1993.",
+      "Liechtenstein and Uzbekistan."
+    ]
+  },
+  {
+    "c": "geo",
+    "d": 120,
+    "type": "study",
+    "t": "Why cities grow where they do: site and situation",
+    "desc": "Take five great cities, such as Istanbul, London, Singapore, Chicago and Cairo, and work out why each grew where it did. Focus on site (the local terrain) versus situation (its place in wider networks).",
+    "check": [
+      "What is the difference between a city's site and its situation?",
+      "Why has Istanbul mattered for more than 2,000 years?",
+      "Why did Chicago boom in the 19th century?"
+    ],
+    "a": [
+      "Site is the physical spot: a hill, river crossing, harbour or water supply. Situation is its position relative to routes, regions and resources.",
+      "It controls the Bosphorus between the Black Sea and Mediterranean and the Europe-Asia crossing, with a defensible peninsula and the Golden Horn harbour.",
+      "It linked the Great Lakes to the Mississippi system (canal opened 1848) and became the rail hub joining eastern cities to western grain and livestock."
+    ]
+  },
+  {
+    "c": "geo",
+    "d": 60,
+    "type": "do",
+    "t": "Learn to read contour lines, then plan a hilly walk",
+    "desc": "Learn contour lines, contour intervals, and how to spot hills, valleys, spurs, saddles and cliffs. Then on any topographic map of a hilly area, plan a route and sketch its elevation profile.",
+    "check": [
+      "You can point to a summit, valley, spur, saddle and steep slope from contour patterns alone",
+      "Your planned route has its total ascent calculated from the contour interval",
+      "Your sketched elevation profile matches the contours crossed along the route"
+    ]
+  },
+  {
+    "c": "geo",
+    "d": 60,
+    "type": "study",
+    "t": "Why is so much of the Netherlands below sea level, and how does it stay dry?",
+    "desc": "Study the Rhine-Meuse delta, peat subsidence, polders and windmill drainage, and the Delta Works built after the 1953 flood. Focus on how human action both caused and solved the problem.",
+    "check": [
+      "Why did the land sink below sea level in the first place?",
+      "What is a polder and how is it kept dry?",
+      "What disaster prompted the Delta Works, and what did they build?"
+    ],
+    "a": [
+      "Draining peat bogs for farming made the peat dry out, oxidise and compact, so the ground sank; peat cutting for fuel made it worse.",
+      "Low land enclosed by dykes, with water pumped out into canals and rivers, once by windmills and now by electric pumps.",
+      "The 1953 North Sea flood, which killed about 1,800 people; it led to dams, sluices and storm surge barriers sealing off the southwestern estuaries."
+    ]
+  },
+  {
+    "c": "geo",
+    "d": 30,
+    "type": "study",
+    "t": "Why did farming start so early in the Fertile Crescent?",
+    "desc": "Study why agriculture appeared in the Fertile Crescent around 10,000 BC. Focus on the wild ancestors of crops and animals there, Jared Diamond's east-west axis argument, and the criticisms of it.",
+    "check": [
+      "Which crops and animals were first domesticated there?",
+      "What is the 'axis' argument about Eurasia versus the Americas and Africa?",
+      "What do critics say purely geographic explanations miss?"
+    ],
+    "a": [
+      "Emmer and einkorn wheat, barley, lentils, peas, chickpeas and flax; sheep, goats, cattle and pigs.",
+      "Eurasia's east-west spread meant similar latitudes and climates, so crops spread easily; north-south continents crossed climate zones, slowing diffusion.",
+      "That it underplays human choices, institutions and chance, overstates the axis effect, and that farming also arose independently in several other regions."
+    ]
+  },
+  {
+    "c": "geo",
+    "d": 30,
+    "type": "do",
+    "t": "Draw South America from memory: countries, capitals and landforms",
+    "desc": "Sketch South America with all its countries and capitals, then add the Andes, the Amazon basin, the Atacama and Patagonia. Check against an atlas and fix mistakes.",
+    "check": [
+      "All 12 sovereign countries plus French Guiana are placed correctly",
+      "Every capital is correct, including La Paz and Sucre for Bolivia",
+      "The Andes, Amazon basin, Atacama and Patagonia are labelled in the right places"
+    ]
+  },
+  {
+    "c": "geo",
+    "d": 60,
+    "type": "study",
+    "t": "Why is London so much milder than Calgary at the same latitude?",
+    "desc": "Study why western Europe has mild winters for its latitude. Focus on prevailing westerly winds off the ocean, the Gulf Stream and North Atlantic Current, and the debate over how much each contributes.",
+    "check": [
+      "Why do mid-latitude west coasts have milder winters than continental interiors?",
+      "What does the Gulf Stream contribute, and what is the scientific debate?",
+      "Why does Vancouver have mild winters too, despite no Gulf Stream?"
+    ],
+    "a": [
+      "Prevailing westerlies carry air from the ocean, which stores summer heat and releases it in winter; inland areas lose heat quickly.",
+      "It carries heat north. Some researchers (e.g. Seager) argue westerly winds and atmospheric heat transport matter more; most agree the current adds real warmth.",
+      "The same westerlies blow in from the Pacific, and coastal mountains shield it from cold continental air."
+    ]
+  },
+  {
+    "c": "geo",
+    "d": 120,
+    "type": "study",
+    "t": "Russia's geography: how size became both strength and burden",
+    "desc": "Study Russia's terrain, climate, rivers and coastline. Focus on the open North European Plain, the search for warm-water ports, permafrost, and how these have shaped its history and economy.",
+    "check": [
+      "Why has Russia historically sought warm-water ports?",
+      "Why does the North European Plain loom so large in Russian security thinking?",
+      "Why are Russia's biggest Siberian rivers of limited economic use?"
+    ],
+    "a": [
+      "Most northern ports freeze in winter, and exits from the Black Sea and Baltic pass through straits controlled by others.",
+      "It is flat and open, with few natural barriers; it was the invasion route for Napoleon and Hitler, so Russia has sought strategic depth and buffers.",
+      "The Ob, Yenisei and Lena flow north into the Arctic, freeze for months, and do not connect major population centres to world markets."
+    ]
+  },
+  {
+    "c": "geo",
+    "d": 120,
+    "type": "do",
+    "t": "Map your home region and explain why each town is where it is",
+    "desc": "Draw your region (about 50-100 km across) with relief, rivers, coasts and main routes. Research and annotate 5 towns with the specific geographic reason each grew where it did.",
+    "check": [
+      "Map shows relief, main rivers or coast, and major roads or railways",
+      "5 towns each have a specific site or situation reason (ford, harbour, junction, resource, defensive hill)",
+      "You have noted at least one town whose origin surprised you, and why"
+    ]
+  },
+  {
+    "c": "geo",
+    "d": 120,
+    "type": "study",
+    "t": "The demographic transition: why birth rates fall as countries develop",
+    "desc": "Learn the stages of the demographic transition model with examples such as Niger, India and Japan. Focus on why death rates fall before birth rates and what an ageing, shrinking population means.",
+    "check": [
+      "Why does population surge in the second stage?",
+      "Why do birth rates fall with urbanisation and girls' education?",
+      "What challenges does a late-stage country like Japan face?"
+    ],
+    "a": [
+      "Death rates fall thanks to cleaner water, vaccines and better food, while birth rates stay high for a generation, so natural increase spikes.",
+      "Children cost more and are less needed for farm work, child mortality falls, and educated women marry later, use contraception and have careers.",
+      "A shrinking workforce, rising pension and healthcare costs, labour shortages and emptying rural towns."
+    ]
+  },
+  {
+    "c": "geo",
+    "d": 30,
+    "type": "do",
+    "t": "Locate 15 of the world's key maritime chokepoints",
+    "desc": "On a blank map mark Hormuz, Malacca, Bab-el-Mandeb, Suez, Panama, Gibraltar, Bosphorus, Dover, the Danish straits, Magellan, Taiwan Strait, Bering, Lombok, Mozambique Channel and the Cape of Good Hope.",
+    "check": [
+      "All 15 marked correctly after checking an atlas",
+      "Each is labelled with the two seas or oceans it connects",
+      "You have noted which 3 matter most for oil shipments and why"
+    ]
+  },
+  {
+    "c": "geo",
+    "d": 60,
+    "type": "study",
+    "t": "Who owns a river? The Nile, the Indus and upstream power",
+    "desc": "Study transboundary river disputes through Ethiopia's Grand Ethiopian Renaissance Dam and Egypt, and the Indus Waters Treaty between India and Pakistan. Focus on why being upstream gives leverage.",
+    "check": [
+      "Why is Egypt so worried about the GERD?",
+      "How did the 1960 Indus Waters Treaty divide the rivers?",
+      "Why does being upstream give a country leverage, and what limits it?"
+    ],
+    "a": [
+      "The Nile supplies nearly all of Egypt's water and most Nile water comes from the Ethiopian highlands; dam operation in droughts could cut supply.",
+      "Eastern rivers (Ravi, Beas, Sutlej) to India, western (Indus, Jhelum, Chenab) mostly to Pakistan. India said in 2025 it was holding the treaty in abeyance.",
+      "Dams and withdrawals control the timing and volume of flow. Limits: treaties, international pressure, and the downstream state's own power."
+    ]
+  },
+  {
+    "c": "geo",
+    "d": 60,
+    "type": "do",
+    "t": "Find your antipode and 5 cities at your latitude, then compare climates",
+    "desc": "Work out the point exactly opposite you on Earth and find 5 cities at roughly your latitude on other continents. Compare their climates and explain the differences.",
+    "check": [
+      "Your antipode's coordinates are calculated (latitude sign flipped, longitude shifted 180 degrees) and you know what is there",
+      "5 cities at your latitude are listed with average January and July temperatures",
+      "Each climate difference is explained by a specific factor: ocean current, altitude, continentality or rain shadow"
+    ]
+  }
+]

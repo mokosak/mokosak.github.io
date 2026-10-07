@@ -1,0 +1,307 @@
+[
+  {
+    "c": "money",
+    "d": 30,
+    "type": "study",
+    "t": "Compound interest: why starting ten years earlier matters so much",
+    "desc": "Learn simple vs compound interest and the rule of 72. Work through the same monthly saving started at age 25 versus 35 and see where most of the final total comes from.",
+    "check": [
+      "Why does compound growth look slow at first and then speed up?",
+      "Using the rule of 72, roughly how long does money take to double at 6% a year?",
+      "Why does compounding make high-interest debt so dangerous?"
+    ],
+    "a": [
+      "Each period earns interest on earlier interest, so the yearly gain itself keeps growing; most of the total arrives in the later years.",
+      "About 12 years (72 divided by 6).",
+      "Unpaid card balances compound too, often at 20% or more, so a debt can double in about four years if left alone."
+    ]
+  },
+  {
+    "c": "money",
+    "d": 120,
+    "type": "do",
+    "t": "Build a budget spreadsheet from one month of real spending",
+    "desc": "Export or list last month's transactions, categorise them (housing, food, transport, subscriptions and so on), and compare the totals with a 50/30/20 split of needs, wants and savings.",
+    "check": [
+      "Every transaction from one full month is in the sheet with a category",
+      "Totals and percentage of income are calculated for each category and for needs, wants and savings",
+      "You have written 2 specific changes with the monthly amount each would free up"
+    ]
+  },
+  {
+    "c": "money",
+    "d": 60,
+    "type": "study",
+    "t": "What is inflation, and what actually causes it?",
+    "desc": "Learn how inflation is measured with a consumer price basket, and its main causes: demand-pull, cost-push, money growth and expectations. Use the 1970s and 2021-23 as case studies.",
+    "check": [
+      "What is the difference between demand-pull and cost-push inflation?",
+      "Why do many central banks target about 2% inflation rather than zero?",
+      "What were the main causes of the 2021-23 inflation surge?"
+    ],
+    "a": [
+      "Demand-pull: spending outruns what the economy can produce. Cost-push: input costs such as energy or wages rise and firms pass them on.",
+      "A small positive rate guards against deflation, leaves room to cut real interest rates in recessions, and allows for measurement overstating inflation.",
+      "Pandemic supply bottlenecks, strong demand from stimulus and savings, and energy and food shocks after Russia invaded Ukraine; their relative weight is debated."
+    ]
+  },
+  {
+    "c": "money",
+    "d": 60,
+    "type": "study",
+    "t": "How central banks steer interest rates and the economy",
+    "desc": "Learn what a central bank like the Federal Reserve or ECB does, how a policy rate change ripples into mortgages, savings and jobs, and what quantitative easing is.",
+    "check": [
+      "Why does raising interest rates tend to bring inflation down?",
+      "What is quantitative easing, and when is it used?",
+      "Why are central banks usually made independent of governments?"
+    ],
+    "a": [
+      "Borrowing gets dearer and saving more attractive, so spending and investment slow, demand cools, and price rises ease, usually with a lag of a year or more.",
+      "Buying government bonds and other assets with newly created reserves to push down long-term rates, used when short-term rates are already near zero.",
+      "To stop politicians printing money or cutting rates before elections; credible independence helps anchor inflation expectations."
+    ]
+  },
+  {
+    "c": "money",
+    "d": 30,
+    "type": "do",
+    "t": "Calculate your real hourly wage",
+    "desc": "Take your monthly take-home pay, subtract work-related costs (commute, work clothes, bought lunches), and divide by all work-related hours including commuting. Then price 3 recent purchases in hours of work.",
+    "check": [
+      "Your real hourly figure is calculated with every cost and hour written down",
+      "You have compared it with your nominal hourly wage and noted the gap as a percentage",
+      "3 recent purchases are converted into hours of work"
+    ]
+  },
+  {
+    "c": "money",
+    "d": 30,
+    "type": "study",
+    "t": "Why diversification is called the only free lunch in investing",
+    "desc": "Learn what risk, return and correlation mean, why combining assets that don't move together lowers risk, and what index funds are. Educational only, not investment advice.",
+    "check": [
+      "Why can holding many different assets reduce risk without necessarily lowering expected return?",
+      "What kind of risk cannot be diversified away?",
+      "Why do most actively managed funds trail their benchmark index over long periods?"
+    ],
+    "a": [
+      "Company-specific shocks partly cancel out when assets are not perfectly correlated, while each still contributes its expected return.",
+      "Systematic or market risk, such as recessions or interest rate shifts, that hits nearly everything at once.",
+      "Before costs, active investors as a group earn the market average; fees and trading costs then push most below it, as S&P's SPIVA reports show."
+    ]
+  },
+  {
+    "c": "money",
+    "d": 60,
+    "type": "study",
+    "t": "What GDP measures, and what it misses",
+    "desc": "Learn the expenditure formula (C + I + G + net exports), nominal vs real, and per capita and purchasing power parity figures. Focus on what GDP leaves out: unpaid work, inequality and environmental damage.",
+    "check": [
+      "Why compare years using real rather than nominal GDP?",
+      "Why do country rankings change when GDP is measured at purchasing power parity?",
+      "Name two things that raise GDP without making people better off."
+    ],
+    "a": [
+      "Nominal GDP rises with prices; real GDP strips out inflation so it tracks the volume of goods and services produced.",
+      "Non-traded goods and services are cheaper in poorer countries, so money goes further; PPP adjusts for this and lifts their measured output.",
+      "Rebuilding after a disaster, cleaning up pollution, longer commutes, and spending on security because of crime."
+    ]
+  },
+  {
+    "c": "money",
+    "d": 120,
+    "type": "study",
+    "t": "Supply and demand: explain concert tickets, fuel prices and rent control",
+    "desc": "Learn demand and supply curves, equilibrium, shifts versus movements along a curve, and price elasticity. Then apply them to three real cases: ticket resale, fuel price swings and rent control.",
+    "check": [
+      "What is the difference between a shift in demand and a movement along the demand curve?",
+      "Why do fuel prices swing a lot when supply changes only a little?",
+      "What do most economists predict rent control does, and what do supporters argue?"
+    ],
+    "a": [
+      "A change in the good's own price moves you along the curve; changes in income, tastes or other goods' prices shift the whole curve.",
+      "Short-run demand is inelastic because people still need to drive and heat homes, so a small supply cut needs a large price rise to balance.",
+      "Lower rents for sitting tenants but less rental supply, maintenance and mobility over time; supporters stress tenant stability and modern, softer designs."
+    ]
+  },
+  {
+    "c": "money",
+    "d": 120,
+    "type": "study",
+    "t": "What caused the 2008 financial crisis?",
+    "desc": "Trace the chain from US subprime mortgages through securitisation, credit ratings and leverage to the collapse of Lehman Brothers. Focus on why a housing problem became a global banking crisis.",
+    "check": [
+      "How did securitisation spread US mortgage risk around the world?",
+      "Why did high leverage and short-term funding make banks so fragile?",
+      "Why did governments bail out banks despite the moral hazard?"
+    ],
+    "a": [
+      "Mortgages were bundled into securities and CDOs, often rated AAA, and sold to banks and investors worldwide, so losses were widespread and hard to locate.",
+      "At 30-to-1 leverage, a roughly 3% fall in asset values wipes out equity, and overnight funding like repo can vanish in a panic.",
+      "To stop a credit freeze collapsing payments, lending and the real economy, as bank failures had in the 1930s."
+    ]
+  },
+  {
+    "c": "money",
+    "d": 60,
+    "type": "do",
+    "t": "Compare the true cost of a loan at different rates and terms",
+    "desc": "In a spreadsheet, use the PMT function to compute the monthly payment and total interest for one loan amount under 3 scenarios, e.g. 15 vs 30 years and two interest rates.",
+    "check": [
+      "PMT formula correctly set up for all 3 scenarios with rate converted to monthly",
+      "Total interest paid is calculated and compared across scenarios",
+      "You can explain in 2 sentences why the longer term costs more in total despite a lower monthly payment"
+    ]
+  },
+  {
+    "c": "money",
+    "d": 60,
+    "type": "study",
+    "t": "Comparative advantage: why trade can benefit the less productive country",
+    "desc": "Work through Ricardo's two-country, two-good example and the idea of opportunity cost. Then look at who loses from trade and why it stays politically contentious.",
+    "check": [
+      "What is the difference between absolute and comparative advantage?",
+      "Why can a country that is worse at making everything still gain from trade?",
+      "Who tends to lose when trade opens up?"
+    ],
+    "a": [
+      "Absolute: producing more with the same resources. Comparative: producing at a lower opportunity cost in terms of other goods given up.",
+      "If each specialises where its opportunity cost is lower, total output rises, so both can consume more after trading.",
+      "Workers and firms in import-competing industries, often clustered in specific towns, as with the 'China shock' to US manufacturing regions."
+    ]
+  },
+  {
+    "c": "money",
+    "d": 30,
+    "type": "study",
+    "t": "Why emergency funds usually come before investing",
+    "desc": "Learn what an emergency fund is, the common guideline of 3-6 months of essential expenses, where people typically keep one, and how it fits with paying down high-interest debt. Focus on the reasoning.",
+    "check": [
+      "Why keep cash earning little instead of investing it?",
+      "Why size the fund from essential expenses rather than income?",
+      "Why do many guides prioritise paying off high-interest debt early?"
+    ],
+    "a": [
+      "It is insurance: it avoids selling investments at a loss or borrowing at high rates when job loss or a big bill hits.",
+      "What you must cover in a crisis is your essential spending, which is usually less than your income.",
+      "Paying off a card at 20% or more is a guaranteed saving that beats typical savings or investment returns."
+    ]
+  },
+  {
+    "c": "money",
+    "d": 30,
+    "type": "do",
+    "t": "Audit every subscription and recurring payment",
+    "desc": "Go through 3 months of bank and card statements and list every recurring charge. Mark each keep, downgrade or cancel, and annualise the total.",
+    "check": [
+      "Every recurring charge is listed with its monthly and annual cost",
+      "Each one is marked keep, downgrade or cancel with a one-line reason",
+      "The annual saving from your cancel and downgrade decisions is calculated"
+    ]
+  },
+  {
+    "c": "money",
+    "d": 60,
+    "type": "do",
+    "t": "Calculate income tax by hand: marginal vs effective rates",
+    "desc": "Using your country's current income tax bands, compute the tax on a sample salary bracket by bracket. Then test the myth that a raise into a higher bracket can lower your take-home pay.",
+    "check": [
+      "Tax is calculated band by band and matches an official online calculator",
+      "You have stated both the marginal rate and the effective (average) rate for that salary",
+      "You have calculated how much of a 1,000 raise you would keep, and named any benefit taper that changes the answer"
+    ]
+  },
+  {
+    "c": "money",
+    "d": 120,
+    "type": "study",
+    "t": "What did Keynes and Hayek disagree about?",
+    "desc": "Study the 1930s debate about recessions: Keynes on aggregate demand and government spending, Hayek on credit-driven booms and malinvestment. Then see how each view shaped responses to 2008 and 2020.",
+    "check": [
+      "Why did Keynes think an economy could get stuck with high unemployment?",
+      "What did Hayek think caused booms and busts?",
+      "How did government responses to the 2020 pandemic reflect Keynesian ideas?"
+    ],
+    "a": [
+      "Falling spending causes layoffs, which cut incomes and spending further; wages and prices adjust slowly, so without stimulus slumps can persist.",
+      "Credit kept too cheap by central banks distorts price signals and fuels unsustainable long-term investment that must later be liquidated.",
+      "Large deficit spending, furlough schemes and direct payments to support incomes and demand, alongside central bank rate cuts and bond buying."
+    ]
+  },
+  {
+    "c": "money",
+    "d": 120,
+    "type": "do",
+    "t": "Model long-term savings growth in a spreadsheet",
+    "desc": "Build a sheet projecting savings year by year from a monthly contribution, an assumed real return (try 2%, 4% and 6%) and a number of years. An exercise in testing assumptions, not a financial plan.",
+    "check": [
+      "Year-by-year table showing contributions, growth and balance",
+      "Three return scenarios plotted together on one chart",
+      "You have noted how much the final value changes if contributions start 5 years later"
+    ]
+  },
+  {
+    "c": "money",
+    "d": 30,
+    "type": "study",
+    "t": "How hyperinflation happens: Weimar Germany, Zimbabwe, Venezuela",
+    "desc": "Study three hyperinflations side by side. Focus on the common pattern of governments printing money to cover deficits, collapsing output and lost confidence, and how each episode ended.",
+    "check": [
+      "What triggered Weimar Germany's 1923 hyperinflation?",
+      "Why does printing money to pay the government's bills feed on itself?",
+      "How did these hyperinflations end?"
+    ],
+    "a": [
+      "War debts and reparations, then the 1923 French-Belgian occupation of the Ruhr; the government printed money to fund passive resistance.",
+      "Rising prices erode real tax revenue, so more printing is needed, and people spend cash faster, which pushes prices up even more.",
+      "Germany: the Rentenmark and fiscal discipline. Zimbabwe: dropping its currency for the US dollar (2009). Venezuela: informal dollarisation and spending cuts."
+    ]
+  },
+  {
+    "c": "money",
+    "d": 60,
+    "type": "do",
+    "t": "Read a company's annual report: find the numbers that matter",
+    "desc": "Pick a large public company whose products you use. In its annual report, find revenue, net profit, total debt and operating cash flow, then compute the profit margin. A literacy exercise, not stock analysis.",
+    "check": [
+      "All 4 figures found and noted with the statement they came from",
+      "Net profit margin calculated correctly",
+      "You can explain in 2 sentences why net profit and operating cash flow differ for this company"
+    ]
+  },
+  {
+    "c": "money",
+    "d": 60,
+    "type": "study",
+    "t": "What is money, really? From the barter myth to fiat currency",
+    "desc": "Study the functions of money and its history: credit, commodity money, coins, paper and fiat currency. Focus on why the 'barter came first' story is doubted and what gives modern money its value.",
+    "check": [
+      "What are money's three classic functions?",
+      "Why do anthropologists doubt that barter economies came before money?",
+      "What gives fiat money its value?"
+    ],
+    "a": [
+      "Medium of exchange, unit of account and store of value.",
+      "Little evidence of barter-based societies; communities used credit, debts and gifts (Humphrey, Graeber). Barter appears mainly between strangers or in crises.",
+      "Trust in the issuer's restraint, legal tender laws, and above all the state requiring taxes to be paid in it."
+    ]
+  },
+  {
+    "c": "money",
+    "d": 60,
+    "type": "study",
+    "t": "How commercial banks create money when they lend",
+    "desc": "Learn how a bank loan creates a new deposit, the role of reserves and capital requirements, and why the textbook money multiplier is misleading. The Bank of England's 2014 explanation is a good guide.",
+    "check": [
+      "What happens to the money supply when a bank makes a loan?",
+      "Why does the Bank of England call the money multiplier model misleading?",
+      "What actually limits how much banks can lend?"
+    ],
+    "a": [
+      "The bank credits the borrower with a new deposit, creating broad money; repaying the loan destroys it.",
+      "Banks lend first and obtain any reserves needed afterwards; central banks set the price of reserves (interest rates) rather than fixing their quantity.",
+      "Profitable lending opportunities and creditworthy borrowers, capital and liquidity rules, and the interest rate set by the central bank."
+    ]
+  }
+]

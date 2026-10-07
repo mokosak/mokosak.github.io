@@ -1,0 +1,277 @@
+[
+ {
+  "c": "linux",
+  "d": 60,
+  "type": "do",
+  "t": "Rescue a detached HEAD and recover lost commits with reflog",
+  "desc": "Create commits on a detached HEAD, switch away so they look lost, then use git reflog to find the dangling commit hashes and git branch to re-anchor them. Confirm nothing was actually deleted yet.",
+  "check": [
+   "You recover the 'lost' commits onto a named branch using a hash from the reflog",
+   "You can explain why the commits survived (reflog + unreachable objects not yet GC'd)",
+   "You identify how long dangling commits typically persist before git gc prunes them"
+  ]
+ },
+ {
+  "c": "linux",
+  "d": 60,
+  "type": "do",
+  "t": "Rewrite history cleanly with interactive rebase",
+  "desc": "On a scratch branch with 5+ messy commits, use git rebase -i to squash, reword, reorder, and drop commits into a clean sequence. Then force-push-with-lease to a remote branch and verify the new graph.",
+  "check": [
+   "The final branch has the squashed/reordered commits with rewritten messages you chose",
+   "You used --force-with-lease and can explain why it is safer than --force",
+   "You can explain why the commit hashes changed and what that means for collaborators"
+  ]
+ },
+ {
+  "c": "linux",
+  "d": 30,
+  "type": "study",
+  "t": "Understand what git merge vs rebase actually do to the graph",
+  "desc": "Compare how a merge creates a merge commit with two parents versus how rebase replays commits onto a new base, producing new commits. Reason about when each is appropriate and the risks of rebasing shared history.",
+  "check": [
+   "What exactly does rebase do to the original commits, and why do their hashes change?",
+   "When does a merge create a merge commit versus a fast-forward, and why?",
+   "Why is rebasing a branch others have already pulled considered harmful?"
+  ],
+  "a": [
+   "It creates new commits that reapply each change onto the new base; content may match but parent/metadata differ, so SHA-1s change.",
+   "Fast-forward happens when the target's tip is a direct ancestor (no divergence); otherwise git must record a merge commit with two parents.",
+   "Everyone else's history still references the old commits; after a rebase their branches diverge and merges create duplicate/conflicting commits."
+  ]
+ },
+ {
+  "c": "linux",
+  "d": 60,
+  "type": "do",
+  "t": "Bisect a regression to the exact commit with git bisect",
+  "desc": "Take a repo where a test started failing, mark a known-good and known-bad commit, and run git bisect (ideally with git bisect run and a script) to binary-search to the first bad commit. Confirm with the test.",
+  "check": [
+   "git bisect identifies a single first-bad commit and you verify the test fails there but passes on its parent",
+   "You used git bisect run with a script returning proper exit codes",
+   "You can state how many steps bisect needs for N commits and why (log2)"
+  ]
+ },
+ {
+  "c": "linux",
+  "d": 30,
+  "type": "study",
+  "t": "Reason about file permissions, setuid, and sticky bits",
+  "desc": "Work through rwx for user/group/other, the meaning of setuid/setgid on files and directories, and the sticky bit on /tmp. Predict the octal for a few scenarios and what setgid on a directory does.",
+  "check": [
+   "What does the sticky bit on /tmp prevent, concretely?",
+   "What is the difference between setgid on an executable versus on a directory?",
+   "Why can a non-root user change their password via a setuid binary without write access to the shadow file?"
+  ],
+  "a": [
+   "It stops users from deleting or renaming files they don't own in a world-writable directory; only the owner (or root) may remove a file.",
+   "On an executable it runs with the file's group; on a directory new files inherit the directory's group, aiding shared workspaces.",
+   "passwd is setuid root, so during execution the effective UID is root, granting the temporary privilege to edit /etc/shadow."
+  ]
+ },
+ {
+  "c": "linux",
+  "d": 60,
+  "type": "do",
+  "t": "Build a text pipeline with grep, sort, uniq, awk, and cut",
+  "desc": "Take a real log file (e.g. an access log) and answer a concrete question like top 10 client IPs by request count, using a single pipeline. Then rewrite the counting step as a one-line awk program.",
+  "check": [
+   "Your pipeline outputs the top 10 IPs with counts, correctly sorted numerically",
+   "You produce an awk one-liner that aggregates counts in an associative array",
+   "You can explain why sort | uniq -c requires the input to be sorted first"
+  ]
+ },
+ {
+  "c": "linux",
+  "d": 30,
+  "type": "study",
+  "t": "Master quoting, word splitting, and globbing in bash",
+  "desc": "Work through how the shell expands variables, performs word splitting on IFS, and does filename globbing, and why unquoted variables break on spaces. Predict the output of several tricky expansions before running them.",
+  "check": [
+   "Why does rm $file break when $file contains spaces, but rm \"$file\" does not?",
+   "In what order does bash perform expansion, word splitting, and globbing?",
+   "What is the difference between $@ and $* inside double quotes?"
+  ],
+  "a": [
+   "Unquoted, the value undergoes word splitting on IFS and globbing, so spaces create multiple arguments; quoting passes it as one argument.",
+   "Brace -> tilde -> parameter/arithmetic/command substitution -> word splitting -> filename globbing (quote removal last).",
+   "\"$@\" expands to each argument as a separate quoted word; \"$*\" joins all arguments into one word separated by the first IFS char."
+  ]
+ },
+ {
+  "c": "linux",
+  "d": 60,
+  "type": "do",
+  "t": "Write a systemd service with a timer and inspect its journal",
+  "desc": "Create a .service unit running a small script and a .timer unit to trigger it periodically. Enable both, confirm activation, and use journalctl to read its logs filtered by unit and time window.",
+  "check": [
+   "systemctl list-timers shows your timer and the service runs on schedule",
+   "journalctl -u yourunit shows the script output with correct timestamps",
+   "You can explain the difference between a .timer and a cron job for this task"
+  ]
+ },
+ {
+  "c": "linux",
+  "d": 120,
+  "type": "do",
+  "t": "Debug a running process with strace and ltrace",
+  "desc": "Pick a program that fails or hangs (e.g. can't find a config file) and strace it to find the failing syscall (e.g. an ENOENT on open). Use ltrace to see library calls, and -f to follow forked children.",
+  "check": [
+   "You pinpoint the exact syscall and errno explaining the failure (e.g. openat returning ENOENT)",
+   "You follow child processes with -f and filter to relevant syscalls with -e",
+   "You can explain how strace works (ptrace) and why it slows the target"
+  ]
+ },
+ {
+  "c": "linux",
+  "d": 60,
+  "type": "do",
+  "t": "Find and fix which process holds a deleted-but-open file",
+  "desc": "Fill a filesystem, delete a large log that a daemon still has open, and observe that df still shows it full. Use lsof to find the process holding the deleted inode and reclaim space by truncating or restarting it.",
+  "check": [
+   "lsof shows the process with the file marked (deleted) and you reclaim the space",
+   "You can explain why df and du disagreed until the fd was closed",
+   "You reclaim space without deleting more files (e.g. : > /proc/PID/fd/N or restart)"
+  ]
+ },
+ {
+  "c": "linux",
+  "d": 30,
+  "type": "study",
+  "t": "Understand hard links, symlinks, and inodes",
+  "desc": "Reason about what a hard link and a symlink actually point to, how inodes and link counts work, why you can't hard-link across filesystems or to directories, and what happens when the target of a symlink moves.",
+  "check": [
+   "What breaks if you move the target of a symlink versus a hard link?",
+   "Why can't a hard link cross filesystem boundaries?",
+   "When you rm a file with link count 2, what happens to the data?"
+  ],
+  "a": [
+   "A symlink stores a path, so it dangles if the target moves; a hard link points to the same inode, so it keeps working regardless of the original name.",
+   "Hard links share an inode number, which is only unique within one filesystem; a cross-fs link would have no valid inode to reference.",
+   "rm unlinks one name and decrements the link count to 1; the inode and data persist until the last link is removed (and no process holds it open)."
+  ]
+ },
+ {
+  "c": "linux",
+  "d": 60,
+  "type": "do",
+  "t": "Edit efficiently in vim: motions, text objects, macros",
+  "desc": "Do a realistic refactor in vim using operator+motion (ci\", dap, >i{), recording and replaying a macro with q and @, and a global substitution with :%s and :g. Avoid arrow keys and the mouse entirely.",
+  "check": [
+   "You change text inside quotes/brackets with ci\" / ci{ without manual selection",
+   "You record a macro once and apply it across many lines with @@ or a count",
+   "You run a :g/pattern/ command (e.g. delete or normal) on matching lines only"
+  ]
+ },
+ {
+  "c": "linux",
+  "d": 120,
+  "type": "do",
+  "t": "Resolve a real merge conflict including a rename + edit",
+  "desc": "Construct two branches that both edit a file one side also renamed, then merge. Read the conflict markers, resolve the content, use git rerere or a mergetool, and verify with git diff that the result is intentional.",
+  "check": [
+   "The merge completes with a correct, hand-verified resolution (not just accepting one side)",
+   "You can explain what <<<<<<<, =======, >>>>>>> delimit and which side is which",
+   "You handle the rename-vs-edit case so no changes are silently dropped"
+  ]
+ },
+ {
+  "c": "linux",
+  "d": 30,
+  "type": "study",
+  "t": "Understand exit codes, signals, and pipelines in bash",
+  "desc": "Reason about $?, how pipelines report status, set -e / set -o pipefail, and what SIGINT/SIGTERM/SIGKILL do. Predict the exit status of a few pipelines and why set -e sometimes fails to catch an error.",
+  "check": [
+   "What exit status does a | b report by default, and how does pipefail change it?",
+   "Why can't a process catch or ignore SIGKILL (signal 9)?",
+   "Give a case where set -e does NOT abort despite a failing command."
+  ],
+  "a": [
+   "By default the status of the last command (b); with pipefail it's the rightmost non-zero status, catching failures earlier in the pipe.",
+   "SIGKILL is handled by the kernel, which terminates the process without delivering it to user code, so it can't be trapped or ignored.",
+   "A command in an if/while condition, part of &&/||, or followed by || is exempt; e.g. 'cmd || true' or 'if cmd; then' won't trigger set -e."
+  ]
+ },
+ {
+  "c": "linux",
+  "d": 60,
+  "type": "do",
+  "t": "Profile where disk space and I/O are going",
+  "desc": "On a machine or container, find the largest directories with du, identify big or deleted-but-open files, and watch live I/O with iostat or iotop to attribute throughput to a process. Produce a short findings note.",
+  "check": [
+   "You rank the top space consumers and confirm numbers against df",
+   "You attribute live read/write throughput to a specific process",
+   "You distinguish space used by data vs by inodes (df -i) when relevant"
+  ]
+ },
+ {
+  "c": "linux",
+  "d": 60,
+  "type": "study",
+  "t": "Explain how $PATH, shell builtins, and command lookup work",
+  "desc": "Reason through how the shell resolves a typed command: aliases, functions, builtins, then $PATH search with hashing. Understand type, which, command -v, and why 'cd' can't be an external program.",
+  "check": [
+   "In what order does bash resolve a command name (alias, function, builtin, PATH)?",
+   "Why must cd be a shell builtin rather than an external binary?",
+   "What does the shell's command hash table cache, and when does it go stale?"
+  ],
+  "a": [
+   "Alias -> shell function -> builtin -> executable found by scanning $PATH left to right (use 'type -a' to see all).",
+   "cd must change the current shell's working directory; an external process could only change its own and exit, leaving the shell unaffected.",
+   "It caches resolved full paths of commands to skip PATH scans; it goes stale if a binary is moved/installed, fixed with 'hash -r'."
+  ]
+ },
+ {
+  "c": "linux",
+  "d": 120,
+  "type": "do",
+  "t": "Capture and analyze a performance flamegraph with perf",
+  "desc": "Run perf record on a CPU-bound program, generate a flamegraph (or perf report), and identify the hottest call paths. Then make one targeted change and confirm the hotspot shifted or shrank.",
+  "check": [
+   "You produce a flamegraph/report and name the function consuming the most CPU",
+   "After one change, you show the hotspot measurably shrank or moved",
+   "You can explain sampling vs tracing and why perf needs symbols/frame pointers"
+  ]
+ },
+ {
+  "c": "linux",
+  "d": 30,
+  "type": "study",
+  "t": "Understand environment variables and process inheritance",
+  "desc": "Reason about the difference between shell variables and exported environment variables, how child processes inherit the environment, why a subshell can't change its parent's environment, and where login vs non-login shells read config.",
+  "check": [
+   "Why can a script you run not change your interactive shell's variables, but 'source' can?",
+   "What is the difference between a shell variable and an exported one for a child process?",
+   "Which files does a login shell read versus an interactive non-login shell?"
+  ],
+  "a": [
+   "A script runs in a child process with a copied environment; source executes commands in the current shell, so its assignments persist.",
+   "Only exported variables are copied into a child's environment; unexported shell variables are invisible to child processes.",
+   "Login: /etc/profile and ~/.bash_profile (or ~/.profile); non-login interactive: ~/.bashrc (and /etc/bash.bashrc)."
+  ]
+ },
+ {
+  "c": "linux",
+  "d": 60,
+  "type": "do",
+  "t": "Use tmux to run, detach, and reattach a long job",
+  "desc": "Start a long-running command inside a tmux session, detach, reconnect over a fresh terminal (simulating a dropped SSH session), split panes, and scroll the output buffer. Confirm the job kept running while detached.",
+  "check": [
+   "You reattach to the session and the long job is still running with its output intact",
+   "You split the window and run a monitor (e.g. top) in a second pane",
+   "You can explain why tmux survives SSH disconnects while a plain background job may not"
+  ]
+ },
+ {
+  "c": "linux",
+  "d": 60,
+  "type": "do",
+  "t": "Set up SSH key auth, agent forwarding, and a jump host",
+  "desc": "Generate an ed25519 key, install the public key on a server, disable password auth in your client config, and configure a ProxyJump to reach an inner host through a bastion. Use the agent so the key isn't copied around.",
+  "check": [
+   "You log in with the key and no password prompt, reaching the inner host via ProxyJump",
+   "ssh-add -l shows your key loaded and the inner host authenticates via the agent",
+   "You can explain the risk of agent forwarding and why ProxyJump is safer than it"
+  ]
+ }
+]

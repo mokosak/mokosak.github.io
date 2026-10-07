@@ -1,0 +1,272 @@
+[
+  {
+    "c": "games",
+    "d": 30,
+    "type": "do",
+    "t": "Checkmate with king and queen vs lone king within 15 moves",
+    "desc": "Set up K+Q vs K. Keep the queen a knight's move from the enemy king to shrink its box, bring your own king up, then mate on the edge. Practise against an engine or a friend.",
+    "check": [
+      "Mate delivered from 5 different starting positions",
+      "Each mate within 15 moves",
+      "No stalemate in any attempt"
+    ]
+  },
+  {
+    "c": "games",
+    "d": 60,
+    "type": "do",
+    "t": "Checkmate with king and rook vs lone king within 25 moves",
+    "desc": "Use the box method: the rook cuts the king off, your king walks up, and when the kings stand in opposition the rook checks along the edge. Shrink the box whenever it is safe.",
+    "check": [
+      "Mate from 3 different positions against a defending engine",
+      "Each mate in 25 moves or fewer",
+      "Rook never left en prise to the enemy king"
+    ]
+  },
+  {
+    "c": "games",
+    "d": 60,
+    "type": "do",
+    "t": "Win the Lucena rook endgame by 'building a bridge'",
+    "desc": "Set up your king on the queening square in front of your 7th-rank pawn, the enemy king cut off by a file. Check it one file further away, put your rook on the 4th rank, walk your king out, and block checks with the rook.",
+    "check": [
+      "Won the Lucena against an engine defending, 3 times",
+      "Rook placed on the 4th rank before the king stepped out every time",
+      "Pawn promoted without ever losing it to a check or skewer"
+    ]
+  },
+  {
+    "c": "games",
+    "d": 60,
+    "type": "study",
+    "t": "Hold the draw: the Philidor position in rook endgames",
+    "desc": "Learn the classic defence against rook and pawn: king on the queening square, rook on your own 3rd rank to keep the enemy king out, then switch to checks from behind once the pawn advances. Play it vs an engine.",
+    "check": [
+      "Where does the defending rook stand at first, and why?",
+      "What must the defender do the moment the pawn steps onto the 3rd rank (from the defender's side)?",
+      "Where should the defending king be?"
+    ],
+    "a": [
+      "On the defender's 3rd rank (e.g. 6th rank for Black), stopping the enemy king from advancing to that rank.",
+      "Drop the rook to the far end and check from behind; the pawn now blocks the king's shelter, so checks can't be escaped.",
+      "On the pawn's queening square or directly in front of the pawn."
+    ]
+  },
+  {
+    "c": "games",
+    "d": 30,
+    "type": "study",
+    "t": "Opening principles: centre, development, king safety",
+    "desc": "Learn the core opening principles, then play one game obeying them: control the centre, develop knights and bishops quickly, castle early, avoid moving a piece twice, and connect your rooks.",
+    "check": [
+      "What does controlling the centre mean, and which squares matter most?",
+      "Why is bringing the queen out early often bad?",
+      "How do you know your development is complete?"
+    ],
+    "a": [
+      "Occupying or attacking e4, d4, e5 and d5 so your pieces have room and the opponent's are cramped.",
+      "The opponent develops with tempo by attacking it, gaining time while your queen keeps retreating.",
+      "Minor pieces are out, the king has castled, and the rooks are connected with nothing between them."
+    ]
+  },
+  {
+    "c": "games",
+    "d": 60,
+    "type": "do",
+    "t": "Set up 6 classic checkmate patterns from memory",
+    "desc": "Learn back-rank, smothered, Anastasia's, Arabian, Boden's and Epaulette mates. Set each up on a board with the fewest pieces and name which piece covers each escape square.",
+    "check": [
+      "All 6 patterns set up correctly from memory",
+      "Every escape square in each pattern accounted for by a named piece",
+      "10 puzzles featuring these mates solved"
+    ]
+  },
+  {
+    "c": "games",
+    "d": 60,
+    "type": "do",
+    "t": "Solve 30 tactics puzzles on forks, pins and skewers",
+    "desc": "Do 10 puzzles each on forks, pins and skewers. Before moving, name the motif and say the whole forcing line aloud; only then play it. Review every miss until you see why.",
+    "check": [
+      "30 puzzles completed",
+      "At least 24 solved on the first try",
+      "Motif named correctly before moving on every puzzle"
+    ]
+  },
+  {
+    "c": "games",
+    "d": 30,
+    "type": "study",
+    "t": "Understand the opposition and key squares in king and pawn endings",
+    "desc": "Learn direct opposition, key squares and the rook-pawn exception, then test yourself on 5 K+P vs K positions by predicting win or draw before checking with an engine.",
+    "check": [
+      "What is direct opposition and who 'has' it?",
+      "What are the key squares for a white pawn on e4?",
+      "Why is a rook pawn often a draw?"
+    ],
+    "a": [
+      "Kings on the same file or rank with one square between them; the side NOT to move has the opposition.",
+      "d6, e6 and f6: if the white king reaches any of them, the pawn queens whoever is to move.",
+      "If the defending king reaches the corner it can't be driven out, so the attacker can only stalemate or fail to promote."
+    ]
+  },
+  {
+    "c": "games",
+    "d": 30,
+    "type": "do",
+    "t": "Win king and pawn vs king using opposition and key squares",
+    "desc": "Set up K+P vs K with the defending king in front of the pawn. Take the opposition, reach a key square and promote; then swap sides and defend the drawn positions.",
+    "check": [
+      "Promotion forced in 3 winning positions against an engine",
+      "Held the draw as defender in 2 drawn positions",
+      "Correctly predicted win or draw for 5 positions before playing them"
+    ]
+  },
+  {
+    "c": "games",
+    "d": 120,
+    "type": "do",
+    "t": "Play 3 rapid games and annotate your critical moments",
+    "desc": "Play three 15+10 games online or over the board. Afterwards, before using an engine, mark the 3 most important moments per game and write what you were thinking; then compare with the engine.",
+    "check": [
+      "3 games played to completion",
+      "3 annotated moments per game written before the engine check",
+      "One recurring mistake identified and written as a rule for next time"
+    ]
+  },
+  {
+    "c": "games",
+    "d": 60,
+    "type": "study",
+    "t": "Learn the ideas of the Italian Game: 1.e4 e5 2.Nf3 Nc6 3.Bc4",
+    "desc": "Learn the main ideas behind 3.Bc4 and Black's two main replies, 3...Bc5 (Giuoco Piano) and 3...Nf6 (Two Knights). Play through the plans on a board, then play 2 games with it.",
+    "check": [
+      "Which Black weakness does 3.Bc4 aim at?",
+      "In the Giuoco Piano, what is the point of c3 followed by d4?",
+      "After 3...Nf6, why is 4.Ng5 tempting and what is Black's main reply?"
+    ],
+    "a": [
+      "f7, which at the start is defended only by Black's king.",
+      "c3 supports d4, building a broad pawn centre that gains space and hits the bishop on c5.",
+      "Knight and bishop both attack f7. Black's main reply is 4...d5, blocking the bishop at the cost of a pawn."
+    ]
+  },
+  {
+    "c": "games",
+    "d": 120,
+    "type": "do",
+    "t": "Play 5 rapid games with a checks-captures-threats scan every move",
+    "desc": "Before each move, list every check, capture and threat for both sides. Play 5 games of 10+5 or slower and track how often you hang a piece or miss a tactic.",
+    "check": [
+      "5 games completed",
+      "No piece hung in one move in at least 4 of the 5 games",
+      "2 moves noted where the scan changed your choice"
+    ]
+  },
+  {
+    "c": "games",
+    "d": 120,
+    "type": "do",
+    "t": "Checkmate with two bishops vs lone king",
+    "desc": "Set up K+B+B vs K. Place the bishops side by side as a diagonal wall to herd the king to any corner, bring your king close, then mate. Watch for stalemate in the final phase.",
+    "check": [
+      "Mate achieved from 2 positions against a defending engine",
+      "Each mate within 50 moves (the 50-move rule)",
+      "No stalemate in any attempt"
+    ]
+  },
+  {
+    "c": "games",
+    "d": 120,
+    "type": "do",
+    "t": "Checkmate with bishop and knight using the W manoeuvre",
+    "desc": "Drive the king to the edge, then into a corner of your bishop's colour, using the knight's W-shaped route to keep it trapped. This is the hardest basic mate; aim to finish within 50 moves.",
+    "check": [
+      "King driven into the corner matching the bishop's colour",
+      "W manoeuvre performed with the knight at least once",
+      "Mate within 50 moves from at least 1 starting position"
+    ]
+  },
+  {
+    "c": "games",
+    "d": 30,
+    "type": "study",
+    "t": "Go basics: liberties, capture, ko and two eyes",
+    "desc": "Learn the rules of Go on a 9x9 board: placing stones, liberties, capturing, the ko rule and why living groups need two eyes. Try each idea with stones on a board or app.",
+    "check": [
+      "When is a stone or group captured?",
+      "What does the ko rule forbid?",
+      "Why does a group with two separate eyes live?"
+    ],
+    "a": [
+      "When the opponent occupies all of its liberties (the empty points directly adjacent along lines).",
+      "Immediately recapturing a single stone in a way that would repeat the previous position; you must play elsewhere first.",
+      "The opponent can only fill one eye per move and a stone in either eye alone would be suicide, so both can never be filled."
+    ]
+  },
+  {
+    "c": "games",
+    "d": 120,
+    "type": "do",
+    "t": "Play 3 games of 9x9 Go and score them correctly",
+    "desc": "Play three 9x9 games against a friend or a beginner bot. At the end, agree which stones are dead, count territory (or area), add komi (commonly 6.5 or 7.5) and decide the winner.",
+    "check": [
+      "3 games played to the end",
+      "Each game scored with dead stones agreed and komi added",
+      "Winner and margin recorded for every game"
+    ]
+  },
+  {
+    "c": "games",
+    "d": 30,
+    "type": "do",
+    "t": "Solve 10 beginner Go life-and-death problems",
+    "desc": "Solve 10 beginner tsumego: for each, find the vital point that makes or destroys two eyes. Read out the full sequence in your head before placing a stone.",
+    "check": [
+      "10 problems attempted",
+      "At least 7 solved on the first try",
+      "Vital point identified for every missed problem after review"
+    ]
+  },
+  {
+    "c": "games",
+    "d": 60,
+    "type": "study",
+    "t": "Backgammon basics: setup, pip count, primes and the doubling cube",
+    "desc": "Learn the starting setup and movement, how to count pips, why primes are strong and when to accept a double. Then play 3 games, counting pips before each double decision.",
+    "check": [
+      "What is each player's pip count at the start?",
+      "What is a prime and why is it so strong?",
+      "Roughly when should you accept a double?"
+    ],
+    "a": [
+      "167 pips each.",
+      "Consecutive blocked points (6 is a full prime); an opponent's checker behind a full prime cannot get past it.",
+      "When you have at least about 25% winning chances (ignoring gammons and cube ownership)."
+    ]
+  },
+  {
+    "c": "games",
+    "d": 60,
+    "type": "do",
+    "t": "Learn the winning strategy for Nim and beat a friend 5 times",
+    "desc": "Play Nim (take any number from one heap, taking the last object wins) with heaps like 3, 5, 7. Win by always leaving a position whose nim-sum, the XOR of the heap sizes, is 0.",
+    "check": [
+      "Nim-sum of 3 heaps computed correctly in your head 5 times",
+      "5 wins from positions where you moved first with a nonzero nim-sum",
+      "Explained to someone why heaps 1, 2, 3 lose for the player to move"
+    ]
+  },
+  {
+    "c": "games",
+    "d": 60,
+    "type": "do",
+    "t": "Replay Morphy's Opera Game (Paris 1858) and guess each move",
+    "desc": "Play through Morphy vs the Duke of Brunswick and Count Isouard on a board, covering the moves and guessing White's next one each time. Focus on development lead, pins and the final sacrifices.",
+    "check": [
+      "All 17 moves replayed from memory",
+      "Explained why 16.Qb8+ forces 17.Rd8 mate",
+      "At least 8 of White's moves guessed correctly"
+    ]
+  }
+]

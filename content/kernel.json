@@ -1,0 +1,287 @@
+[
+ {
+  "c": "kernel",
+  "d": 60,
+  "type": "do",
+  "t": "Write a program that forks, execs, and reaps a child",
+  "desc": "Write C that forks, has the child exec a command, and the parent wait()s and reads the exit status. Then deliberately not wait and observe a zombie in ps, and orphan a child to see it reparented to init/systemd.",
+  "check": [
+   "Your parent prints the child's exit code decoded via WIFEXITED/WEXITSTATUS",
+   "You reproduce a zombie (Z state) and explain exactly what keeps it around",
+   "You orphan a child and show its parent PID becomes 1 (or a subreaper)"
+  ]
+ },
+ {
+  "c": "kernel",
+  "d": 30,
+  "type": "study",
+  "t": "Understand virtual memory, pages, and the MMU",
+  "desc": "Reason about virtual vs physical addresses, page tables, the TLB, and how the MMU translates on each access. Understand why two processes can both use address 0x400000 without conflict.",
+  "check": [
+   "How can two processes both map address 0x400000 to different physical memory?",
+   "What is the TLB and why does a context switch often hurt performance?",
+   "What happens on a TLB miss followed by a valid page-table entry?"
+  ],
+  "a": [
+   "Each process has its own page tables; the MMU maps the same virtual address to different physical frames per address space.",
+   "The TLB caches recent virtual-to-physical translations; a switch can flush it (absent tagging), so early accesses pay page-walk costs again.",
+   "The hardware (or kernel) walks the page table, loads the translation into the TLB, and retries the access transparently."
+  ]
+ },
+ {
+  "c": "kernel",
+  "d": 60,
+  "type": "do",
+  "t": "Trigger and read every page-fault type with mmap",
+  "desc": "Use mmap to create anonymous and file-backed regions, touch pages to cause minor faults, and read /proc/self/stat or getrusage to count minor vs major faults. Then provoke a segfault by writing to a PROT_READ region.",
+  "check": [
+   "You observe minor fault counts rise as you touch fresh anonymous pages",
+   "You cause a major fault by reading an un-cached file-backed page and see the count rise",
+   "You trigger SIGSEGV writing to a read-only mapping and explain why it's a fault, not a return error"
+  ]
+ },
+ {
+  "c": "kernel",
+  "d": 30,
+  "type": "study",
+  "t": "Explain how a syscall actually enters the kernel",
+  "desc": "Trace the mechanics of a system call on x86-64: the syscall instruction, register convention for the number and arguments, the switch to kernel mode and stack, and how the return value and errno are delivered.",
+  "check": [
+   "Which register holds the syscall number and which hold arguments on x86-64 Linux?",
+   "What privilege transition happens on 'syscall' and why can't userspace just call kernel code directly?",
+   "How is an error returned from a syscall, and how does libc turn it into errno?"
+  ],
+  "a": [
+   "rax holds the number; arguments go in rdi, rsi, rdx, r10, r8, r9 (note r10, not rcx, which syscall clobbers).",
+   "The CPU switches from ring 3 to ring 0 with a kernel stack; direct calls are blocked because kernel memory isn't accessible/executable from user mode.",
+   "The kernel returns a negative errno value in rax; libc's wrapper detects the negative range, negates it into errno, and returns -1."
+  ]
+ },
+ {
+  "c": "kernel",
+  "d": 60,
+  "type": "study",
+  "t": "Understand the CFS scheduler and nice levels",
+  "desc": "Learn how Linux's CFS picks the next task using virtual runtime and a red-black tree, how nice values weight CPU share, and what preemption and time slices mean. Reason about fairness between CPU-bound and interactive tasks.",
+  "check": [
+   "How does CFS decide which runnable task to run next?",
+   "What does a nice value actually change about a task's CPU allocation?",
+   "Why do interactive tasks tend to get scheduled promptly under CFS?"
+  ],
+  "a": [
+   "It picks the runnable task with the smallest virtual runtime (leftmost node in the rbtree), keeping accumulated CPU time balanced.",
+   "Nice changes the task's weight; lower nice = higher weight = vruntime advances slower, so it gets a larger share of CPU.",
+   "They sleep often, accumulating little vruntime, so when they wake they have a small vruntime and are chosen quickly."
+  ]
+ },
+ {
+  "c": "kernel",
+  "d": 60,
+  "type": "do",
+  "t": "Measure copy-on-write fork behavior in practice",
+  "desc": "Write a program that allocates a large array, forks, and has the child read it (no COW break) then write to it (COW break). Watch RSS and /proc/PID/smaps to see shared pages become private on write.",
+  "check": [
+   "RSS stays low until the child writes, then rises as pages become private",
+   "smaps shows Shared_Clean dropping and Private_Dirty rising after the write",
+   "You can explain why fork() is fast despite a large address space"
+  ]
+ },
+ {
+  "c": "kernel",
+  "d": 120,
+  "type": "do",
+  "t": "Build and load a hello-world loadable kernel module",
+  "desc": "Write a minimal LKM with init/exit functions logging via printk, build it against your running kernel headers, insmod it, read dmesg, then rmmod. Add a module parameter and read it back from /sys.",
+  "check": [
+   "insmod loads the module and dmesg shows your init message; rmmod shows the exit message",
+   "lsmod lists your module and a module parameter is visible/settable",
+   "You can explain why a module bug can panic the whole system unlike a userspace crash"
+  ]
+ },
+ {
+  "c": "kernel",
+  "d": 30,
+  "type": "study",
+  "t": "Understand file descriptors, the open file table, and dup",
+  "desc": "Reason about the three-level structure: per-process fd table, system-wide open file description (with the offset), and the inode. Understand what dup2 shares, and why two fds from separate open() calls have independent offsets.",
+  "check": [
+   "Why do fds created by dup share a file offset, but two separate open()s of the same file do not?",
+   "What exactly does the open file description hold that the fd and the inode do not?",
+   "What happens to the offset when one process reads via an fd that was inherited across fork?"
+  ],
+  "a": [
+   "dup/dup2 copy a reference to the same open file description, which stores the offset; separate open()s create distinct descriptions.",
+   "It holds the current offset, the status flags (e.g. O_APPEND), and a pointer to the inode; it's the shared middle layer.",
+   "The inherited fd shares the same open file description, so a read by either parent or child advances the shared offset for both."
+  ]
+ },
+ {
+  "c": "kernel",
+  "d": 60,
+  "type": "do",
+  "t": "Demonstrate a race condition and fix it with a mutex",
+  "desc": "Write a multithreaded C program where several threads increment a shared counter without synchronization and show the result is wrong/non-deterministic. Fix it with a mutex (or an atomic) and confirm correctness.",
+  "check": [
+   "The unsynchronized version produces a final count less than expected, reproducibly",
+   "Adding a mutex or atomic yields the exact correct count every run",
+   "You can explain why counter++ is not atomic at the machine level"
+  ]
+ },
+ {
+  "c": "kernel",
+  "d": 60,
+  "type": "do",
+  "t": "Explore a process's memory map via /proc/PID/maps",
+  "desc": "Pick a running process and read /proc/PID/maps: identify the text, data, bss, heap, stack, shared libraries, and anonymous mappings with their permissions. Correlate an address from a pointer with its region.",
+  "check": [
+   "You label each major region (text/data/heap/stack/libs) and its r/w/x permissions",
+   "You explain why text is r-x and the stack is rw- (no x on modern systems)",
+   "You locate which mapping a given runtime address falls into"
+  ]
+ },
+ {
+  "c": "kernel",
+  "d": 30,
+  "type": "study",
+  "t": "Understand how pipes, blocking, and SIGPIPE work",
+  "desc": "Reason about pipe buffers, when a write blocks (full buffer) or read blocks (empty buffer), what happens when the read end closes (SIGPIPE/EPIPE), and why 'yes | head' terminates cleanly.",
+  "check": [
+   "What happens to a process writing to a pipe whose read end has closed?",
+   "Why does 'yes | head -n5' stop rather than run forever?",
+   "When does a read() on a pipe return 0 versus block?"
+  ],
+  "a": [
+   "The write gets SIGPIPE (terminating by default) or, if ignored/blocked, write() returns -1 with errno EPIPE.",
+   "head reads 5 lines then exits, closing the pipe's read end; yes then gets SIGPIPE on its next write and dies.",
+   "read() returns 0 only when all write ends are closed (EOF); otherwise it blocks until data arrives or a writer closes."
+  ]
+ },
+ {
+  "c": "kernel",
+  "d": 120,
+  "type": "do",
+  "t": "Trace kernel behavior with ftrace or a bpftrace one-liner",
+  "desc": "Use ftrace (function_graph) or bpftrace to observe a specific kernel path, e.g. count openat syscalls per process, or trace which functions run during a block I/O. Capture output and interpret one interesting call chain.",
+  "check": [
+   "You capture real kernel-side events tied to a userspace action you trigger",
+   "You aggregate by process or latency and read a meaningful result",
+   "You can explain the overhead/safety difference between ftrace and a kprobe-based tool"
+  ]
+ },
+ {
+  "c": "kernel",
+  "d": 60,
+  "type": "study",
+  "t": "Explain the page cache, dirty pages, and writeback",
+  "desc": "Learn how the page cache buffers file I/O, how writes become dirty pages flushed asynchronously by writeback, the role of fsync, and why free memory 'used' by cache isn't really used. Understand read-ahead.",
+  "check": [
+   "Why does 'free' show little free memory, and why is that not a problem?",
+   "What guarantee does fsync give that a plain write() does not?",
+   "What happens to dirty pages if the machine loses power before writeback?"
+  ],
+  "a": [
+   "Most RAM is page cache, which is reclaimable on demand; it speeds up I/O and is freed instantly when applications need memory.",
+   "fsync forces the file's dirty pages (and metadata) to stable storage before returning; write() may only reach the page cache.",
+   "Un-flushed dirty pages are lost, which is why databases fsync and journaling/ordered modes exist to bound the damage."
+  ]
+ },
+ {
+  "c": "kernel",
+  "d": 60,
+  "type": "do",
+  "t": "Compare I/O multiplexing: select vs poll vs epoll",
+  "desc": "Write a tiny echo server first with select(), then with epoll. Open many idle connections and reason about the cost difference. Measure or argue why epoll scales to thousands of fds where select does not.",
+  "check": [
+   "Both servers handle multiple concurrent clients correctly",
+   "You can state select's FD_SETSIZE and per-call O(n) scan limitation",
+   "You explain how epoll's readiness list makes it O(1) in the number of ready fds"
+  ]
+ },
+ {
+  "c": "kernel",
+  "d": 30,
+  "type": "study",
+  "t": "Understand the stack, heap, and calling conventions",
+  "desc": "Reason about how a function call sets up a stack frame on x86-64 (return address, saved rbp, locals), where arguments go per the SysV ABI, how the heap is grown via brk/mmap, and why stack memory is reclaimed automatically.",
+  "check": [
+   "Where do the first six integer arguments go under the SysV x86-64 ABI?",
+   "Why is stack allocation essentially free while heap allocation is not?",
+   "What does the saved return address on the stack enable an attacker to do if overwritten?"
+  ],
+  "a": [
+   "rdi, rsi, rdx, rcx, r8, r9; further arguments and large/aggregate types go on the stack.",
+   "The stack just moves a pointer (rsp) and frees on return; the heap needs an allocator tracking free/used blocks and may call the kernel.",
+   "Overwriting it redirects control flow on ret (e.g. to injected code or a ROP chain), the basis of stack buffer-overflow exploits."
+  ]
+ },
+ {
+  "c": "kernel",
+  "d": 120,
+  "type": "do",
+  "t": "Build a minimal container with namespaces and cgroups by hand",
+  "desc": "Use unshare/clone to put a shell in new PID, mount, UTS, and network namespaces, chroot/pivot_root into a minimal rootfs, and set a memory limit via a cgroup. Confirm the isolated process sees itself as PID 1.",
+  "check": [
+   "Inside the new namespace, ps shows your shell as PID 1 and a private mount/hostname",
+   "A memory cgroup limit is enforced (an over-limit allocation is OOM-killed inside)",
+   "You can explain which isolation comes from namespaces versus which limiting comes from cgroups"
+  ]
+ },
+ {
+  "c": "kernel",
+  "d": 60,
+  "type": "do",
+  "t": "Observe signal delivery, masking, and handlers",
+  "desc": "Write a program that installs a SIGINT handler with sigaction, blocks a signal with sigprocmask during a critical section, and shows the pending signal is delivered after unblocking. Note what is safe inside a handler.",
+  "check": [
+   "Ctrl-C is caught by your handler instead of terminating the program",
+   "A signal raised while blocked stays pending and fires once unblocked",
+   "You can name why only async-signal-safe functions are legal inside a handler"
+  ]
+ },
+ {
+  "c": "kernel",
+  "d": 30,
+  "type": "study",
+  "t": "Explain what happens from power-on to PID 1",
+  "desc": "Trace the Linux boot path at a conceptual level: firmware/UEFI, bootloader loading the kernel and initramfs, kernel decompression and init, mounting the real root, and exec of the init process (systemd) as PID 1.",
+  "check": [
+   "What is the initramfs for, and why can't the kernel always mount the real root directly?",
+   "How does the kernel transition from its own init to running userspace PID 1?",
+   "What distinguishes PID 1's responsibilities from an ordinary process?"
+  ],
+  "a": [
+   "It's a temporary RAM root with drivers/modules needed to find and mount the real root (e.g. LVM, encryption, exotic storage) before pivoting to it.",
+   "After setup the kernel exec()s the init program (from initramfs, then the real root's /sbin/init), which never returns and becomes PID 1.",
+   "PID 1 reaps orphaned children, can't be killed by default signals, and its exit panics the kernel; it manages system startup/shutdown."
+  ]
+ },
+ {
+  "c": "kernel",
+  "d": 60,
+  "type": "study",
+  "t": "Understand deadlock conditions and how to avoid them",
+  "desc": "Learn the four Coffman conditions for deadlock, construct a classic two-lock ordering deadlock mentally, and reason about prevention strategies: lock ordering, try-lock with backoff, and avoiding hold-and-wait.",
+  "check": [
+   "What are the four necessary conditions for deadlock, and which one is easiest to break?",
+   "How does a consistent global lock-ordering discipline prevent deadlock?",
+   "Why does adding a timeout/try-lock avoid deadlock but risk livelock?"
+  ],
+  "a": [
+   "Mutual exclusion, hold-and-wait, no preemption, and circular wait; breaking circular wait (via lock ordering) is usually most practical.",
+   "If every thread acquires locks in the same total order, no cycle of waits can form, so circular wait is impossible.",
+   "Try-lock lets a thread back off instead of waiting forever, but repeated collide-and-retry cycles can make no one progress (livelock)."
+  ]
+ },
+ {
+  "c": "kernel",
+  "d": 120,
+  "type": "do",
+  "t": "Implement a simple memory allocator over mmap/sbrk",
+  "desc": "Write a minimal malloc/free using a single arena from mmap, a free list, and first-fit allocation with block headers and coalescing on free. Test with a mix of allocation sizes and verify no corruption.",
+  "check": [
+   "Your allocator satisfies a varied sequence of mallocs/frees without overlap or corruption",
+   "Freed adjacent blocks coalesce so repeated alloc/free doesn't fragment forever",
+   "You can explain the role of block headers and alignment in your design"
+  ]
+ }
+]

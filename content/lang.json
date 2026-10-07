@@ -1,0 +1,307 @@
+[
+  {
+    "c": "lang",
+    "d": 60,
+    "type": "do",
+    "t": "Learn to read the Greek alphabet",
+    "desc": "Learn the 24 Greek letters, their names and sounds, watching the false friends (P is r, H is a vowel, X is kh, v-shaped nu is n). Practise by sounding out Greek place names and the maths symbols you already know.",
+    "check": [
+      "You can write all 24 letters in order, upper and lower case, with their names",
+      "You can sound out 10 Greek words or place names, such as Athina and Thessaloniki, written in Greek script",
+      "You can explain the sounds of the look-alike letters P, H, X, Y and lower-case nu"
+    ]
+  },
+  {
+    "c": "lang",
+    "d": 60,
+    "type": "do",
+    "t": "Learn to read Russian Cyrillic in an hour",
+    "desc": "Learn the 33 letters in three groups: true friends (A, K, M, O, T), false friends (B, H, P, C, Y, X) and new shapes (zh, sh, shch, ya, yu). Practise on borrowed words like restoran, telefon and metro written in Cyrillic.",
+    "check": [
+      "You can write all 33 letters with their sounds from memory",
+      "You can read aloud 10 loanwords and city names (e.g. Moskva) printed in Cyrillic",
+      "You can explain why Cyrillic P sounds like r and C like s (both come from Greek letters)"
+    ]
+  },
+  {
+    "c": "lang",
+    "d": 30,
+    "type": "study",
+    "t": "Why does English spelling make so little sense?",
+    "desc": "Study how English spelling froze around the arrival of printing while pronunciation kept moving. Focus on the Great Vowel Shift, Norman French scribes, and Renaissance spellings that imitated Latin.",
+    "check": [
+      "What was the Great Vowel Shift, and how does it explain the spellings of 'bite' and 'name'?",
+      "Why did printing lock spelling in at an awkward moment?",
+      "Why does 'debt' contain a silent b?"
+    ],
+    "a": [
+      "From about 1400 to 1700 long vowels shifted: 'bite' once sounded like 'beet', 'name' like 'nahm'. Spelling kept the older values.",
+      "Caxton's press (1476) and later printers standardised spellings mid-shift, often using older conventions, while speech kept changing.",
+      "Middle English had 'dette' from French; Renaissance scholars added a b to show its Latin origin 'debitum', though it was never pronounced."
+    ]
+  },
+  {
+    "c": "lang",
+    "d": 60,
+    "type": "study",
+    "t": "How was writing invented, and how many times?",
+    "desc": "Study the early writing systems of Mesopotamia, Egypt, China and Mesoamerica. Focus on how accounting records became cuneiform and how pictures became sound signs through the rebus principle.",
+    "check": [
+      "Why do scholars think writing began with accounting?",
+      "What is the rebus principle, and why was it the key step?",
+      "Which inventions of writing are clearly independent, and which are debated?"
+    ],
+    "a": [
+      "The earliest Uruk tablets (about 3300-3200 BC) are overwhelmingly records of grain, livestock, rations and labour, likely developing from clay counting tokens.",
+      "Using a sign for its sound rather than its meaning (like 'bee' + 'leaf' for 'belief'); it lets you write names, grammar and abstract words.",
+      "Mesopotamia, China (Shang oracle bones) and Mesoamerica are widely accepted as independent; Egypt is debated, possibly inspired by Mesopotamia."
+    ]
+  },
+  {
+    "c": "lang",
+    "d": 60,
+    "type": "study",
+    "t": "The alphabet was invented once: trace its family tree",
+    "desc": "Follow the alphabet from Proto-Sinaitic (around 1900-1700 BC) through Phoenician to Greek, Latin, Hebrew and Arabic. Focus on what changed at each step and what the Greeks added.",
+    "check": [
+      "What did the Greeks add to the Phoenician script?",
+      "How is the letter A connected to an ox?",
+      "Which modern scripts descend from Aramaic?"
+    ],
+    "a": [
+      "Full vowel letters, made by repurposing Phoenician consonant signs Greek did not need (aleph became alpha, he became epsilon).",
+      "Proto-Sinaitic 'alp' (ox) was drawn as an ox head; rotated and simplified it became Phoenician aleph, Greek alpha and Latin A.",
+      "Hebrew square script, Arabic (via Nabataean), Syriac and others; Brahmi, ancestor of most Indian scripts, is often linked to Aramaic but debated."
+    ]
+  },
+  {
+    "c": "lang",
+    "d": 120,
+    "type": "do",
+    "t": "Learn to read Japanese hiragana",
+    "desc": "Learn the 46 basic hiragana row by row (a, ka, sa, ta, na, ha, ma, ya, ra, wa, n) using a mnemonic for each. Then write them from memory and read simple words.",
+    "check": [
+      "You can write all 46 basic hiragana from memory in order",
+      "You can read 10 words such as sakura, sushi and arigatou written in hiragana",
+      "You know what the dakuten marks do (ka to ga, ha to ba) and can read 5 words using them"
+    ]
+  },
+  {
+    "c": "lang",
+    "d": 120,
+    "type": "study",
+    "t": "How linguists reconstructed Proto-Indo-European",
+    "desc": "Learn how comparing Sanskrit, Greek, Latin and Germanic revealed a lost ancestor language. Focus on regular sound correspondences such as Grimm's Law and the main theories of where its speakers lived.",
+    "check": [
+      "Why do 'father', 'pater' and 'pitar' show common descent rather than borrowing?",
+      "What is Grimm's Law?",
+      "What are the main hypotheses about the Proto-Indo-European homeland?"
+    ],
+    "a": [
+      "The match is systematic: the same sound correspondences recur across core vocabulary (kin, numbers, body parts) that is rarely borrowed.",
+      "A regular Germanic consonant shift: p to f, t to th, k to h, as in pater/father, tres/three, centum/hundred.",
+      "The steppe (Yamnaya) hypothesis, now favoured by ancient DNA, and the Anatolian farming hypothesis; some recent work proposes a Caucasus-area origin."
+    ]
+  },
+  {
+    "c": "lang",
+    "d": 30,
+    "type": "study",
+    "t": "How tones work in Mandarin and other tonal languages",
+    "desc": "Learn what makes a language tonal, the four Mandarin tones plus the neutral tone, and the classic 'ma' examples. Focus on how pitch changes word meaning and how tonal languages still mark questions and emotion.",
+    "check": [
+      "What does 'ma' mean in each of the four tones?",
+      "Roughly how common are tonal languages, and where are they concentrated?",
+      "If pitch already distinguishes words, how do tonal languages signal questions?"
+    ],
+    "a": [
+      "Tone 1 mother, tone 2 hemp, tone 3 horse, tone 4 to scold.",
+      "Estimates range from about 40% to over half of languages, concentrated in sub-Saharan Africa, East and Southeast Asia, and parts of the Americas.",
+      "Mostly with particles (Mandarin's question particle 'ma'), plus overall pitch range and register laid over the word tones rather than replacing them."
+    ]
+  },
+  {
+    "c": "lang",
+    "d": 30,
+    "type": "do",
+    "t": "Learn 20 survival phrases in a language you've never studied",
+    "desc": "Pick a language new to you, such as Swahili, Turkish or Vietnamese. Learn greetings, please and thank you, numbers 1-10, 'how much', 'where is' and 'I don't understand', and drill them with flashcards.",
+    "check": [
+      "You can say all 20 phrases from memory when given the English cue",
+      "You can count 1-10 forwards and backwards",
+      "You can perform a 4-line dialogue ordering food and asking the price"
+    ]
+  },
+  {
+    "c": "lang",
+    "d": 120,
+    "type": "do",
+    "t": "Learn the Arabic letters and read your first words",
+    "desc": "Learn the 28 letters, how most change shape at the start, middle and end of a word, and the short vowel marks. Read right to left and practise on words like kitab (book) and salam (peace).",
+    "check": [
+      "You can write all 28 letters in isolated form with their sounds",
+      "You can name the 6 letters that never join to the following letter (alif, dal, dhal, ra, zay, waw)",
+      "You can sound out 5 short vowelled words without help"
+    ]
+  },
+  {
+    "c": "lang",
+    "d": 60,
+    "type": "study",
+    "t": "Why Korean Hangul looks the way it does",
+    "desc": "Learn how King Sejong's scholars designed Hangul (created 1443, published 1446), with consonants shaped like the speech organs. Then learn the basic letters and how they stack into syllable blocks.",
+    "check": [
+      "What do the shapes of basic consonants like giyeok (g) and nieun (n) depict?",
+      "Why was Hangul created when Korea already used Chinese characters?",
+      "How are letters arranged into syllable blocks?"
+    ],
+    "a": [
+      "Speech organs: giyeok the back of the tongue raised to the soft palate, nieun the tongue tip at the ridge behind the teeth, mieum the mouth, siot a tooth.",
+      "Classical Chinese was hard to learn and fitted Korean poorly; Sejong wanted commoners to read. Elites resisted; it became dominant only in the 20th century.",
+      "Each block is one syllable: initial consonant plus vowel, with an optional final consonant underneath, e.g. h + a + n = han."
+    ]
+  },
+  {
+    "c": "lang",
+    "d": 30,
+    "type": "study",
+    "t": "Do all languages have the same colour words?",
+    "desc": "Study Berlin and Kay's research on basic colour terms and experiments on Russian's two words for blue. Focus on whether language shapes perception, and what the evidence actually shows.",
+    "check": [
+      "In what order do languages typically gain basic colour terms?",
+      "What did experiments on Russian 'goluboy' and 'siniy' find?",
+      "What is the difference between strong and weak versions of the Sapir-Whorf hypothesis?"
+    ],
+    "a": [
+      "Dark/light first, then red, then green and yellow, then blue, then brown, then purple, pink, orange and grey (Berlin and Kay 1969, later refined).",
+      "Russian speakers distinguished light from dark blue slightly faster across their category boundary, and the edge disappeared under verbal interference.",
+      "Strong: language determines thought (largely rejected). Weak: language nudges perception, attention and memory in modest ways (some support)."
+    ]
+  },
+  {
+    "c": "lang",
+    "d": 60,
+    "type": "study",
+    "t": "How pidgins become creoles",
+    "desc": "Study how pidgins arise from trade and plantation contact and how new generations turn them into full languages. Focus on Tok Pisin, Haitian Creole and the emergence of Nicaraguan Sign Language.",
+    "check": [
+      "What is the difference between a pidgin and a creole?",
+      "Why do many creoles take most words from a European language but have quite different grammar?",
+      "What did Nicaraguan Sign Language reveal about how children build languages?"
+    ],
+    "a": [
+      "A pidgin is a simplified contact language with no native speakers; a creole is a full language with native speakers, often grown from a pidgin.",
+      "The socially dominant language supplied vocabulary, while grammar was shaped by the speakers' first languages, universal tendencies and children's innovations.",
+      "Deaf children brought together in schools from the late 1970s created a new sign language; younger cohorts made its grammar more systematic."
+    ]
+  },
+  {
+    "c": "lang",
+    "d": 60,
+    "type": "study",
+    "t": "From Latin to Spanish, French, Italian and Romanian",
+    "desc": "Learn how spoken Latin split into the Romance languages after Rome fell. Compare the words for 'night', 'eight' and 'milk' across four languages to see regular sound changes in action.",
+    "check": [
+      "What pattern do noche, nuit, notte and noapte reveal?",
+      "Why did spoken Latin split into separate languages?",
+      "Why is Romanian a Romance language despite being surrounded by Slavic and Hungarian?"
+    ],
+    "a": [
+      "Latin 'ct' (noctem, octo, lactem) became 'ch' in Spanish, 'it' in French, 'tt' in Italian and 'pt' in Romanian.",
+      "After the Western Empire collapsed, regions were cut off under different rulers, with different local substrates and Germanic, Arabic or Slavic influences.",
+      "It descends from Latin spoken in the Roman Danube provinces; later Slavic and Hungarian contact added vocabulary but not its Latin core."
+    ]
+  },
+  {
+    "c": "lang",
+    "d": 60,
+    "type": "do",
+    "t": "Transcribe your own accent with the International Phonetic Alphabet",
+    "desc": "Learn the IPA symbols for English consonants (including theta, eth, esh and eng) and the main vowels. Then transcribe 10 everyday words as you actually say them.",
+    "check": [
+      "You can write the different IPA symbols for 'th' in 'thin' and 'this', and for 'sh' and 'ng'",
+      "10 words are transcribed with stress marks",
+      "You found at least one word your accent pronounces differently from a dictionary's transcription"
+    ]
+  },
+  {
+    "c": "lang",
+    "d": 30,
+    "type": "study",
+    "t": "Why do some languages give nouns a gender?",
+    "desc": "Learn how grammatical gender works, from two genders in French to German's three to the many noun classes of Bantu languages. Focus on where gender comes from and whether it affects how people think.",
+    "check": [
+      "Why is the German word 'Maedchen' (girl) neuter?",
+      "How do Bantu noun classes, as in Swahili, work?",
+      "Does grammatical gender change how speakers think about objects?"
+    ],
+    "a": [
+      "The diminutive suffix -chen always makes nouns neuter, so grammatical gender follows the word's form, not its meaning.",
+      "Nouns carry class prefixes (m-tu person, wa-tu people; ki-tabu book, vi-tabu books) and verbs and adjectives agree with that class.",
+      "Some studies claimed effects (e.g. how Germans vs Spaniards describe a bridge), but replications are mixed; any effect appears small."
+    ]
+  },
+  {
+    "c": "lang",
+    "d": 120,
+    "type": "study",
+    "t": "How do children learn language so fast?",
+    "desc": "Study the stages from babbling to full sentences and the debate between Chomsky's innate grammar and usage-based learning. Focus on evidence such as overregularisation errors and critical periods.",
+    "check": [
+      "Why is a child saying 'goed' or 'mouses' important evidence?",
+      "What is the poverty-of-the-stimulus argument, and how do critics answer it?",
+      "What evidence supports a critical period for language?"
+    ],
+    "a": [
+      "They never heard those forms, so they must have extracted a rule (add -ed, add -s) and over-applied it, rather than simply imitating.",
+      "Children get limited, messy input yet master complex grammar, implying innate constraints; usage-based critics say statistical learning from input suffices.",
+      "Deaf children exposed to sign language late, rare cases of isolated children, and lasting accents in late learners; the exact age limits are debated."
+    ]
+  },
+  {
+    "c": "lang",
+    "d": 120,
+    "type": "do",
+    "t": "Write and record a one-minute self-introduction in a new language",
+    "desc": "In a language you are learning or want to start, write 6-8 sentences about your name, home, work and interests. Check grammar with a dictionary and grammar guide, memorise it and record yourself.",
+    "check": [
+      "Script is written and every sentence checked against a grammar reference",
+      "You have recorded the full introduction without reading from the script",
+      "You can answer 3 likely follow-up questions (where do you live, what do you do, why this language)"
+    ]
+  },
+  {
+    "c": "lang",
+    "d": 60,
+    "type": "study",
+    "t": "Why are languages dying, and can they be revived?",
+    "desc": "Study language endangerment: of roughly 7,000 languages, a large share have few speakers. Focus on why communities shift languages and on revival efforts for Hebrew, Maori and Welsh.",
+    "check": [
+      "Why do communities shift to a dominant language?",
+      "What made the revival of Hebrew unusually successful?",
+      "What do Maori 'language nests' (Kohanga Reo) do?"
+    ],
+    "a": [
+      "Jobs, schooling, urbanisation, prestige and sometimes coercive policies; once parents stop passing the language to children, it declines fast.",
+      "Strong ideological commitment, families raising children in it, a new state that made it official, and immigrants needing a shared language.",
+      "Since 1982, preschool immersion centres where young children are cared for entirely in Maori, often by fluent elders."
+    ]
+  },
+  {
+    "c": "lang",
+    "d": 30,
+    "type": "study",
+    "t": "How sign languages work, and why they aren't universal",
+    "desc": "Learn how sign languages are structured and how they spread. Focus on the building blocks of a sign, the role of facial grammar, and why American and British Sign Language are unrelated.",
+    "check": [
+      "Why is American Sign Language closer to French Sign Language than to British Sign Language?",
+      "What are the basic parameters that make up a sign?",
+      "What evidence shows sign languages are full languages?"
+    ],
+    "a": [
+      "ASL grew from French Sign Language brought by Laurent Clerc to the first US deaf school (1817), mixed with local signing; BSL developed separately.",
+      "Handshape, location, movement and palm orientation, plus non-manual markers such as facial expressions that carry grammar.",
+      "They have phonology, morphology and syntax, children acquire them on the same timetable, and left-hemisphere damage causes sign aphasia."
+    ]
+  }
+]

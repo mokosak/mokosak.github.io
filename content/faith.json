@@ -1,0 +1,307 @@
+[
+  {
+    "c": "faith",
+    "d": 60,
+    "type": "study",
+    "t": "Compare the feeding of the 5,000 in all four Gospels",
+    "desc": "Read Matthew 14:13-21, Mark 6:30-44, Luke 9:10-17 and John 6:1-15 side by side. Note what each writer adds or leaves out, and how John uses the event to lead into the Bread of Life discourse.",
+    "check": [
+      "What details does only John include?",
+      "What is the usual scholarly explanation for the close wording of Matthew, Mark and Luke?",
+      "How does Mark frame Jesus' motive for teaching and feeding the crowd?"
+    ],
+    "a": [
+      "A boy with five barley loaves and two fish (6:9), Philip and Andrew by name, and the crowd wanting to make Jesus king (6:15).",
+      "Markan priority: most scholars think Matthew and Luke both used Mark as a source.",
+      "He had compassion because they were 'like sheep without a shepherd' (Mark 6:34), echoing Numbers 27:17 and Ezekiel 34."
+    ]
+  },
+  {
+    "c": "faith",
+    "d": 60,
+    "type": "study",
+    "t": "The Sermon on the Mount vs the Sermon on the Plain",
+    "desc": "Read Matthew 5-7 and Luke 6:17-49. Compare the Beatitudes, look at the six 'You have heard it said' antitheses in Matthew 5:21-48, and note how each Gospel frames the sermon's audience and setting.",
+    "check": [
+      "How do Matthew's and Luke's first beatitudes differ?",
+      "What does Luke include that Matthew does not?",
+      "How does Matthew 5:17 frame the antitheses?"
+    ],
+    "a": [
+      "Matthew: 'Blessed are the poor in spirit' (5:3). Luke: 'Blessed are you who are poor' (6:20), more directly economic.",
+      "Four woes paired with the blessings (Luke 6:24-26), e.g. 'Woe to you who are rich'.",
+      "Jesus came not to abolish the Law and the Prophets but to fulfil them; the antitheses deepen commands rather than cancel them."
+    ]
+  },
+  {
+    "c": "faith",
+    "d": 60,
+    "type": "study",
+    "t": "Read Luke 15 as one story: the three lost things",
+    "desc": "Read all of Luke 15: the lost sheep, the lost coin and the two sons. Pay attention to the setting in 15:1-2 and to the elder brother, whose story is left without an ending.",
+    "check": [
+      "What prompts Jesus to tell these parables?",
+      "What breaks the pattern in the third parable compared with the first two?",
+      "Why does the open ending matter for the original audience?"
+    ],
+    "a": [
+      "Pharisees and scribes grumble that he welcomes sinners and eats with them (Luke 15:1-2).",
+      "Nothing is searched for: the father waits and runs out (15:20), and a second son refuses to join the celebration.",
+      "The elder brother mirrors the grumblers; whether he goes in is left as their decision."
+    ]
+  },
+  {
+    "c": "faith",
+    "d": 120,
+    "type": "study",
+    "t": "Trace the argument of Romans 1-8",
+    "desc": "Read Romans 1-8 in one sitting and outline it: the thesis (1:16-17), universal sin (1:18-3:20), justification by faith (3:21-4:25), peace and Adam/Christ (5), life in the Spirit (8).",
+    "check": [
+      "Which verses state the letter's thesis, and what is it?",
+      "Why does Paul spend chapter 4 on Abraham?",
+      "What are the main readings of the 'I' in Romans 7:7-25?"
+    ],
+    "a": [
+      "1:16-17: the gospel is God's power for salvation to everyone who believes, Jew and Greek, for in it God's righteousness is revealed.",
+      "Genesis 15:6 says Abraham believed and it was counted to him as righteousness, before circumcision, so he is father of all who believe.",
+      "Paul's experience as a believer, his past before faith, or a rhetorical 'I' speaking for Adam or Israel under the law."
+    ]
+  },
+  {
+    "c": "faith",
+    "d": 30,
+    "type": "study",
+    "t": "The Nicene Creed: Arius, 'homoousios' and the filioque",
+    "desc": "Study why the Council of Nicaea met in 325, what Arius taught, what 'homoousios' (of one substance) was meant to exclude, what Constantinople added in 381, and how the later filioque clause became divisive.",
+    "check": [
+      "What did Arius teach about the Son?",
+      "What did the Council of Constantinople (381) add?",
+      "What is the filioque, and why does it matter?"
+    ],
+    "a": [
+      "That the Son was the first and highest creation of the Father: 'there was when he was not'.",
+      "It expanded the article on the Holy Spirit as 'the Lord, the giver of life', who is worshipped and glorified with Father and Son.",
+      "'And the Son', added in the West (Toledo, 589) to say the Spirit proceeds from Father and Son; a lasting point of East-West dispute."
+    ]
+  },
+  {
+    "c": "faith",
+    "d": 60,
+    "type": "study",
+    "t": "The Council of Chalcedon (451) and the two natures of Christ",
+    "desc": "Study the Chalcedonian Definition: one person in two natures 'without confusion, without change, without division, without separation'. Learn the positions it was steering between and why some churches did not accept it.",
+    "check": [
+      "Which two positions was the Definition steering between?",
+      "What did Pope Leo's Tome contribute?",
+      "Which churches did not accept Chalcedon, and how do they describe Christ?"
+    ],
+    "a": [
+      "Nestorianism (as understood then: two persons or a loose union) and Eutyches (the human nature absorbed into the divine).",
+      "A letter affirming two natures each acting in communion with the other in one person; it was read and acclaimed at the council.",
+      "The Oriental Orthodox (Coptic, Armenian, Syriac, Ethiopian and others), who use Cyril's 'one incarnate nature of God the Word'."
+    ]
+  },
+  {
+    "c": "faith",
+    "d": 60,
+    "type": "study",
+    "t": "Genesis 1 and 2: two creation accounts read closely",
+    "desc": "Read Genesis 1:1-2:3 and 2:4-25. Chart the seven-day structure of the first and the order of events in the second, and note the different names used for God.",
+    "check": [
+      "How are days 1-3 and 4-6 related in Genesis 1?",
+      "How does the order of creation in Genesis 2 differ?",
+      "What names for God does each account use, and how have readers explained the differences?"
+    ],
+    "a": [
+      "Days 1-3 form realms (light, sky and sea, land); days 4-6 fill them (lights, birds and fish, land animals and humans).",
+      "The man is formed first from dust, then the garden, animals, and finally the woman from his side.",
+      "Elohim in 1:1-2:3; YHWH Elohim from 2:4. Some see separate sources, others complementary angles: cosmic order vs intimate relationship."
+    ]
+  },
+  {
+    "c": "faith",
+    "d": 30,
+    "type": "study",
+    "t": "Passover in Exodus 12 and its echo at the Last Supper",
+    "desc": "Read Exodus 12:1-28 on the first Passover. Then compare how the Synoptic Gospels and John time Jesus' death relative to Passover, and how 1 Corinthians 5:7 uses the image.",
+    "check": [
+      "What were the Israelites told to do with the lamb's blood, and why?",
+      "How does John's timing of the crucifixion differ from the Synoptics?",
+      "What theological point does that timing make?"
+    ],
+    "a": [
+      "Put it on the doorposts and lintel (12:7) as a sign, so the LORD would pass over their houses (12:13).",
+      "The Synoptics present the Last Supper as a Passover meal; John has Jesus die on the day of Preparation (19:14), as the lambs were slaughtered.",
+      "Jesus as the Passover lamb, matching John 1:29 'Lamb of God' and Paul's 'Christ, our Passover lamb' (1 Corinthians 5:7)."
+    ]
+  },
+  {
+    "c": "faith",
+    "d": 120,
+    "type": "study",
+    "t": "Read Job's frame and God's speeches from the whirlwind",
+    "desc": "Read Job 1-3, skim a few speeches of the friends (e.g. 4, 8, 11), then read God's speeches in 38-41 and the ending in 42. Track the friends' theology of suffering and what God's answer does and does not say.",
+    "check": [
+      "What is the friends' basic explanation of Job's suffering?",
+      "Does God explain the reason for Job's suffering in chapters 38-41?",
+      "What surprising verdict does God give in 42:7?"
+    ],
+    "a": [
+      "Retribution: God is just, so suffering must be punishment for sin; Job should repent.",
+      "No. God never mentions the wager in heaven; he points to the vastness of creation that Job cannot grasp.",
+      "That the friends have not spoken rightly of God 'as my servant Job has', despite Job's protests."
+    ]
+  },
+  {
+    "c": "faith",
+    "d": 30,
+    "type": "study",
+    "t": "Ruth: loyalty, an outsider and the line of David",
+    "desc": "Read the four chapters of Ruth (about 20 minutes). Focus on the Hebrew idea of hesed (loyal kindness), Ruth's status as a Moabite, and the kinsman-redeemer role Boaz plays.",
+    "check": [
+      "What does Ruth promise Naomi in 1:16-17?",
+      "What is a kinsman-redeemer (go'el)?",
+      "Why is the genealogy at the end significant?"
+    ],
+    "a": [
+      "'Where you go I will go... your people shall be my people, and your God my God', a lifelong commitment.",
+      "A close relative obliged to protect family interests, e.g. buying back land and continuing a dead man's name.",
+      "Ruth becomes great-grandmother of David (4:17), and Matthew 1:5 names her in Jesus' genealogy."
+    ]
+  },
+  {
+    "c": "faith",
+    "d": 120,
+    "type": "study",
+    "t": "How the 27 books of the New Testament were recognised",
+    "desc": "Study the formation of the NT canon: Marcion's shortened canon (c. 140), the Muratorian fragment, Eusebius' categories of disputed books, Athanasius' Festal Letter of 367, and the African councils of 393 and 397.",
+    "check": [
+      "What did Marcion accept, and why did his list matter?",
+      "Which books were most often disputed?",
+      "What is significant about Athanasius' 39th Festal Letter?"
+    ],
+    "a": [
+      "An edited Luke and ten letters of Paul, rejecting the Old Testament. It pushed churches to define their own list.",
+      "Hebrews, James, 2 Peter, 2 and 3 John, Jude and Revelation.",
+      "In 367 it is the earliest surviving list naming exactly the 27 books of today's New Testament."
+    ]
+  },
+  {
+    "c": "faith",
+    "d": 60,
+    "type": "study",
+    "t": "Jonah: the reluctant prophet and the unanswered question",
+    "desc": "Read all four chapters of Jonah, then Matthew 12:38-41. Focus on why Jonah runs, his complaint in 4:2, and the question that ends the book.",
+    "check": [
+      "Why does Jonah say he fled (4:2)?",
+      "How does the book end, and why is that unusual?",
+      "How does Jesus use Jonah in Matthew 12?"
+    ],
+    "a": [
+      "He knew God is gracious and merciful (echoing Exodus 34:6) and would spare Nineveh.",
+      "With God's question about caring for Nineveh's 120,000 people and animals (4:11); Jonah's answer is never given.",
+      "As 'the sign of Jonah': three days in the fish as three days in the earth, and Nineveh's repentance as a rebuke."
+    ]
+  },
+  {
+    "c": "faith",
+    "d": 120,
+    "type": "study",
+    "t": "The Reformation and the Catholic response, 1517-1563",
+    "desc": "Study Luther's 95 Theses (1517), the Diet of Worms (1521), the Swiss and Anabaptist reformations, and the Council of Trent (1545-63). End with the 1999 Joint Declaration on the Doctrine of Justification.",
+    "check": [
+      "What specific practice did the 95 Theses attack?",
+      "What did the Council of Trent affirm on justification and Scripture?",
+      "What did the 1999 Joint Declaration say?"
+    ],
+    "a": [
+      "The sale and theology of indulgences, prompted by Johann Tetzel's preaching.",
+      "Justification involves grace and inner renewal, with faith and works cooperating; Scripture and Tradition together as authority.",
+      "Lutherans and Catholics stated a shared basic understanding of justification by grace through faith; past condemnations do not apply to it."
+    ]
+  },
+  {
+    "c": "faith",
+    "d": 30,
+    "type": "do",
+    "t": "Memorise Psalm 23 word for word",
+    "desc": "Choose one translation and memorise all six verses of Psalm 23, using first letters of each word as a cue sheet. Note the shift from 'he' to 'you' in verse 4.",
+    "check": [
+      "You can recite all six verses without the text and with no errors",
+      "You can say which verse switches from speaking about God to speaking to God",
+      "You have recited it again after a one-hour break"
+    ]
+  },
+  {
+    "c": "faith",
+    "d": 60,
+    "type": "do",
+    "t": "Build a comparison table of the four resurrection accounts",
+    "desc": "Read Matthew 28, Mark 16:1-8, Luke 24 and John 20. Make a table: who goes to the tomb, what they find, who speaks to them, first appearance of Jesus, and how each ends.",
+    "check": [
+      "Table complete for all four Gospels across at least five rows",
+      "You have listed three differences and one detail all four share",
+      "You can explain why most modern Bibles mark Mark 16:9-20 as absent from the earliest manuscripts"
+    ]
+  },
+  {
+    "c": "faith",
+    "d": 30,
+    "type": "do",
+    "t": "Practise lectio divina on Matthew 11:28-30",
+    "desc": "Use the four steps described by the 12th-century monk Guigo II: read (lectio), reflect (meditatio), respond (oratio), rest (contemplatio). Read the passage slowly three times, about 7 minutes per step.",
+    "check": [
+      "You have read the passage aloud three times",
+      "You have written down the word or phrase that stood out and why",
+      "You have written a short response and noted what the silence was like"
+    ]
+  },
+  {
+    "c": "faith",
+    "d": 120,
+    "type": "do",
+    "t": "Read the Gospel of Mark in one sitting",
+    "desc": "Read Mark 1:1-16:8 straight through (about 90 minutes), as early hearers would have. Keep a running list of moments when the disciples misunderstand and when Jesus tells people to keep quiet.",
+    "check": [
+      "Whole Gospel read in one sitting",
+      "List of at least six misunderstandings and four commands to silence",
+      "One paragraph on how ending at 16:8 ('they were afraid') affects the story"
+    ]
+  },
+  {
+    "c": "faith",
+    "d": 60,
+    "type": "do",
+    "t": "Compare the two versions of the Lord's Prayer",
+    "desc": "Put Matthew 6:9-13 and Luke 11:2-4 side by side. Mark the differences and the origin of the closing doxology, then write your own line-by-line paraphrase of Matthew's version.",
+    "check": [
+      "Side-by-side text with every difference marked",
+      "You can explain that the doxology is absent from the earliest manuscripts of Matthew and appears in the Didache",
+      "A paraphrase of each line in your own words is written down"
+    ]
+  },
+  {
+    "c": "faith",
+    "d": 60,
+    "type": "do",
+    "t": "Map Paul and Barnabas' first missionary journey (Acts 13-14)",
+    "desc": "Read Acts 13-14 and sketch a map from Antioch in Syria through Cyprus to Pisidian Antioch, Iconium, Lystra and Derbe and back. Label each stop with one key event.",
+    "check": [
+      "Map shows at least nine stops in order, including Salamis, Paphos and Perga",
+      "Each stop has a verse reference and one event (e.g. Lystra 14:8-19)",
+      "You can say where John Mark left them and why it matters later in Acts 15:37-39"
+    ]
+  },
+  {
+    "c": "faith",
+    "d": 30,
+    "type": "do",
+    "t": "Write your own lament modelled on Psalm 13",
+    "desc": "Read Psalm 13 and mark its three movements: complaint (1-2), petition (3-4), and trust and praise (5-6). Write your own six-line lament about a real situation following the same shape.",
+    "check": [
+      "Psalm 13's movements are marked by verse",
+      "Your lament has all three movements in order",
+      "You can name two other lament psalms (e.g. 22, 88) and how 88 differs"
+    ]
+  }
+]

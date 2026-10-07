@@ -1,0 +1,262 @@
+[
+ {
+  "c": "space", "d": 30, "type": "study",
+  "t": "Why do we have seasons? (It's not the distance to the Sun)",
+  "desc": "Learn how Earth's 23.4° axial tilt changes the Sun's height and the length of the day through the year, and why our changing distance from the Sun barely matters.",
+  "check": [
+   "What two facts prove distance from the Sun can't be the cause of seasons?",
+   "Give the two reasons summer days deliver more solar energy.",
+   "What would seasons be like if Earth's axis had no tilt?"
+  ],
+  "a": [
+   "Earth is closest to the Sun in early January, during northern winter, and the two hemispheres have opposite seasons at the same time.",
+   "The Sun is higher, so each square metre gets more concentrated sunlight, and days are longer, so there are more hours of heating.",
+   "Almost none: just a ~7% swing in sunlight from the slightly elliptical orbit, the same in both hemispheres."
+  ]
+ },
+ {
+  "c": "space", "d": 30, "type": "study",
+  "t": "Why does the Moon have phases, and why isn't there an eclipse every month?",
+  "desc": "Learn how Sun-Earth-Moon geometry produces the phases, why the Moon's tilted orbit makes eclipses rare, and why we always see the same face.",
+  "check": [
+   "Why is 'Earth's shadow causes the phases' wrong?",
+   "If there's a new moon every month, why isn't there a solar eclipse every month?",
+   "Why do we always see the same side of the Moon?"
+  ],
+  "a": [
+   "Phases show how much of the Moon's sunlit half faces us; Earth's shadow only reaches the Moon during a lunar eclipse, at full moon.",
+   "The Moon's orbit is tilted about 5° to Earth's, so it usually passes above or below the Sun; eclipses need new or full moon near the crossing points (nodes).",
+   "Tidal friction locked it: it now spins exactly once per orbit (27.3 days), so the same face always points at Earth."
+  ]
+ },
+ {
+  "c": "space", "d": 30, "type": "study",
+  "t": "Why is the ISS constantly falling but never hitting the ground?",
+  "desc": "Learn what an orbit really is, why astronauts float even though gravity at 400 km is about 90% as strong as at the surface, and the counterintuitive rules of orbital manoeuvres.",
+  "check": [
+   "Why are astronauts weightless if gravity up there is still strong?",
+   "Estimate the ISS's orbital speed and period at about 400 km altitude.",
+   "To catch up with a spacecraft ahead of you in the same orbit, why do you first slow down?"
+  ],
+  "a": [
+   "They and the station are in free fall together, moving sideways so fast that the ground curves away as quickly as they fall.",
+   "v = √(GM/r) with r ≈ 6,770 km gives about 7.7 km/s and a period of about 92 minutes.",
+   "Slowing drops you into a lower orbit with a shorter period, so you gain on the target; then you raise your orbit to meet it."
+  ]
+ },
+ {
+  "c": "space", "d": 30, "type": "study",
+  "t": "Why is Venus hotter than Mercury?",
+  "desc": "Compare the two inner planets' distance from the Sun, reflectivity, atmosphere and rotation, and learn how a runaway greenhouse effect made Venus about 465°C day and night.",
+  "check": [
+   "Why is Venus hotter even though it's nearly twice as far from the Sun and reflects about 75% of sunlight?",
+   "Why does Mercury's night side drop to about -180°C?",
+   "Why is Venus's surface nearly the same temperature day and night, pole to equator?"
+  ],
+  "a": [
+   "Its crushing CO₂ atmosphere (~92 times Earth's surface pressure) traps outgoing infrared so well that the surface reaches ~465°C: a runaway greenhouse.",
+   "With almost no atmosphere to hold or move heat, the surface radiates freely to space through a long night (a Mercury solar day lasts ~176 Earth days).",
+   "The massive atmosphere stores and circulates enormous amounts of heat, evening out temperature differences."
+  ]
+ },
+ {
+  "c": "space", "d": 60, "type": "study",
+  "t": "How do we find planets around other stars?",
+  "desc": "Learn the transit and radial-velocity methods, calculate how much a planet dims its star, and see why the planets we've found are biased toward big, close-in ones.",
+  "check": [
+   "Seen from far away, how much does Jupiter dim the Sun during a transit? And Earth?",
+   "Why does the transit method miss most planetary systems?",
+   "What does the radial-velocity method measure, and why does it favour massive, close-in planets?"
+  ],
+  "a": [
+   "Dimming ≈ (R_planet/R_star)²: about 1% for Jupiter and about 0.008% (84 parts per million) for Earth.",
+   "The orbit must be almost exactly edge-on to us; for an Earth-like orbit around a Sun-like star the chance is only about 0.5%.",
+   "The star's Doppler wobble around the shared centre of mass; heavy, close planets swing the star faster, giving a bigger signal."
+  ]
+ },
+ {
+  "c": "space", "d": 60, "type": "study",
+  "t": "How GPS would fail within a day without Einstein's relativity",
+  "desc": "Learn how GPS turns signal travel times into a position, and why the satellites' clocks drift relative to ground clocks because of both special and general relativity.",
+  "check": [
+   "Why does a receiver need signals from at least 4 satellites, not 3?",
+   "Which effect makes satellite clocks run fast, which makes them run slow, and what's the net drift per day?",
+   "Estimate the position error after one day if that drift weren't corrected."
+  ],
+  "a": [
+   "Three unknowns for position (x, y, z) plus a fourth for the receiver's own inaccurate clock.",
+   "Weaker gravity at altitude makes them gain ~45 µs/day; their orbital speed makes them lose ~7 µs/day; net ~38 µs/day fast.",
+   "38 µs × 300,000 km/s ≈ 11 km of ranging error per day."
+  ]
+ },
+ {
+  "c": "space", "d": 60, "type": "study",
+  "t": "What is a black hole's event horizon, really?",
+  "desc": "Learn the Schwarzschild radius r = 2GM/c², what happens to light and time near a horizon, and why tidal forces depend so strongly on a black hole's mass.",
+  "check": [
+   "What would the Schwarzschild radius be for the Sun, and for the Earth?",
+   "If the Sun were replaced by a black hole of the same mass, what would happen to Earth's orbit?",
+   "Why would you be torn apart before reaching a small black hole's horizon but could cross a supermassive one's unharmed?"
+  ],
+  "a": [
+   "About 3 km for the Sun and about 9 mm for the Earth.",
+   "Nothing: gravity at Earth's distance depends only on the mass, so the orbit is unchanged (though it would get dark and very cold).",
+   "Tidal stretching at the horizon scales as 1/M²; a huge black hole has a huge horizon where the gravity gradient across your body is gentle."
+  ]
+ },
+ {
+  "c": "space", "d": 60, "type": "study",
+  "t": "Where were the atoms in your body made?",
+  "desc": "Trace your elements to their origins: hydrogen from the Big Bang, carbon and oxygen from fusion in stars, and the heaviest elements from neutron capture in stellar explosions and collisions.",
+  "check": [
+   "Which of your atoms are older than any star?",
+   "Why does fusion inside stars stop producing energy at iron?",
+   "Where does gold come from, if stars can't make it by ordinary fusion?"
+  ],
+  "a": [
+   "Your hydrogen atoms (about 60% of all your atoms) were made in the Big Bang; nearly everything heavier was forged in stars.",
+   "Iron and nickel have the highest binding energy per nucleon; fusing them into heavier nuclei absorbs energy instead of releasing it.",
+   "Rapid neutron capture (the r-process) in neutron star mergers and possibly rare supernovae."
+  ]
+ },
+ {
+  "c": "space", "d": 120, "type": "study",
+  "t": "The cosmic distance ladder: how we measured the size and age of the universe",
+  "desc": "Learn parallax, Cepheid variable stars, Type Ia supernovae and Hubble's law, how each rung calibrates the next, and how 1/H₀ gives a rough age of the universe.",
+  "check": [
+   "Why do we need a ladder of methods rather than a single one?",
+   "A galaxy is receding at 7,000 km/s. With H₀ ≈ 70 km/s/Mpc, how far away is it?",
+   "Show that 1/H₀ with H₀ = 70 km/s/Mpc is about 14 billion years."
+  ],
+  "a": [
+   "Each method only works over a limited range of distances; nearby methods like parallax calibrate the brightness of standard candles used farther out.",
+   "d = v/H₀ = 100 Mpc, about 330 million light-years.",
+   "1 Mpc ≈ 3.09×10¹⁹ km, so 3.09×10¹⁹/70 ≈ 4.4×10¹⁷ s ≈ 14 billion years (the measured age is 13.8 billion)."
+  ]
+ },
+ {
+  "c": "space", "d": 120, "type": "study",
+  "t": "The cosmic microwave background: the afterglow of the Big Bang",
+  "desc": "Learn when and why the universe became transparent, how expansion cooled that first light to 2.7 K, and what its tiny ripples reveal about galaxies and the universe's contents.",
+  "check": [
+   "Why was the universe opaque for its first ~380,000 years, and why did it clear?",
+   "The CMB was released at about 3000 K. Why do we measure 2.7 K today?",
+   "Why do temperature ripples of only 1 part in 100,000 matter so much?"
+  ],
+  "a": [
+   "Free electrons in the hot plasma scattered light constantly; once it cooled to ~3000 K they joined nuclei into neutral atoms and light travelled freely.",
+   "Space has stretched about 1100-fold since then, stretching the light's wavelengths and lowering its temperature by the same factor: 3000/1100 ≈ 2.7 K.",
+   "They mark slight density differences that gravity grew into galaxies and clusters, and their pattern pins down the universe's age and composition."
+  ]
+ },
+ {
+  "c": "space", "d": 120, "type": "study",
+  "t": "What is the actual evidence for dark matter?",
+  "desc": "Go through the main lines of evidence: galaxy rotation curves, cluster dynamics, gravitational lensing, the Bullet Cluster and the CMB, and why 'just ordinary dark gas' doesn't fit.",
+  "check": [
+   "If visible matter were all there is, what should a galaxy's orbital speed do far from its centre, and what is observed?",
+   "Why is the Bullet Cluster hard to explain by modifying gravity alone?",
+   "Why can't dark matter just be cold gas, dust or dim stars?"
+  ],
+  "a": [
+   "Speed should fall off roughly as 1/√r beyond the visible disk; instead it stays roughly flat, implying lots of unseen mass.",
+   "Lensing shows most of the mass sits apart from the hot gas, which holds most of the ordinary matter, so the mass isn't where the normal matter is.",
+   "Big Bang element ratios and the CMB cap ordinary matter at ~5% of the universe vs ~27% for dark matter, and gas or dust would absorb or glow detectably."
+  ]
+ },
+ {
+  "c": "space", "d": 120, "type": "study",
+  "t": "The rocket equation: why rockets are mostly fuel",
+  "desc": "Derive the Tsiolkovsky rocket equation Δv = vₑ ln(m₀/m_f), then use it to see why reaching orbit demands huge mass ratios and why rockets are built in stages.",
+  "check": [
+   "Reaching low Earth orbit takes about 9.4 km/s including losses. With an exhaust speed of 3.5 km/s, what fraction of a single-stage rocket must be propellant?",
+   "Why doesn't doubling the fuel double the Δv?",
+   "Why does staging help so much?"
+  ],
+  "a": [
+   "m₀/m_f = e^(9.4/3.5) ≈ 15, so about 93% of the liftoff mass must be propellant.",
+   "Δv grows with the logarithm of the mass ratio; the extra fuel must also accelerate itself, so the returns diminish.",
+   "Dropping empty tanks and engines means later burns don't waste propellant accelerating dead mass, which raises the effective mass ratio."
+  ]
+ },
+ {
+  "c": "space", "d": 30, "type": "do",
+  "t": "Spot the International Space Station passing overhead",
+  "desc": "Use a satellite-tracking app or a space agency pass predictor to find a bright ISS pass near dawn or dusk, then watch the whole pass and note where it appears, its highest point and where it fades.",
+  "check": [
+   "You saw the ISS cross the sky and noted its start and end directions",
+   "You can explain why it's only visible shortly after sunset or before sunrise",
+   "If it faded out mid-sky, you can explain that it entered Earth's shadow"
+  ]
+ },
+ {
+  "c": "space", "d": 30, "type": "do",
+  "t": "Measure the Sun's diameter with a pinhole and a ruler",
+  "desc": "Poke a pinhole in card, project the Sun's image onto paper 1-2 m behind it, measure image diameter d and distance L, and compute Sun diameter = d/L × 150 million km. Never look at the Sun directly.",
+  "check": [
+   "You got a sharp, round image of the Sun and measured its diameter and distance",
+   "Your image-to-distance ratio is close to 1/108",
+   "Your Sun diameter is within 10% of 1.39 million km"
+  ]
+ },
+ {
+  "c": "space", "d": 60, "type": "do",
+  "t": "Learn 5 constellations and measure your latitude with your fist",
+  "desc": "On a clear night, learn 5 constellations by eye, use pointer stars to find the celestial pole (Polaris in the north, the Southern Cross method in the south), and measure its height in fist-widths.",
+  "check": [
+   "You can point out 5 constellations without an app",
+   "You can locate the celestial pole in under a minute",
+   "Your latitude estimate (pole height, about 10° per fist at arm's length) is within 5° of your real latitude"
+  ]
+ },
+ {
+  "c": "space", "d": 60, "type": "do",
+  "t": "Track the Moon for a week and measure how it moves",
+  "desc": "At the same clock time on 5 evenings, sketch the Moon's phase and its position against nearby stars or landmarks, and measure how far it has shifted each day using hand spans.",
+  "check": [
+   "You have 5 dated sketches showing the phase changing",
+   "You measured it shifting roughly 12-13° east per day relative to the stars",
+   "You can explain why the Moon rises about 50 minutes later each day"
+  ]
+ },
+ {
+  "c": "space", "d": 60, "type": "do",
+  "t": "Build a walkable scale model of the solar system",
+  "desc": "With the Sun as a 20 cm ball, calculate the size and distance of each planet, mark them out along a street or park, and walk at least as far as Jupiter.",
+  "check": [
+   "You made a table showing Earth as a ~2 mm grain 21.5 m from the Sun and Neptune about 650 m away",
+   "You walked out to at least Jupiter (a 2 cm ball about 112 m away)",
+   "You calculated where the nearest star would be on this scale (about 5,800 km away)"
+  ]
+ },
+ {
+  "c": "space", "d": 60, "type": "do",
+  "t": "Derive why geostationary satellites orbit at 35,786 km",
+  "desc": "Set gravity equal to the centripetal force to derive Kepler's third law, T = 2π√(r³/GM), then solve for the orbit whose period matches one rotation of the Earth.",
+  "check": [
+   "You derived T = 2π√(r³/GM) from F = GMm/r² and circular motion",
+   "You got an orbital radius of about 42,200 km, i.e. about 35,800 km above the surface",
+   "You can explain why the period must be the sidereal day (23 h 56 min), not 24 h"
+  ]
+ },
+ {
+  "c": "space", "d": 60, "type": "do",
+  "t": "See Jupiter's four big moons with ordinary binoculars",
+  "desc": "When Jupiter is in the night sky, brace binoculars (7x or more) against something steady, find its moons as tiny dots in a line beside the planet, and sketch their positions on 3 nights.",
+  "check": [
+   "You saw at least 3 of the Galilean moons",
+   "You have 3 dated sketches showing the moons in different positions",
+   "You matched each dot to Io, Europa, Ganymede or Callisto using a planetarium app"
+  ]
+ },
+ {
+  "c": "space", "d": 120, "type": "do",
+  "t": "Measure the size of the Earth like Eratosthenes",
+  "desc": "At local solar noon, measure the shadow of a vertical stick to get the Sun's angle. Have a friend at least 500 km due north or south do the same on the same day, and compute Earth's circumference.",
+  "check": [
+   "You found solar noon and measured the shortest shadow accurately",
+   "You converted both shadow ratios to Sun angles and the difference to a fraction of 360°",
+   "Your circumference is within 15% of 40,000 km"
+  ]
+ }
+]

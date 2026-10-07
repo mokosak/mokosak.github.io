@@ -1,0 +1,272 @@
+[
+  {
+    "c": "life",
+    "d": 30,
+    "type": "do",
+    "t": "Sew a button back on with a proper thread shank",
+    "desc": "Use doubled, knotted thread. Lay a toothpick across the button, sew 6-8 passes through each pair of holes, remove the toothpick, wrap the thread around the stitches under the button to form a shank, and knot at the back.",
+    "check": [
+      "Button attached to a real garment",
+      "Button passes through its buttonhole without the fabric puckering",
+      "Button doesn't move when tugged firmly"
+    ]
+  },
+  {
+    "c": "life",
+    "d": 60,
+    "type": "do",
+    "t": "Do a practice tyre change on your own car, safely",
+    "desc": "Flat ground, handbrake on, hazards on, wheel chocked. Loosen nuts a little before jacking, lift at the jacking point shown in the manual, swap the wheel, lower, then tighten in a star pattern. Never put any body part under the car.",
+    "check": [
+      "Spare fitted and the original wheel refitted in a safe place",
+      "Nuts fully tightened in a star pattern once the car was lowered",
+      "Jacking point, tools and spare located without looking them up"
+    ]
+  },
+  {
+    "c": "life",
+    "d": 30,
+    "type": "study",
+    "t": "Food safety: the danger zone and safe cooking temperatures",
+    "desc": "Learn the temperature danger zone, the 2-hour rule, and safe internal temperatures for poultry and minced meat. Check your fridge temperature and whether you own a food thermometer.",
+    "check": [
+      "What is the temperature danger zone and how long can perishable food sit in it?",
+      "What internal temperature makes poultry safe?",
+      "What internal temperature makes minced (ground) beef or pork safe?"
+    ],
+    "a": [
+      "Roughly 5-60 C (40-140 F). Refrigerate perishables within 2 hours, or 1 hour if it is above about 32 C (90 F).",
+      "74 C (165 F) in the thickest part.",
+      "71 C (160 F)."
+    ]
+  },
+  {
+    "c": "life",
+    "d": 60,
+    "type": "do",
+    "t": "Master knife basics: claw grip plus dice, mince, julienne and chiffonade",
+    "desc": "With a sharp chef's knife and the claw grip (fingertips tucked, knuckles guiding the blade), dice an onion, mince garlic, julienne a carrot and chiffonade basil or spinach.",
+    "check": [
+      "Onion diced into even pieces of about 1 cm",
+      "Carrot cut into matchsticks of roughly equal size",
+      "Claw grip used throughout with no cuts to fingers"
+    ]
+  },
+  {
+    "c": "life",
+    "d": 60,
+    "type": "do",
+    "t": "Pan-sear chicken thighs and make a pan sauce from the fond",
+    "desc": "Pat thighs dry, season, sear skin-side down in a hot pan until crisp, then cook through to 74 C inside. Deglaze the browned bits with stock or wine, reduce, and swirl in a knob of butter.",
+    "check": [
+      "Thermometer reads at least 74 C in the thickest part",
+      "Skin crisp and deep golden",
+      "Sauce reduced until it coats the back of a spoon"
+    ]
+  },
+  {
+    "c": "life",
+    "d": 30,
+    "type": "do",
+    "t": "Cook a classic rolled French omelette",
+    "desc": "Beat 3 eggs with a pinch of salt. Cook in butter over medium-low heat, stirring and shaking the pan until softly set, then roll it onto a plate as a smooth, pale omelette.",
+    "check": [
+      "Omelette rolled onto the plate in one piece",
+      "Outside pale yellow with no brown spots",
+      "Inside soft but set, with no runny raw egg"
+    ]
+  },
+  {
+    "c": "life",
+    "d": 60,
+    "type": "study",
+    "t": "First aid: helping an unresponsive adult, recovery position and CPR",
+    "desc": "Learn the sequence: check for danger, check response, open the airway, check breathing, call emergency services, then recovery position or CPR. Practise the recovery position on a willing friend.",
+    "check": [
+      "How do you check whether someone is breathing normally?",
+      "When should you put someone in the recovery position?",
+      "What do you do if an adult is unresponsive and not breathing normally?"
+    ],
+    "a": [
+      "Open the airway with head tilt-chin lift, then look, listen and feel for normal breathing for no more than 10 seconds.",
+      "When they are unresponsive but breathing normally; keep checking breathing until help arrives.",
+      "Call emergency services (speaker on), send for an AED, start chest compressions: centre of chest, 5-6 cm deep, 100-120 per minute."
+    ]
+  },
+  {
+    "c": "life",
+    "d": 30,
+    "type": "study",
+    "t": "First aid for burns, bleeding cuts and nosebleeds",
+    "desc": "Learn the mainstream first-aid response for three common home injuries, then check your kitchen and bathroom for what you'd actually use (clean cloths, dressings, cling film).",
+    "check": [
+      "How should you treat a minor burn?",
+      "How do you stop a nosebleed?",
+      "How do you control a bleeding cut?"
+    ],
+    "a": [
+      "Cool under cool running water for 20 minutes, remove rings or watches nearby, cover loosely with cling film. No ice, butter or creams.",
+      "Sit and lean forward, pinch the soft part of the nose for 10-15 minutes, breathe through the mouth; get help if it lasts over 20-30 minutes.",
+      "Firm direct pressure with a clean pad; if blood soaks through, add more on top rather than removing it. Call for help if severe."
+    ]
+  },
+  {
+    "c": "life",
+    "d": 120,
+    "type": "do",
+    "t": "Build a real monthly budget from your last 2-3 months of transactions",
+    "desc": "Export recent transactions, put each into a category, and compute monthly averages for needs, wants and savings or debt repayment. Compare with a 50/30/20 split and set limits for 3 categories.",
+    "check": [
+      "Every transaction for at least 2 months categorised",
+      "Monthly averages calculated for needs, wants and savings",
+      "Written limits for 3 categories, including one specific cut"
+    ]
+  },
+  {
+    "c": "life",
+    "d": 60,
+    "type": "do",
+    "t": "Diagnose and fix a running toilet",
+    "desc": "Add a few drops of food colouring to the cistern and wait 20 minutes without flushing. Colour in the bowl means a leaking flapper or seal; water spilling into the overflow tube means lower the float or adjust the fill valve.",
+    "check": [
+      "Dye test done and the cause identified",
+      "Flapper replaced or float adjusted to match the cause",
+      "No running water sound 30 minutes after a flush"
+    ]
+  },
+  {
+    "c": "life",
+    "d": 120,
+    "type": "do",
+    "t": "Write a one-page CV with achievement-based bullets",
+    "desc": "Write a one-page CV: contact line, short profile, experience in reverse order with 3-4 bullets each that start with a verb and show a result (numbers where possible), then skills and education. Tailor it to one real job ad.",
+    "check": [
+      "Fits on one page in a readable font size",
+      "Every bullet starts with an action verb and at least half include a measurable result",
+      "Proofread aloud with zero typos and 5 keywords from the job ad included"
+    ]
+  },
+  {
+    "c": "life",
+    "d": 60,
+    "type": "do",
+    "t": "Unclog a sink with a plunger and by cleaning the P-trap",
+    "desc": "Remove the stopper and pull out hair. Block the overflow with a wet cloth and plunge 15-20 times. If still slow, put a bucket under the U-shaped P-trap, unscrew it, clean it out and refit it hand-tight.",
+    "check": [
+      "A full basin drains freely without pooling",
+      "No drips from the trap after a minute of running water",
+      "No chemical drain cleaner used"
+    ]
+  },
+  {
+    "c": "life",
+    "d": 60,
+    "type": "study",
+    "t": "Negotiation basics: BATNA, anchoring and trading concessions",
+    "desc": "Learn three core ideas, then plan a real negotiation (salary, rent, a bill, a second-hand purchase): write your alternative, your target, your walk-away point and two open questions to ask.",
+    "check": [
+      "What is a BATNA and why does it matter?",
+      "What is anchoring?",
+      "Why trade concessions instead of simply giving them?"
+    ],
+    "a": [
+      "Best Alternative To a Negotiated Agreement: what you'll do if there's no deal. It sets your walk-away point and your confidence.",
+      "The first number on the table pulls the final result toward it, so an ambitious but justifiable first offer helps you.",
+      "Free concessions signal more room to give. 'If you can do X, I can do Y' keeps the exchange balanced."
+    ]
+  },
+  {
+    "c": "life",
+    "d": 120,
+    "type": "do",
+    "t": "Cook a 3-dish dinner and serve everything hot at the same time",
+    "desc": "Pick a main, a side and a simple dessert. Write a timeline counting back from serving time, do all the chopping and measuring first, and serve the hot dishes together.",
+    "check": [
+      "Written timeline with a start time for each task",
+      "All prep done before the first pan went on the heat",
+      "Hot dishes served within 5 minutes of each other"
+    ]
+  },
+  {
+    "c": "life",
+    "d": 30,
+    "type": "do",
+    "t": "Iron a dress shirt in the standard order",
+    "desc": "Set the heat from the care label. Iron the collar (underside first), cuffs, sleeves, the yoke across the shoulders, the back, then the two front panels, using steam or a damp cloth for stubborn creases.",
+    "check": [
+      "Shirt ironed in under 15 minutes",
+      "No new creases pressed into sleeves or front",
+      "Hung on a hanger straight away with the top button done up"
+    ]
+  },
+  {
+    "c": "life",
+    "d": 120,
+    "type": "do",
+    "t": "Deep-clean your kitchen top to bottom, dry to wet",
+    "desc": "Clear counters, dust high surfaces, degrease the hob, steam-clean the microwave with a bowl of water and lemon, empty and wipe the fridge, then floor last. Never mix bleach with vinegar, ammonia or other cleaners.",
+    "check": [
+      "Fridge emptied, expired food binned and shelves wiped",
+      "Hob and microwave free of grease",
+      "Floor mopped last and the bin emptied and washed"
+    ]
+  },
+  {
+    "c": "life",
+    "d": 60,
+    "type": "do",
+    "t": "Patch nail holes and small dents in a wall, ready for paint",
+    "desc": "Scrape away loose bits, press lightweight filler in with a putty knife, scrape flush, let it dry fully, sand smooth with fine sandpaper, then touch up with matching paint.",
+    "check": [
+      "All chosen holes filled and flush with the wall",
+      "No ridge felt when running a fingertip over each patch",
+      "Touch-up paint invisible from about 1 metre away"
+    ]
+  },
+  {
+    "c": "life",
+    "d": 120,
+    "type": "do",
+    "t": "Meal-prep 5 lunches on a budget",
+    "desc": "Cook one grain, one protein, two roasted vegetables and one sauce, then portion into 5 boxes. Cool and refrigerate within 2 hours, eat within 3-4 days, and freeze any portions for later in the week.",
+    "check": [
+      "5 portioned boxes in the fridge or freezer",
+      "Cost per portion calculated",
+      "Food refrigerated within 2 hours of cooking"
+    ]
+  },
+  {
+    "c": "life",
+    "d": 30,
+    "type": "study",
+    "t": "Home safety: smoke alarms, carbon monoxide and gas leaks",
+    "desc": "Learn what to do about the three most common home hazards, then test your smoke alarm and check whether you have a carbon monoxide alarm near any fuel-burning appliance.",
+    "check": [
+      "What should you do if you smell gas at home?",
+      "How often should you test smoke alarms, and when should they be replaced?",
+      "What are signs of carbon monoxide poisoning and what do you do?"
+    ],
+    "a": [
+      "Don't use switches, flames or plugs; open windows, turn off the supply at the meter if safe, get out and call the gas emergency line from outside.",
+      "Test monthly with the button; replace the whole alarm about every 10 years (or as the manufacturer says).",
+      "Headache, dizziness, nausea, tiredness, often better away from home. Get into fresh air, turn off appliances if safe, call for help."
+    ]
+  },
+  {
+    "c": "life",
+    "d": 60,
+    "type": "study",
+    "t": "How interest works: compounding, the rule of 72 and minimum payments",
+    "desc": "Learn how interest grows savings and debts, then use a calculator on one of your own cards, loans or savings accounts to see what the figures mean in money.",
+    "check": [
+      "What does the rule of 72 tell you?",
+      "What is compounding, and why is AER/APY higher than the nominal rate?",
+      "Why is paying only the minimum on a credit card expensive?"
+    ],
+    "a": [
+      "Years to double is roughly 72 divided by the annual rate: at 6% about 12 years. It works for debt growing too.",
+      "Compounding is earning interest on earlier interest. AER/APY includes it, so it beats the nominal rate when interest is added more than once a year.",
+      "Much of each payment goes to interest, so the balance shrinks slowly and you pay far more in total over many years."
+    ]
+  }
+]

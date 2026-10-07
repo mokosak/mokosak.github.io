@@ -1,0 +1,277 @@
+[
+  {
+    "c": "forensics",
+    "d": 30,
+    "type": "study",
+    "t": "Understand file magic bytes and how 'file' identifies types",
+    "desc": "Learn how file formats are identified by leading signature bytes rather than extensions, and why that matters in forensics.",
+    "check": [
+      "What magic bytes begin a PNG, a JPEG, and a ZIP/Office file?",
+      "Why can a file named photo.jpg actually be a ZIP, and how would you tell?",
+      "How does the 'file' command decide a type without trusting the extension?"
+    ],
+    "a": [
+      "PNG: 89 50 4E 47 (.PNG); JPEG: FF D8 FF; ZIP/OOXML: 50 4B 03 04 (PK..).",
+      "The extension is just a label; inspecting the header bytes (e.g. PK.. for ZIP) reveals the true format.",
+      "It matches the content against libmagic's database of signature patterns at known offsets."
+    ]
+  },
+  {
+    "c": "forensics",
+    "d": 30,
+    "type": "do",
+    "t": "Carve embedded files out of a blob with binwalk",
+    "desc": "Run binwalk on an image or firmware blob to find embedded file signatures, then extract the contained files (binwalk -e / dd at reported offsets) and inspect them.",
+    "check": [
+      "You extract at least one embedded file and identify it with 'file'",
+      "You can read the offset table binwalk produced and explain each hit",
+      "You verify an extracted file opens/parses correctly"
+    ]
+  },
+  {
+    "c": "forensics",
+    "d": 30,
+    "type": "do",
+    "t": "Find data hidden after a JPEG EOI or PNG IEND marker",
+    "desc": "Inspect an image's raw bytes for content appended after the end-of-image marker (FFD9 for JPEG, IEND for PNG) and extract the trailing hidden data.",
+    "check": [
+      "You locate the end marker and recover the appended bytes",
+      "You can state the end-of-image marker for the format you examined",
+      "You explain why viewers ignore data after the marker but it still rides along"
+    ]
+  },
+  {
+    "c": "forensics",
+    "d": 60,
+    "type": "do",
+    "t": "Recover LSB-hidden data from a PNG with zsteg",
+    "desc": "Run zsteg across bit planes and channel orderings of a suspicious PNG/BMP to find least-significant-bit encoded text or files, then extract the payload.",
+    "check": [
+      "You recover the hidden message or file from a bit plane",
+      "You identify which channel/bit/order held the data",
+      "You can explain what 'b1,rgb,lsb,xy' style zsteg parameters mean"
+    ]
+  },
+  {
+    "c": "forensics",
+    "d": 60,
+    "type": "study",
+    "t": "Understand LSB image steganography and its detectability",
+    "desc": "Learn how data is hidden in the least significant bits of pixel values and why it is visually invisible yet statistically detectable.",
+    "check": [
+      "Why does flipping the least significant bit of a pixel channel not visibly change the image?",
+      "Roughly how much data can 1-bit-per-channel LSB hide in a WxH RGB image?",
+      "What statistical signs or tools reveal LSB stego?"
+    ],
+    "a": [
+      "The LSB changes a channel value by at most 1 of 256 levels, below human perception.",
+      "About W*H*3 bits, i.e. W*H*3/8 bytes (minus any header/length overhead).",
+      "Unnatural LSB randomness shows up in chi-square or sample-pair analysis; tools like zsteg, stegsolve, and StegExpose flag it."
+    ]
+  },
+  {
+    "c": "forensics",
+    "d": 60,
+    "type": "do",
+    "t": "Extract a passphrase-protected payload with steghide",
+    "desc": "Use steghide to detect and extract an embedded payload from a JPEG or WAV carrier, recovering the passphrase by wordlist (stegcracker/stegseek) if it is not given.",
+    "check": [
+      "You extract the hidden file/message from the carrier",
+      "If needed, you recover the passphrase from a wordlist and document which one",
+      "You can explain which carrier formats steghide supports"
+    ]
+  },
+  {
+    "c": "forensics",
+    "d": 60,
+    "type": "do",
+    "t": "Follow a TCP stream in Wireshark and extract a transferred file",
+    "desc": "Open a PCAP, use Follow TCP Stream / Export Objects to locate a file transfer (HTTP/FTP), and reconstruct the transferred file from the captured bytes.",
+    "check": [
+      "You export or reassemble the transferred file and open it",
+      "You can identify the protocol and the stream carrying the file",
+      "You verify the file's integrity (magic bytes / expected content)"
+    ]
+  },
+  {
+    "c": "forensics",
+    "d": 120,
+    "type": "do",
+    "t": "Reconstruct data exfiltrated over DNS from a PCAP",
+    "desc": "Analyze a capture where data was tunneled through DNS queries (e.g. encoded subdomain labels), extract the query names, strip the base domain, and decode the concatenated payload.",
+    "check": [
+      "You reassemble and decode the exfiltrated payload",
+      "You isolate only the relevant DNS queries and preserve their order",
+      "You identify the encoding (hex/base32/base64) used in the labels"
+    ]
+  },
+  {
+    "c": "forensics",
+    "d": 60,
+    "type": "study",
+    "t": "Understand PNG chunk structure and CRC validation",
+    "desc": "Learn how a PNG is built from typed chunks with CRCs and why corrupting or fixing specific chunks breaks or restores rendering.",
+    "check": [
+      "What fields make up a PNG chunk, and which chunks are mandatory?",
+      "What does the IHDR chunk store, and why can editing it change the visible image size?",
+      "What is each chunk's CRC computed over, and why might a viewer still render despite a bad CRC?"
+    ],
+    "a": [
+      "Each chunk has a 4-byte length, 4-byte type, data, and 4-byte CRC; IHDR, IDAT, and IEND are required.",
+      "IHDR holds width, height, bit depth, and color type; wrong dimensions crop/misrender the decoded pixels.",
+      "The CRC covers the chunk type plus data; many decoders ignore CRC mismatches, which is why tampered PNGs often still display."
+    ]
+  },
+  {
+    "c": "forensics",
+    "d": 60,
+    "type": "do",
+    "t": "Repair a corrupted PNG header to reveal the image",
+    "desc": "Fix a broken PNG by restoring the 8-byte signature and/or correcting IHDR width/height (and CRC) using a hex editor or script until the image renders and shows the flag.",
+    "check": [
+      "The repaired PNG opens and reveals the hidden content",
+      "You correctly restored the signature or IHDR dimensions",
+      "You recomputed or bypassed the IHDR CRC so decoders accept it"
+    ]
+  },
+  {
+    "c": "forensics",
+    "d": 120,
+    "type": "do",
+    "t": "Recover deleted files from a disk image with photorec/testdisk",
+    "desc": "Mount or scan a raw FAT/ext disk image, use photorec to carve deleted files by signature and testdisk to inspect the partition/filesystem, and recover the target artifact.",
+    "check": [
+      "You recover the deleted file containing the flag/evidence",
+      "You can explain the difference between file-carving (photorec) and filesystem recovery (testdisk)",
+      "You note why deleted file contents often remain until overwritten"
+    ]
+  },
+  {
+    "c": "forensics",
+    "d": 30,
+    "type": "study",
+    "t": "Understand EXIF metadata and what it can leak",
+    "desc": "Learn what metadata cameras and apps embed in images and why it is a privacy and forensic goldmine.",
+    "check": [
+      "Name three kinds of information EXIF can store in a photo.",
+      "How can EXIF deanonymize where or when a photo was taken?",
+      "Why does stripping EXIF matter before publishing an image?"
+    ],
+    "a": [
+      "GPS coordinates, timestamps, and camera/device make/model (plus software, orientation, thumbnails).",
+      "Embedded GPS tags give exact location and the DateTimeOriginal gives the capture time.",
+      "Because the file otherwise carries location, time, and device identifiers that reveal the author or subject."
+    ]
+  },
+  {
+    "c": "forensics",
+    "d": 30,
+    "type": "do",
+    "t": "Pull metadata and hidden info with exiftool",
+    "desc": "Run exiftool on an image/document to dump all metadata, looking for GPS coordinates, comments, embedded thumbnails, or custom fields that hide the flag.",
+    "check": [
+      "You surface the hidden info (coords/comment/custom tag) from the metadata",
+      "You can map GPS EXIF fields to an actual location if present",
+      "You check for an embedded thumbnail that may differ from the main image"
+    ]
+  },
+  {
+    "c": "forensics",
+    "d": 60,
+    "type": "do",
+    "t": "Reveal a spectrogram-hidden message in audio",
+    "desc": "Open an audio file in Audacity or Sonic Visualiser, switch to spectrogram view, and adjust the frequency/scale to read text or an image drawn into the frequency domain.",
+    "check": [
+      "You read the hidden message from the spectrogram",
+      "You adjusted window size/frequency range so the content is legible",
+      "You can explain why the message is invisible in the waveform but visible in the spectrogram"
+    ]
+  },
+  {
+    "c": "forensics",
+    "d": 60,
+    "type": "study",
+    "t": "Understand how data hides in audio (spectrogram, DTMF, LSB)",
+    "desc": "Learn the common audio stego techniques so you know what to check and with which view/tool.",
+    "check": [
+      "How does spectrogram stego differ from LSB-in-samples stego?",
+      "What is DTMF and how would you decode digits hidden as tones?",
+      "Why is the waveform view usually useless for spotting spectrogram stego?"
+    ],
+    "a": [
+      "Spectrogram stego paints content in the frequency/time image; LSB stego alters the low bits of each PCM sample value.",
+      "DTMF encodes each key as a pair of simultaneous tones; a DTMF decoder (or matching the two frequencies) recovers the digit.",
+      "The hidden shape only emerges when amplitude is mapped across frequency bins, which the time-domain waveform does not show."
+    ]
+  },
+  {
+    "c": "forensics",
+    "d": 120,
+    "type": "do",
+    "t": "Analyze a memory dump with Volatility to find a rogue process",
+    "desc": "Use Volatility on a RAM image: identify the OS/profile, list processes (pslist/psscan), spot a suspicious one, and dump its memory or extract strings/artifacts tying it to the incident.",
+    "check": [
+      "You identify the malicious/suspicious process and justify why",
+      "You extract an artifact (command line, dumped exe, strings) from it",
+      "You can explain why pslist and psscan might disagree"
+    ]
+  },
+  {
+    "c": "forensics",
+    "d": 60,
+    "type": "study",
+    "t": "Understand the Volatility workflow: profiles, pslist vs psscan",
+    "desc": "Learn how memory forensics with Volatility starts from the right symbol profile and why multiple process-listing plugins exist.",
+    "check": [
+      "Why must you select the correct profile/symbol table before most plugins work?",
+      "How does pslist enumerate processes, and what can hide from it?",
+      "How does psscan find processes differently, and what does a pslist/psscan mismatch suggest?"
+    ],
+    "a": [
+      "Plugins need the OS's kernel structure layouts to parse the dump; the wrong profile misreads memory.",
+      "pslist walks the active EPROCESS doubly linked list, so a process unlinked by a rootkit can be hidden from it.",
+      "psscan scans physical memory for EPROCESS pool signatures, finding hidden or exited processes; a mismatch hints at unlinking/rootkit activity."
+    ]
+  },
+  {
+    "c": "forensics",
+    "d": 120,
+    "type": "do",
+    "t": "Recover a flag from a .git directory and its history",
+    "desc": "Given a repository or recovered .git folder, inspect the log, reflog, dangling objects (git fsck), and old commits/stashes to recover a secret that was committed and later removed.",
+    "check": [
+      "You recover the removed secret from history, reflog, or a dangling object",
+      "You can show the commit or object where it lived",
+      "You explain why 'deleting' a file in a later commit does not remove it from history"
+    ]
+  },
+  {
+    "c": "forensics",
+    "d": 120,
+    "type": "do",
+    "t": "Extract the payload from a malicious Office macro",
+    "desc": "Use oletools (olevba/oledump) on a macro-enabled Office document to extract the VBA, deobfuscate it, and recover the dropped URL/command or embedded payload (indicators of compromise).",
+    "check": [
+      "You extract and deobfuscate the VBA to readable logic",
+      "You recover the IOC (URL, command, or decoded payload)",
+      "You can explain how autoexec triggers (AutoOpen/Document_Open) fire the macro"
+    ]
+  },
+  {
+    "c": "forensics",
+    "d": 30,
+    "type": "study",
+    "t": "Understand a stego/forensics triage order",
+    "desc": "Learn a sensible, cheap-first order for examining a suspicious file so you do not miss easy wins or waste time.",
+    "check": [
+      "Why run strings, file, and exiftool before heavier tools?",
+      "When do you reach for binwalk versus zsteg versus steghide?",
+      "Why should early steps be non-destructive and keep the original intact?"
+    ],
+    "a": [
+      "They are instant and often reveal flags, embedded text, or metadata without any guessing.",
+      "binwalk for appended/embedded files, zsteg for PNG/BMP LSB bit planes, steghide for passworded JPEG/WAV payloads.",
+      "So you preserve evidence and can re-run different approaches; always work on a copy and hash the original first."
+    ]
+  }
+]

@@ -1,0 +1,307 @@
+[
+  {
+    "c": "philosophy",
+    "d": 60,
+    "type": "do",
+    "t": "Steelman both sides of the trolley problem's footbridge case",
+    "desc": "Lay out Foot's switch case and Thomson's footbridge case. Write the strongest case for pushing the man (consequentialist) and the strongest case against (rights, using a person as a means), then name the one premise you reject.",
+    "check": [
+      "Each side is written in at least 150 words, in terms its own defenders would accept",
+      "You can state one principle that permits switching but forbids pushing, plus one case where it breaks down",
+      "You have written down your verdict and the single premise of the other side you reject"
+    ]
+  },
+  {
+    "c": "philosophy",
+    "d": 30,
+    "type": "study",
+    "t": "Why Gettier's three-page paper broke 'justified true belief'",
+    "desc": "Read Edmund Gettier's 1963 'Is Justified True Belief Knowledge?' (it is about three pages) and work through his Smith and Jones cases, then look at the fake-barn case and the no-false-lemmas fix.",
+    "check": [
+      "What do all Gettier cases have in common that makes the belief true by luck?",
+      "What is the no-false-lemmas response, and how does the fake-barn case defeat it?",
+      "Why do some philosophers think any JTB-plus-X analysis will face new Gettier cases?"
+    ],
+    "a": [
+      "The subject has good justification, but it connects to the truth only by accident: the belief comes out true for reasons unrelated to the evidence.",
+      "It says knowledge must not rest on a false belief. Among fake barns, Henry infers nothing false yet sees the one real barn by luck, so he seems not to know.",
+      "Zagzebski argued that as long as justification does not guarantee truth, you can always construct a case where bad luck is cancelled out by good luck."
+    ]
+  },
+  {
+    "c": "philosophy",
+    "d": 120,
+    "type": "study",
+    "t": "Read Descartes' Meditations I and II: doubt, the demon and the cogito",
+    "desc": "Read Meditations I and II (1641) slowly. Track the three waves of doubt (senses, dreaming, evil demon) and exactly what survives them in Meditation II, including the wax example.",
+    "check": [
+      "Why is the dreaming argument not enough to doubt mathematics, and what does the demon add?",
+      "What exactly does the cogito establish, and what does it not establish?",
+      "What is the Cartesian circle objection?"
+    ],
+    "a": [
+      "Even in dreams 2 + 3 = 5 and squares have four sides. The deceiving demon or God could make you err even about the simplest truths.",
+      "That 'I am, I exist' is true whenever I think it, and that I am a thinking thing. Not that I have a body, nor that anything outside my mind exists.",
+      "Arnauld's point: Descartes uses clear and distinct perception to prove God exists, then uses God to guarantee clear and distinct perception."
+    ]
+  },
+  {
+    "c": "philosophy",
+    "d": 60,
+    "type": "study",
+    "t": "Hume's problem of induction and why it is still unsolved",
+    "desc": "Read Section IV of Hume's Enquiry Concerning Human Understanding (1748) and reconstruct his dilemma about inferring the future from the past. Then compare Popper's falsificationist dodge and Goodman's 'grue' riddle.",
+    "check": [
+      "Why can induction be justified neither by deductive reasoning nor by experience?",
+      "How does Popper try to avoid the problem, and what is the usual objection?",
+      "What extra problem does Goodman's 'grue' add on top of Hume's?"
+    ],
+    "a": [
+      "No contradiction in the future differing from the past, so not deductive; arguing 'induction worked before' uses induction, so it is circular.",
+      "Science only falsifies, never confirms. Critics reply that relying on well-tested theories for future predictions quietly smuggles induction back in.",
+      "Even granting induction, the same evidence supports 'green' and 'grue' equally, so we need a reason to project some predicates and not others."
+    ]
+  },
+  {
+    "c": "philosophy",
+    "d": 30,
+    "type": "study",
+    "t": "The Euthyphro dilemma and divine command theory",
+    "desc": "Read Plato's short dialogue Euthyphro, focusing on the question at 10a: is the pious loved by the gods because it is pious, or pious because it is loved? Restate it for 'good' and 'commanded by God'.",
+    "check": [
+      "What are the two horns of the dilemma, and what is the problem with each?",
+      "Why is it a problem specifically for divine command theory?",
+      "How do modern theists such as Robert Adams try to escape it?"
+    ],
+    "a": [
+      "If God commands it because it is good, goodness is independent of God. If it is good because commanded, morality looks arbitrary (God could command cruelty).",
+      "DCT says moral rightness just is being commanded by God, which lands it on the arbitrary horn.",
+      "They ground goodness in God's unchanging nature rather than in bare will, so commands flow from a good nature and are not arbitrary."
+    ]
+  },
+  {
+    "c": "philosophy",
+    "d": 60,
+    "type": "study",
+    "t": "Kant's categorical imperative: universal law vs treating people as ends",
+    "desc": "Read Section II of Kant's Groundwork (1785) on the first two formulations. Apply both to his lying-promise example, then examine the 'murderer at the door' case from his 1797 reply to Benjamin Constant.",
+    "check": [
+      "Why does a lying promise fail the universal law test?",
+      "What is the difference between a contradiction in conception and a contradiction in will?",
+      "What is the murderer-at-the-door objection, and how do sympathetic Kantians respond?"
+    ],
+    "a": [
+      "If everyone made false promises when convenient, no one would believe promises, so the maxim cannot even be conceived as universal law.",
+      "Conception: the universal maxim is self-defeating (lying promises). Will: it is coherent but no rational agent could want it (never helping anyone).",
+      "Kant says you may not lie even to a murderer asking where your friend is. Kantians like Korsgaard argue deceiving someone who uses deceit is permitted."
+    ]
+  },
+  {
+    "c": "philosophy",
+    "d": 60,
+    "type": "study",
+    "t": "Mill's higher and lower pleasures: can a hedonist rank pleasures?",
+    "desc": "Read Chapter 2 of Mill's Utilitarianism (1863), focusing on the 'Socrates dissatisfied' passage and his test of competent judges. Decide whether quality of pleasure fits inside hedonism.",
+    "check": [
+      "What is Mill's test for which of two pleasures is higher?",
+      "Why do critics say ranking pleasures by quality abandons hedonism?",
+      "How does Mill's view differ from Bentham's?"
+    ],
+    "a": [
+      "Ask people who have experienced both; if almost all of them prefer one even with more discontent attached, it is the higher pleasure.",
+      "If one pleasure is better beyond its amount of pleasure, something other than pleasure must be making it better.",
+      "Bentham measured only quantity (intensity, duration and so on), 'pushpin is as good as poetry'. Mill adds quality."
+    ]
+  },
+  {
+    "c": "philosophy",
+    "d": 120,
+    "type": "study",
+    "t": "Rawls' veil of ignorance and Nozick's Wilt Chamberlain reply",
+    "desc": "Study the original position and two principles of justice from Rawls' A Theory of Justice (1971), then Nozick's Wilt Chamberlain argument from Anarchy, State, and Utopia (1974).",
+    "check": [
+      "What are Rawls' two principles, and which has priority?",
+      "Why would parties behind the veil choose maximin, and what does Harsanyi object?",
+      "What is the Wilt Chamberlain argument meant to show?"
+    ],
+    "a": [
+      "1: equal basic liberties for all. 2: fair equality of opportunity, and inequalities only if they benefit the least advantaged. 1 has priority.",
+      "Not knowing their place, they guard against the worst outcome. Harsanyi argues rational choosers would maximise average utility instead.",
+      "Start from any just pattern; free voluntary payments to Wilt upset it. So keeping a pattern requires constantly interfering with liberty."
+    ]
+  },
+  {
+    "c": "philosophy",
+    "d": 60,
+    "type": "study",
+    "t": "Mary's room and the bat: is consciousness more than physics?",
+    "desc": "Read Nagel's 'What Is It Like to Be a Bat?' (1974) and Frank Jackson's Mary's room argument from 'Epiphenomenal Qualia' (1982). Then study the ability hypothesis reply from Lewis and Nemirow.",
+    "check": [
+      "Set out the knowledge argument in three premises.",
+      "What does the ability hypothesis say Mary gains when she first sees red?",
+      "What did Jackson himself later conclude about his argument?"
+    ],
+    "a": [
+      "Mary knows all physical facts about colour; on seeing red she learns something new; so not all facts are physical facts.",
+      "No new fact, only new abilities: to recognise, imagine and remember red. Know-how, not know-that.",
+      "He became a physicalist by the late 1990s and argued the intuition that Mary learns a new fact is mistaken."
+    ]
+  },
+  {
+    "c": "philosophy",
+    "d": 60,
+    "type": "study",
+    "t": "Parfit's teletransporter: does personal identity matter?",
+    "desc": "Study Part Three of Parfit's Reasons and Persons (1984): the teletransporter, the branch-line case and the fission case, and his claim that identity is not what matters in survival.",
+    "check": [
+      "Why does the fission case make it hard to say which person you become?",
+      "What is 'Relation R', and why does Parfit think it matters instead of identity?",
+      "What is the strongest objection to his view?"
+    ],
+    "a": [
+      "Both resulting people are equally continuous with you; you cannot be both (they are two), and choosing one is arbitrary.",
+      "Psychological connectedness and continuity with any cause. Fission is about as good as ordinary survival even though identity fails.",
+      "Many find it absurd that dying and being replaced by a perfect copy is not bad for you; animalists also say we are organisms, not psychologies."
+    ]
+  },
+  {
+    "c": "philosophy",
+    "d": 60,
+    "type": "study",
+    "t": "Searle's Chinese room: can a program understand?",
+    "desc": "Read John Searle's 'Minds, Brains, and Programs' (1980). Reconstruct the room, then the systems reply and the robot reply, and Searle's answer to each.",
+    "check": [
+      "What conclusion is the Chinese room meant to establish?",
+      "What is the systems reply, and how does Searle answer it?",
+      "Does the argument show machines can never think?"
+    ],
+    "a": [
+      "Running a program (manipulating symbols by syntax) is not sufficient for understanding (semantics), so strong AI is false.",
+      "The whole system understands, not the man. Searle: let the man memorise the rules and do it in his head; he still does not understand Chinese.",
+      "No. Searle allows a machine with the right causal powers (like a brain) could think; he denies that the program alone is enough."
+    ]
+  },
+  {
+    "c": "philosophy",
+    "d": 30,
+    "type": "study",
+    "t": "Pascal's wager: the decision matrix and the many-gods problem",
+    "desc": "Read the 'Infinite-nothing' fragment from Pascal's Pensees and draw the 2x2 decision table. Then test it against the many-gods objection and the worry that belief cannot be chosen.",
+    "check": [
+      "Why does infinite reward make the wager work even at tiny probabilities?",
+      "What is the many-gods objection?",
+      "What does Pascal say to someone who cannot simply decide to believe?"
+    ],
+    "a": [
+      "Any non-zero probability times an infinite payoff gives infinite expected value, which beats any finite cost of believing.",
+      "Many possible gods with incompatible demands each offer infinite stakes, so the wager does not tell you which to bet on.",
+      "Act as if you believe: take holy water, have masses said. Habit will bring belief and reduce the passions that block it."
+    ]
+  },
+  {
+    "c": "philosophy",
+    "d": 120,
+    "type": "study",
+    "t": "Plato's cave, sun and divided line as one argument",
+    "desc": "Read the end of Republic VI (sun analogy and divided line, 507-511) and the allegory of the cave in VII (514a-520a). Map each stage of the cave onto a segment of the line.",
+    "check": [
+      "What are the four segments of the divided line?",
+      "Which part of the cave corresponds to the Form of the Good?",
+      "Why must the freed philosopher return, and what does Plato hint will happen to him?"
+    ],
+    "a": [
+      "Images (eikasia), physical objects (pistis), mathematical objects (dianoia), Forms (noesis). Lower two are opinion, upper two knowledge.",
+      "The sun outside the cave: it makes the Forms knowable and is the source of their being, as the sun gives sight and growth.",
+      "Justice requires rulers who know the Good to govern. The prisoners would mock him and kill him if they could, an allusion to Socrates."
+    ]
+  },
+  {
+    "c": "philosophy",
+    "d": 30,
+    "type": "study",
+    "t": "Validity, soundness and the four basic argument forms",
+    "desc": "Learn the difference between a valid and a sound argument, then the forms modus ponens, modus tollens, affirming the consequent and denying the antecedent. Write one everyday example of each.",
+    "check": [
+      "Can a valid argument have a false conclusion?",
+      "Why is affirming the consequent invalid?",
+      "What is the difference between modus tollens and denying the antecedent?"
+    ],
+    "a": [
+      "Yes, if at least one premise is false. Validity only guarantees that true premises could not lead to a false conclusion.",
+      "'If P then Q; Q; so P' fails because Q can be true for other reasons: wet streets do not prove it rained.",
+      "Tollens: if P then Q; not Q; so not P (valid). Denying the antecedent: if P then Q; not P; so not Q (invalid)."
+    ]
+  },
+  {
+    "c": "philosophy",
+    "d": 30,
+    "type": "do",
+    "t": "Map Singer's drowning-child argument and find your weak premise",
+    "desc": "Using Peter Singer's 'Famine, Affluence, and Morality' (1972), write his argument as numbered premises and a conclusion. Pick the premise you find weakest and write your best case against it.",
+    "check": [
+      "Argument is written as 3-4 numbered premises leading validly to the conclusion",
+      "You have named one premise and written at least 100 words against it",
+      "You have written Singer's likely reply to your objection in 2-3 sentences"
+    ]
+  },
+  {
+    "c": "philosophy",
+    "d": 120,
+    "type": "do",
+    "t": "Read Plato's Crito and rebut the Laws' argument for staying in prison",
+    "desc": "Read the Crito in full (about 45 minutes). Reconstruct the speech of the Laws of Athens as an argument map, then write a 300-word reply on behalf of Crito.",
+    "check": [
+      "Your map contains at least three separate lines of argument (harm, parent analogy, tacit agreement)",
+      "Your reply attacks a specific premise rather than the conclusion",
+      "You can explain how Socrates squares this with his defiance in the Apology"
+    ]
+  },
+  {
+    "c": "philosophy",
+    "d": 60,
+    "type": "do",
+    "t": "Decide whether you'd plug into Nozick's experience machine",
+    "desc": "Read Nozick's experience machine passage (Anarchy, State, and Utopia, 1974). Write your answer and reasons, then rerun it as De Brigard's reversed version: you learn your current life is already a simulation.",
+    "check": [
+      "You have written a yes or no with three distinct reasons",
+      "You have stated what your answer implies for hedonism",
+      "You have answered the reversed case and noted whether status quo bias changed your answer"
+    ]
+  },
+  {
+    "c": "philosophy",
+    "d": 30,
+    "type": "do",
+    "t": "Find and label three informal fallacies in a real opinion piece",
+    "desc": "Pick a recent opinion column or long social media thread. Identify three informal fallacies (e.g. straw man, false dilemma, ad hominem, slippery slope), quote the line and rewrite it as a fair argument.",
+    "check": [
+      "Three quoted passages, each with a named fallacy",
+      "For each, one sentence explaining why the reasoning fails",
+      "Each has a rewritten version that makes the same point without the fallacy"
+    ]
+  },
+  {
+    "c": "philosophy",
+    "d": 120,
+    "type": "do",
+    "t": "Compare Hobbes' and Locke's state of nature side by side",
+    "desc": "Read Hobbes' Leviathan chapter 13 and Locke's Second Treatise chapter 2. Build a comparison table (human nature, law, property, why we leave) and write a one-page verdict on which is more realistic.",
+    "check": [
+      "Table has at least five rows filled in for both thinkers",
+      "You can explain why Hobbes's life is 'solitary, poor, nasty, brutish, and short' but Locke's state of nature has a law",
+      "You have written a one-page verdict citing evidence beyond either text"
+    ]
+  },
+  {
+    "c": "philosophy",
+    "d": 60,
+    "type": "do",
+    "t": "Sort your worries with Epictetus' dichotomy of control",
+    "desc": "Read Epictetus' Enchiridion sections 1-5. List ten things currently bothering you and sort each into 'up to me' and 'not up to me', then rewrite the second group as goals about your own effort and judgments.",
+    "check": [
+      "Ten items are listed and sorted into the two columns",
+      "Every 'not up to me' item has a rewritten internal goal",
+      "You have noted one case where the Stoic sorting felt wrong and why"
+    ]
+  }
+]

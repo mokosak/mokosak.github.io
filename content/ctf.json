@@ -1,0 +1,277 @@
+[
+  {
+    "c": "ctf",
+    "d": 30,
+    "type": "do",
+    "t": "Clear OverTheWire Bandit levels 0 through 15",
+    "desc": "Work through Bandit from level 0, practicing SSH login, reading awkward filenames, find with filters, file-type detection, and simple decoding to retrieve each level's password.",
+    "check": [
+      "You reach level 16 with its password saved",
+      "You can SSH into the next level using the recovered credentials",
+      "You can explain the find and file commands you used to locate hidden passwords"
+    ]
+  },
+  {
+    "c": "ctf",
+    "d": 60,
+    "type": "do",
+    "t": "Clear OverTheWire Bandit levels 16 through 24",
+    "desc": "Continue Bandit through the harder stretch: SSL/openssl client connections, cron-based password rotation, setuid helper binaries, and a git-repository level, retrieving each password.",
+    "check": [
+      "You reach level 25 with its password",
+      "You exploited the cron/setuid level correctly rather than by guessing",
+      "You recovered a password from the git repo level using git history"
+    ]
+  },
+  {
+    "c": "ctf",
+    "d": 120,
+    "type": "do",
+    "t": "Finish OverTheWire Narnia levels 0 through 4",
+    "desc": "Exploit the Narnia setuid binaries: classic stack buffer overflows and environment/variable manipulation to redirect execution and obtain the next level's shell/password.",
+    "check": [
+      "You get a shell as the next level's user for narnia0 through narnia4",
+      "For at least one level you computed the overflow offset deliberately",
+      "You can explain how a setuid binary lets the exploit escalate privileges"
+    ]
+  },
+  {
+    "c": "ctf",
+    "d": 60,
+    "type": "do",
+    "t": "Break the ciphers in OverTheWire Krypton",
+    "desc": "Solve the Krypton wargame: ROT/Caesar, substitution via frequency analysis, Vigenere, and an ECB-mode exercise, recovering each stage's key or plaintext.",
+    "check": [
+      "You complete all Krypton levels and recover the final password",
+      "You broke the Vigenere stage using key-length analysis, not brute force",
+      "You can explain why the ECB stage leaked structure"
+    ]
+  },
+  {
+    "c": "ctf",
+    "d": 60,
+    "type": "do",
+    "t": "Solve ROP Emporium 'ret2win' and 'split' (x86-64)",
+    "desc": "On the 64-bit challenges, overflow to call ret2win, then in split assemble a short ROP chain to load the '/bin/cat flag.txt' argument into rdi and call system.",
+    "check": [
+      "Both binaries print the flag via your exploit",
+      "Your split chain correctly uses a pop rdi; ret gadget before system",
+      "You handled 16-byte stack alignment where required"
+    ]
+  },
+  {
+    "c": "ctf",
+    "d": 120,
+    "type": "do",
+    "t": "Solve ROP Emporium 'write4', 'badchars', and 'fluff'",
+    "desc": "Write the needed string into a writable section using gadgets (write4), route around filtered bytes (badchars), and use the awkward non-obvious gadgets in fluff to accomplish the same.",
+    "check": [
+      "All three binaries print the flag",
+      "In write4 you located a writable address and a mov [reg],reg gadget",
+      "In badchars you encoded the string to avoid the forbidden bytes and fixed it up in memory"
+    ]
+  },
+  {
+    "c": "ctf",
+    "d": 60,
+    "type": "do",
+    "t": "Solve ROP Emporium 'callme' and 'pivot'",
+    "desc": "In callme, call three functions in the correct order with the right arguments; in pivot, leak the heap/mmap address and pivot the stack into the second region to run the real chain.",
+    "check": [
+      "Both binaries print the flag",
+      "In callme your chain sets rdi/rsi/rdx correctly for each call in sequence",
+      "In pivot you performed a stack pivot into the provided writable region"
+    ]
+  },
+  {
+    "c": "ctf",
+    "d": 120,
+    "type": "do",
+    "t": "Complete exploit.education Protostar stack0 through stack5",
+    "desc": "Work the Protostar stack series from overwriting an adjacent variable (stack0) up to overflowing into the return address to redirect to shellcode or a target function (stack4/stack5).",
+    "check": [
+      "Each level behaves as intended (variable flipped, function called, or shellcode run)",
+      "You can state the offset to the saved return address for stack4",
+      "For stack5 you successfully execute shellcode (no mitigations on Protostar)"
+    ]
+  },
+  {
+    "c": "ctf",
+    "d": 120,
+    "type": "do",
+    "t": "Complete exploit.education Protostar format0 through format4",
+    "desc": "Exploit the Protostar format-string levels: overwrite a variable with a target value (format1/2), then use %n writes to overwrite a GOT entry and redirect execution (format3/4).",
+    "check": [
+      "Each level reaches its success condition",
+      "You used positional %N$ specifiers to target the right stack slot",
+      "In format4 you overwrote a GOT entry to redirect a function call"
+    ]
+  },
+  {
+    "c": "ctf",
+    "d": 30,
+    "type": "do",
+    "t": "Clear the picoCTF 'General Skills' practice challenges",
+    "desc": "In the picoCTF practice gym, solve the General Skills set: encodings/base conversions, bash one-liners, file inspection, and basic scripting to extract each flag.",
+    "check": [
+      "You submit correct flags for the General Skills challenges you attempt",
+      "You solved at least one using a bash pipeline rather than manual work",
+      "You can explain each decoding step you used (e.g. base64, hex, tr)"
+    ]
+  },
+  {
+    "c": "ctf",
+    "d": 60,
+    "type": "do",
+    "t": "Solve all of cryptopals Set 1 (challenges 1-8)",
+    "desc": "Complete the cryptopals basics: hex-to-base64, fixed XOR, single-byte XOR, detect single-byte XOR, repeating-key XOR encrypt, break repeating-key XOR, AES-ECB decrypt, and detect ECB.",
+    "check": [
+      "All eight challenges pass against the provided test inputs",
+      "Your break of challenge 6 recovers the real key via keysize + transpose",
+      "Your challenge 8 solver flags the ECB ciphertext by repeated blocks"
+    ]
+  },
+  {
+    "c": "ctf",
+    "d": 120,
+    "type": "do",
+    "t": "Solve all of cryptopals Set 2 (challenges 9-16)",
+    "desc": "Complete Set 2: PKCS#7 padding, CBC mode from scratch, an ECB/CBC detection oracle, byte-at-a-time ECB decryption (simple and harder), PKCS#7 validation, and CBC bit-flipping to gain admin.",
+    "check": [
+      "All eight challenges pass",
+      "Your byte-at-a-time attack recovers the hidden suffix in both variants",
+      "Your bit-flipping solution produces admin=true without the key"
+    ]
+  },
+  {
+    "c": "ctf",
+    "d": 60,
+    "type": "do",
+    "t": "Solve Microcorruption New Orleans, Sydney, and Hanoi",
+    "desc": "Use the Microcorruption MSP430 debugger/disassembler to beat the first lock challenges: find the password check and craft input that unlocks each warehouse door.",
+    "check": [
+      "All three locks accept your unlocking input",
+      "You can read MSP430 assembly well enough to find the comparison in Hanoi",
+      "You explain how Hanoi's check differs from New Orleans' hardcoded password"
+    ]
+  },
+  {
+    "c": "ctf",
+    "d": 30,
+    "type": "study",
+    "t": "Understand the pwn.college dojo and module structure",
+    "desc": "Learn how pwn.college organizes learning into dojos, modules, and progressively harder levels with an in-browser practice environment, so you can plan a path.",
+    "check": [
+      "How are pwn.college's dojos and modules arranged for a beginner's progression?",
+      "What does the autograded in-browser level model give you over a static writeup?",
+      "Which foundational topics come before memory-corruption modules?"
+    ],
+    "a": [
+      "Dojos group modules by topic; each module has ordered levels rising from intro exercises to harder challenges.",
+      "A live sandbox per level lets you practice and get immediate verification of a working exploit, not just read about it.",
+      "Program misuse, assembly, and debugging/toolchain basics precede the memory-corruption and exploitation modules."
+    ]
+  },
+  {
+    "c": "ctf",
+    "d": 30,
+    "type": "study",
+    "t": "Understand the exploit.education suite: Nebula, Protostar, Phoenix, Fusion",
+    "desc": "Learn how exploit.education's VMs progress in difficulty so you start at the right level and know what each adds.",
+    "check": [
+      "What does Nebula focus on compared to Protostar?",
+      "How does Phoenix relate to Protostar, and what does it add?",
+      "What makes Fusion the advanced tier of the suite?"
+    ],
+    "a": [
+      "Nebula covers general Linux privilege-escalation and app flaws; Protostar focuses on intro memory corruption.",
+      "Phoenix is Protostar's successor, covering the same bug classes on both 32- and 64-bit with more realistic code.",
+      "Fusion adds modern mitigations and networked targets, making exploitation closer to real-world difficulty."
+    ]
+  },
+  {
+    "c": "ctf",
+    "d": 30,
+    "type": "study",
+    "t": "Understand what Microcorruption teaches and its lock model",
+    "desc": "Learn how Microcorruption frames each challenge as a lock on a warehouse, using an MSP430 CPU, debugger, and disassembler, with increasing mitigations.",
+    "check": [
+      "What CPU architecture and tooling does Microcorruption center on?",
+      "What is the recurring goal/model of each level?",
+      "How does difficulty increase across the later locks?"
+    ],
+    "a": [
+      "The 16-bit TI MSP430 CPU, driven through a built-in disassembler and interactive debugger.",
+      "Each level is a lock guarding a warehouse; you must find input (or a bug) that triggers the unlock routine.",
+      "Later locks add hardened checks and memory-corruption defenses, pushing you from password-finding to real exploitation."
+    ]
+  },
+  {
+    "c": "ctf",
+    "d": 60,
+    "type": "study",
+    "t": "Understand the pwnable.kr 'Toddler's Bottle' category",
+    "desc": "Learn what the beginner pwnable.kr challenges each teach so you can pick targeted practice for a specific concept.",
+    "check": [
+      "What core concept does the 'fd' challenge teach?",
+      "What class of bug does 'bof' introduce?",
+      "What does the 'flag' challenge teach about analyzing binaries?"
+    ],
+    "a": [
+      "Unix file descriptors: that 0 is stdin, and how argv-controlled fd numbers select an input source.",
+      "A classic stack buffer overflow overwriting a local variable/argument to pass a check.",
+      "Recognizing and unpacking a packed binary (UPX) to read its real contents and find the flag."
+    ]
+  },
+  {
+    "c": "ctf",
+    "d": 30,
+    "type": "study",
+    "t": "Understand CryptoHack's structure and why it suits beginners",
+    "desc": "Learn how CryptoHack organizes crypto learning into categories with interactive, no-setup challenges that reward Python scripting.",
+    "check": [
+      "What progression of categories does CryptoHack offer from basics to advanced?",
+      "Why is it considered beginner-friendly compared to grabbing raw CTF crypto tasks?",
+      "What skill does solving its challenges build that pure theory does not?"
+    ],
+    "a": [
+      "Introduction and General (encodings), then Mathematics/Modular math, Symmetric ciphers, RSA, Diffie-Hellman, and Elliptic curves.",
+      "Challenges are bite-sized, in-browser, with hints and immediate feedback, so you learn by doing without heavy setup.",
+      "Writing short Python to manipulate bytes, big integers, and modular arithmetic against a live oracle."
+    ]
+  },
+  {
+    "c": "ctf",
+    "d": 60,
+    "type": "study",
+    "t": "Understand the ROP Emporium progression and what each challenge isolates",
+    "desc": "Learn how ROP Emporium's challenges each teach exactly one ROP skill in sequence, so you know which to practice for a given gap.",
+    "check": [
+      "What single idea does 'ret2win' isolate versus 'split'?",
+      "Why do 'write4' and 'badchars' exist as separate challenges?",
+      "What universal technique does the 'ret2csu' challenge teach and when is it needed?"
+    ],
+    "a": [
+      "ret2win is pure control-flow hijack to a given function; split adds assembling a call to system with a string argument.",
+      "write4 teaches writing a chosen string into memory via gadgets; badchars adds working around filtered/forbidden bytes.",
+      "Using the __libc_csu_init gadgets to set rdi/rsi/rdx and call a pointer, needed when clean argument gadgets are missing."
+    ]
+  },
+  {
+    "c": "ctf",
+    "d": 60,
+    "type": "study",
+    "t": "Compare OverTheWire, exploit.education, and pwn.college",
+    "desc": "Learn the distinct strengths of these free platforms so you can choose the right one for breadth, isolated bug practice, or a structured curriculum.",
+    "check": [
+      "What does OverTheWire (Bandit/Narnia/etc.) best build, and in what environment?",
+      "What makes exploit.education (Protostar/Phoenix) good for memory-corruption practice specifically?",
+      "When would you pick pwn.college over the other two?"
+    ],
+    "a": [
+      "Linux shell fluency and classic bugs practiced over SSH, from basic command-line skills up to exploitation.",
+      "Curated VMs with levels that each isolate one memory-corruption bug class with minimal distractions and known mitigations.",
+      "When you want a guided, autograded syllabus that builds skills in order rather than a loose set of standalone challenges."
+    ]
+  }
+]

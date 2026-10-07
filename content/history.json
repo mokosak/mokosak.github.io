@@ -1,0 +1,307 @@
+[
+  {
+    "c": "history",
+    "d": 60,
+    "type": "study",
+    "t": "Why did the Bronze Age collapse around 1177 BC?",
+    "desc": "Study the fall of the interconnected Late Bronze Age world: Hittites, Mycenaean palaces, Ugarit, a weakened Egypt. Focus on the competing explanations and why a networked system of states failed together.",
+    "check": [
+      "What are the main proposed causes of the collapse?",
+      "Why might dependence on long-distance trade make a collapse spread rather than stay local?",
+      "Which great power survived in weakened form, and which ones vanished?"
+    ],
+    "a": [
+      "Drought, earthquakes, Sea Peoples raids and migration, disrupted trade, internal revolt. Most historians favour a combination: a 'systems collapse'.",
+      "Palace economies needed imported tin and copper for bronze plus grain shipments; when one node failed, shortages and instability cascaded to the others.",
+      "Egypt survived, repelling the Sea Peoples under Ramesses III but declining afterwards. The Hittite Empire and the Mycenaean palace states disappeared."
+    ]
+  },
+  {
+    "c": "history",
+    "d": 60,
+    "type": "study",
+    "t": "How did the Mongols build the largest contiguous land empire?",
+    "desc": "Study Genghis Khan's rise and the conquests from 1206 to 1279. Focus on military organisation, the use of conquered specialists, the yam relay system, and why the empire split within two generations.",
+    "check": [
+      "What did Genghis Khan change about steppe society that made his army more loyal than tribal armies?",
+      "How could a nomadic cavalry force capture walled cities in China and Persia?",
+      "Why did the empire break into four khanates?"
+    ],
+    "a": [
+      "He broke up tribal loyalties by organising men into decimal units (10, 100, 1,000, 10,000) that mixed tribes, with promotion by merit and loyalty to him.",
+      "They recruited or conscripted Chinese and Muslim engineers for siege weapons, and used massacres of resisting cities to frighten others into surrendering.",
+      "Succession disputes, especially the civil war between Kublai and Ariq Boke after 1259, left the Yuan, Ilkhanate, Golden Horde and Chagatai acting independently."
+    ]
+  },
+  {
+    "c": "history",
+    "d": 60,
+    "type": "study",
+    "t": "The Meiji Restoration: how Japan industrialised in one generation",
+    "desc": "Trace Japan from Perry's arrival in 1853 to victory over Russia in 1905. Focus on why samurai-born leaders dismantled their own class and which institutions Japan borrowed from which Western countries.",
+    "check": [
+      "Why did Perry's 'black ships' undermine the Tokugawa shogunate?",
+      "Why would leaders from the samurai class abolish samurai privileges?",
+      "What did Japan's 1905 victory over Russia signal to the rest of the world?"
+    ],
+    "a": [
+      "Signing unequal treaties showed the shogunate could not protect Japan, so domains like Satsuma and Choshu rallied around the emperor to overthrow it.",
+      "They feared being colonised like China. A conscript army, national taxes and a central state required abolishing domains and hereditary stipends.",
+      "It was the first modern defeat of a European great power by an Asian one, inspiring anti-colonial movements and encouraging Japan's own imperial expansion."
+    ]
+  },
+  {
+    "c": "history",
+    "d": 30,
+    "type": "study",
+    "t": "Mansa Musa and the wealth of the Mali Empire",
+    "desc": "Read about Mansa Musa's 1324 pilgrimage to Mecca via Cairo. Focus on where Mali's gold came from, how the trans-Saharan trade worked, and how Timbuktu became a centre of Islamic scholarship.",
+    "check": [
+      "Where did Mali's wealth come from?",
+      "What reportedly happened to the value of gold in Cairo after his visit, and why?",
+      "How did the pilgrimage change how Europeans pictured West Africa?"
+    ],
+    "a": [
+      "Control and taxation of gold from fields like Bambuk and Bure, traded north across the Sahara for salt, copper, cloth and horses.",
+      "Accounts such as al-Umari's say his lavish spending and gifts flooded the market and depressed gold's value in Cairo for years.",
+      "He appears on the 1375 Catalan Atlas holding a gold nugget; West Africa became known as a land of gold, feeding later Portuguese ambitions."
+    ]
+  },
+  {
+    "c": "history",
+    "d": 60,
+    "type": "study",
+    "t": "How a Balkan assassination became World War I in five weeks",
+    "desc": "Go beyond 'Franz Ferdinand was shot': study the alliance system, the July Crisis of 1914, mobilisation timetables and the Schlieffen Plan. Focus on how each step escalated a local crisis into a continental war.",
+    "check": [
+      "Why did Austria-Hungary's ultimatum to Serbia draw in Russia and then Germany?",
+      "Why did Germany invade Belgium, and why did that bring Britain in?",
+      "What are the main positions historians take on responsibility for the war?"
+    ],
+    "a": [
+      "Russia backed Serbia and began mobilising; Germany had given Austria a 'blank cheque' and treated Russian mobilisation as a threat requiring war.",
+      "The Schlieffen Plan aimed to beat France fast by going through Belgium; Britain had guaranteed Belgian neutrality (1839) and feared German control of the coast.",
+      "Fischer: German aims drove the war. Others stress shared responsibility, Austrian and Russian choices, rigid alliances, or 'sleepwalking' (Clark)."
+    ]
+  },
+  {
+    "c": "history",
+    "d": 60,
+    "type": "do",
+    "t": "Build a timeline of the French Revolution from 1789 to 1799",
+    "desc": "Make a timeline from the Estates-General to Napoleon's coup with at least 12 events. Label each as pushing the revolution more radical or more moderate, with a one-line reason.",
+    "check": [
+      "Timeline has at least 12 dated events between May 1789 and November 1799, including the Terror and Thermidor",
+      "Every event is labelled radicalising or moderating with a one-line reason",
+      "Without notes, you can narrate the path from Estates-General to Terror to Brumaire in 2 minutes"
+    ]
+  },
+  {
+    "c": "history",
+    "d": 30,
+    "type": "study",
+    "t": "Why was the 1947 Partition of India so violent?",
+    "desc": "Study the end of British rule and the creation of India and Pakistan. Focus on the rushed timetable, the Radcliffe Line, and how communal politics hardened during the 1940s.",
+    "check": [
+      "Why was the border drawn so fast, and what did that cause on the ground?",
+      "How did the Muslim League's demand for Pakistan gain force in the 1940s?",
+      "Roughly how many people were displaced and killed?"
+    ],
+    "a": [
+      "Independence was brought forward to August 1947; Radcliffe had about five weeks, and the line was published only after independence, leaving millions unsure.",
+      "Fear of Hindu-majority rule, the 1940 Lahore Resolution, the failed 1946 Cabinet Mission plan, and the Direct Action Day killings in Calcutta.",
+      "Roughly 10-20 million displaced; estimates of deaths range from about 200,000 to 2 million."
+    ]
+  },
+  {
+    "c": "history",
+    "d": 120,
+    "type": "study",
+    "t": "The Atlantic slave trade: scale, routes and long-term consequences",
+    "desc": "Study the trade from about 1500 to the 1860s: where captives came from, the Middle Passage, and where they were taken. Focus on its role in the Americas' economies and its long-term effects on West and Central Africa.",
+    "check": [
+      "Where did most enslaved Africans end up?",
+      "Why did sugar plantations create such relentless demand for enslaved labour?",
+      "What are the main arguments about the trade's effects on African societies?"
+    ],
+    "a": [
+      "Brazil and the Caribbean took the large majority of roughly 12.5 million people embarked; mainland North America received under 5%.",
+      "Sugar was labour-intensive and brutal; very high death rates and low birth rates meant planters kept buying new captives rather than populations growing.",
+      "Depopulation, more warfare and raiding, the rise of slaving states like Dahomey, and studies (e.g. Nunn) linking it to lower trust and development today."
+    ]
+  },
+  {
+    "c": "history",
+    "d": 60,
+    "type": "study",
+    "t": "How the Black Death reshaped medieval Europe",
+    "desc": "Study the plague of 1347-1351 and the decades after. Focus on the economic and social consequences: labour shortages, rising wages, elite backlash, peasant revolts, and the decline of serfdom in the west.",
+    "check": [
+      "Why did wages rise for survivors?",
+      "How did elites try to respond, and what did that lead to?",
+      "How did the plague travel from Central Asia into Europe?"
+    ],
+    "a": [
+      "Perhaps 30-50% of Europeans died. Labour became scarce while land was plentiful, so workers could demand more pay and better terms.",
+      "Laws like England's Statute of Labourers tried to cap wages; resentment fed revolts like the 1381 Peasants' Revolt, and serfdom eroded in western Europe.",
+      "Along trade routes to Crimea, including Genoese Caffa; ships carried it to Sicily and Mediterranean ports in 1347, then it spread inland."
+    ]
+  },
+  {
+    "c": "history",
+    "d": 30,
+    "type": "do",
+    "t": "Sketch the Silk Roads and mark 8 key cities from memory",
+    "desc": "Draw the overland routes from Chang'an to the eastern Mediterranean, with the branches around the Taklamakan. Mark cities such as Kashgar, Samarkand and Merv, then check and label goods and ideas moving each way.",
+    "check": [
+      "Map shows a continuous route from Chang'an (Xi'an) to the eastern Mediterranean, splitting north and south of the Taklamakan",
+      "At least 8 cities placed correctly after checking, including Kashgar and Samarkand",
+      "At least 4 goods or ideas labelled with direction, e.g. silk west, horses east, Buddhism into China, paper west"
+    ]
+  },
+  {
+    "c": "history",
+    "d": 120,
+    "type": "study",
+    "t": "Why did the Western Roman Empire fall but the Eastern survive?",
+    "desc": "Compare the two halves of the Roman Empire from the Gothic crossing of the Danube in 376 to 476 and beyond. Focus on geography, wealth, the defences of Constantinople, and the main explanations historians give.",
+    "check": [
+      "What made Constantinople so hard to capture?",
+      "Why was the West's tax base more fragile than the East's?",
+      "What are the main explanations historians give for the West's collapse?"
+    ],
+    "a": [
+      "Water on three sides, the Theodosian Land Walls, and naval control of the straits so it could be supplied by sea during sieges.",
+      "The East was richer and more urban. The West lost key revenue provinces, above all Africa to the Vandals in 439, so it could not pay armies: a spiral.",
+      "Barbarian pressure (Goths, Huns), civil wars and usurpers, fiscal collapse; some stress gradual 'transformation'. Most argue for a combination."
+    ]
+  },
+  {
+    "c": "history",
+    "d": 30,
+    "type": "study",
+    "t": "The Haitian Revolution: the slave revolt that founded a nation",
+    "desc": "Study Saint-Domingue from 1791 to 1804. Focus on Toussaint Louverture, why France, Spain and Britain all failed to control the colony, and the price Haiti later paid for recognition.",
+    "check": [
+      "Why was Saint-Domingue so valuable to France?",
+      "Why did Napoleon's 1802 expedition fail?",
+      "What was the 1825 indemnity and what did it do to Haiti?"
+    ],
+    "a": [
+      "It was the world's richest colony, producing a huge share of the world's sugar and coffee on the labour of about half a million enslaved people.",
+      "Yellow fever devastated French troops, and news that France was restoring slavery elsewhere, plus Toussaint's capture, reignited resistance under Dessalines.",
+      "France demanded 150 million francs (later cut to 90 million) under threat of warships; the debt and loans to pay it drained Haiti for generations."
+    ]
+  },
+  {
+    "c": "history",
+    "d": 120,
+    "type": "do",
+    "t": "Study the Cuban Missile Crisis, then write a one-page 'what if'",
+    "desc": "Work through the 13 days of October 1962 decision by decision. Then write one page on how events could have unfolded if one choice had gone differently, such as an air strike instead of a blockade.",
+    "check": [
+      "You can list the key moments in order: U-2 photos, ExComm options, the quarantine, 'Black Saturday', the deal",
+      "Your page names the secret part of the settlement (US Jupiter missiles withdrawn from Turkey)",
+      "Your counterfactual uses at least 2 real facts, e.g. Soviet tactical nuclear weapons on Cuba or the submarine B-59 incident"
+    ]
+  },
+  {
+    "c": "history",
+    "d": 60,
+    "type": "study",
+    "t": "Why did Qing China decline in the 19th century?",
+    "desc": "Study the Opium Wars, the Taiping Rebellion and the Self-Strengthening Movement. Focus on how internal crisis and foreign pressure reinforced each other on the road to 1911.",
+    "check": [
+      "Why did Britain go to war over opium?",
+      "Why was the Taiping Rebellion so deadly, and what did it reveal about the Qing state?",
+      "Why did Self-Strengthening achieve less than Japan's Meiji reforms?"
+    ],
+    "a": [
+      "Britain bought vast amounts of tea and balanced the deficit with Indian opium; when Lin Zexu destroyed opium stocks in 1839, Britain fought to force trade open.",
+      "A 1850-64 civil war that killed perhaps 20-30 million through fighting, famine and disease; the regular army failed and regional armies had to win it.",
+      "It bought Western arms and ships without reforming institutions, faced conservative court opposition, and depended on regional officials."
+    ]
+  },
+  {
+    "c": "history",
+    "d": 30,
+    "type": "do",
+    "t": "Chart what crossed the Atlantic in the Columbian Exchange",
+    "desc": "Make a two-column chart of crops, animals and diseases that moved between the Americas and Afro-Eurasia after 1492. Add one concrete consequence for each item.",
+    "check": [
+      "At least 6 items in each direction (e.g. maize, potato, cacao west-to-east; horse, wheat, smallpox east-to-west)",
+      "Every item has a specific consequence, such as potatoes supporting Irish or northern European population growth",
+      "You have written 2 sentences on why disease flowed mostly from Old World to New and not the reverse"
+    ]
+  },
+  {
+    "c": "history",
+    "d": 120,
+    "type": "do",
+    "t": "Compare five revolutions in one table",
+    "desc": "Compare the American, French, Haitian, Russian (1917) and Chinese (1949) revolutions in a table: causes, social base, leaders, level of violence, and the situation 10 years later. Finish with a written conclusion.",
+    "check": [
+      "Table covers all 5 revolutions across at least 5 comparison columns",
+      "Every cell contains a specific fact (a name, date or number), not a generic phrase",
+      "A 3-4 sentence conclusion identifies one pattern and one revolution that breaks it"
+    ]
+  },
+  {
+    "c": "history",
+    "d": 120,
+    "type": "study",
+    "t": "How the Cold War was fought in the Global South",
+    "desc": "Study the Bandung Conference, the Congo Crisis of 1960-65, the Angolan civil war and the Soviet war in Afghanistan. Focus on why local conflicts became superpower battlegrounds and how non-aligned states played both sides.",
+    "check": [
+      "What was the Non-Aligned Movement and why did leaders like Nehru and Nasser want it?",
+      "Why did the Congo crisis pull in the USA, the USSR and the UN?",
+      "Why did the 1979 Soviet invasion of Afghanistan matter beyond Afghanistan?"
+    ],
+    "a": [
+      "A grouping (Bandung 1955, Belgrade 1961) of new states refusing to join either bloc, keeping independence and getting aid from both sides.",
+      "Congo's minerals, Katanga's secession and Lumumba's appeal to Moscow; the US and Belgium backed his opponents, and he was killed in 1961.",
+      "It ended detente; the US, Pakistan and Saudi Arabia armed the mujahideen, the war drained the USSR, and it fed later civil war and jihadist networks."
+    ]
+  },
+  {
+    "c": "history",
+    "d": 30,
+    "type": "do",
+    "t": "Put 10 world-history events in order without looking",
+    "desc": "Order these from memory, then check: fall of Constantinople, Hijra, Meiji Restoration, Magna Carta, Haitian independence, Battle of Hastings, Indian independence, Peace of Westphalia, Mansa Musa's hajj, Columbus's first voyage.",
+    "check": [
+      "All 10 events are written in a single ordered list before checking anything",
+      "After checking, at least 8 are in the correct position and each has its correct year",
+      "For each mistake you have noted what else was happening in the world at the real date"
+    ]
+  },
+  {
+    "c": "history",
+    "d": 60,
+    "type": "do",
+    "t": "Map the colonial world of 1914 from memory, then check",
+    "desc": "On a blank world map, shade the territories held by each colonial empire in 1914: Britain, France, Germany, Belgium, Portugal, Netherlands, Russia, Japan, the USA. Then compare with a historical map and fix errors.",
+    "check": [
+      "Map shows holdings of at least 7 empires in distinct colours, corrected against a real 1914 map",
+      "Africa correctly shows only Ethiopia and Liberia as independent",
+      "You have noted 5 territories with the year each became independent"
+    ]
+  },
+  {
+    "c": "history",
+    "d": 60,
+    "type": "study",
+    "t": "The Inca Empire: running a state without writing or money",
+    "desc": "Study Tawantinsuyu from about 1438 to 1533. Focus on the road network, quipu record-keeping, the mit'a labour tax, and how Pizarro's tiny force toppled it.",
+    "check": [
+      "How did the Inca state collect taxes without money?",
+      "What were quipus used for?",
+      "How could about 170 Spaniards capture the Inca emperor?"
+    ],
+    "a": [
+      "Through mit'a: households owed labour on state lands, roads and armies. Produce went into storehouses (qollqa) and was redistributed by the state.",
+      "Knotted cords recording numbers such as census counts, tribute and storehouse contents; some scholars think they also encoded narrative.",
+      "Smallpox had killed Huayna Capac, sparking civil war between Atahualpa and Huascar; add surprise at Cajamarca, steel, horses and indigenous allies."
+    ]
+  }
+]

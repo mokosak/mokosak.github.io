@@ -1,0 +1,277 @@
+[
+  {
+    "c": "pwn",
+    "d": 60,
+    "type": "do",
+    "t": "Overflow a stack buffer and redirect execution to win() (ret2win)",
+    "desc": "On a non-PIE 64-bit lab binary with a gets()/read() into a fixed buffer, overflow the saved return address so control jumps to a win()/print_flag() function. Watch 16-byte stack alignment.",
+    "check": [
+      "Running your exploit makes the program print the flag via win()",
+      "You can state the exact byte offset from buffer start to the saved return address",
+      "Your payload includes a ret padding gadget when needed to fix movaps stack alignment"
+    ]
+  },
+  {
+    "c": "pwn",
+    "d": 30,
+    "type": "do",
+    "t": "Find the exact saved-RIP offset with a cyclic De Bruijn pattern",
+    "desc": "Feed a pwntools cyclic() pattern into a crashing binary, read the faulting address in GDB/core, and use cyclic_find() to compute the precise overflow offset to the return address.",
+    "check": [
+      "You derive the offset to saved RIP in a single crash, not by brute force",
+      "cyclic_find on the leaked value matches the offset you then use successfully",
+      "Your notes explain why a 4-byte pattern slice maps to a unique position"
+    ]
+  },
+  {
+    "c": "pwn",
+    "d": 30,
+    "type": "study",
+    "t": "Master the x86-64 System V integer calling convention",
+    "desc": "Learn how the first six integer/pointer arguments and the return value are passed in registers, and why this matters for building ROP calls to functions like system().",
+    "check": [
+      "Which registers hold the first six integer arguments, in order?",
+      "Where is a function's integer return value placed, and who cleans the stack?",
+      "Why does a ret2libc call to system(\"/bin/sh\") need a pop rdi; ret gadget?"
+    ],
+    "a": [
+      "rdi, rsi, rdx, rcx, r8, r9; further args go on the stack right-to-left.",
+      "In rax. Under SysV the caller cleans up stack-passed args (callee-cleanup is not used).",
+      "Because the \"/bin/sh\" pointer must be in rdi before the call, so you load rdi via the gadget."
+    ]
+  },
+  {
+    "c": "pwn",
+    "d": 120,
+    "type": "do",
+    "t": "Leak libc with puts(GOT), then ret2libc to spawn a shell",
+    "desc": "On a dynamically linked NX binary, build a ROP chain that calls puts on puts@GOT to leak its runtime address, returns to main, computes libc base, then calls system(\"/bin/sh\").",
+    "check": [
+      "Your exploit prints a shell even though libc is ASLR-randomized",
+      "The leaked puts address minus the known libc offset gives a page-aligned base",
+      "You explain why returning to main (or _start) lets you send a second-stage payload"
+    ]
+  },
+  {
+    "c": "pwn",
+    "d": 120,
+    "type": "do",
+    "t": "Build a ROP chain to call execve(\"/bin/sh\",0,0) in a static binary",
+    "desc": "With no libc import to abuse, use a gadget finder (ROPgadget/ropper) on a statically linked binary to set rax=59, rdi->\"/bin/sh\", rsi=rdx=0, then syscall.",
+    "check": [
+      "Your chain runs execve and drops to a shell with NX enabled",
+      "You locate or write the \"/bin/sh\" string into writable memory and point rdi at it",
+      "You can name every register the execve syscall reads and the syscall number"
+    ]
+  },
+  {
+    "c": "pwn",
+    "d": 60,
+    "type": "study",
+    "t": "Understand stack canaries and the ways they are bypassed",
+    "desc": "Learn how the compiler places and checks a stack canary, where the value comes from, and the main strategies attackers use to defeat it.",
+    "check": [
+      "Where is the canary stored relative to local buffers and the saved return address, and when is it checked?",
+      "Why does the canary's least-significant byte conventionally being 0x00 both help and hinder attackers?",
+      "Name two ways to exploit a vulnerable function without ever corrupting the canary."
+    ],
+    "a": [
+      "Between the local buffers and saved RBP/RIP; it is validated just before ret, calling __stack_chk_fail on mismatch.",
+      "The null byte stops string functions from leaking it, but also terminates attacker strings/leaks at that byte.",
+      "Leak the canary first then include it in the payload; or overwrite non-return targets (GOT, func pointers) without passing the canary."
+    ]
+  },
+  {
+    "c": "pwn",
+    "d": 60,
+    "type": "do",
+    "t": "Leak a stack canary with a format string, then overflow to win()",
+    "desc": "Use a printf format-string bug to leak the canary off the stack with a positional %p, then in a second input overflow the buffer, replace the canary with the leaked value, and overwrite RIP with win().",
+    "check": [
+      "The binary reaches win() without triggering __stack_chk_fail",
+      "The value you leak ends in a null byte, confirming it is the canary",
+      "You identify the correct %N$p index that lands on the canary slot"
+    ]
+  },
+  {
+    "c": "pwn",
+    "d": 30,
+    "type": "do",
+    "t": "Use a format-string bug to leak stack values and find your input offset",
+    "desc": "Send a controlled printf format like AAAA.%p.%p.%p... (or %N$p) to a vulnerable program and determine which positional argument index corresponds to your own input on the stack.",
+    "check": [
+      "You print 0x41414141 (or 0x4141414141414141) proving you found your input's index",
+      "You can read an arbitrary stack slot with a single %N$p",
+      "You note the difference in argument consumption between 32-bit and 64-bit here"
+    ]
+  },
+  {
+    "c": "pwn",
+    "d": 60,
+    "type": "do",
+    "t": "Overwrite a GOT entry with a format-string %n write",
+    "desc": "On a Partial-RELRO binary, use %n/%hn with width specifiers to write the address of win() (or system) over a GOT entry such as printf/exit, so the next call redirects.",
+    "check": [
+      "Calling the hijacked function transfers control to your target",
+      "You split the write into two %hn halves to avoid printing billions of bytes",
+      "You confirm Full RELRO would have blocked this and explain why"
+    ]
+  },
+  {
+    "c": "pwn",
+    "d": 60,
+    "type": "study",
+    "t": "Understand GOT/PLT lazy binding and why GOT overwrites work",
+    "desc": "Learn how calls to shared-library functions route through the PLT and GOT, how the dynamic linker resolves them on first use, and what RELRO changes.",
+    "check": [
+      "Walk through what happens the first time a program calls puts@plt versus later calls.",
+      "Why does overwriting a GOT entry hijack control flow on the next call?",
+      "How do Partial RELRO and Full RELRO each change the exploitability of the GOT?"
+    ],
+    "a": [
+      "First call goes PLT -> GOT -> dynamic resolver, which writes the real address into the GOT; later calls jump straight to it via the GOT.",
+      "Because the PLT reads the target from the GOT each call, so a forged GOT entry sends the call to attacker-chosen code.",
+      "Partial RELRO leaves the GOT writable (overwrite works); Full RELRO resolves at load and makes the GOT read-only, blocking it."
+    ]
+  },
+  {
+    "c": "pwn",
+    "d": 120,
+    "type": "do",
+    "t": "Use ret2csu to control rdx when gadgets are scarce",
+    "desc": "Leverage the __libc_csu_init universal gadgets to populate rdx/rsi/rdi and call a function through a pointer, enabling calls that need a third argument in a gadget-poor binary.",
+    "check": [
+      "Your chain sets rdx to a chosen value and makes a controlled call",
+      "You correctly account for the pop rbx/rbp/r12-r15 sequence and the loop's add rbx,1 compare",
+      "You explain why ret2csu is useful when no clean pop rdx; ret gadget exists"
+    ]
+  },
+  {
+    "c": "pwn",
+    "d": 60,
+    "type": "do",
+    "t": "Defeat PIE with a partial return-address overwrite",
+    "desc": "On a PIE binary where you can overwrite only the low bytes of the saved return address, redirect execution to a nearby function/gadget within the same page without knowing the full base.",
+    "check": [
+      "You redirect control by rewriting only 1-2 low bytes of saved RIP",
+      "Your target lies within the bytes that are not randomized by page alignment",
+      "You explain why the lowest 12 bits (3 hex nibbles) are fixed under 4KB-page ASLR"
+    ]
+  },
+  {
+    "c": "pwn",
+    "d": 30,
+    "type": "study",
+    "t": "Understand what ASLR randomizes and how one leak defeats it",
+    "desc": "Learn which memory regions ASLR randomizes, what it leaves fixed, and why leaking a single pointer into a module collapses the whole randomization for that module.",
+    "check": [
+      "Which regions does ASLR randomize, and what stays at a fixed address in a non-PIE binary?",
+      "If you leak one libc function's runtime address, how do you compute the base of libc?",
+      "Why does page alignment mean the low 12 bits of an address are not secret?"
+    ],
+    "a": [
+      "Stack, heap, mmap/shared libraries, and the PIE base; a non-PIE executable's own image stays at its fixed link address.",
+      "Subtract that function's known file offset within libc from the leaked address to get the page-aligned base.",
+      "mmap/segment bases are page-aligned (4KB), so the bottom 12 bits come from the fixed in-file offset, not randomization."
+    ]
+  },
+  {
+    "c": "pwn",
+    "d": 120,
+    "type": "do",
+    "t": "Poison a tcache fd pointer to get an arbitrary malloc chunk",
+    "desc": "On a glibc ~2.31 heap challenge with a use-after-free or overflow, corrupt a freed tcache chunk's fd pointer so a subsequent malloc returns an attacker-chosen address (e.g. over a function pointer or __free_hook).",
+    "check": [
+      "A later malloc returns a pointer to your target address",
+      "You account for the tcache count field so the allocator hands back your chunk",
+      "You explain how this differs on glibc 2.32+ due to safe-linking pointer mangling"
+    ]
+  },
+  {
+    "c": "pwn",
+    "d": 60,
+    "type": "study",
+    "t": "Understand the glibc tcache: binning, reuse, and double-free checks",
+    "desc": "Learn how per-thread tcache bins store freed chunks, how allocation reuses them, and what double-free protection was added across glibc versions.",
+    "check": [
+      "How are freed chunks organized in the tcache and in what order are they handed back?",
+      "What is the default maximum number of chunks per tcache bin, and what selects a bin?",
+      "What check did glibc 2.29 add against tcache double-free, and how does safe-linking (2.32) differ?"
+    ],
+    "a": [
+      "In per-thread singly linked LIFO bins keyed by request size; malloc pops the most recently freed chunk first.",
+      "Seven chunks per bin by default (tcache_count), with one bin per small size class.",
+      "2.29 added a per-chunk key field checked on free to catch double-frees; 2.32 added safe-linking, XOR-mangling fd pointers with the chunk's address."
+    ]
+  },
+  {
+    "c": "pwn",
+    "d": 60,
+    "type": "study",
+    "t": "Understand NX/DEP and why return-oriented programming exists",
+    "desc": "Learn how the no-execute bit stops classic shellcode injection and why reusing existing executable code (ROP) is the standard response, contrasted with ret2shellcode.",
+    "check": [
+      "What does the NX bit enforce on the stack and heap, and what attack does it stop?",
+      "Why can a ROP chain still run arbitrary logic despite W^X?",
+      "In what situation is ret2shellcode viable instead of ROP?"
+    ],
+    "a": [
+      "It marks data pages (stack/heap) non-executable, so injected shellcode on them faults instead of running.",
+      "ROP chains short existing instruction sequences ending in ret, performing computation using only already-executable code.",
+      "When a region is both writable and executable (NX disabled or an RWX mapping), you can jump to injected shellcode directly."
+    ]
+  },
+  {
+    "c": "pwn",
+    "d": 30,
+    "type": "do",
+    "t": "Inject and run shellcode on a stack with NX disabled",
+    "desc": "Compile a lab binary with an executable stack (or use one provided), generate shellcode with pwntools shellcraft, place it in the buffer, and overwrite RIP to jump to it.",
+    "check": [
+      "The program executes your shellcode and gives a shell",
+      "You jump to the correct in-memory address of your shellcode (leak or jmp rsp style)",
+      "You confirm the stack is executable (checksec / readelf GNU_STACK)"
+    ]
+  },
+  {
+    "c": "pwn",
+    "d": 60,
+    "type": "do",
+    "t": "Pop a shell with a one_gadget given a libc leak",
+    "desc": "Run the one_gadget tool against the target libc, pick a magic gadget, satisfy its register/stack constraints, and jump to libc_base + gadget offset to exec /bin/sh in a single hop.",
+    "check": [
+      "Jumping to your chosen one_gadget yields a shell",
+      "You verified the gadget's constraints (e.g. rsi/rdx NULL) actually hold at jump time",
+      "You can explain why one_gadget is shorter than a full system(\"/bin/sh\") chain"
+    ]
+  },
+  {
+    "c": "pwn",
+    "d": 30,
+    "type": "study",
+    "t": "Understand integer bugs that turn into buffer overflows",
+    "desc": "Learn how signed/unsigned confusion and integer truncation/overflow let a length check pass while a copy writes far more than the buffer holds.",
+    "check": [
+      "How can a negative signed length defeat a bounds check and still cause a huge memcpy?",
+      "What happens when a 16-bit length counter wraps while the real data is larger?",
+      "Why is comparing a signed length against a buffer size with < dangerous?"
+    ],
+    "a": [
+      "A negative int passes an \"if (len < size)\" check but is reinterpreted as a huge size_t by memcpy, copying far too much.",
+      "The counter wraps to a small value so the check passes, yet the loop/copy still processes the full oversized input.",
+      "An attacker-controlled negative value is < size as signed but becomes enormous once widened to unsigned for the copy."
+    ]
+  },
+  {
+    "c": "pwn",
+    "d": 120,
+    "type": "do",
+    "t": "Pivot the stack with leave;ret to run a longer ROP chain",
+    "desc": "When the overflow only gives you a few bytes past RIP, use a leave;ret or pop rsp gadget to move rsp into a buffer you fully control (e.g. a bss/read area) and continue a larger chain there.",
+    "check": [
+      "Execution continues into your relocated chain and reaches the final goal",
+      "rsp lands exactly at the start of your staged chain after the pivot",
+      "You explain how leave (mov rsp,rbp; pop rbp) enables the pivot when you control saved RBP"
+    ]
+  }
+]

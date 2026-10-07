@@ -1,0 +1,292 @@
+[
+{
+"c": "net",
+"d": 60,
+"type": "do",
+"t": "Trace a full TCP handshake and teardown in Wireshark",
+"desc": "Capture loopback or a curl to a plain HTTP site, isolate one TCP stream, and label every segment: SYN, SYN-ACK, ACK, data, and the FIN/ACK or RST close. Note the sequence and ack number progression.",
+"check": [
+"You can point to the exact three segments of the handshake and the relative seq/ack on each",
+"You identify how the connection closed (graceful FIN exchange vs RST) and why",
+"You show where the initial sequence numbers came from and how ack = next expected byte"
+]
+},
+{
+"c": "net",
+"d": 30,
+"type": "study",
+"t": "Understand why TCP needs a three-way handshake, not two",
+"desc": "Reason through what SYN/SYN-ACK/ACK each accomplishes, what breaks with only two messages, and the role of initial sequence numbers in rejecting stale or spoofed connection attempts.",
+"check": [
+"Why can't a two-message handshake reliably establish a connection?",
+"What problem do randomized initial sequence numbers solve beyond ordering?",
+"What happens if the final ACK is lost, and how does TCP recover?"
+],
+"a": [
+"Both sides must confirm the other received their ISN; two messages leave one side's ISN unacknowledged, so it can't safely send data.",
+"They defuse old duplicate SYNs from prior connections and make off-path spoofing hard since the attacker must guess the ISN.",
+"The server retransmits SYN-ACK on a timer; the client's first data segment also carries the ACK, so the connection still opens."
+]
+},
+{
+"c": "net",
+"d": 30,
+"type": "study",
+"t": "Map a destination IP to the right subnet with CIDR math",
+"desc": "Given addresses like 10.12.33.17/20, compute network address, broadcast, usable host range, and host count by hand in binary, then verify that two given hosts share a subnet.",
+"check": [
+"For 10.12.33.17/20, what is the network address and the broadcast address?",
+"How many usable host addresses does a /20 provide, and why minus two?",
+"Are 10.12.15.1 and 10.12.17.1 in the same /20? Show the boundary that decides it."
+],
+"a": [
+"/20 masks the first 20 bits; network is 10.12.32.0, broadcast is 10.12.47.255 (third octet 32-47).",
+"2^(32-20)=4096 addresses, minus network and broadcast = 4094 usable.",
+"Yes; both fall in 10.12.32.0-10.12.47.255. The /20 block boundaries step every 16 in the third octet (0,16,32,...)."
+]
+},
+{
+"c": "net",
+"d": 60,
+"type": "do",
+"t": "Resolve a name manually with dig +trace from the root",
+"desc": "Run dig +trace for a domain and follow the referrals: root servers to TLD servers to authoritative servers. Then query an authoritative server directly with dig @ns and inspect A, NS, and SOA records.",
+"check": [
+"Your trace output shows the referral chain root -> TLD -> authoritative with NS records at each step",
+"You query the authoritative nameserver directly and get an authoritative (aa flag) answer",
+"You can read the SOA record and explain the serial and the negative-cache TTL fields"
+]
+},
+{
+"c": "net",
+"d": 30,
+"type": "study",
+"t": "Distinguish TCP from UDP and when each is the right choice",
+"desc": "Compare delivery guarantees, ordering, flow and congestion control, and header overhead, then justify the transport choice for DNS, video calls, bulk file transfer, and DHCP.",
+"check": [
+"Why do DNS queries and DHCP use UDP despite UDP having no reliability?",
+"What does TCP provide that a real-time voice call would rather do without?",
+"How does a UDP-based protocol like QUIC still deliver reliable, ordered streams?"
+],
+"a": [
+"Transactions are short request/response with their own retry; UDP avoids handshake and connection-state cost, and DHCP must work before IP config exists.",
+"In-order reliable delivery means head-of-line blocking and retransmit delay; voice prefers fresh data over a late-but-perfect packet.",
+"QUIC rebuilds acknowledgements, retransmission, and ordering in user space on top of UDP, with independent streams to avoid head-of-line blocking."
+]
+},
+{
+"c": "net",
+"d": 60,
+"type": "do",
+"t": "Watch an ARP request/reply and a stale entry expire",
+"desc": "Flush the ARP cache, ping a host on your LAN, and capture the broadcast ARP who-has and the unicast reply. Inspect your neighbor table and observe an entry move through reachable to stale state.",
+"check": [
+"Your capture shows a broadcast who-has and a unicast is-at carrying the MAC",
+"ip neigh shows the resolved entry and later a STALE or FAILED state for an idle/absent host",
+"You can explain why ARP only resolves addresses within the same broadcast domain"
+]
+},
+{
+"c": "net",
+"d": 60,
+"type": "study",
+"t": "Explain how NAT rewrites packets and why it breaks some protocols",
+"desc": "Work through source NAT / PAT: what fields a home router rewrites outbound and inbound, how the translation table is keyed, and why inbound-initiated connections and embedded-address protocols like FTP or SIP struggle.",
+"check": [
+"What exact header fields does PAT rewrite outbound, and what keys the return-path lookup?",
+"Why can't an external host initiate a connection to a device behind NAT without extra setup?",
+"Why does classic active-mode FTP break through NAT, and what works around it?"
+],
+"a": [
+"It rewrites source IP (and usually source port) outbound; the table is keyed by the chosen public ip:port mapped back to the internal ip:port and protocol.",
+"There is no translation entry until the inside host sends first, so the router has no rule mapping the inbound packet to an internal host.",
+"Active FTP puts the client's private IP/port in the control payload; NAT doesn't rewrite it, so the data connection fails. Passive mode or an ALG fixes it."
+]
+},
+{
+"c": "net",
+"d": 120,
+"type": "do",
+"t": "Build a TCP client/server and observe Nagle vs delayed ACK",
+"desc": "Write a small socket client and echo server. Send many tiny writes, then capture packets to see coalescing from Nagle's algorithm; disable it with TCP_NODELAY and compare segment counts and latency.",
+"check": [
+"With Nagle on, your capture shows small writes coalesced into fewer segments",
+"Setting TCP_NODELAY produces one segment per write and you measure the latency difference",
+"You can describe the Nagle + delayed-ACK interaction that can add ~40ms stalls"
+]
+},
+{
+"c": "net",
+"d": 60,
+"type": "do",
+"t": "Complete a TLS 1.3 handshake and read it in Wireshark",
+"desc": "Capture an HTTPS connection, find ClientHello and ServerHello, and identify the negotiated cipher suite, key-share group, and SNI. Export the session keys via SSLKEYLOGFILE and decrypt the application data.",
+"check": [
+"You locate ClientHello/ServerHello and read the chosen cipher suite and key-share group",
+"Using a key log file, Wireshark decrypts and shows the HTTP/2 or HTTP request inside",
+"You can explain why TLS 1.3 completes in one round trip versus TLS 1.2's two"
+]
+},
+{
+"c": "net",
+"d": 30,
+"type": "study",
+"t": "Reason about MTU, fragmentation, and path MTU discovery",
+"desc": "Understand what MTU limits, how IPv4 fragmentation works versus IPv6 (which forbids router fragmentation), and how Path MTU Discovery uses ICMP and the Don't Fragment bit, plus why black-hole PMTUD fails.",
+"check": [
+"How does IPv6 handle a too-big packet differently from IPv4?",
+"What is a PMTUD black hole and what commonly causes it?",
+"Why does a 1500-byte MTU with a PPPoE or tunnel overlay often need lowering?"
+],
+"a": [
+"Routers never fragment IPv6; they drop the packet and send ICMPv6 Packet Too Big, so only the source fragments (or reduces size).",
+"A firewall drops the ICMP 'fragmentation needed' messages, so the sender never learns to shrink packets and large transfers stall.",
+"Tunnel/PPPoE headers consume bytes, so the usable payload MTU drops (e.g. ~1492 or ~1460); otherwise oversized packets get dropped or fragmented."
+]
+},
+{
+"c": "net",
+"d": 60,
+"type": "do",
+"t": "Capture and decode a DHCP DORA exchange",
+"desc": "Release your lease and capture a fresh acquisition: Discover, Offer, Request, Ack. Identify the broadcast/unicast behavior, the transaction ID tying them together, and the offered lease, gateway, and DNS options.",
+"check": [
+"Your capture shows all four DORA messages sharing one transaction ID (xid)",
+"You identify which messages are broadcast and why the client has no IP yet",
+"You read the DHCP options for subnet mask, router, DNS, and lease time from the Ack"
+]
+},
+{
+"c": "net",
+"d": 120,
+"type": "study",
+"t": "Trace how a browser request becomes bytes across the stack",
+"desc": "Follow one HTTPS GET end to end: DNS resolution, TCP connect, TLS, HTTP request, and the encapsulation down through TCP, IP, and Ethernet, including what each router and switch along the path reads and changes.",
+"check": [
+"At each hop, which addresses change and which stay constant: MAC vs IP?",
+"Where does the TTL field get decremented, and what happens when it hits zero?",
+"Which layers does a switch read versus a router, and why does that matter for broadcast domains?"
+],
+"a": [
+"L2 MAC addresses are rewritten hop to hop; L3 source/destination IPs stay end to end (absent NAT).",
+"Every router decrements TTL; at zero the router drops the packet and returns ICMP Time Exceeded, which traceroute exploits.",
+"A switch reads L2 (MAC) and forwards within a broadcast domain; a router reads L3 (IP) and separates broadcast domains/subnets."
+]
+},
+{
+"c": "net",
+"d": 60,
+"type": "study",
+"t": "Explain TCP congestion control: slow start to CUBIC",
+"desc": "Work through the congestion window lifecycle: slow start, congestion avoidance, the role of ssthresh, fast retransmit/fast recovery, and how loss-based CUBIC differs from delay/rate-based BBR.",
+"check": [
+"What triggers the switch from slow start to congestion avoidance?",
+"How does a triple-duplicate ACK lead to a different response than a timeout?",
+"What signal does BBR use to find bandwidth that loss-based algorithms ignore?"
+],
+"a": [
+"Reaching ssthresh: below it cwnd grows exponentially, above it grows ~linearly (one MSS per RTT).",
+"Triple-dup ACK means later packets arrived, so fast retransmit halves cwnd and does fast recovery; a timeout signals worse loss and resets cwnd to ~1 MSS.",
+"BBR estimates the bottleneck bandwidth and round-trip propagation time to set the rate, rather than treating packet loss as the sole congestion signal."
+]
+},
+{
+"c": "net",
+"d": 30,
+"type": "do",
+"t": "Diagnose reachability with ping, traceroute, and mtr",
+"desc": "Pick a remote host and characterize the path: use ping for loss/RTT, traceroute to see hops, and mtr for sustained per-hop loss. Distinguish a hop that merely rate-limits ICMP from a real loss point.",
+"check": [
+"You produce an mtr run and identify where persistent loss actually begins versus a hop that only deprioritizes ICMP",
+"You explain why a middle hop can show loss while the final destination shows none",
+"You can state why traceroute hops may differ between runs or show asymmetric latency"
+]
+},
+{
+"c": "net",
+"d": 120,
+"type": "do",
+"t": "Set up two namespaces with a veth link and route between them",
+"desc": "Use ip netns to create two network namespaces, connect them with a veth pair (or via a bridge), assign addresses, enable forwarding, and ping across. Then add a NAT rule so one namespace reaches the outside.",
+"check": [
+"Each namespace has its own interface and you ping from one to the other",
+"ip route / ip addr inside each namespace reflects the topology you built",
+"With forwarding and a masquerade rule, the inner namespace reaches an external address"
+]
+},
+{
+"c": "net",
+"d": 60,
+"type": "study",
+"t": "Compare IPv6 addressing and SLAAC to IPv4 + DHCP",
+"desc": "Learn IPv6 address scopes (link-local, global, unique-local), how SLAAC uses Router Advertisements and prefixes, the role of NDP replacing ARP, and why a host can hold several IPv6 addresses at once.",
+"check": [
+"How does a host form a global IPv6 address with SLAAC, and what does the router provide?",
+"What replaces ARP in IPv6, and what message types does it use?",
+"Why does fe80::/10 (link-local) exist and when is it actually used?"
+],
+"a": [
+"The Router Advertisement supplies the /64 prefix; the host appends an interface identifier (EUI-64 or random/privacy) to form the full address.",
+"Neighbor Discovery Protocol over ICMPv6: Neighbor Solicitation/Advertisement for L2 resolution and Router Solicitation/Advertisement for config.",
+"Link-local is auto-configured on every interface for on-link communication and control traffic (NDP, routing protocols); it's non-routable beyond the link."
+]
+},
+{
+"c": "net",
+"d": 60,
+"type": "do",
+"t": "Capture and interpret a DNS over UDP vs TCP fallback",
+"desc": "Query a name with a large response (e.g. many records or DNSSEC) and capture how the resolver handles truncation: the TC bit set over UDP and the retry over TCP. Compare with EDNS0 advertising a larger UDP buffer.",
+"check": [
+"Your capture shows a UDP response with the TC (truncated) bit and a subsequent TCP query",
+"You find the EDNS0 OPT record advertising a UDP payload size larger than 512",
+"You can explain when DNS uses TCP by default (e.g. zone transfers) versus as a fallback"
+]
+},
+{
+"c": "net",
+"d": 120,
+"type": "do",
+"t": "Write a raw-socket tool that crafts and sends an ICMP echo",
+"desc": "Build a small program that constructs an ICMP echo request by hand: fill the type/code/id/seq, compute the checksum correctly, send via a raw socket, and read the echo reply, matching id and sequence.",
+"check": [
+"Your tool elicits a real echo reply from a live host and matches the id/seq you sent",
+"Your checksum implementation validates (zeroing the field, 16-bit one's-complement sum)",
+"You handle the reply including the IP header and extract the ICMP payload correctly"
+]
+},
+{
+"c": "net",
+"d": 30,
+"type": "study",
+"t": "Understand HTTP/2 multiplexing versus HTTP/1.1 limits",
+"desc": "Learn why HTTP/1.1 suffers head-of-line blocking and connection sprawl, how HTTP/2 streams/frames multiplex over one TCP connection, and why TCP-level head-of-line blocking still motivated HTTP/3 over QUIC.",
+"check": [
+"What problem in HTTP/1.1 did pipelining try and fail to solve, and why?",
+"How do HTTP/2 streams avoid application-layer head-of-line blocking?",
+"Why does a single lost TCP segment still stall all HTTP/2 streams, and how does HTTP/3 fix it?"
+],
+"a": [
+"Pipelining allowed queued requests but responses had to return in order, so one slow response blocked the rest; proxies also handled it poorly.",
+"Requests/responses are split into frames tagged with stream IDs and interleaved on one connection, so they don't block each other at the HTTP layer.",
+"All HTTP/2 streams share one TCP byte-stream, so a lost segment stalls delivery of everything behind it; QUIC gives each stream independent delivery over UDP."
+]
+},
+{
+"c": "net",
+"d": 60,
+"type": "study",
+"t": "Explain how BGP picks routes and why misconfig causes outages",
+"desc": "Learn BGP as path-vector routing between autonomous systems: how prefixes and AS-paths propagate, the main path-selection attributes, and how route leaks or hijacks (announcing someone else's prefix) cause global incidents.",
+"check": [
+"What does the AS-path attribute prevent, and how does it influence selection?",
+"How can one AS accidentally black-hole traffic for a prefix it doesn't own?",
+"Why is a more-specific prefix announcement so powerful (and dangerous) in BGP?"
+],
+"a": [
+"It records every AS a route traversed; a router rejects a path containing its own AS, preventing loops, and shorter AS-paths are generally preferred.",
+"By announcing a prefix (a leak/hijack), it attracts that traffic; if it can't deliver, the packets are dropped, black-holing the victim's traffic.",
+"Longest-prefix-match routing always prefers the more-specific route, so a bogus /24 overrides a legitimate /16 globally until it's filtered."
+]
+}
+]

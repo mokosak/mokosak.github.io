@@ -1,0 +1,307 @@
+[
+  {
+    "c": "psychology",
+    "d": 60,
+    "type": "study",
+    "t": "The bat-and-ball problem and the Cognitive Reflection Test",
+    "desc": "Try Shane Frederick's three CRT items (2005) cold, then study what the test measures, how it relates to Kahneman's System 1 / System 2 framing, and the main criticisms of dual-process theory.",
+    "check": [
+      "What is the correct answer to the bat-and-ball problem, and why is 10 cents so tempting?",
+      "What does a high CRT score predict besides maths ability?",
+      "What is the main criticism of the two-systems picture?"
+    ],
+    "a": [
+      "5 cents (bat 1.05, total 1.10). 10 cents comes from an intuitive subtraction that feels right and goes unchecked.",
+      "A tendency to override intuitive answers: it correlates with patience in choices, fewer heuristic errors and better detection of misleading claims.",
+      "Critics say 'System 1' and 'System 2' are metaphors bundling features (fast, automatic, unconscious) that do not reliably go together."
+    ]
+  },
+  {
+    "c": "psychology",
+    "d": 30,
+    "type": "study",
+    "t": "Anchoring: why a random number shifts your estimates",
+    "desc": "Study Tversky and Kahneman's 1974 wheel-of-fortune experiment and later anchoring work, including the Many Labs 1 replication (2014), where anchoring was one of the most robust effects.",
+    "check": [
+      "What happened in the wheel-of-fortune study?",
+      "Name two proposed mechanisms for anchoring.",
+      "Does anchoring work on experts, and what is one real-world example?"
+    ],
+    "a": [
+      "A wheel rigged to stop at 10 or 65 changed estimates of African nations in the UN: median guesses were about 25% and 45%.",
+      "Insufficient adjustment away from the anchor, and selective accessibility (testing the anchor makes consistent information come to mind).",
+      "Yes: studies show anchors affect judges' sentencing and estate agents' price estimates, e.g. a list price shifting valuations."
+    ]
+  },
+  {
+    "c": "psychology",
+    "d": 120,
+    "type": "study",
+    "t": "The replication crisis: what failed, why, and what changed",
+    "desc": "Study the 2015 Open Science Collaboration project, the failed replications of ego depletion and power posing, the 'False-Positive Psychology' paper (2011), and reforms like preregistration and Registered Reports.",
+    "check": [
+      "What did the 2015 Open Science Collaboration find?",
+      "What happened to ego depletion and power posing?",
+      "What are p-hacking and preregistration?"
+    ],
+    "a": [
+      "Of 100 studies from top journals, only about 36% of replications gave significant results, and effect sizes were roughly half the originals.",
+      "A 23-lab Registered Replication (Hagger 2016) found ego depletion near zero. Power posing's hormone effects failed (Ranehill 2015); Carney disavowed it.",
+      "P-hacking: flexible analysis until p < .05. Preregistration: publicly fixing hypotheses and analysis before seeing data."
+    ]
+  },
+  {
+    "c": "psychology",
+    "d": 120,
+    "type": "study",
+    "t": "What really happened in the Stanford prison experiment",
+    "desc": "Study Zimbardo's 1971 study as it is usually told, then the critiques: Le Texier's archive work (2018-19), coached guards, prisoner accounts, and Reicher and Haslam's BBC Prison Study (2002), which found different results.",
+    "check": [
+      "What is the textbook claim of the study?",
+      "What did archival research reveal about how guards were instructed?",
+      "What did the BBC Prison Study find instead?"
+    ],
+    "a": [
+      "That ordinary people placed in a guard role spontaneously became abusive, showing the power of situations over personality.",
+      "Guards were briefed to create fear and powerlessness, staff encouraged toughness, and one prisoner later said his breakdown was partly acted.",
+      "Guards did not spontaneously turn tyrannical; outcomes depended on group identity and leadership, not roles alone."
+    ]
+  },
+  {
+    "c": "psychology",
+    "d": 60,
+    "type": "study",
+    "t": "Milgram's obedience studies: the variations matter more than 65%",
+    "desc": "Study Milgram's 1963 baseline and his later variations (proximity, experimenter by phone, rebelling peers), Burger's 2009 partial replication, and Gina Perry's archive-based critique.",
+    "check": [
+      "What was the baseline result, and which variations cut obedience most?",
+      "What did Burger's 2009 replication change and find?",
+      "What did Perry's critique raise?"
+    ],
+    "a": [
+      "26 of 40 (65%) went to 450 V. Obedience dropped when the learner was close, the experimenter phoned orders, or two peers refused.",
+      "He stopped at 150 V for ethics; about 70% were willing to continue past it, similar to Milgram's rate at that point.",
+      "Many participants doubted the shocks were real, and the experimenter often departed from the script to pressure people."
+    ]
+  },
+  {
+    "c": "psychology",
+    "d": 30,
+    "type": "study",
+    "t": "The testing effect: why recall beats rereading",
+    "desc": "Study Roediger and Karpicke's 2006 experiment on retrieval practice and why it is one of the best-replicated findings in learning science. Compare it with rereading and highlighting.",
+    "check": [
+      "What did the 2006 study find at 5 minutes vs one week?",
+      "Why do students prefer rereading despite worse results?",
+      "Does testing help even without feedback?"
+    ],
+    "a": [
+      "Restudying won slightly at 5 minutes, but after a week the group that practised recall remembered substantially more.",
+      "Rereading creates fluency, which feels like learning; effortful recall feels harder, so people misjudge it as less effective.",
+      "Yes, though feedback helps more, especially when initial recall fails."
+    ]
+  },
+  {
+    "c": "psychology",
+    "d": 30,
+    "type": "study",
+    "t": "What the Dunning-Kruger effect actually shows (and doesn't)",
+    "desc": "Read about Kruger and Dunning's 1999 'Unskilled and Unaware of It' and the later statistical critiques showing the classic graph appears even with random data. Separate the solid finding from the meme.",
+    "check": [
+      "What did the original study find for the bottom quartile?",
+      "Why can random data produce the classic Dunning-Kruger graph?",
+      "What is the popular misreading of the effect?"
+    ],
+    "a": [
+      "Those scoring around the 12th percentile estimated themselves around the 62nd: big overestimation.",
+      "Regression to the mean plus a general better-than-average bias: everyone rates themselves above average, so the worst look most overconfident.",
+      "That incompetent people think they are better than experts. In the data, low scorers still rated themselves below high scorers."
+    ]
+  },
+  {
+    "c": "psychology",
+    "d": 60,
+    "type": "study",
+    "t": "The marshmallow test and its 2018 conceptual replication",
+    "desc": "Study Mischel's delay-of-gratification studies and the famous follow-ups linking waiting time to later outcomes. Then study Watts, Duncan and Quan (2018) and Kidd et al. (2013) on reliability of the environment.",
+    "check": [
+      "What did the original follow-ups claim?",
+      "What did Watts et al. (2018) find with a larger, more diverse sample?",
+      "What did Kidd et al. show about why children wait?"
+    ],
+    "a": [
+      "Preschoolers who waited longer had higher SAT scores and better social outcomes as adolescents.",
+      "The link was about half as big, and mostly disappeared after controlling for family background and early cognitive ability.",
+      "Children who first experienced an unreliable adult waited far less: waiting is partly a rational bet about trust, not just willpower."
+    ]
+  },
+  {
+    "c": "psychology",
+    "d": 120,
+    "type": "study",
+    "t": "Prospect theory: loss aversion, reference points and odd odds",
+    "desc": "Study Kahneman and Tversky's 1979 prospect theory: the value function, probability weighting and the fourfold pattern of risk attitudes. Include the 2020 multi-country replication and the debate over loss aversion.",
+    "check": [
+      "Describe the shape of the value function.",
+      "What is the fourfold pattern?",
+      "What is the current status of loss aversion?"
+    ],
+    "a": [
+      "Defined over gains and losses from a reference point: concave for gains, convex for losses, and steeper for losses (roughly 2x).",
+      "Risk-averse for likely gains and unlikely losses; risk-seeking for likely losses and unlikely gains (lotteries, insurance).",
+      "Ruggeri et al. (2020) replicated core patterns in 19 countries, but critics like Gal and Rucker argue loss aversion is less general than claimed."
+    ]
+  },
+  {
+    "c": "psychology",
+    "d": 60,
+    "type": "study",
+    "t": "Cognitive dissonance: the $1 vs $20 study and its shaky replication",
+    "desc": "Study Festinger and Carlsmith's 1959 induced-compliance experiment and the theory behind it. Then look at the 2024 multi-lab replication (Vaidis et al.) that did not find the classic attitude change.",
+    "check": [
+      "What happened in the $1 vs $20 study?",
+      "How does dissonance theory explain it?",
+      "What does the failed multi-lab replication imply?"
+    ],
+    "a": [
+      "People paid $1 to tell the next person a dull task was fun later rated it more enjoyable than those paid $20.",
+      "$20 justifies the lie; $1 does not, so people reduce dissonance by changing their attitude toward the task.",
+      "This paradigm may not reliably produce the effect. The broader theory is not refuted, but the classic demonstration is weaker than taught."
+    ]
+  },
+  {
+    "c": "psychology",
+    "d": 30,
+    "type": "study",
+    "t": "Asch's line experiments: how much people really conformed",
+    "desc": "Study Solomon Asch's 1950s conformity experiments with the line-length task, the variations (one ally, group size, writing answers privately) and Bond and Smith's 1996 cross-cultural meta-analysis.",
+    "check": [
+      "What share of critical trials and of participants showed conformity?",
+      "What single change cut conformity the most?",
+      "What did Bond and Smith's meta-analysis find?"
+    ],
+    "a": [
+      "About a third of answers on critical trials conformed; about 75% conformed at least once, while about a quarter never did.",
+      "Having one other person give the correct answer: conformity fell sharply, by around three quarters.",
+      "Conformity declined in the US since the 1950s and was higher in more collectivist cultures."
+    ]
+  },
+  {
+    "c": "psychology",
+    "d": 120,
+    "type": "study",
+    "t": "Theories of emotion from James-Lange to constructed emotion",
+    "desc": "Study James-Lange, Cannon-Bard, Schachter-Singer two-factor theory (1962), Ekman's basic emotions and Barrett's constructed emotion. Include the facial-feedback saga: pen-in-mouth, its failed 2016 replication and the Many Smiles study.",
+    "check": [
+      "How do James-Lange and Cannon-Bard differ on the order of events?",
+      "What did Schachter and Singer claim, and how well did it replicate?",
+      "What is the current state of the facial-feedback hypothesis?"
+    ],
+    "a": [
+      "James-Lange: bodily change first, the feeling is perceiving it. Cannon-Bard: body and feeling arise together and independently.",
+      "Arousal plus a cognitive label makes an emotion (epinephrine study). Later replications were inconsistent.",
+      "A 17-lab replication of pen-in-mouth found nothing (2016); Many Smiles (2022) found small effects of posed smiles but not the pen method."
+    ]
+  },
+  {
+    "c": "psychology",
+    "d": 60,
+    "type": "study",
+    "t": "The bystander effect beyond the Kitty Genovese myth",
+    "desc": "Study Darley and Latane's 1968 seizure experiment, how the 38 silent witnesses story of Kitty Genovese was exaggerated, Fischer et al.'s 2011 meta-analysis, and Philpot et al.'s 2020 analysis of real CCTV footage.",
+    "check": [
+      "What did the seizure study find?",
+      "What was wrong with the Genovese story?",
+      "What did real-world CCTV footage show?"
+    ],
+    "a": [
+      "85% of people who thought they were alone helped before the seizure ended, versus 31% of those who thought four others could hear.",
+      "Few witnesses saw the attack clearly, some did call police, and one woman went to her; the '38 did nothing' was overstated.",
+      "In about 9 of 10 public conflicts someone intervened, and more bystanders made intervention more likely, not less."
+    ]
+  },
+  {
+    "c": "psychology",
+    "d": 30,
+    "type": "do",
+    "t": "Test your own overconfidence with ten 90% confidence intervals",
+    "desc": "Write ten factual questions with numeric answers you do not know (e.g. length of the Nile, year of a treaty). Give a range you are 90% sure contains each answer, then check and score yourself.",
+    "check": [
+      "Ten ranges are written down before checking any answer",
+      "You have counted how many contain the true value and compared it to the expected 9",
+      "You have retaken five new questions with wider ranges and noted the change"
+    ]
+  },
+  {
+    "c": "psychology",
+    "d": 60,
+    "type": "do",
+    "t": "Build a spaced-retrieval deck for something you want to keep",
+    "desc": "Pick a topic you recently learned and turn it into 20 question-answer cards that require recall (not recognition). Set a review schedule at roughly 1, 3, 7 and 21 days.",
+    "check": [
+      "20 cards exist, each with a single clear answer",
+      "First recall session done, with a count of what you got right",
+      "Review dates are in your calendar or a spaced-repetition app"
+    ]
+  },
+  {
+    "c": "psychology",
+    "d": 30,
+    "type": "do",
+    "t": "Write three if-then implementation intentions for a habit",
+    "desc": "Using Gollwitzer's implementation intentions (meta-analytic effect around d = 0.65), write three 'If situation X, then I will do Y' plans for a goal you keep failing, and track them for a week.",
+    "check": [
+      "Three plans with a specific cue (time, place or event) and a specific action",
+      "One plan covers a predictable obstacle, not just the start",
+      "A tally sheet for seven days exists and day one is filled in"
+    ]
+  },
+  {
+    "c": "psychology",
+    "d": 60,
+    "type": "do",
+    "t": "Practise cognitive reappraisal on three recent upsets",
+    "desc": "Read a short summary of James Gross's process model of emotion regulation. Then write three recent upsetting events, your original interpretation, and two alternative appraisals for each, rating intensity before and after.",
+    "check": [
+      "Three events written with original interpretation and 0-10 intensity",
+      "Each has two genuinely different reappraisals, not just 'it's fine'",
+      "After-ratings are recorded and you can say how reappraisal differs from suppression"
+    ]
+  },
+  {
+    "c": "psychology",
+    "d": 60,
+    "type": "do",
+    "t": "Run the Stroop effect on yourself and two friends",
+    "desc": "Make two lists of 20 colour words: one where ink matches the word, one where it conflicts. Time each person naming the ink colours aloud, and compare the means.",
+    "check": [
+      "Both lists exist and are the same length",
+      "Times for at least three people on both lists are recorded",
+      "You can explain the slowdown in terms of automatic reading interfering with colour naming"
+    ]
+  },
+  {
+    "c": "psychology",
+    "d": 120,
+    "type": "do",
+    "t": "Audit a viral psychology claim back to the original study",
+    "desc": "Pick a popular claim (a TED talk, self-help book or headline). Find the original paper, then record sample size, effect size, whether it was preregistered and whether any direct replication exists.",
+    "check": [
+      "The original paper is identified and its sample size and main result noted",
+      "You have searched for and summarised any replication attempts",
+      "You have written a one-paragraph verdict: solid, uncertain, or overstated"
+    ]
+  },
+  {
+    "c": "psychology",
+    "d": 60,
+    "type": "do",
+    "t": "Run a pre-mortem on a real decision you are about to make",
+    "desc": "Using Gary Klein's pre-mortem method, imagine it is a year later and your decision has failed badly. Write every reason it failed, then rank them and change the plan to address the top three.",
+    "check": [
+      "At least ten failure reasons are written down",
+      "The top three are ranked by likelihood times impact",
+      "The plan has three concrete changes or checkpoints added"
+    ]
+  }
+]

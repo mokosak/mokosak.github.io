@@ -1,0 +1,277 @@
+[
+  {
+    "c": "crypto",
+    "d": 30,
+    "type": "study",
+    "t": "Understand XOR properties and why one-time-pad key reuse is fatal",
+    "desc": "Learn the algebraic properties of XOR and why reusing a keystream/pad across two messages destroys secrecy.",
+    "check": [
+      "What are the identity and self-inverse properties of XOR that make it usable as a cipher?",
+      "If two messages are XORed with the same keystream, what does c1 XOR c2 equal and why is that dangerous?",
+      "What three conditions make a one-time pad information-theoretically secure?"
+    ],
+    "a": [
+      "a XOR 0 = a, a XOR a = 0, and it is its own inverse, so p XOR k XOR k = p.",
+      "c1 XOR c2 = p1 XOR p2, cancelling the key and leaking the XOR of the two plaintexts (crib-draggable).",
+      "The key must be truly random, as long as the message, and never reused."
+    ]
+  },
+  {
+    "c": "crypto",
+    "d": 30,
+    "type": "do",
+    "t": "Break single-byte XOR with frequency scoring",
+    "desc": "Given a hex string XORed against one unknown byte, try all 256 keys, score each candidate plaintext by English letter frequency, and pick the best to recover the message (cryptopals Set 1).",
+    "check": [
+      "Your script outputs the correct plaintext and the single key byte",
+      "Your scoring function reliably ranks English text above garbage",
+      "You can explain why only 256 keys need to be tried"
+    ]
+  },
+  {
+    "c": "crypto",
+    "d": 60,
+    "type": "do",
+    "t": "Break repeating-key XOR via keysize detection and column transposition",
+    "desc": "Recover a Vigenere-style repeating-key XOR ciphertext: estimate key length using normalized Hamming distance, transpose into per-key-byte columns, then single-byte-break each column.",
+    "check": [
+      "You recover the full key and plaintext",
+      "Your Hamming-distance keysize estimate matches the true key length",
+      "You explain why transposing lets you reduce the problem to single-byte XOR"
+    ]
+  },
+  {
+    "c": "crypto",
+    "d": 60,
+    "type": "study",
+    "t": "Understand AES-ECB vs CBC and why ECB leaks structure",
+    "desc": "Learn how ECB and CBC modes differ, and why ECB reveals plaintext patterns while CBC chains blocks.",
+    "check": [
+      "Why do identical plaintext blocks produce identical ciphertext blocks under ECB?",
+      "How does CBC chain blocks, and what role does the IV play?",
+      "What visual/structural leak lets you detect ECB from ciphertext alone?"
+    ],
+    "a": [
+      "ECB encrypts each block independently with the same key, so equal input blocks map to equal output blocks.",
+      "Each plaintext block is XORed with the previous ciphertext block before encryption; the IV seeds the first block.",
+      "Repeated 16-byte ciphertext blocks appear wherever plaintext repeats (the ECB-penguin effect)."
+    ]
+  },
+  {
+    "c": "crypto",
+    "d": 60,
+    "type": "do",
+    "t": "Decrypt an AES-ECB byte-at-a-time oracle",
+    "desc": "Against an oracle that encrypts your_input || secret under ECB with a fixed key, recover the secret one byte at a time by aligning blocks and matching against a dictionary of guesses.",
+    "check": [
+      "You recover the full hidden suffix from the oracle",
+      "You first confirm the mode is ECB and determine the block size from output length jumps",
+      "You explain why controlling input length isolates one unknown byte per query"
+    ]
+  },
+  {
+    "c": "crypto",
+    "d": 120,
+    "type": "do",
+    "t": "Forge admin access with a CBC bit-flipping attack",
+    "desc": "Against a token encrypted in CBC where you control part of a block, flip bytes in the preceding ciphertext block to change a chosen plaintext byte (e.g. set admin=true) in the next block.",
+    "check": [
+      "The decrypted/parsed token grants admin or your target value",
+      "You correctly compute which ciphertext byte to XOR and by what delta",
+      "You explain why the block you modified becomes garbage and why that is acceptable here"
+    ]
+  },
+  {
+    "c": "crypto",
+    "d": 120,
+    "type": "do",
+    "t": "Decrypt CBC ciphertext with a padding-oracle attack",
+    "desc": "Use a server that only reveals whether PKCS#7 padding is valid to recover plaintext without the key, byte by byte, by manipulating the previous ciphertext block to force valid-padding states.",
+    "check": [
+      "You recover the full plaintext using only the padding valid/invalid signal",
+      "You correctly derive the intermediate (D(C)) bytes and XOR to get plaintext",
+      "You explain why forcing padding 0x01, then 0x02 0x02, etc. reveals each byte"
+    ]
+  },
+  {
+    "c": "crypto",
+    "d": 60,
+    "type": "study",
+    "t": "Understand PKCS#7 padding and how a padding oracle leaks plaintext",
+    "desc": "Learn how PKCS#7 pads messages to the block size and why an oracle that distinguishes valid from invalid padding is enough to decrypt CBC.",
+    "check": [
+      "How does PKCS#7 pad a message that is 3 bytes short of a block boundary?",
+      "In CBC, how does changing the previous ciphertext block affect the current decrypted plaintext?",
+      "Why does learning that padding is valid reveal one byte of the intermediate state?"
+    ],
+    "a": [
+      "It appends three bytes each equal to 0x03; a full extra block of 0x10 bytes is added if already aligned.",
+      "Plaintext = D(C_i) XOR C_{i-1}, so flipping a byte of C_{i-1} flips the same plaintext byte deterministically.",
+      "Valid 0x01 padding means D(C)[last] XOR your_byte = 0x01, so D(C)[last] = your_byte XOR 0x01."
+    ]
+  },
+  {
+    "c": "crypto",
+    "d": 30,
+    "type": "study",
+    "t": "Understand modular exponentiation and the discrete log problem",
+    "desc": "Learn why g^x mod p is easy to compute but hard to invert, and how that asymmetry underpins Diffie-Hellman key exchange.",
+    "check": [
+      "Why is computing g^x mod p fast even for huge x?",
+      "What exactly is the discrete logarithm problem that makes DH secure?",
+      "How do two parties derive the same shared secret in classic DH?"
+    ],
+    "a": [
+      "Square-and-multiply does it in O(log x) modular multiplications rather than x multiplications.",
+      "Given g, p, and g^x mod p, recovering x is believed computationally infeasible for well-chosen large p.",
+      "Alice sends g^a, Bob sends g^b; each raises the other's value to their own secret, both getting g^{ab} mod p."
+    ]
+  },
+  {
+    "c": "crypto",
+    "d": 60,
+    "type": "do",
+    "t": "Recover RSA plaintext with small e via cube root (no padding)",
+    "desc": "Given textbook RSA with e=3 and a message so small that m^3 < n, recover m by taking the exact integer cube root of the ciphertext, since no modular reduction occurred.",
+    "check": [
+      "You recover the plaintext by integer root extraction, not factoring n",
+      "You verify m^3 equals c exactly (no reduction wrapped around)",
+      "You explain what padding (OAEP) would have prevented this"
+    ]
+  },
+  {
+    "c": "crypto",
+    "d": 120,
+    "type": "do",
+    "t": "Exploit RSA common-modulus with two coprime exponents",
+    "desc": "Given two ciphertexts of the same message under the same modulus n but different public exponents e1,e2 with gcd=1, use the extended Euclidean algorithm to recover the plaintext.",
+    "check": [
+      "You recover m from c1,c2 without factoring n",
+      "You find integers a,b with a*e1 + b*e2 = 1 and apply them correctly (handling negative exponents via inverses)",
+      "You explain why gcd(e1,e2)=1 is required"
+    ]
+  },
+  {
+    "c": "crypto",
+    "d": 120,
+    "type": "do",
+    "t": "Factor a weak RSA modulus with Fermat's method (close primes)",
+    "desc": "When p and q are close together, factor n by searching for a such that a^2 - n is a perfect square (n = a^2 - b^2 = (a-b)(a+b)), recovering p and q and then the private key.",
+    "check": [
+      "You factor n into p and q for a close-prime modulus",
+      "Your search starts at ceil(sqrt(n)) and finds b quickly because the primes are near",
+      "You explain why Fermat's method fails when p and q are far apart"
+    ]
+  },
+  {
+    "c": "crypto",
+    "d": 60,
+    "type": "study",
+    "t": "Understand why textbook RSA is malleable and how OAEP fixes it",
+    "desc": "Learn how deterministic, unpadded RSA's homomorphic property enables attacks and why randomized padding like OAEP is required in practice.",
+    "check": [
+      "What does multiplying two RSA ciphertexts do to the underlying plaintexts?",
+      "Why does deterministic encryption of small/known message spaces leak information?",
+      "What two things does OAEP add that break these attacks?"
+    ],
+    "a": [
+      "(m1^e)(m2^e) mod n = (m1*m2)^e mod n, so ciphertexts multiply to the product's ciphertext (malleable).",
+      "An attacker can just encrypt candidate messages and compare, since the same plaintext always gives the same ciphertext.",
+      "Randomness (so encryption is non-deterministic) and structured padding that makes malformed/forged ciphertexts decode to garbage and be rejected."
+    ]
+  },
+  {
+    "c": "crypto",
+    "d": 30,
+    "type": "do",
+    "t": "Compute an RSA private key from p, q, and e",
+    "desc": "Given primes p and q and public exponent e, compute phi = (p-1)(q-1), the private exponent d = e^{-1} mod phi, and decrypt a sample ciphertext to confirm.",
+    "check": [
+      "You compute d and successfully decrypt the provided ciphertext",
+      "You obtain d via modular inverse (extended Euclid), not trial division",
+      "You can state why gcd(e, phi) must be 1 for d to exist"
+    ]
+  },
+  {
+    "c": "crypto",
+    "d": 30,
+    "type": "study",
+    "t": "Understand hash length-extension and why H(secret||msg) MACs are forgeable",
+    "desc": "Learn why Merkle-Damgard hashes (MD5, SHA-1, SHA-256) let an attacker extend a hashed message without the secret, breaking naive MAC constructions.",
+    "check": [
+      "What property of Merkle-Damgard construction makes length extension possible?",
+      "Given H(secret||msg) and len(secret), what can an attacker forge without knowing the secret?",
+      "Why is HMAC not vulnerable to this attack?"
+    ],
+    "a": [
+      "The hash output is the full internal state, so an attacker can resume hashing from it as a new starting state.",
+      "A valid H(secret||msg||padding||attacker_data), i.e. a MAC for an extended message, by continuing from the known digest.",
+      "HMAC nests two keyed hashes (H(k2 || H(k1 || m))), so the output is not a usable intermediate state to extend."
+    ]
+  },
+  {
+    "c": "crypto",
+    "d": 60,
+    "type": "do",
+    "t": "Forge a MAC with a hash length-extension attack",
+    "desc": "Given a token of the form MAC = H(secret || message) with known message and secret length, use a tool like hlextend/hashpump to append data and produce a valid MAC for the extended message.",
+    "check": [
+      "Your forged (message', MAC') pair validates against the server",
+      "You correctly include the original glue padding before your appended data",
+      "You brute-force or are given the secret length and confirm it matters"
+    ]
+  },
+  {
+    "c": "crypto",
+    "d": 30,
+    "type": "do",
+    "t": "Peel layered encodings (base64, hex, base32, rot13)",
+    "desc": "Given a blob wrapped in several encoding layers, identify each layer by its alphabet/structure and decode iteratively until you reach the plaintext flag.",
+    "check": [
+      "You recover the final plaintext flag",
+      "You correctly identify each layer (e.g. base64 padding =, hex 0-9a-f, base32 A-Z2-7)",
+      "You can explain why encoding is not encryption"
+    ]
+  },
+  {
+    "c": "crypto",
+    "d": 60,
+    "type": "do",
+    "t": "Recover two plaintexts from AES-CTR keystream (nonce) reuse",
+    "desc": "Given two ciphertexts encrypted under AES-CTR with the same key and nonce, XOR them to get p1 XOR p2 and use crib-dragging/known structure to separate the two plaintexts.",
+    "check": [
+      "You recover meaningful plaintext from both messages",
+      "You use c1 XOR c2 = p1 XOR p2 and a crib to peel bytes",
+      "You explain why reusing a CTR nonce reduces it to a two-time pad"
+    ]
+  },
+  {
+    "c": "crypto",
+    "d": 60,
+    "type": "study",
+    "t": "Distinguish a hash, a MAC, and a digital signature",
+    "desc": "Learn which security properties (integrity, authenticity, non-repudiation) each primitive provides and when to use which.",
+    "check": [
+      "Which of integrity and authenticity does a plain hash provide, and which does it not?",
+      "What does a MAC add over a hash, and what key model does it use?",
+      "What does a digital signature provide that a MAC cannot, and why?"
+    ],
+    "a": [
+      "A plain hash gives integrity against accidental change but no authenticity, since anyone can recompute it.",
+      "A MAC adds authenticity using a shared secret key, so only key holders can produce or verify it.",
+      "Non-repudiation: a signature uses a private key only the signer holds, so anyone can verify origin; a MAC's shared key means either party could have made it."
+    ]
+  },
+  {
+    "c": "crypto",
+    "d": 120,
+    "type": "do",
+    "t": "Recover an ECDSA private key from two signatures reusing a nonce",
+    "desc": "Given two ECDSA signatures over different messages that share the same nonce k (same r value), solve for k, then recover the long-term private key d.",
+    "check": [
+      "You compute the private key d and verify it reproduces both signatures",
+      "You recover k = (z1 - z2) * (s1 - s2)^{-1} mod n, then d = (s1*k - z1) * r^{-1} mod n",
+      "You explain why an identical r across two signatures proves nonce reuse"
+    ]
+  }
+]

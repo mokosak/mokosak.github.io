@@ -1,0 +1,272 @@
+[
+  {
+    "c": "habit",
+    "d": 30,
+    "type": "do",
+    "t": "Add friction to your phone: no feeds on the home screen, no app notifications",
+    "desc": "Move every social and video app off the home screen into a folder (or delete it), turn off notifications from everything except people, and set grayscale or a downtime schedule. Record today's screen time.",
+    "check": [
+      "No feed apps left on the home screen",
+      "Notifications disabled for all apps that aren't messages or calls from people",
+      "Today's screen-time figure written down as a baseline"
+    ]
+  },
+  {
+    "c": "habit",
+    "d": 30,
+    "type": "study",
+    "t": "Sleep basics that actually work: wake time, caffeine and getting up",
+    "desc": "Learn the core, well-supported sleep habits (consistent wake time, morning light, caffeine timing, stimulus control), then pick a fixed wake time for the next 7 days.",
+    "check": [
+      "What is the single most useful habit for regular sleep?",
+      "Why can an afternoon coffee affect your sleep at night?",
+      "What should you do if you've been lying awake in bed for about 20 minutes?"
+    ],
+    "a": [
+      "A consistent wake time every day, weekends included; it anchors your body clock, especially with daylight soon after waking.",
+      "Caffeine's half-life averages around 5 hours, so a good part of it is still blocking sleepiness signals at bedtime.",
+      "Get up, do something calm in dim light, and return to bed when sleepy, so the bed stays linked with sleep (part of CBT-I)."
+    ]
+  },
+  {
+    "c": "habit",
+    "d": 60,
+    "type": "do",
+    "t": "Design a 30-minute wind-down routine and run it tonight",
+    "desc": "Write a short routine: phone charging outside the bedroom, lights dimmed, tomorrow's alarm set, and a calm activity like reading or stretching. Prepare the room now, then do it tonight.",
+    "check": [
+      "Routine written as a 4-6 step checklist",
+      "Phone charging outside the bedroom tonight",
+      "Lights out within 15 minutes of your planned bedtime"
+    ]
+  },
+  {
+    "c": "habit",
+    "d": 120,
+    "type": "do",
+    "t": "Complete 4 Pomodoros on one important task",
+    "desc": "Choose one task that matters. Do 4 rounds of 25 minutes focused work plus 5 minutes break, with the phone in another room. Write any distraction on paper instead of acting on it.",
+    "check": [
+      "4 full Pomodoros completed without touching your phone",
+      "Distractions captured on paper, none acted on during work rounds",
+      "A concrete piece of the task finished or measurably advanced"
+    ]
+  },
+  {
+    "c": "habit",
+    "d": 60,
+    "type": "do",
+    "t": "Do one 50-minute deep-work block with your phone in another room",
+    "desc": "Write the single outcome you want, close every tab and app you don't need, put the phone in another room, work for 50 minutes on a timer, then take a 10-minute break away from screens.",
+    "check": [
+      "Outcome written down before starting",
+      "50 minutes worked with zero phone checks",
+      "Break taken away from all screens"
+    ]
+  },
+  {
+    "c": "habit",
+    "d": 30,
+    "type": "study",
+    "t": "How habits form: cues, if-then plans and realistic timelines",
+    "desc": "Learn what research says about forming habits, then write one if-then plan for a habit you want, tied to something you already do every day.",
+    "check": [
+      "What is an implementation intention?",
+      "What is habit stacking?",
+      "How long does it take to form a habit, according to Lally et al. (2010)?"
+    ],
+    "a": [
+      "An if-then plan: 'When situation X happens, I will do Y.' Studies show it reliably increases follow-through.",
+      "Attaching a new habit to an existing routine, which then acts as its cue (e.g. after I pour coffee, I write one journal line).",
+      "It varied widely, with a median around 66 days (range 18-254); missing a single day did not derail it."
+    ]
+  },
+  {
+    "c": "habit",
+    "d": 30,
+    "type": "do",
+    "t": "Write a 5-line evening journal entry and set up tomorrow's",
+    "desc": "Write 3 lines on what happened today, 1 thing that went well and why, and 1 specific thing you'll do differently tomorrow. Leave the notebook where you'll see it tomorrow evening.",
+    "check": [
+      "Entry written with all 5 lines",
+      "Tomorrow's action is specific (what, when)",
+      "Notebook placed where you'll see it tomorrow"
+    ]
+  },
+  {
+    "c": "habit",
+    "d": 60,
+    "type": "do",
+    "t": "Do a beginner full-body bodyweight strength session",
+    "desc": "Warm up for 5 minutes, then do 3 rounds of squats, push-ups (on a table edge if needed), backpack rows, glute bridges and a plank. Stop 1-2 reps before failure and stop entirely if anything hurts.",
+    "check": [
+      "3 full rounds completed",
+      "Reps (or seconds) for each exercise logged",
+      "A target for next session written, e.g. +1 rep each"
+    ]
+  },
+  {
+    "c": "habit",
+    "d": 60,
+    "type": "do",
+    "t": "Take a 45-minute brisk walk at talk-test pace",
+    "desc": "Walk at a pace where you can talk but not sing (moderate intensity), with the phone on do-not-disturb, for 45 minutes. Note distance and how you feel afterwards compared with before.",
+    "check": [
+      "45 minutes walked with only brief stops",
+      "Pace passed the talk test: you could talk but not sing",
+      "Distance and before/after mood noted"
+    ]
+  },
+  {
+    "c": "habit",
+    "d": 60,
+    "type": "study",
+    "t": "WHO activity guidelines: then plan a week that meets them",
+    "desc": "Learn the WHO physical activity recommendations for adults, compare them with what you did last week, and plan next week with specific days for aerobic activity and strength work.",
+    "check": [
+      "How much aerobic activity per week do the WHO guidelines recommend for adults?",
+      "How often should adults do muscle-strengthening activity?",
+      "How does the talk test tell moderate from vigorous intensity?"
+    ],
+    "a": [
+      "150-300 minutes of moderate or 75-150 minutes of vigorous activity per week, or an equivalent mix.",
+      "On 2 or more days a week, working all major muscle groups.",
+      "Moderate: you can talk but not sing. Vigorous: you can only say a few words before pausing for breath."
+    ]
+  },
+  {
+    "c": "habit",
+    "d": 120,
+    "type": "do",
+    "t": "Do a weekly review and time-block next week",
+    "desc": "Empty every inbox, notes app and scrap of paper into one list, review last week's calendar and the next two weeks, choose 3 priorities, and block time for each in your calendar with buffers.",
+    "check": [
+      "All inboxes and loose notes processed into one list",
+      "3 priorities for the week written down",
+      "Calendar blocks scheduled for each priority"
+    ]
+  },
+  {
+    "c": "habit",
+    "d": 120,
+    "type": "do",
+    "t": "Spend a 2-hour evening fully phone-free",
+    "desc": "Put the phone in a drawer in another room for 2 hours in the evening. Plan something analogue in advance: cook, read, play a board game, draw, play an instrument, or see a friend in person.",
+    "check": [
+      "Phone untouched for the full 120 minutes",
+      "At least one planned analogue activity done",
+      "A sentence written on how the evening felt compared with a normal one"
+    ]
+  },
+  {
+    "c": "habit",
+    "d": 30,
+    "type": "study",
+    "t": "Why task switching hurts focus, and how to protect it",
+    "desc": "Learn why multitasking and constant interruptions reduce the quality of work, then pick one batching rule (e.g. email only at 11:00 and 16:00) to try this week.",
+    "check": [
+      "Is 'multitasking' on two demanding tasks really doing them at once?",
+      "What is attention residue?",
+      "What is batching and why does it help?"
+    ],
+    "a": [
+      "No. You switch rapidly between them, and each switch costs time and raises error rates compared with doing them one at a time.",
+      "Sophie Leroy's finding that thoughts about a previous task linger after switching, lowering performance on the next task.",
+      "Grouping shallow tasks like email or messages into set times, so there are fewer switches and longer uninterrupted stretches."
+    ]
+  },
+  {
+    "c": "habit",
+    "d": 30,
+    "type": "do",
+    "t": "Do two 10-minute breath-focus sessions and count your mind-wandering",
+    "desc": "Sit comfortably, set a 10-minute timer, and focus on your breathing. Each time you notice your mind has wandered, make a tally mark and gently return. Rest briefly, repeat, and compare tallies.",
+    "check": [
+      "Two 10-minute sessions completed",
+      "Mind-wandering tallies recorded for both",
+      "One sentence written on what pulled your attention most"
+    ]
+  },
+  {
+    "c": "habit",
+    "d": 60,
+    "type": "study",
+    "t": "Learn how to learn: active recall, spacing and interleaving",
+    "desc": "Learn the three best-supported study techniques, then turn one topic you care about into 10 question-and-answer flashcards and schedule reviews over the next 2 weeks.",
+    "check": [
+      "Why does self-testing beat rereading?",
+      "What is spaced repetition?",
+      "What is interleaving and why does it feel harder?"
+    ],
+    "a": [
+      "Retrieving information strengthens memory more than re-exposure (the testing effect); rereading feels fluent but sticks less.",
+      "Reviewing at growing intervals (e.g. 1, 3, 7, 14 days) instead of cramming the same total time into one session.",
+      "Mixing different problem types in one session. It's harder because you must choose the method each time, which improves transfer."
+    ]
+  },
+  {
+    "c": "habit",
+    "d": 60,
+    "type": "do",
+    "t": "Run a digital declutter: apps, subscriptions and logins",
+    "desc": "List every app on your phone and every recurring email you receive. For each: delete, keep with a limit, or keep. Unsubscribe from newsletters you never read and log out of feed sites in your browser.",
+    "check": [
+      "Full app list made and at least 5 apps deleted",
+      "At least 10 unwanted email subscriptions cancelled",
+      "Feed sites logged out or blocked on your computer"
+    ]
+  },
+  {
+    "c": "habit",
+    "d": 120,
+    "type": "do",
+    "t": "Take a 2-hour walk or hike outdoors without using your phone",
+    "desc": "Pick a park, trail or route you can do safely, tell someone where you're going, and keep the phone switched to airplane mode in your bag for emergencies only. Notice details instead of photographing them.",
+    "check": [
+      "120 minutes spent outdoors",
+      "Phone not used except for a genuine need",
+      "3 things you noticed written down afterwards"
+    ]
+  },
+  {
+    "c": "habit",
+    "d": 60,
+    "type": "study",
+    "t": "What's real about 'dopamine detox' and compulsive scrolling",
+    "desc": "Separate the myth from the useful idea: learn why feeds are hard to stop and what actually reduces compulsive use, then list your 3 strongest scrolling triggers and one barrier for each.",
+    "check": [
+      "Does a 'dopamine fast' lower or reset your dopamine levels?",
+      "Which design features make feeds hard to stop?",
+      "What changes reduce compulsive use most reliably?"
+    ],
+    "a": [
+      "No; that is a misnomer. The useful core is cutting cue-driven, compulsive behaviours (stimulus control), not resetting a chemical.",
+      "Unpredictable rewards (you never know if the next post is good) and infinite feeds with no natural stopping point.",
+      "Changing the environment: remove cues, add friction (log out, delete apps, time limits) and plan a replacement activity."
+    ]
+  },
+  {
+    "c": "habit",
+    "d": 60,
+    "type": "do",
+    "t": "Design 3 habits with tiny versions, if-then cues and a 30-day tracker",
+    "desc": "Pick 3 habits. For each, write a 2-minute minimum version, an if-then cue ('After I X, I will Y') and a small reward. Draw a paper tracker for 30 days and do day one of each now.",
+    "check": [
+      "3 habits written with a minimum version, cue and reward",
+      "30-day tracker made and placed somewhere visible",
+      "Day one done and ticked for all 3 habits"
+    ]
+  },
+  {
+    "c": "habit",
+    "d": 120,
+    "type": "do",
+    "t": "Read a physical book for 2 hours with one short break",
+    "desc": "Choose a book you actually want to read, sit somewhere comfortable with the phone in another room, and read for two 55-minute blocks with a 10-minute break. Write a 3-sentence summary afterwards.",
+    "check": [
+      "Two 55-minute reading blocks completed",
+      "Phone not touched during either block",
+      "3-sentence summary of what you read written down"
+    ]
+  }
+]

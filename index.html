@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>unrot your brain</title>
+<meta name="description" content="Spin the wheel, get one real thing to learn or do, log it. Cyber, science, history, life skills and more. No accounts, no tracking.">
+<meta name="theme-color" content="#0c1a24">
+<meta property="og:title" content="unrot your brain">
+<meta property="og:description" content="Spin the wheel, learn one real thing instead of scrolling.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mokosak.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' shape-rendering='crispEdges'%3E%3Cpath fill='%23eaf1f5' d='M1 1h2v1h2v1h1v2h-1v1h-3v-1H1V3h1z'/%3E%3Cpath fill='%238fd3ea' d='M2 2h2v1H2zM5 3h1v2h-1z'/%3E%3C/svg%3E">
+<link rel="preload" href="skills.json" as="fetch" crossorigin>
+<link rel="stylesheet" href="style.css">
+<script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#wheelbox">skip to the wheel</a>
+<canvas id="snow" aria-hidden="true"></canvas>
+
+<header class="top">
+  <div class="wrap top-in">
+    <h1 class="px brand" data-px="unrot your brain" data-scale="5" data-hl="5">unrot your brain</h1>
+    <nav class="topnav" aria-label="tools">
+      <button id="battleBtn" class="btn">⚔ cram battle</button>
+      <button id="soundtog" class="btn sq2" aria-pressed="true" title="toggle sound" aria-label="toggle sound">♪</button>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="hud" id="stats" aria-label="your progress"></div>
+
+  <details class="filters" id="filterbox" open>
+    <summary><span class="fsum">⚙ filters</span><span class="fsum-note" id="fcount"></span></summary>
+    <div class="filters-body">
+      <div class="frow"><span class="flabel">time</span><div id="difffilter" class="seg" role="group" aria-label="time"></div></div>
+      <div class="frow"><span class="flabel">focus</span><div id="presets" class="seg" role="group" aria-label="focus"></div></div>
+      <div class="frow"><span class="flabel">mode</span><div id="modefilter" class="seg" role="group" aria-label="mode"></div></div>
+      <div id="catfilter" class="chips" role="group" aria-label="categories"></div>
+      <label class="hc"><input type="checkbox" id="hidecomp"><span class="cbx" aria-hidden="true"></span> hide what I've already done</label>
+    </div>
+  </details>
+
+  <main class="stage" id="main">
+    <div class="wheelbox" id="wheelbox">
+      <canvas id="wheel" width="120" height="120" aria-label="category wheel, click to spin" role="button" tabindex="0"></canvas>
+    </div>
+    <div class="readout" aria-hidden="true"><span class="ro-arrow">&gt;</span> <span id="readout">loading…</span></div>
+    <button id="spinbtn" class="btn primary big" disabled>spin the wheel</button>
+    <p class="hint">or press <kbd>space</kbd></p>
+    <div id="reveal" class="panel reveal hidden" aria-live="polite"></div>
+  </main>
+
+  <section class="logrow" aria-label="your log">
+    <div class="panel">
+      <h2 class="ptitle">calendar</h2>
+      <div id="cal"></div>
+      <div class="cal-foot">
+        <div class="legend"><span><i class="lg pend"></i>pending</span><span><i class="lg done"></i>all done</span></div>
+        <button id="todayBtn" class="link">today</button>
+      </div>
+    </div>
+    <div class="panel">
+      <div id="tasks"></div>
+    </div>
+  </section>
+</div>
+
+<section class="howto" aria-label="how it works">
+  <div class="wrap howto-in">
+    <h2 class="px snowtext" data-px="how it works" data-scale="4">how it works</h2>
+    <ol class="steps">
+      <li><b>spin.</b> filter by time, focus and mode, then let the wheel pick a category and one task from it.</li>
+      <li><b>do it.</b> add it to today and start the timer. finish inside the target time for ★★★.</li>
+      <li><b>prove it.</b> every task ends with a check: three questions to answer from memory, or three things that must work.</li>
+    </ol>
+  </div>
+</section>
+
+<footer class="wrap foot">
+  <p>everything stays in your own browser. no accounts, no cloud, no tracking.</p>
+  <p><kbd>space</kbd> spin &middot; <kbd>esc</kbd> close &middot; <a href="https://github.com/mokosak/mokosak.github.io">source</a></p>
+</footer>
+
+<div id="battleModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="bTitle">
+  <div class="panel mcard">
+    <button class="btn sq bclose" id="bClose" aria-label="close">✕</button>
+    <div id="bSetup">
+      <h2 id="bTitle" class="px snowtext" data-px="cram battle" data-scale="3">cram battle</h2>
+      <p class="muted">Everyone gets a task (or the same one), one shared countdown, then compare scores. Send the invite link so friends join the same live timer.</p>
+      <div class="brow"><span class="flabel">players</span><button id="bRollAll" class="btn ghost small">🎲 random tasks for all</button></div>
+      <div id="bPlayers"></div>
+      <button id="bAddPlayer" class="btn ghost small">+ add player</button>
+      <div class="brow"><span class="flabel">time</span><div id="bDur" class="seg"></div></div>
+      <div class="bactions"><button id="bStart" class="btn primary wide">start battle</button></div>
+      <div id="bStandings"></div>
+    </div>
+    <div id="bRun" class="hidden">
+      <div class="btimer" id="bTimer" role="timer" aria-live="off" aria-label="time left">00:00</div>
+      <div class="xpbar" aria-hidden="true"><div id="bBar"></div></div>
+      <div id="bRoster" class="broster"></div>
+      <div class="binvite"><input id="bInvite" readonly aria-label="invite link"><button id="bCopy" class="btn">copy</button></div>
+      <p class="muted center" id="bHint">Share this link so friends join the same countdown.</p>
+      <div class="bactions"><button id="bPause" class="btn wide">pause</button><button id="bFinishEarly" class="btn ghost">finish now</button></div>
+    </div>
+    <div id="bResults" class="hidden">
+      <h2 class="px snowtext" data-px="time's up" data-scale="3">time's up</h2>
+      <p class="muted">Enter everyone's score (questions answered, levels solved, whatever you agreed on).</p>
+      <div id="bScores"></div>
+      <div class="bactions"><button id="bFinish" class="btn primary wide">compare</button></div>
+      <div id="bRanking"></div>
+    </div>
+  </div>
+</div>
+
+<div id="toast" role="status" aria-live="polite"></div>
+<noscript><p class="wrap muted">This page needs JavaScript for the wheel. It runs entirely in your browser.</p></noscript>
+</body>
+</html>

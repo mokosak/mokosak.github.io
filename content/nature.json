@@ -1,0 +1,262 @@
+[
+ {
+  "c": "nature", "d": 30, "type": "study",
+  "t": "Why do leaves turn yellow, orange and red in autumn?",
+  "desc": "Learn which pigments are in a leaf all summer, which are made fresh in autumn, and why trees shed their leaves at all.",
+  "check": [
+   "Where do the yellow and orange colours come from?",
+   "Why do sunny days and cool (but not freezing) nights make the reds brighter?",
+   "Why do many trees drop their leaves instead of keeping them all winter?"
+  ],
+  "a": [
+   "Carotenoids are present all summer but masked by chlorophyll; when the tree breaks down and recycles chlorophyll, they show through.",
+   "Red anthocyanins are made in autumn from sugars; sunny days produce sugar and cool nights keep it trapped in the leaf.",
+   "In winter leaves would lose water while the ground is frozen and risk frost damage, while making little sugar; shedding them is cheaper."
+  ]
+ },
+ {
+  "c": "nature", "d": 30, "type": "study",
+  "t": "Where does a tree's mass come from?",
+  "desc": "Learn what photosynthesis takes in and gives out, revisit van Helmont's five-year willow experiment, and track where each atom in a tree trunk came from.",
+  "check": [
+   "Van Helmont's willow gained about 74 kg but the soil lost only about 57 g. Where did the mass come from?",
+   "Does the oxygen plants release come from the CO₂ or from the water?",
+   "Why do leaves look green?"
+  ],
+  "a": [
+   "Mostly from carbon dioxide in the air (carbon and oxygen), plus hydrogen from water; minerals from soil are only a few percent.",
+   "From water: isotope-labelling experiments show the O₂ comes from splitting H₂O, while CO₂'s oxygen ends up in sugar and water.",
+   "Chlorophyll absorbs red and blue light strongly and reflects relatively more green."
+  ]
+ },
+ {
+  "c": "nature", "d": 30, "type": "study",
+  "t": "Why are big fierce predators so rare? Energy flow in food chains",
+  "desc": "Learn how energy passes between trophic levels, why typically only about 10% makes it to the next level, and what that means for food chains, populations and diets.",
+  "check": [
+   "Where does the other ~90% of the energy go at each step?",
+   "If plants capture 100,000 kcal, roughly how much reaches a predator three levels up?",
+   "Why are food chains rarely longer than 4 or 5 levels?"
+  ],
+  "a": [
+   "Mostly released as heat by respiration for movement and body upkeep, plus parts that are never eaten or not digested.",
+   "100,000 → 10,000 → 1,000 → about 100 kcal, at roughly 10% per step.",
+   "After a few steps too little energy is left to support a viable population of the next level."
+  ]
+ },
+ {
+  "c": "nature", "d": 60, "type": "study",
+  "t": "Mitochondria: the bacteria that moved into your cells",
+  "desc": "Learn what mitochondria do with oxygen and food, the evidence that they descend from free-living bacteria, and how they are inherited.",
+  "check": [
+   "What evidence shows mitochondria were once free-living bacteria?",
+   "Why do you inherit your mitochondria almost entirely from your mother?",
+   "From a mitochondrion's point of view, why do you need oxygen at all?"
+  ],
+  "a": [
+   "They have their own circular DNA, bacteria-like ribosomes and a double membrane, and they divide by splitting in two like bacteria.",
+   "The egg supplies nearly all of the embryo's mitochondria, and the few from the sperm are normally destroyed.",
+   "Oxygen is the final electron acceptor in the electron transport chain; without it ATP yield falls from about 30 per glucose to 2."
+  ]
+ },
+ {
+  "c": "nature", "d": 60, "type": "study",
+  "t": "How does a vaccine teach your immune system?",
+  "desc": "Learn how antigens activate B and T cells, how memory cells make a second response faster and stronger, and how herd immunity thresholds are calculated.",
+  "check": [
+   "Why is the second encounter with a pathogen usually so much milder?",
+   "Why do some vaccines need booster doses?",
+   "Measles has an R₀ of about 12-18. What share of people must be immune to stop it spreading?"
+  ],
+  "a": [
+   "Memory B and T cells persist after the first exposure and launch a faster, larger, better-targeted response before the infection takes hold.",
+   "Repeat exposure expands the memory cell pool and improves antibody binding (affinity maturation); some protection also wanes over time.",
+   "About 1 - 1/R₀, which is roughly 92-94%."
+  ]
+ },
+ {
+  "c": "nature", "d": 60, "type": "study",
+  "t": "How much information is stored in your DNA?",
+  "desc": "Learn how four bases encode proteins in three-letter codons, how big the human genome is, and how about 20,000 protein-coding genes build a whole human.",
+  "check": [
+   "Estimate the information content of one copy of the human genome in megabytes.",
+   "Why does the genetic code use 3-letter codons rather than 2?",
+   "How can only about 20,000 protein-coding genes produce something as complex as a human?"
+  ],
+  "a": [
+   "About 3.1 billion bases × 2 bits ≈ 6.2 billion bits ≈ 775 MB (and much less after compression, since it's repetitive).",
+   "Two letters give only 4² = 16 combinations, fewer than the 20 amino acids; three give 64, enough with spares for redundancy and stop signals.",
+   "Elaborate regulation controls when and where each gene is switched on, and alternative splicing lets one gene make several proteins."
+  ]
+ },
+ {
+  "c": "nature", "d": 60, "type": "study",
+  "t": "How does a nerve send a signal?",
+  "desc": "Learn the resting membrane potential, the action potential with its sodium and potassium channels, and how myelin insulation makes signals much faster.",
+  "check": [
+   "Why is an action potential all-or-nothing?",
+   "Why does myelin speed up conduction so much?",
+   "When you stub your toe, why do you feel the touch before the throbbing pain?"
+  ],
+  "a": [
+   "At threshold, voltage-gated sodium channels open, letting in sodium that opens more channels: a self-reinforcing spike of fixed size.",
+   "The signal jumps between gaps in the insulation (nodes of Ranvier), reaching up to ~100 m/s versus ~1 m/s in thin unmyelinated fibres.",
+   "Touch travels on fast myelinated fibres (~50 m/s), while dull pain uses slow unmyelinated C fibres (~1 m/s), so it arrives later."
+  ]
+ },
+ {
+  "c": "nature", "d": 60, "type": "study",
+  "t": "Why are there roughly equal numbers of males and females?",
+  "desc": "Learn Fisher's principle, the evolutionary argument for a 1:1 sex ratio, and the cases in nature where ratios are strongly skewed and why.",
+  "check": [
+   "If males were rare, why would parents who produce sons be favoured by selection?",
+   "Why is 'a 1:1 ratio is best for the species' not the explanation?",
+   "Why do some wasps lay mostly female eggs?"
+  ],
+  "a": [
+   "Every offspring has one mother and one father, so the rarer sex averages more matings; producing it yields more grandchildren until the ratio evens out.",
+   "A mostly female population would grow faster, so 'good for the species' predicts female bias; 1:1 comes from selection on individual parents.",
+   "When brothers compete with each other for mates among their own sisters (local mate competition, e.g. fig wasps), a few sons suffice."
+  ]
+ },
+ {
+  "c": "nature", "d": 120, "type": "study",
+  "t": "How natural selection actually works, and the myths about it",
+  "desc": "Learn the three ingredients of natural selection (variation, inheritance, differential reproduction) and work through antibiotic resistance and the maths of small advantages.",
+  "check": [
+   "Why is 'giraffes stretched their necks and passed it on' wrong?",
+   "Why does heavy antibiotic use lead to resistant bacteria?",
+   "How many generations does a 1% reproductive advantage take to make a variant 100 times more common relative to the rest?"
+  ],
+  "a": [
+   "Changes acquired during life aren't inherited; variation in neck length already existed, and longer-necked individuals left more offspring.",
+   "Antibiotics kill susceptible bacteria; rare resistant ones, already present or arising by mutation or gene transfer, survive and multiply.",
+   "1.01ⁿ = 100 gives n ≈ 460 generations, which is very fast in evolutionary terms."
+  ]
+ },
+ {
+  "c": "nature", "d": 120, "type": "study",
+  "t": "How CRISPR-Cas9 edits DNA",
+  "desc": "Learn where CRISPR came from (a bacterial immune system), how a guide RNA steers the Cas9 enzyme to a matching DNA site, and how the cell's repair of the cut produces an edit.",
+  "check": [
+   "What was CRISPR originally for in bacteria?",
+   "Why is a 20-letter guide sequence enough to target one spot in a 3-billion-letter genome?",
+   "After Cas9 cuts, how does the cell's repair lead to either a gene knockout or a precise edit?"
+  ],
+  "a": [
+   "Storing snippets of viral DNA so Cas proteins can recognise and cut the same virus if it attacks again.",
+   "There are 4²⁰ ≈ 10¹² possible 20-letter sequences, far more than the ~6×10⁹ positions in the genome, so a well-chosen guide is usually unique.",
+   "Error-prone end joining often inserts or deletes letters, breaking the gene; if a template is supplied, homology-directed repair can copy in a precise change."
+  ]
+ },
+ {
+  "c": "nature", "d": 120, "type": "study",
+  "t": "How could an eye evolve step by step?",
+  "desc": "Follow the sequence from light-sensitive patch to cup, pinhole and lens eye, see why each stage is useful on its own, and compare the wiring of our eye with an octopus's.",
+  "check": [
+   "What use is 'half an eye'?",
+   "Why do you have a blind spot when an octopus doesn't?",
+   "According to modelling studies, roughly how fast could a camera eye evolve from a flat light-sensitive patch?"
+  ],
+  "a": [
+   "Even a light-sensitive patch detects a predator's shadow; a cup adds direction, a pinhole forms an image, and a lens makes it bright and sharp.",
+   "Our retina's nerve fibres run in front of the photoreceptors and leave through one hole with no receptors; the octopus retina is wired from behind.",
+   "Nilsson and Pelger's 1994 model estimated under 400,000 generations, a geological eyeblink."
+  ]
+ },
+ {
+  "c": "nature", "d": 120, "type": "study",
+  "t": "Follow a red blood cell on one lap around your body",
+  "desc": "Trace blood through the heart's four chambers, the lungs, arteries, capillaries and veins; learn why the two sides of the heart differ and how long one full circuit takes.",
+  "check": [
+   "Why is the left ventricle's wall much thicker than the right's?",
+   "At rest your heart pumps about 5 L per minute and you have about 5 L of blood. How long does a typical lap take?",
+   "Why is blood flow slowest in the capillaries, the narrowest vessels?"
+  ],
+  "a": [
+   "The left side pumps to the whole body at ~120 mmHg; the right only pushes through the nearby lungs at ~25 mmHg, and higher pressure would flood them.",
+   "About 1 minute on average, with short routes faster and long ones slower.",
+   "There are billions of them, so their total cross-section dwarfs the aorta's; the same flow through more area moves slower, leaving time for exchange."
+  ]
+ },
+ {
+  "c": "nature", "d": 30, "type": "do",
+  "t": "Find your blind spot and measure its size",
+  "desc": "Draw a cross and a dot 8 cm apart, cover one eye, stare at the cross and move the page until the dot vanishes, then map the blind spot's edges with a pencil tip and convert to degrees.",
+  "check": [
+   "You can make the dot disappear reliably with either eye",
+   "You measured its width and position (about 5-6° wide, centred about 15° to the side of where you look)",
+   "You can explain why you don't notice it in daily life (the other eye covers it and the brain fills in the gap)"
+  ]
+ },
+ {
+  "c": "nature", "d": 30, "type": "do",
+  "t": "Measure your reaction time with a falling ruler",
+  "desc": "Have a friend drop a ruler between your fingers without warning, record the catch distance for 10 trials with each hand, and convert distance to time with t = √(2d/g).",
+  "check": [
+   "You converted catch distances to times (e.g. 20 cm ≈ 0.20 s)",
+   "You recorded the average and spread for each hand over 10 trials",
+   "You can explain why a visual reaction can't be much faster than about 0.1 s (nerve travel plus processing in the brain)"
+  ]
+ },
+ {
+  "c": "nature", "d": 30, "type": "do",
+  "t": "Dissect a flower and find every reproductive part",
+  "desc": "Take apart a simple flower such as a lily, tulip or alstroemeria, lay out the sepals, petals, stamens and pistil on paper, and slice the ovary open to find the ovules.",
+  "check": [
+   "You laid out and labelled sepals, petals, anthers, filaments, stigma, style and ovary",
+   "You found the ovules inside the ovary",
+   "You can explain how pollen landing on the stigma leads to seeds and fruit"
+  ]
+ },
+ {
+  "c": "nature", "d": 60, "type": "do",
+  "t": "Extract DNA from strawberries in your kitchen",
+  "desc": "Mash strawberries with water, dish soap and salt, filter through a coffee filter, then gently pour ice-cold rubbing alcohol on top and spool up the white strands that appear. Keep the alcohol away from flames.",
+  "check": [
+   "You collected visible white strands at the boundary between the alcohol and the strawberry liquid",
+   "You can explain what the soap and the salt each do",
+   "You can explain why DNA clumps in alcohol and why each strand you see is millions of DNA molecules, not one"
+  ]
+ },
+ {
+  "c": "nature", "d": 60, "type": "do",
+  "t": "Dissect a chicken wing to see how muscles move bones",
+  "desc": "Carefully skin a raw chicken wing, pull individual muscles to see which way each bends the joint, and find tendons, ligaments and cartilage. Wash hands, tools and surfaces well afterwards.",
+  "check": [
+   "You found an antagonistic muscle pair and showed one bends the elbow while the other straightens it",
+   "You identified a tendon, a ligament and joint cartilage",
+   "You can explain why muscles can only pull, never push"
+  ]
+ },
+ {
+  "c": "nature", "d": 60, "type": "do",
+  "t": "Test how temperature affects yeast with three balloons",
+  "desc": "Put equal amounts of yeast and sugar in three bottles with cold, warm (about 35°C) and hot (about 60°C) water, stretch a balloon over each neck, and measure balloon circumference every 10 minutes.",
+  "check": [
+   "You recorded balloon circumference over time for all three bottles",
+   "You identified which temperature produced the most gas and estimated its rate",
+   "You can explain the results in terms of enzyme activity and heat killing the yeast cells"
+  ]
+ },
+ {
+  "c": "nature", "d": 60, "type": "do",
+  "t": "Grow seedlings that bend toward light and turn to find gravity",
+  "desc": "Sprout beans on damp paper towel in two jars. Light one only from the side; lay the other on its side once roots appear. Check and photograph both daily for about a week.",
+  "check": [
+   "Your side-lit shoots clearly bent toward the light",
+   "Roots in the tipped jar curved to grow downward again within a day or two",
+   "You can explain how the hormone auxin redistributes to cause both kinds of bending"
+  ]
+ },
+ {
+  "c": "nature", "d": 120, "type": "do",
+  "t": "Bioblitz: find and identify 30 species within 100 m of home",
+  "desc": "Search a small area thoroughly for plants, insects, spiders, birds, fungi, lichens and anything else alive, photograph each one, and identify it with a field guide or an ID app.",
+  "check": [
+   "You recorded at least 30 species across at least 4 major groups (e.g. plants, insects, birds, fungi)",
+   "You noted the exact microhabitat where each was found",
+   "You can describe one feeding or other interaction between species that you actually observed"
+  ]
+ }
+]

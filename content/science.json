@@ -1,0 +1,262 @@
+[
+ {
+  "c": "science", "d": 30, "type": "study",
+  "t": "Why is the sky blue but sunsets red?",
+  "desc": "Learn Rayleigh scattering: why scattering strength goes as 1/λ⁴, how the path of sunlight through air lengthens from noon to sunset, and why clouds don't follow the same rule.",
+  "check": [
+   "Why isn't the sky violet, if violet light scatters even more than blue?",
+   "Why are clouds white or grey rather than blue?",
+   "Roughly how many times more strongly is 450 nm blue light scattered than 700 nm red light?"
+  ],
+  "a": [
+   "Sunlight has less violet than blue, some violet is absorbed high up, and our eyes are far less sensitive to violet, so the mix we see reads as blue.",
+   "Cloud droplets are much larger than light's wavelength, so they scatter all colours about equally (Mie scattering), which looks white.",
+   "(700/450)⁴ ≈ 5.9, so about 6 times."
+  ]
+ },
+ {
+  "c": "science", "d": 30, "type": "study",
+  "t": "How does a microwave oven actually heat food?",
+  "desc": "Learn dielectric heating: how a 2.45 GHz field twists polar water molecules, why it is not a 'water resonance', and why the oven cavity has fixed hot and cold spots.",
+  "check": [
+   "Why does frozen food thaw so unevenly in a microwave?",
+   "Why can you see through the metal mesh in the door while the microwaves can't get out?",
+   "Why does a microwave oven need a turntable?"
+  ],
+  "a": [
+   "Ice absorbs microwaves far less than liquid water, so patches that melt first absorb more and heat faster: a runaway effect.",
+   "The mesh holes are a few mm, far smaller than the ~12 cm microwave wavelength, so they block microwaves but pass visible light (~0.5 µm).",
+   "Standing waves make fixed hot and cold spots about 6 cm apart; rotating the food moves it through them to even out heating."
+  ]
+ },
+ {
+  "c": "science", "d": 30, "type": "study",
+  "t": "Why does ice float, and why does that keep lakes alive in winter?",
+  "desc": "Learn how hydrogen bonds give ice an open crystal lattice, why liquid water is densest near 4°C, and what that means for a lake as it freezes.",
+  "check": [
+   "Why does a lake freeze from the top down instead of the bottom up?",
+   "What fraction of an iceberg sits below the waterline, and why?",
+   "What would happen to lakes if ice were denser than liquid water?"
+  ],
+  "a": [
+   "Water near 4°C is densest and sinks; colder water stays on top and freezes there, and the ice layer then insulates the water below.",
+   "About 90%: the submerged fraction equals ice's density (~917 kg/m³) divided by seawater's (~1025 kg/m³).",
+   "Ice would sink and pile up on the bottom, shielded from the sun, so many lakes would freeze solid and stay mostly frozen."
+  ]
+ },
+ {
+  "c": "science", "d": 30, "type": "study",
+  "t": "Why does salt melt ice, and why does it fail in deep cold?",
+  "desc": "Learn freezing-point depression: why dissolved particles make it harder for water to freeze, why the effect depends on particle count rather than type, and the limits of road salt.",
+  "check": [
+   "Why does salt make ice melt even when the air is below 0°C?",
+   "Why is road salt nearly useless at -25°C?",
+   "Why does calcium chloride work better than the same number of moles of table salt?"
+  ],
+  "a": [
+   "Dissolved ions lower the freezing point of the water they're in, so ice at, say, -5°C is now above the brine's freezing point and melts.",
+   "Salt water can't stay liquid below its eutectic point, about -21°C for NaCl, and melting is already very slow well before that.",
+   "CaCl₂ splits into 3 ions vs 2 for NaCl, and the effect scales with particle count; it also releases heat as it dissolves."
+  ]
+ },
+ {
+  "c": "science", "d": 30, "type": "study",
+  "t": "Why can't you drink through a straw more than 10 metres tall?",
+  "desc": "Learn what really pushes liquid up a straw, compute the 10.3 m limit from atmospheric pressure with p = ρgh, and see why a mercury barometer is only 76 cm tall.",
+  "check": [
+   "Why is 'suction pulls the water up' the wrong picture?",
+   "Calculate the maximum height of a water column the atmosphere can support.",
+   "Why is a mercury barometer column about 76 cm rather than 10 m?"
+  ],
+  "a": [
+   "You only lower the pressure in your mouth; the atmosphere pressing on the open surface pushes the liquid up.",
+   "h = 101,325 Pa / (1000 kg/m³ × 9.81 m/s²) ≈ 10.3 m, even with a perfect vacuum at the top.",
+   "Mercury is 13.6 times denser than water, so 10.3 m / 13.6 ≈ 0.76 m."
+  ]
+ },
+ {
+  "c": "science", "d": 60, "type": "study",
+  "t": "How much energy is locked in mass? E=mc² with real numbers",
+  "desc": "Work through E=mc² for everyday masses, learn the binding-energy-per-nucleon curve, and see why both splitting heavy nuclei and fusing light ones release energy.",
+  "check": [
+   "Estimate the energy released by converting 1 gram of mass, in kilotons of TNT.",
+   "Why do splitting uranium and fusing hydrogen both release energy?",
+   "Roughly what fraction of a uranium-235 nucleus's mass turns into energy when it fissions?"
+  ],
+  "a": [
+   "E = 0.001 kg × (3×10⁸ m/s)² = 9×10¹³ J ≈ 21 kilotons of TNT (1 kt ≈ 4.2×10¹² J).",
+   "Binding energy per nucleon peaks near iron and nickel; moving toward that peak from either side releases energy as a small loss of mass.",
+   "About 0.1%: roughly 200 MeV released out of about 220,000 MeV of rest energy."
+  ]
+ },
+ {
+  "c": "science", "d": 60, "type": "study",
+  "t": "How does a heat pump pull heat from cold outdoor air into a warm house?",
+  "desc": "Learn the refrigeration cycle (evaporate, compress, condense, expand), why a heat pump can deliver 3 to 4 times more heat than the electricity it uses, and what limits that.",
+  "check": [
+   "Why doesn't a coefficient of performance of 3 violate conservation of energy?",
+   "Why does an evaporating refrigerant absorb heat?",
+   "Why does a heat pump get less efficient as the outdoor temperature drops?"
+  ],
+  "a": [
+   "It moves existing heat rather than creating it: 1 kJ of work carries about 2 kJ from outside, delivering 3 kJ indoors.",
+   "Evaporation needs latent heat to pull molecules apart; at low pressure the refrigerant boils below outdoor temperature and takes that heat from the air.",
+   "The temperature lift grows; the ideal limit COP = T_hot/(T_hot - T_cold) in kelvin falls as the gap widens, and real units follow the trend."
+  ]
+ },
+ {
+  "c": "science", "d": 60, "type": "study",
+  "t": "Why can't ants be the size of elephants? The square-cube law",
+  "desc": "Learn how area and volume scale differently with size, then apply it to bone strength, heat loss, falling, and why giant movie monsters could not stand up.",
+  "check": [
+   "If an animal is scaled up 10 times in length, what happens to the stress on its leg bones?",
+   "Why do shrews and small birds need to eat a large fraction of their body weight every day?",
+   "Why can a mouse survive a fall that would kill a horse?"
+  ],
+  "a": [
+   "Mass grows 1000x but bone cross-section only 100x, so stress rises 10x; that's why big animals have proportionally thicker bones.",
+   "Heat loss scales with surface area but body mass with volume; small bodies have far more surface per gram, so they lose heat fast.",
+   "Drag scales with area and weight with volume, so small animals fall at a much lower terminal speed and hit with far less force per area."
+  ]
+ },
+ {
+  "c": "science", "d": 60, "type": "study",
+  "t": "Why do hot things glow red, then yellow, then white?",
+  "desc": "Learn blackbody radiation and Wien's law (peak wavelength ≈ 2.9 mm·K / T), and use them to explain stove elements, the colours of stars, and why you glow in infrared.",
+  "check": [
+   "At what wavelength does a human body at 310 K emit most strongly?",
+   "Why are there no green stars?",
+   "Why does a stove element at 400 K not glow visibly, but at 1000 K glows red?"
+  ],
+  "a": [
+   "λ ≈ 2.9×10⁻³ m·K / 310 K ≈ 9.4 µm, in the infrared, which is what thermal cameras detect.",
+   "When the peak is green (around 5800 K, like the Sun) the spectrum is broad enough to contain all colours, so the star looks white.",
+   "At 400 K almost nothing is emitted at visible wavelengths; by ~1000 K the short-wavelength tail reaches visible red, though the peak is still infrared."
+  ]
+ },
+ {
+  "c": "science", "d": 120, "type": "study",
+  "t": "Entropy: why heat flows from hot to cold and never back on its own",
+  "desc": "Learn entropy as a count of microstates, the second law of thermodynamics and Carnot's limit on engines, and work through why mixing, melting and heat flow only go one way.",
+  "check": [
+   "Show that moving heat Q from a hot body to a cold body increases total entropy.",
+   "How can a fridge make its inside colder without breaking the second law?",
+   "What is the maximum possible efficiency of a heat engine running between 600 K and 300 K?"
+  ],
+  "a": [
+   "The hot body loses Q/T_hot and the cold body gains Q/T_cold; since T_cold < T_hot the gain is bigger, so total entropy rises.",
+   "It uses work and dumps more heat into the kitchen than it removes from inside, so the room's entropy rises more than the inside's falls.",
+   "The Carnot limit: 1 - 300/600 = 50%. Real engines achieve less."
+  ]
+ },
+ {
+  "c": "science", "d": 120, "type": "study",
+  "t": "What actually happens inside a lithium-ion battery?",
+  "desc": "Learn how lithium ions shuttle between graphite and a metal-oxide electrode through the electrolyte while electrons flow through your device, and what sets voltage, capacity and wear.",
+  "check": [
+   "Why must the electrolyte conduct ions but not electrons?",
+   "Why is a cell's voltage set by its chemistry rather than its size?",
+   "Estimate the energy stored in a 4000 mAh, 3.85 V phone battery, in joules."
+  ],
+  "a": [
+   "If electrons could cross inside, the cell would short and discharge internally; forcing them round the external circuit is what does useful work.",
+   "Voltage comes from the difference in lithium's chemical energy in the two electrode materials; size only changes how much charge is stored.",
+   "4 Ah × 3.85 V ≈ 15.4 Wh ≈ 55,000 J."
+  ]
+ },
+ {
+  "c": "science", "d": 120, "type": "study",
+  "t": "Why does each element glow its own colours? Atoms and quantized energy",
+  "desc": "Learn why electrons in atoms occupy discrete energy levels, how jumps between levels emit exact wavelengths, and how that lets us read the make-up of neon signs and distant stars.",
+  "check": [
+   "Hydrogen's red line is at 656 nm. What energy difference is that, in electronvolts?",
+   "Why does every element have its own unique line spectrum?",
+   "Why doesn't an electron just spiral down into the nucleus?"
+  ],
+  "a": [
+   "E = hc/λ ≈ 1240 eV·nm / 656 nm ≈ 1.89 eV.",
+   "Level energies depend on the nuclear charge and the electron arrangement, which differ for every element, so the allowed jumps differ too.",
+   "Electrons behave as waves; squeezing one into a smaller space raises its kinetic energy (uncertainty principle), so there is a lowest state with nothing below."
+  ]
+ },
+ {
+  "c": "science", "d": 60, "type": "do",
+  "t": "Measure the speed of light with a microwave and a chocolate bar",
+  "desc": "Remove the turntable, set a plate on an upturned bowl with a chocolate bar or marshmallows on it, heat 15-25 s, measure the gap between melted spots and compute c = 2 × gap × 2.45 GHz.",
+  "check": [
+   "You found at least two distinct melted spots and measured the distance between them",
+   "Your value of c is within 10% of 3.0×10⁸ m/s",
+   "You can explain why the spacing between melted spots is half the wavelength"
+  ]
+ },
+ {
+  "c": "science", "d": 60, "type": "do",
+  "t": "Fermi-estimate how many molecules of Caesar's last breath you just inhaled",
+  "desc": "From scratch, estimate the molecules in one breath and in the whole atmosphere (using air density, Earth's surface pressure or volume, and Avogadro's number), then the expected number of Caesar's molecules in your breath.",
+  "check": [
+   "You estimated about 10²² molecules per breath and about 10⁴⁴ in the atmosphere, with every step written down",
+   "Your final answer is within a factor of 10 of 1 molecule",
+   "You can name the assumption most likely to be wrong (complete mixing, molecules recycled by chemistry or dissolved in the oceans)"
+  ]
+ },
+ {
+  "c": "science", "d": 60, "type": "do",
+  "t": "Measure gravity with a pendulum and a stopwatch",
+  "desc": "Hang a small heavy weight on a string, time 20 small swings at 4 different lengths, plot period² against length, and get g from the slope (slope = 4π²/g).",
+  "check": [
+   "Your plot of T² against L is close to a straight line through the origin",
+   "Your value of g is within 3% of 9.81 m/s²",
+   "You can explain why timing 20 swings and keeping the swing angle small both improve accuracy"
+  ]
+ },
+ {
+  "c": "science", "d": 60, "type": "do",
+  "t": "Make a red-cabbage pH indicator and rank your kitchen by acidity",
+  "desc": "Simmer chopped red cabbage in water, strain it, and add the purple juice to lemon juice, vinegar, milk, water, baking soda solution and soapy water. Use only food items and soap; never mix cleaning products.",
+  "check": [
+   "You got at least 4 clearly different colours ranging from pink/red to green/yellow",
+   "You ranked 6 liquids from most acidic to most basic",
+   "You can explain that the anthocyanin pigment changes shape, and so colour, as it gains or loses hydrogen ions"
+  ]
+ },
+ {
+  "c": "science", "d": 30, "type": "do",
+  "t": "Measure your own power output by running up the stairs",
+  "desc": "Time yourself running up a flight of stairs, measure its vertical height, and compute power = mass × 9.81 × height / time. Compare the result with a light bulb and with one horsepower.",
+  "check": [
+   "You calculated your power in watts (a short stair sprint is typically 300-900 W)",
+   "You compared it with 1 horsepower (746 W)",
+   "You can explain why your body burned roughly 4 times more energy than the work you did (muscles are ~25% efficient)"
+  ]
+ },
+ {
+  "c": "science", "d": 120, "type": "do",
+  "t": "Supercool water in your freezer, then freeze it on command",
+  "desc": "Put unopened bottles of purified or still bottled water in the freezer for about 2-3 hours, checking regularly, catch one still liquid below 0°C, then trigger freezing by tapping it or pouring it onto an ice cube.",
+  "check": [
+   "You had liquid water below 0°C and turned it into slush on demand",
+   "You can explain why freezing needs a nucleation site to start",
+   "You can explain why only part of it freezes at first (released latent heat warms it back to 0°C)"
+  ]
+ },
+ {
+  "c": "science", "d": 120, "type": "do",
+  "t": "Derive how long a fall through a tunnel through the Earth would take",
+  "desc": "Assuming uniform density and no air, use the shell theorem to show gravity inside Earth grows linearly with distance from the centre, solve the resulting motion, and compute the trip time.",
+  "check": [
+   "You showed that inside a uniform Earth gravity equals g × r/R",
+   "You got simple harmonic motion with a one-way trip of about 42 minutes",
+   "You showed the trip takes the same time for any straight tunnel between two surface points, not just through the centre"
+  ]
+ },
+ {
+  "c": "science", "d": 60, "type": "do",
+  "t": "Measure the width of a hair with a laser pointer",
+  "desc": "Tape a hair across a card frame, shine a low-power laser pointer through it onto a wall 2-3 m away, measure the dark-fringe spacing, and use width = wavelength × distance / spacing. Never look into the beam.",
+  "check": [
+   "You got a clear pattern of bright and dark fringes on the wall",
+   "You calculated a width in the 20-150 µm range",
+   "You can explain why a thinner hair gives more widely spaced fringes"
+  ]
+ }
+]

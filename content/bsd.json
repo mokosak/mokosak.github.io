@@ -1,0 +1,292 @@
+[
+ {
+  "c": "bsd",
+  "d": 60,
+  "type": "do",
+  "t": "Write a working pf.conf ruleset and test it on OpenBSD/FreeBSD",
+  "desc": "Write a pf ruleset that blocks by default, passes outbound with keep state, allows SSH in, and NATs an internal network. Load it with pfctl, verify with pfctl -sr and -ss, and confirm a blocked connection is logged.",
+  "check": [
+   "pfctl -nf validates your config and pfctl -sr shows the loaded rules",
+   "An allowed connection succeeds and a disallowed one is blocked and visible in pfctl -ss / pflog",
+   "You can explain pf's 'last matching rule wins' semantics and the role of 'quick'"
+  ]
+ },
+ {
+  "c": "bsd",
+  "d": 30,
+  "type": "study",
+  "t": "Understand the BSD vs GPL licensing philosophy and its effects",
+  "desc": "Compare the permissive BSD license with the copyleft GPL, why BSD code can be absorbed into proprietary products, and how this shaped the spread of BSD networking code and the culture of the BSD projects.",
+  "check": [
+   "What practical freedom does the BSD license grant that the GPL restricts?",
+   "How did permissive licensing let BSD TCP/IP code end up in commercial OSes?",
+   "What obligation does distributing GPL binaries create that BSD does not?"
+  ],
+  "a": [
+   "BSD lets you use, modify, and redistribute in closed-source products without releasing your changes; GPL requires derivative works to stay open.",
+   "Vendors (e.g. early Windows, commercial Unixes, game consoles) could incorporate the BSD network stack without opening their own source.",
+   "GPL requires providing corresponding source (or a written offer) to recipients of the binary; BSD only requires preserving the copyright notice."
+  ]
+ },
+ {
+  "c": "bsd",
+  "d": 60,
+  "type": "study",
+  "t": "Explain the Unix philosophy through classic tool design",
+  "desc": "Study the Unix design principles (do one thing well, text streams as a universal interface, composition via pipes) using concrete examples from coreutils, and reason about where the philosophy helps and where it strains.",
+  "check": [
+   "Why are plain-text streams chosen as the universal interface between tools?",
+   "Give an example where composing small tools beats a monolithic program, and one where it doesn't.",
+   "How does 'do one thing well' influence a tool like cat, and what is 'cat abuse'?"
+  ],
+  "a": [
+   "Text is human-readable, debuggable, and lets any tool consume any other's output without shared binary formats or APIs.",
+   "Composition shines for ad-hoc log analysis (grep|sort|uniq); it strains for tasks needing rich structure or performance (parsing deeply nested data).",
+   "cat just concatenates/streams files; piping one file through cat into another tool (cat f | grep) is needless since the tool can open the file itself."
+  ]
+ },
+ {
+  "c": "bsd",
+  "d": 60,
+  "type": "do",
+  "t": "Build and install a program from the FreeBSD ports tree",
+  "desc": "On FreeBSD, pick a small port, run make config to set options, build and install it from source via the ports framework, and inspect the resulting package metadata. Compare with installing the same via pkg.",
+  "check": [
+   "The port builds and installs, and pkg info shows it as a registered package",
+   "You can explain the difference between the ports tree (source) and pkg (binary)",
+   "You successfully set a build option via make config that changes the result"
+  ]
+ },
+ {
+  "c": "bsd",
+  "d": 30,
+  "type": "study",
+  "t": "Understand how OpenBSD mitigations harden userland",
+  "desc": "Learn OpenBSD's proactive security features: W^X, pledge() and unveil() for privilege reduction, the malloc hardening, and position-independent executables by default. Reason about what class of bug each neutralizes.",
+  "check": [
+   "What does pledge() do, and how does it limit a program after it drops into a restricted set?",
+   "How does unveil() differ from a chroot for restricting filesystem access?",
+   "What attack does W^X (no page both writable and executable) block?"
+  ],
+  "a": [
+   "pledge() declares the syscall/capability classes a process still needs; using anything outside them kills the process, shrinking the attack surface.",
+   "unveil() restricts which filesystem paths a process sees and with what permissions, without a prepared chroot or root, and can be tightened step by step.",
+   "It blocks classic code injection: an attacker can't write shellcode to a page and then execute it, pushing them toward harder ROP-style attacks."
+  ]
+ },
+ {
+  "c": "bsd",
+  "d": 60,
+  "type": "do",
+  "t": "Create and manage a ZFS pool with snapshots and clones",
+  "desc": "On FreeBSD, create a ZFS pool (a file-backed vdev is fine), make a dataset, write data, take a snapshot, modify the data, then roll back. Create a clone from the snapshot and observe copy-on-write space usage.",
+  "check": [
+   "zfs list shows your dataset and snapshot; a rollback restores the pre-change state",
+   "A clone shares blocks with its snapshot until written (space usage reflects COW)",
+   "You can explain how ZFS checksums detect and (with redundancy) self-heal corruption"
+  ]
+ },
+ {
+  "c": "bsd",
+  "d": 120,
+  "type": "do",
+  "t": "Set up a FreeBSD jail and confine a service in it",
+  "desc": "Create a FreeBSD jail with its own root filesystem and IP, start a network service inside it, and verify the jailed process can't see host processes or escape its filesystem. Manage it with jail/jexec.",
+  "check": [
+   "jls shows your jail and a service runs reachable on the jail's address",
+   "A process inside the jail cannot see host PIDs or paths outside its root",
+   "You can explain how jails differ from a plain chroot in isolation guarantees"
+  ]
+ },
+ {
+  "c": "bsd",
+  "d": 30,
+  "type": "study",
+  "t": "Learn the history: from Unix to BSD to the modern forks",
+  "desc": "Trace the lineage: AT&T Unix, the Berkeley Software Distribution, the AT&T lawsuit and 4.4BSD-Lite, and the split into FreeBSD, NetBSD, and OpenBSD. Understand what each fork optimizes for today.",
+  "check": [
+   "Why did the USL v. BSDi lawsuit matter for the open BSD lineage?",
+   "What distinct goal does each of FreeBSD, NetBSD, and OpenBSD emphasize?",
+   "What is the relationship between 4.4BSD-Lite and today's BSDs?"
+  ],
+  "a": [
+   "It cast legal doubt over BSD's AT&T-derived code; its resolution let 4.4BSD-Lite ship free of that code, clearing the way for the open forks.",
+   "FreeBSD: performance/server and desktop breadth; NetBSD: portability across many architectures; OpenBSD: security and code correctness.",
+   "4.4BSD-Lite was the clean, legally unencumbered base; the modern BSDs re-based on it to remove disputed AT&T code."
+  ]
+ },
+ {
+  "c": "bsd",
+  "d": 60,
+  "type": "study",
+  "t": "Understand kqueue and why BSD rejected the epoll model",
+  "desc": "Learn kqueue/kevent as BSD's unified event notification mechanism, how it handles not just sockets but files, signals, timers, and process events, and how its edge/level and one-shot filters compare to Linux epoll.",
+  "check": [
+   "What kinds of events can kqueue monitor beyond file-descriptor readiness?",
+   "How does registering and retrieving events in one kevent() call differ from epoll's split API?",
+   "What does an EV_ONESHOT or EV_CLEAR filter flag change about delivery?"
+  ],
+  "a": [
+   "File descriptors, vnode changes, signals, timers, async I/O, and process/exit events, all through one interface.",
+   "kevent() both registers changes and returns pending events in a single syscall, whereas epoll uses epoll_ctl to register and epoll_wait to retrieve.",
+   "EV_ONESHOT delivers an event once then disables the filter; EV_CLEAR resets state after reporting, giving edge-triggered-like behavior."
+  ]
+ },
+ {
+  "c": "bsd",
+  "d": 60,
+  "type": "do",
+  "t": "Compare init systems: rc.d scripts vs systemd mentally and in practice",
+  "desc": "On a BSD (or BSD-style) system, read the rc subsystem: rc.conf, the ordered rc.d scripts with their REQUIRE/PROVIDE dependency keywords, and how rcorder sequences them. Start/stop a service via its rc.d script.",
+  "check": [
+   "You enable and start a service through rc.conf and its /etc/rc.d script",
+   "You can read a script's REQUIRE/PROVIDE lines and explain how ordering is computed",
+   "You can contrast BSD rc.d's shell-script approach with systemd's declarative units"
+  ]
+ },
+ {
+  "c": "bsd",
+  "d": 30,
+  "type": "study",
+  "t": "Understand everything-is-a-file and device nodes in Unix",
+  "desc": "Reason about how Unix exposes devices, pipes, and sockets through the filesystem, the difference between character and block devices, what major/minor numbers identify, and why /dev/null and /dev/zero behave as they do.",
+  "check": [
+   "What distinguishes a character device from a block device?",
+   "What do the major and minor numbers of a device node identify?",
+   "Why does writing to /dev/null succeed and reading from it return EOF immediately?"
+  ],
+  "a": [
+   "Character devices do byte-stream I/O (e.g. terminals); block devices do fixed-size, randomly addressable block I/O (e.g. disks) via the buffer cache.",
+   "The major number selects the driver; the minor number selects the specific device/instance that driver handles.",
+   "The null driver discards all writes (reporting success) and returns 0 bytes (EOF) on read, by design."
+  ]
+ },
+ {
+  "c": "bsd",
+  "d": 120,
+  "type": "do",
+  "t": "Read a piece of BSD kernel source and trace a syscall",
+  "desc": "Clone an OpenBSD or FreeBSD source tree, find the implementation of a simple syscall (e.g. getpid or kill), and trace from the syscall table entry to the function. Note the coding style and documentation discipline.",
+  "check": [
+   "You locate the syscall table entry and the C function implementing your chosen syscall",
+   "You follow at least one call into a helper and explain what it does",
+   "You can point to a specific design/style convention the BSD source enforces"
+  ]
+ },
+ {
+  "c": "bsd",
+  "d": 60,
+  "type": "study",
+  "t": "Explain how the BSD socket API became the universal standard",
+  "desc": "Learn the origin of the socket() / bind() / listen() / accept() / connect() interface in 4.2BSD, why it generalized across address families, and how its design choices (fd-based, protocol-agnostic) endured into every modern OS.",
+  "check": [
+   "Why does the socket API use file descriptors rather than a separate handle type?",
+   "How does the sockaddr family design allow one API to serve IPv4, IPv6, and Unix sockets?",
+   "What role do listen()'s backlog and accept() play in connection handling?"
+  ],
+  "a": [
+   "So sockets integrate with read/write/select/close and inherit Unix's uniform I/O model, needing no parallel set of I/O calls.",
+   "A generic struct sockaddr with a family tag lets calls take any concrete address struct (sockaddr_in, sockaddr_in6, sockaddr_un) through one interface.",
+   "listen() marks a socket passive with a queue of pending connections (backlog); accept() dequeues one and returns a new fd for that connection."
+  ]
+ },
+ {
+  "c": "bsd",
+  "d": 30,
+  "type": "study",
+  "t": "Understand FreeBSD's base system vs the Linux distro model",
+  "desc": "Learn why FreeBSD ships kernel plus userland as one coherent 'base system' from a single source tree, how that differs from a Linux distribution assembling independent projects, and the upgrade/consistency implications.",
+  "check": [
+   "What is the practical benefit of kernel and userland living in one source tree?",
+   "How does this change how you upgrade a FreeBSD system versus a Linux distro?",
+   "Why can a Linux distro have version-skew problems that FreeBSD base largely avoids?"
+  ],
+  "a": [
+   "Kernel and core userland are developed and versioned together, so they're guaranteed mutually consistent and documented as one system.",
+   "You update the whole base as a unit (e.g. freebsd-update/source build) rather than upgrading many independently packaged components.",
+   "A distro integrates separately released projects (kernel, libc, coreutils...), so their versions and ABIs can drift and must be reconciled by the distro."
+  ]
+ },
+ {
+  "c": "bsd",
+  "d": 60,
+  "type": "do",
+  "t": "Configure OpenBSD's httpd and relayd for a simple site",
+  "desc": "On OpenBSD, serve a static site with the base httpd, then put relayd in front as a TLS-terminating reverse proxy. Validate configs, start the daemons, and confirm the site loads over HTTPS.",
+  "check": [
+   "httpd serves the static site and the config passes httpd -n",
+   "relayd terminates TLS and proxies to httpd, reachable over HTTPS",
+   "You can explain why OpenBSD ships minimal, privilege-separated daemons in base"
+  ]
+ },
+ {
+  "c": "bsd",
+  "d": 60,
+  "type": "do",
+  "t": "Use dtrace (or DTrace on FreeBSD) to probe a live program",
+  "desc": "On FreeBSD, use DTrace to count syscalls by a process, trace function entry/return with timing, or aggregate by stack. Write one D script that answers a concrete question about a running program's behavior.",
+  "check": [
+   "Your D script produces a meaningful aggregation (e.g. syscall counts or latency by function)",
+   "You use a predicate to filter to one process or condition",
+   "You can explain what makes DTrace safe to run in production (no crashes, bounded overhead)"
+  ]
+ },
+ {
+  "c": "bsd",
+  "d": 120,
+  "type": "do",
+  "t": "Set up carp failover between two BSD gateways",
+  "desc": "Configure CARP (Common Address Redundancy Protocol) on two BSD hosts sharing a virtual IP, set advskew so one is master, and test failover by taking the master down and confirming the backup takes over the VIP.",
+  "check": [
+   "Both hosts share a CARP virtual IP with a clear master/backup role",
+   "Killing the master causes the backup to assume the VIP within the advertised interval",
+   "You can explain how CARP differs from VRRP and why OpenBSD created it"
+  ]
+ },
+ {
+  "c": "bsd",
+  "d": 30,
+  "type": "study",
+  "t": "Understand soft updates and journaling in UFS/FFS",
+  "desc": "Learn how the BSD Fast File System orders metadata writes, what soft updates guarantee about consistency after a crash, how this differs from a journal, and why fsck behavior changed with soft updates + journaling.",
+  "check": [
+   "What consistency problem do soft updates solve, and how (write ordering)?",
+   "How does a journal achieve crash consistency differently from soft updates?",
+   "Why can a soft-updates filesystem sometimes skip a full fsck after a crash?"
+  ],
+  "a": [
+   "They enforce a safe ordering of metadata writes so the on-disk state is always consistent enough that only space leaks (not corruption) can occur.",
+   "A journal first writes intended changes to a log, then applies them; on crash it replays or discards the log to reach a consistent state.",
+   "Because soft updates guarantee metadata is never inconsistent (only possibly leaked blocks/inodes), a background fsck can reclaim leaks without blocking mount."
+  ]
+ },
+ {
+  "c": "bsd",
+  "d": 60,
+  "type": "study",
+  "t": "Explain privilege separation and chroot in OpenBSD daemons",
+  "desc": "Learn how OpenBSD daemons split into a small privileged process and unprivileged workers communicating over sockets, run workers chrooted and as a low-privilege user, and why this limits the blast radius of a worker compromise.",
+  "check": [
+   "What does the privileged parent retain that the chrooted worker gives up?",
+   "Why does chrooting a worker reduce the impact of a remote code execution bug in it?",
+   "How do the separated processes typically communicate, and why not shared memory?"
+  ],
+  "a": [
+   "The parent keeps the few privileged operations (binding low ports, opening keys/logs) and hands results to workers over a pipe/socket.",
+   "A compromised worker is confined to a minimal chroot as a low-priv user, so it can't read the real filesystem or escalate easily.",
+   "Via a Unix-domain socket/pipe passing messages and file descriptors, keeping a narrow, auditable interface rather than sharing writable memory."
+  ]
+ },
+ {
+  "c": "bsd",
+  "d": 60,
+  "type": "do",
+  "t": "Rebuild an OpenBSD or FreeBSD kernel with a custom config",
+  "desc": "Copy the generic kernel config, remove drivers you don't need or add an option, build the kernel from source, install it, and boot it. Confirm your change took effect (e.g. via dmesg or sysctl).",
+  "check": [
+   "The custom kernel builds and boots successfully",
+   "dmesg or a sysctl confirms your configuration change is in effect",
+   "You can explain the role of the kernel config file versus runtime sysctl tuning"
+  ]
+ }
+]

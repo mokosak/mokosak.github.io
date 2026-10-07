@@ -1,0 +1,292 @@
+[
+ {
+  "c": "winint",
+  "d": 60,
+  "type": "do",
+  "t": "Inspect a process's handles and tokens with Process Explorer",
+  "desc": "Open Process Explorer, pick a running process, and examine its open handles (files, keys, mutants), its security token (groups, privileges, integrity level), and its loaded DLLs. Find a handle leak candidate by sorting handle counts.",
+  "check": [
+   "You enumerate a process's handles and identify at least one file and one registry key it holds",
+   "You read the token's integrity level and enabled privileges for the process",
+   "You can explain what a 'mutant' handle is and how it differs from a Linux file descriptor"
+  ]
+ },
+ {
+  "c": "winint",
+  "d": 30,
+  "type": "study",
+  "t": "Understand the Windows process vs thread model",
+  "desc": "Learn that in Windows a process is just a container (address space, handle table, token) and threads are the scheduled units, how CreateProcess differs from fork, and what a thread's quantum and priority class mean.",
+  "check": [
+   "Why is there no fork() equivalent in the Win32 API, and what does CreateProcess do instead?",
+   "What resources belong to the process versus the thread?",
+   "How do priority class and thread priority combine into the scheduler's base priority?"
+  ],
+  "a": [
+   "CreateProcess builds a fresh process from an image with a new address space and one thread; there is no copy-on-write clone of the caller.",
+   "Process owns the address space, handle table, and token; each thread owns its stack, registers, and scheduling state.",
+   "The process's priority class and the thread's relative priority map to a base priority level (0-31); the scheduler also applies dynamic boosts."
+  ]
+ },
+ {
+  "c": "winint",
+  "d": 60,
+  "type": "study",
+  "t": "Explain Windows access tokens, SIDs, and integrity levels",
+  "desc": "Learn how a token carries the user SID, group SIDs, privileges, and a mandatory integrity level, how DACLs grant access, and how UAC splits an admin into a filtered and an elevated token.",
+  "check": [
+   "How does the Mandatory Integrity Control level restrict a Low-IL process writing to a Medium-IL object?",
+   "What are the two tokens UAC creates for an administrator, and when is each used?",
+   "How is an access decision made from a token and an object's DACL?"
+  ],
+  "a": [
+   "MIC enforces no-write-up by default: a lower-IL subject can't modify a higher-IL object regardless of the DACL (e.g. sandboxed browser tabs run Low).",
+   "A filtered (standard-user) token used by default and a full elevated token used only after a UAC consent prompt.",
+   "The system walks the DACL's ACEs, matching the token's user/group SIDs, accumulating granted/denied rights until the requested access is resolved."
+  ]
+ },
+ {
+  "c": "winint",
+  "d": 60,
+  "type": "do",
+  "t": "Trace a Win32 API call down to a syscall with an API monitor",
+  "desc": "Use API Monitor or a debugger to watch a call like CreateFileW flow through kernel32 -> KernelBase -> ntdll's NtCreateFile, and observe the syscall stub. Note the Nt vs Zw naming and the user/kernel transition point.",
+  "check": [
+   "You trace a documented Win32 call to its underlying Nt* function in ntdll",
+   "You identify the syscall stub (e.g. the syscall instruction with a service number)",
+   "You can explain the Nt vs Zw prefix and why ntdll is the user-mode boundary"
+  ]
+ },
+ {
+  "c": "winint",
+  "d": 30,
+  "type": "study",
+  "t": "Understand the Windows registry's structure and hives",
+  "desc": "Learn how the registry is organized into hives backed by files, the role of HKLM vs HKCU, where HKCU and HKCR are really projected from, and how volatile keys and the SAM/SYSTEM hives fit in.",
+  "check": [
+   "Where does HKEY_CURRENT_USER actually come from on disk and per logon?",
+   "What is HKEY_CLASSES_ROOT a merged view of, and why?",
+   "Which hive holds local account password hashes, and why is it locked at runtime?"
+  ],
+  "a": [
+   "HKCU is a per-user link to that user's NTUSER.DAT hive loaded under HKEY_USERS\\<SID> at logon.",
+   "HKCR merges HKLM\\Software\\Classes (machine-wide) with HKCU\\Software\\Classes (per-user), so per-user associations override machine ones.",
+   "The SAM hive; it's held open/exclusively by the system (and protected) so it can't be read offline while Windows runs."
+  ]
+ },
+ {
+  "c": "winint",
+  "d": 60,
+  "type": "do",
+  "t": "Watch file and registry activity live with Process Monitor",
+  "desc": "Run Process Monitor while launching an app, then filter by process name and operation to find exactly which files and registry keys it reads/writes at startup, including failures like NAME NOT FOUND that reveal config lookups.",
+  "check": [
+   "You filter the firehose down to one process and read its startup file/registry accesses",
+   "You spot a NAME NOT FOUND or PATH NOT FOUND and explain what the app was probing for",
+   "You can read the call stack of one operation to see which module issued it"
+  ]
+ },
+ {
+  "c": "winint",
+  "d": 120,
+  "type": "do",
+  "t": "Analyze a user-mode crash dump in WinDbg",
+  "desc": "Capture a crash dump of a program that throws an access violation, open it in WinDbg, run !analyze -v, inspect the faulting thread's stack with k, and identify the faulting instruction and the bad address.",
+  "check": [
+   "!analyze -v and the stack trace point to the function that faulted",
+   "You read the exception record and identify the access-violation address and operation",
+   "You can map the crashing address back to a line/module using symbols"
+  ]
+ },
+ {
+  "c": "winint",
+  "d": 30,
+  "type": "study",
+  "t": "Explain Windows virtual memory and the working set",
+  "desc": "Learn user vs kernel address space split, how committed vs reserved memory differs, what the working set and standby list are, and how the page file backs committed memory. Understand why Task Manager's numbers can confuse.",
+  "check": [
+   "What is the difference between reserved and committed virtual memory?",
+   "What is a process's working set, and what happens to pages trimmed from it?",
+   "Why can total commit exceed physical RAM, and what limits it?"
+  ],
+  "a": [
+   "Reserved just claims address ranges; committed memory is backed by RAM or page file and counts against the commit limit.",
+   "The working set is the process's pages resident in RAM; trimmed pages move to the standby (clean) or modified (dirty) list, not immediately discarded.",
+   "Committed memory is backed by RAM plus the page file, so the commit limit is roughly RAM + page-file size, not RAM alone."
+  ]
+ },
+ {
+  "c": "winint",
+  "d": 60,
+  "type": "study",
+  "t": "Understand DLLs, loading, and search order hijacking",
+  "desc": "Learn how the loader resolves and maps DLLs, the default DLL search order, what delayed loading and known DLLs are, and how DLL search-order and phantom-DLL hijacking become a security risk.",
+  "check": [
+   "What is the default DLL search order, and how do 'KnownDLLs' change it?",
+   "How does DLL search-order hijacking let an attacker run code in a trusted process?",
+   "Why does loading a DLL run code (DllMain) and what are the loader-lock pitfalls?"
+  ],
+  "a": [
+   "Roughly: the app directory, then system directories, then the current directory and PATH; KnownDLLs are pre-mapped from System32 to prevent redirection.",
+   "If an app loads a DLL by name from a writable directory searched first, an attacker plants a malicious DLL there that gets loaded with the app's trust.",
+   "The loader calls DllMain under the loader lock; doing complex work there (loading more DLLs, synchronization) can deadlock or crash the process."
+  ]
+ },
+ {
+  "c": "winint",
+  "d": 60,
+  "type": "do",
+  "t": "Enumerate services, drivers, and their configs",
+  "desc": "Use sc query, the Services console, and Autoruns to list running services and kernel drivers, examine one service's binary path, start type, and account (LocalSystem/LocalService), and find auto-start entries across the system.",
+  "check": [
+   "You list services with their start type and the account each runs under",
+   "You identify at least one kernel-mode driver versus a user-mode service",
+   "Autoruns shows you auto-start locations beyond services (run keys, scheduled tasks)"
+  ]
+ },
+ {
+  "c": "winint",
+  "d": 30,
+  "type": "study",
+  "t": "Explain the Windows object manager and the namespace",
+  "desc": "Learn how the kernel's Object Manager represents processes, files, events, and sections as objects in a hierarchical namespace, how handles reference them with reference counts, and what symbolic links like \\??\\C: mean.",
+  "check": [
+   "What does a handle count versus a pointer count track on a kernel object?",
+   "How does the DOS drive letter C: map to a device via the object namespace?",
+   "Why can an object persist after the creator closes its handle?"
+  ],
+  "a": [
+   "Handle count tracks user-mode references via handles; pointer (reference) count includes kernel references, and the object lives while either is nonzero.",
+   "C: is a symbolic link under \\??\\ (the per-session DosDevices) pointing to a device object like \\Device\\HarddiskVolumeN.",
+   "Another handle or a kernel pointer reference may remain; the object is only freed when both handle and pointer counts reach zero."
+  ]
+ },
+ {
+  "c": "winint",
+  "d": 120,
+  "type": "do",
+  "t": "Capture and read an ETW trace with WPR/WPA",
+  "desc": "Use Windows Performance Recorder to capture a CPU/disk trace during a slow operation, open it in Windows Performance Analyzer, and attribute time to a stack/module. Identify one hotspot or a blocking I/O.",
+  "check": [
+   "You produce an ETW trace covering the operation of interest",
+   "WPA shows CPU usage by stack and you name the heaviest module/function",
+   "You can explain what ETW providers are and why ETW is low-overhead"
+  ]
+ },
+ {
+  "c": "winint",
+  "d": 60,
+  "type": "do",
+  "t": "Compare processes, jobs, and AppContainer isolation",
+  "desc": "Create a Job object limiting a child process (e.g. memory or active-process count) and observe enforcement. Then inspect an AppContainer/UWP process in Process Explorer to see its capability SIDs and restricted token.",
+  "check": [
+   "A Job object limit you set is enforced on the child process",
+   "You identify an AppContainer process and read its capability SIDs",
+   "You can explain how a Job differs from a cgroup and from an AppContainer sandbox"
+  ]
+ },
+ {
+  "c": "winint",
+  "d": 60,
+  "type": "study",
+  "t": "Understand structured exception handling and SEH/VEH",
+  "desc": "Learn how Windows dispatches exceptions through the kernel to user mode, the difference between SEH frames, vectored exception handlers, and how __try/__except filters decide to handle, continue, or search. Contrast with C++ exceptions.",
+  "check": [
+   "What are the three possible return values of an SEH filter expression and what does each do?",
+   "How does a Vectored Exception Handler differ in ordering from frame-based SEH?",
+   "How does an access violation become a catchable exception rather than an immediate crash?"
+  ],
+  "a": [
+   "EXECUTE_HANDLER runs the __except block, CONTINUE_SEARCH passes it up the chain, CONTINUE_EXECUTION retries the faulting instruction.",
+   "VEHs are called first, in registration order, before any frame-based SEH unwinding; SEH walks the stack frame by frame.",
+   "The CPU faults into the kernel, which builds an exception record and dispatches it to the thread's user-mode handler chain (KiUserExceptionDispatcher)."
+  ]
+ },
+ {
+  "c": "winint",
+  "d": 30,
+  "type": "study",
+  "t": "Explain how Windows authentication and LSASS work",
+  "desc": "Learn LSASS's role, how interactive logon produces an access token, the difference between NTLM and Kerberos, and why credential material in LSASS memory is a classic attack target (pass-the-hash, ticket theft).",
+  "check": [
+   "What does LSASS produce on a successful interactive logon?",
+   "What is the key practical difference between NTLM and Kerberos authentication?",
+   "Why is pass-the-hash possible, and what does it exploit about NTLM?"
+  ],
+  "a": [
+   "It validates credentials and creates the logon session and access token the kernel attaches to the user's processes.",
+   "NTLM is a challenge-response using the password hash directly; Kerberos uses a trusted KDC issuing time-limited tickets, enabling SSO and mutual auth.",
+   "NTLM authenticates with the hash itself, not the plaintext, so a stolen hash can be replayed without ever cracking the password."
+  ]
+ },
+ {
+  "c": "winint",
+  "d": 60,
+  "type": "do",
+  "t": "Examine PE file structure with a PE viewer",
+  "desc": "Open an .exe in a PE viewer (CFF Explorer/PE-bear), locate the DOS header, NT headers, section table (.text/.data/.rdata), the import address table, and the entry point. Map a section's RVA to a file offset.",
+  "check": [
+   "You identify the entry point and the imported DLLs/functions from the IAT",
+   "You explain the difference between an RVA and a file offset and convert one",
+   "You find which section is executable and which holds the imports"
+  ]
+ },
+ {
+  "c": "winint",
+  "d": 120,
+  "type": "do",
+  "t": "Set up kernel debugging and break on a driver",
+  "desc": "Configure WinDbg kernel debugging against a VM over a named pipe/network, break in, set a breakpoint on a kernel routine (e.g. NtCreateFile), trigger it from user mode, and inspect the stack and arguments in kernel space.",
+  "check": [
+   "You attach the kernel debugger to the target and break into it",
+   "A breakpoint on a kernel function hits when you trigger the matching user-mode action",
+   "You read the kernel stack and the function's arguments at the breakpoint"
+  ]
+ },
+ {
+  "c": "winint",
+  "d": 30,
+  "type": "study",
+  "t": "Understand IRQL and why some code can't page-fault",
+  "desc": "Learn the Interrupt Request Level hierarchy, why code at or above DISPATCH_LEVEL can't touch pageable memory or block, how spin locks raise IRQL, and why a page fault at high IRQL bugchecks the system.",
+  "check": [
+   "Why can't code running at DISPATCH_LEVEL access pageable memory?",
+   "What does acquiring a spin lock do to the current IRQL and why?",
+   "What bugcheck results from touching paged-out memory at high IRQL?"
+  ],
+  "a": [
+   "The page-fault handler needs to run the memory manager, which may block/wait; that isn't allowed at DISPATCH_LEVEL or above, so it faults the system instead.",
+   "It raises IRQL to DISPATCH_LEVEL (masking the scheduler and lower interrupts) so the lock holder can't be preempted on that CPU.",
+   "IRQL_NOT_LESS_OR_EQUAL (bugcheck 0xA), the classic consequence of a high-IRQL access to invalid/pageable memory."
+  ]
+ },
+ {
+  "c": "winint",
+  "d": 60,
+  "type": "study",
+  "t": "Explain thread scheduling, quanta, and priority boosts",
+  "desc": "Learn how the Windows scheduler is priority-driven and preemptive across 32 levels, how quanta differ on client vs server, and the dynamic boosts for I/O completion, foreground windows, and starvation (balance set manager).",
+  "check": [
+   "How does the scheduler choose which ready thread to run next?",
+   "Why does a thread waking from I/O get a priority boost, and in which priority range does it apply?",
+   "How does Windows prevent a lower-priority thread from starving forever?"
+  ],
+  "a": [
+   "It runs the highest-priority ready thread; among equal priority it round-robins by quantum, and higher priority always preempts lower.",
+   "To improve responsiveness it boosts the thread after I/O so it processes results promptly; boosts apply only in the dynamic range (1-15), not real-time (16-31).",
+   "The balance set manager periodically boosts long-starved ready threads to priority 15 for one quantum, breaking priority inversion/starvation."
+  ]
+ },
+ {
+  "c": "winint",
+  "d": 60,
+  "type": "do",
+  "t": "Map a file into memory and compare with ReadFile I/O",
+  "desc": "Write a small Win32 program that reads a file both via CreateFileMapping/MapViewOfFile and via ReadFile, and reason about what the memory manager does under the hood. Observe page faults backing the mapped view.",
+  "check": [
+   "Both methods yield identical file contents in your program",
+   "You observe that touching the mapped view causes demand-paged faults rather than an explicit read",
+   "You can explain when a memory-mapped file is preferable to buffered ReadFile"
+  ]
+ }
+]

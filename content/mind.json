@@ -1,0 +1,242 @@
+[
+ {
+  "c": "mind", "d": 30, "type": "study",
+  "t": "The birthday paradox: why 23 people are enough for a 50% match",
+  "desc": "Work out why 23 people give a better-than-even chance that two share a birthday, by computing the probability that nobody does.",
+  "check": [
+   "Why is the answer so much lower than most people expect?",
+   "Roughly what is the chance of a shared birthday among 70 people?",
+   "Among 23 people, what is the chance that someone shares YOUR birthday, and why is it so different?"
+  ],
+  "a": [
+   "What matters is pairs: 23 people form 253 pairs, and each pair is a chance for a match.",
+   "About 99.9%.",
+   "Only about 6% (1 - (364/365)²²), because that needs a match with one specific date rather than any pair matching."
+  ]
+ },
+ {
+  "c": "mind", "d": 30, "type": "study",
+  "t": "Prove that √2 is irrational",
+  "desc": "Learn the classic proof by contradiction that √2 can't be written as a fraction, then adapt it to other square roots and see exactly where it fails for perfect squares.",
+  "check": [
+   "In the proof, why does a² = 2b² force both a and b to be even?",
+   "Where does the same argument break down if you try it on √4?",
+   "How do you adapt the proof to show √3 is irrational?"
+  ],
+  "a": [
+   "a² is even so a is even; write a = 2k, then 4k² = 2b² gives b² = 2k², so b is even too, contradicting a fraction in lowest terms.",
+   "a² = 4b² just gives a = 2b, a perfectly consistent solution, so no contradiction appears: √4 = 2/1.",
+   "If 3 divides a² then 3 divides a, because 3 is prime; the same chain of steps then shows 3 divides b."
+  ]
+ },
+ {
+  "c": "mind", "d": 30, "type": "study",
+  "t": "The bridges of Königsberg: when can you draw a shape in one stroke?",
+  "desc": "Learn Euler's solution to the Seven Bridges of Königsberg puzzle, the birth of graph theory, and the simple rule for when a figure can be traced without lifting your pen.",
+  "check": [
+   "Why can't you cross each of Königsberg's 7 bridges exactly once?",
+   "Why must every graph have an even number of odd-degree vertices?",
+   "If a figure has exactly two odd-degree vertices, where must a one-stroke drawing start?"
+  ],
+  "a": [
+   "All four land masses touch an odd number of bridges, but a route using each edge once allows at most 2 odd-degree vertices (its start and end).",
+   "Each edge adds 2 to the total of all degrees, so that total is even, which forces the number of odd degrees to be even.",
+   "At one of the two odd vertices; the drawing will end at the other."
+  ]
+ },
+ {
+  "c": "mind", "d": 60, "type": "study",
+  "t": "Why there are infinitely many primes, and roughly how many",
+  "desc": "Learn Euclid's proof that the primes never run out, then the prime number theorem's estimate of how many primes lie below a given number and how far apart they are.",
+  "check": [
+   "Is 2×3×5×7×11×13 + 1 prime? Why does Euclid's proof work either way?",
+   "Estimate how many primes there are below 1 million.",
+   "Roughly how big is the average gap between primes near 1 billion?"
+  ],
+  "a": [
+   "No: 30031 = 59 × 509. But none of its prime factors can be on the list, since dividing by any of them leaves remainder 1, so the list was incomplete.",
+   "N/ln N ≈ 1,000,000/13.8 ≈ 72,000 (the true count is 78,498).",
+   "About ln(10⁹) ≈ 21."
+  ]
+ },
+ {
+  "c": "mind", "d": 60, "type": "study",
+  "t": "Bayes' theorem: why a positive test often means you're fine",
+  "desc": "Learn Bayes' rule using natural frequencies (picture 1000 people), and apply it to medical screening, alarms and evidence.",
+  "check": [
+   "A disease affects 1 in 1000 people. A test is 99% sensitive and 99% specific. If you test positive, what's the chance you're sick?",
+   "If a second, independent test also comes back positive, what's the chance now?",
+   "Why do false positives dominate when screening for rare conditions?"
+  ],
+  "a": [
+   "About 9%: per 1000 people there's ~1 true positive against ~10 false positives.",
+   "About 91%: the new prior is 9%, and 0.99×0.09 / (0.99×0.09 + 0.01×0.91) ≈ 0.91.",
+   "Even a small false-positive rate, applied to the huge healthy majority, produces more positives than the few real cases."
+  ]
+ },
+ {
+  "c": "mind", "d": 60, "type": "study",
+  "t": "Why testing yourself beats rereading: spacing and retrieval practice",
+  "desc": "Learn the forgetting curve, the testing effect and the spacing effect, then design a review schedule for something you actually want to remember.",
+  "check": [
+   "Why does rereading feel effective but produce weaker memories than self-testing?",
+   "Why do longer gaps between reviews improve long-term retention?",
+   "Sketch a review schedule for 50 new words you must know in one month."
+  ],
+  "a": [
+   "Rereading builds familiarity that feels like knowing; effortful recall strengthens the memory and exposes what you can't actually retrieve.",
+   "Some forgetting makes the next recall harder, and effortful recall consolidates memory more durably than repetition while it's still fresh.",
+   "Expanding gaps, e.g. test on days 1, 2, 4, 8, 16 and 28, moving easy words to longer gaps and keeping missed ones on short gaps."
+  ]
+ },
+ {
+  "c": "mind", "d": 60, "type": "study",
+  "t": "The gambler's fallacy and why the casino always wins",
+  "desc": "Learn independence, expected value and the law of large numbers, and why streaks don't 'balance out' while the house edge reliably adds up.",
+  "check": [
+   "After 10 reds in a row on a fair roulette wheel, is black more likely on the next spin?",
+   "In European roulette (18 red, 18 black, 1 green zero), what's the expected loss per 100 bet on red?",
+   "Why doesn't the law of large numbers mean results 'even out'?"
+  ],
+  "a": [
+   "No: spins are independent, so the chance is still 18/37.",
+   "(18/37)(+100) + (19/37)(-100) = -100/37 ≈ -2.70 per 100 bet.",
+   "The proportion of reds approaches 18/37, but the absolute gap from the expected count typically grows like √n: it's diluted, not cancelled."
+  ]
+ },
+ {
+  "c": "mind", "d": 120, "type": "study",
+  "t": "Cantor's diagonal argument: why some infinities are bigger than others",
+  "desc": "Learn what it means for two infinite sets to be the same size, show that the fractions can be listed one by one, and prove that the real numbers cannot.",
+  "check": [
+   "How can you list all positive fractions in a single infinite sequence?",
+   "Explain why any list of real numbers between 0 and 1 must miss at least one.",
+   "Are there more points on a 1 m line segment than on a 1 cm one?"
+  ],
+  "a": [
+   "Arrange p/q in a grid by numerator and denominator and zigzag along the diagonals, skipping duplicates; every fraction gets a finite position.",
+   "Build a number whose nth digit differs from the nth digit of the nth number listed (avoiding 0 and 9); it differs from every entry, so it's missing.",
+   "No: x → 100x pairs each point of one with exactly one point of the other, so they have the same cardinality."
+  ]
+ },
+ {
+  "c": "mind", "d": 30, "type": "do",
+  "t": "Square any 2-digit number ending in 5 in under 3 seconds",
+  "desc": "Learn the rule: for n5², multiply n by n+1 and append 25 (65²: 6×7 = 42, so 4225). Prove why it works with algebra, then drill 20 random cases.",
+  "check": [
+   "You can square any number from 15 to 95 ending in 5 in under 3 seconds",
+   "You can show why (10n+5)² = 100n(n+1) + 25",
+   "You can extend it to 3-digit cases like 105² = 11025 and 115² = 13225"
+  ]
+ },
+ {
+  "c": "mind", "d": 30, "type": "do",
+  "t": "Calculate percentages instantly with the swap trick",
+  "desc": "Learn that x% of y equals y% of x, plus the 10%, 5% and 1% building blocks, then drill tips, discounts and price increases on real prices.",
+  "check": [
+   "You can do problems like 8% of 25 or 16% of 50 in under 5 seconds using the swap",
+   "You can compute a 15% or 18% tip on any bill under 200 in under 10 seconds",
+   "You can reverse a percentage (e.g. 64 after 20% off means the original was 80)"
+  ]
+ },
+ {
+  "c": "mind", "d": 30, "type": "do",
+  "t": "Estimate square roots in your head to 2 decimal places",
+  "desc": "Learn the approximation √(n² + d) ≈ n + d/(2n) using the nearest perfect square, then drill it on random numbers and check each answer with a calculator.",
+  "check": [
+   "You can estimate √50 ≈ 7.07 and √140 ≈ 11.83 in your head",
+   "Your estimates for 10 random whole numbers between 10 and 200 are all within 0.05 of the true value",
+   "You can explain why the estimate is best when d is small compared with n"
+  ]
+ },
+ {
+  "c": "mind", "d": 30, "type": "do",
+  "t": "Settle the Monty Hall problem with three cups and a coin",
+  "desc": "With a friend as the host, hide a coin under one of three cups and play 30 rounds where you always stick and 30 where you always switch, then explain the result.",
+  "check": [
+   "You recorded 60 rounds and switching won roughly twice as often as sticking",
+   "You can explain the answer using the 100-door version of the puzzle",
+   "You can explain why it matters that the host knows where the coin is and always reveals an empty cup"
+  ]
+ },
+ {
+  "c": "mind", "d": 60, "type": "do",
+  "t": "Multiply any two 2-digit numbers in your head",
+  "desc": "Learn left-to-right cross multiplication (tens×tens, then the cross terms, then units×units) plus the near-100 shortcut, then drill 20 random problems.",
+  "check": [
+   "You get at least 18 of 20 random 2-digit products right",
+   "Your average time is under 15 seconds per problem",
+   "You can do numbers just below 100 almost instantly, e.g. 97×94 = 9118"
+  ]
+ },
+ {
+  "c": "mind", "d": 60, "type": "do",
+  "t": "Build a memory palace and memorize 20 random words in order",
+  "desc": "Pick 20 locations along a route through your home, generate 20 random words, place a vivid, exaggerated image of each word at one location, then test yourself.",
+  "check": [
+   "You recall all 20 words in order straight afterwards",
+   "You recall at least 18 in order after 24 hours",
+   "You can recite the list backwards or name the 13th word directly"
+  ]
+ },
+ {
+  "c": "mind", "d": 60, "type": "do",
+  "t": "Compute logarithms in your head from three memorized numbers",
+  "desc": "Memorize log₁₀ of 2, 3 and 7 (0.301, 0.477, 0.845), use log rules to get the logs of other numbers, and use them to estimate huge powers.",
+  "check": [
+   "You can give log₁₀ of every whole number from 1 to 10 to 2 decimals without a calculator",
+   "You work out that 2⁶⁴ has 20 digits and starts with about 1.8",
+   "You can estimate log₁₀ of numbers like 3500 or 0.006 to within 0.01"
+  ]
+ },
+ {
+  "c": "mind", "d": 60, "type": "do",
+  "t": "Solve the 12-coin weighing puzzle",
+  "desc": "One of 12 identical-looking coins is fake: either heavier or lighter. Using a balance scale only 3 times, find the fake and say whether it's heavy or light. Solve it before looking anything up.",
+  "check": [
+   "You have a written strategy that handles all 24 possibilities",
+   "You can explain why 3 weighings give at most 27 distinguishable outcomes",
+   "You can argue why 14 coins could never be solved in 3 weighings"
+  ]
+ },
+ {
+  "c": "mind", "d": 60, "type": "do",
+  "t": "Learn the winning strategy for Nim using binary",
+  "desc": "Learn to compute the nim-sum (the XOR of the pile sizes in binary) and always move to a position where it's zero. Then play against a friend or a Nim app.",
+  "check": [
+   "You can compute the nim-sum of piles like 3, 5, 7 in your head",
+   "You win 5 games in a row whenever you start from a position with non-zero nim-sum",
+   "You can explain why every move from a zero nim-sum position produces a non-zero one"
+  ]
+ },
+ {
+  "c": "mind", "d": 120, "type": "do",
+  "t": "Name the weekday of any date with Conway's Doomsday rule",
+  "desc": "Learn the Doomsday algorithm: the century anchors, the easy-to-remember dates (4/4, 6/6, 8/8, 10/10, 12/12, 5/9, 9/5, 7/11, 11/7, last day of February) and the year formula.",
+  "check": [
+   "You know 2026's doomsday is Saturday and can find the weekday of any 2026 date in under 10 seconds",
+   "You can do any date from 1900 to 2099 in under 30 seconds",
+   "You got 10 out of 10 random dates right, checked against a calendar"
+  ]
+ },
+ {
+  "c": "mind", "d": 120, "type": "do",
+  "t": "Memorize 50 digits of pi with the Major System",
+  "desc": "Learn the Major System (each digit is a consonant sound: 0=s, 1=t/d, 2=n, 3=m, 4=r, 5=l, 6=j/sh, 7=k, 8=f/v, 9=p/b), turn digit pairs into words, and chain them into a story or memory palace.",
+  "check": [
+   "You can turn any 2-digit number into a word in under 3 seconds",
+   "You recite the first 50 digits of pi without an error",
+   "You can still recite them the next day"
+  ]
+ },
+ {
+  "c": "mind", "d": 120, "type": "do",
+  "t": "Square any 2-digit number in your head in under 5 seconds",
+  "desc": "Learn the method a² = (a-b)(a+b) + b², shifting to the nearest multiple of ten (47² = 44×50 + 3² = 2209), then drill until it's fast.",
+  "check": [
+   "You get at least 19 of 20 random 2-digit squares right",
+   "Your average time is under 5 seconds per square",
+   "You can explain the algebra and use it for numbers like 98² = 9604 or 103² = 10609"
+  ]
+ }
+]
